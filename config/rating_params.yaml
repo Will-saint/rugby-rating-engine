@@ -1,0 +1,23 @@
+# Rugby Rating Engine — Paramètres de calibration (ajustables sans toucher le code)
+#
+# shrinkage_power : exposant appliqué sur confidence avant shrinkage bayésien.
+#   1.0 = linéaire (défaut original)
+#   1.2 = plus agressif : conf=0.4 -> 0.33, conf=0.7 -> 0.61
+#   1.5 = très agressif : réservé si trop d'inconnus en Top 20
+#   Augmenter quand des joueurs peu connus à stats incomplètes surfacent en Top 20.
+shrinkage_power: 1.0
+
+# minutes_penalty_p30 / p10 : malus sur rating_raw si minutes < percentile du poste.
+# ATTENTION : désactivé car les stars en sélection nationale ont peu de matchs Top14.
+# Le gating cap (0–200 min → plafond 74) suffit comme protection.
+# Réactiver avec Statbunker (meilleure couverture des matchs complets).
+minutes_penalty_p30: 0.0
+minutes_penalty_p10: 0.0
+
+# cap_low_confidence_global : soft floor pour les joueurs conf < 0.25.
+# Si true : leur rating final est plafonné au percentile global cap_quantile.
+# Cela empêche un joueur avec 2 matchs de surfacer en Top 10 global.
+# Les stars en sélection nationale (conf < 0.25) peuvent rester sous ce plafond
+# et seront correctement identifiées par le flag data_insufficient.
+cap_low_confidence_global: true
+cap_quantile: 0.90

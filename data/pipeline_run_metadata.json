@@ -1,0 +1,79 @@
+{
+  "generated_at": "2026-03-12T17:16:11.549579",
+  "season": "2025-2026",
+  "duration_seconds": 6.1,
+  "steps": [
+    {
+      "name": "Normalisation",
+      "status": "OK"
+    },
+    {
+      "name": "Scoring",
+      "status": "OK"
+    },
+    {
+      "name": "Régression",
+      "status": "OK"
+    }
+  ],
+  "source_mode": "LNR_ONLY",
+  "sources_used": [],
+  "files": {
+    "players.csv": {
+      "md5": "9db1bd43fa3d",
+      "size_kb": 65,
+      "modified": "2026-03-12T17:16:06.693250"
+    },
+    "players_scored.csv": {
+      "md5": "bde55bd5e77f",
+      "size_kb": 294,
+      "modified": "2026-03-12T17:16:11.432025"
+    },
+    "lnr_raw.json": {
+      "md5": "5f084dc875a2",
+      "size_kb": 766,
+      "modified": "2026-03-08T21:32:34.066516"
+    },
+    "weights.yaml": {
+      "md5": "c976a5cad72d",
+      "size_kb": 4,
+      "modified": "2026-03-08T21:57:23.715171"
+    }
+  },
+  "quality": {
+    "n_players": 550,
+    "n_teams": 14,
+    "n_positions": 8,
+    "core_cols_total": 16,
+    "core_cols_found": 16,
+    "coverage_core": 0.312,
+    "coverage_core_pct": 31.2,
+    "coverage_extended_pct": 31.2,
+    "coverage_target_pct": 20.0,
+    "unknown_pos_pct": 0.0,
+    "high_anomalies": 0
+  },
+  "lnr_scrape": {
+    "season": "2025-2026",
+    "teams_active": [
+      "Clermont",
+      "Bayonne",
+      "Castres",
+      "Lyon",
+      "Montpellier",
+      "Toulon",
+      "Racing 92",
+      "Pau",
+      "Paris",
+      "La Rochelle",
+      "Toulouse",
+      "Montauban",
+      "Perpignan",
+      "Bordeaux"
+    ],
+    "teams_not_in_league": [],
+    "n_teams_active": 14,
+    "n_players_raw": 554,
+    "http_stats": "Requêtes: 16 total | 16 en cache | 0 OK | 0 404 | 0 erreurs"
+  }
+}

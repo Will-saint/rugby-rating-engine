@@ -1,0 +1,184 @@
+{
+  "version": "2025-2026",
+  "description": "Pool de référence benchmark — distingue joueurs attendus LNR vs Statbunker-seulement.",
+  "expected_lnr": [
+    {
+      "name": "Antoine Dupont",
+      "team": "Toulouse",
+      "position_group": "SCRUM_HALF",
+      "tier": "S",
+      "note": "Star mondiale — peu de matchs Top14 en saison FFR/internationale. data_insufficient attendu."
+    },
+    {
+      "name": "Romain Ntamack",
+      "team": "Toulouse",
+      "position_group": "FLY_HALF",
+      "tier": "S"
+    },
+    {
+      "name": "Thomas Ramos",
+      "team": "Toulouse",
+      "position_group": "FULLBACK",
+      "tier": "S"
+    },
+    {
+      "name": "Uini Atonio",
+      "team": "La Rochelle",
+      "position_group": "FRONT_ROW",
+      "tier": "S",
+      "note": "Pilier — scrummaging derrière paywall LNR. data_insufficient attendu."
+    },
+    {
+      "name": "Jonathan Danty",
+      "team": "Stade Français",
+      "position_group": "CENTRE",
+      "tier": "S",
+      "note": "Centre XV de France — peut avoir peu de matchs Top14."
+    },
+    {
+      "name": "Matthieu Jalibert",
+      "team": "Bordeaux",
+      "position_group": "FLY_HALF",
+      "tier": "S"
+    },
+    {
+      "name": "Maxime Lucu",
+      "team": "Bordeaux",
+      "position_group": "SCRUM_HALF",
+      "tier": "A"
+    },
+    {
+      "name": "Yoram Moefana",
+      "team": "Bordeaux",
+      "position_group": "CENTRE",
+      "tier": "A"
+    },
+    {
+      "name": "Louis Carbonel",
+      "team": "Toulon",
+      "position_group": "FLY_HALF",
+      "tier": "A"
+    },
+    {
+      "name": "Killian Geraci",
+      "team": "Castres",
+      "position_group": "SCRUM_HALF",
+      "tier": "A"
+    },
+    {
+      "name": "Gauthier Doubrere",
+      "team": "Bayonne",
+      "position_group": "WINGER",
+      "tier": "A"
+    },
+    {
+      "name": "Arthur Retiere",
+      "team": "La Rochelle",
+      "position_group": "WINGER",
+      "tier": "A"
+    },
+    {
+      "name": "Bautista Delguy",
+      "team": "La Rochelle",
+      "position_group": "WINGER",
+      "tier": "A"
+    },
+    {
+      "name": "Pierre Bourgarit",
+      "team": "La Rochelle",
+      "position_group": "FRONT_ROW",
+      "tier": "A"
+    },
+    {
+      "name": "Swan Rebbadj",
+      "team": "Bayonne",
+      "position_group": "LOCK",
+      "tier": "B"
+    },
+    {
+      "name": "Posolo Tuilagi",
+      "team": "Clermont",
+      "position_group": "FRONT_ROW",
+      "tier": "B"
+    },
+    {
+      "name": "Joel Merkler",
+      "team": "Castres",
+      "position_group": "LOCK",
+      "tier": "B"
+    }
+  ],
+  "expected_sb_only": [
+    {
+      "name": "Gregory Alldritt",
+      "team": "La Rochelle",
+      "position_group": "BACK_ROW",
+      "tier": "S",
+      "missing_reason": "injured_this_season",
+      "note": "N°8 — absent cette saison (blessure). Normalement attendu en LNR, absent justifié."
+    },
+    {
+      "name": "Damian Penaud",
+      "team": "Bordeaux",
+      "position_group": "WINGER",
+      "tier": "S",
+      "missing_reason": "injured_this_season",
+      "note": "Ailier — absent cette saison (blessure)."
+    },
+    {
+      "name": "Dylan Cretin",
+      "team": "Lyon",
+      "position_group": "BACK_ROW",
+      "tier": "A",
+      "missing_reason": "injured_this_season",
+      "note": "3ème ligne — absent cette saison (blessure)."
+    },
+    {
+      "name": "Cameron Woki",
+      "team": "Bordeaux",
+      "position_group": "BACK_ROW",
+      "tier": "A",
+      "missing_reason": "injured_this_season",
+      "note": "3ème ligne — absent cette saison (blessure)."
+    },
+    {
+      "name": "Cyril Cazeaux",
+      "team": "Bordeaux",
+      "position_group": "FRONT_ROW",
+      "tier": "B",
+      "missing_reason": "fine_position_requires_sb",
+      "note": "Pilier — position fine (Loosehead/Tighthead) nécessite Statbunker pour scoring précis."
+    },
+    {
+      "name": "Wilfrid Hounkpatin",
+      "team": "Toulon",
+      "position_group": "FRONT_ROW",
+      "tier": "B",
+      "missing_reason": "fine_position_requires_sb",
+      "note": "Pilier — stat scrum derrière paywall LNR."
+    },
+    {
+      "name": "Thomas Laclayat",
+      "team": "Clermont",
+      "position_group": "BACK_ROW",
+      "tier": "B",
+      "missing_reason": "fine_position_requires_sb",
+      "note": "Flanker — position fine nécessite Statbunker."
+    },
+    {
+      "name": "Maxime Lamothe",
+      "team": "La Rochelle",
+      "position_group": "WINGER",
+      "tier": "B",
+      "missing_reason": "low_playtime",
+      "note": "Peu de temps de jeu cette saison — peut ne pas apparaître."
+    }
+  ],
+  "thresholds": {
+    "S_top_global": 50,
+    "S_top_position": 5,
+    "A_top_global": 100,
+    "A_top_position": 15,
+    "B_top_position": 30
+  }
+}

@@ -1,0 +1,10 @@
+[
+  {
+    "name": "J. Montoya",
+    "team": "Pau",
+    "field": "minutes_avg",
+    "value": 104.6,
+    "expected": "[0, 80]",
+    "severity": "MEDIUM"
+  }
+]

@@ -1,0 +1,634 @@
+lnr_id,name,team,matches_verified,starter_rate,form_window,form_tackles_per80,form_line_breaks_per80,form_offloads_per80,form_turnovers_per80
+595,A. AZAR,Castres Olympique,8,0.375,5,7.45,0.28,0.0,0.55
+1427,A. BECOGNEE,Montpellier Hérault Rugby,15,0.667,5,16.61,0.0,0.0,0.23
+1866,A. DESPERES RIGOU,Section Paloise,19,0.684,5,7.96,1.05,0.21,0.0
+2001,A. DUGUIVALU,USA Perpignan,15,0.733,5,5.2,1.0,2.0,0.4
+2609,A. ERBINARTEGARAY,Aviron Bayonnais,11,1.0,5,5.03,0.42,0.63,0.0
+1876,A. ETCHEBEHERE,Section Paloise,5,0.0,5,12.94,0.0,0.0,0.0
+663,A. FISCHER,Aviron Bayonnais,13,0.385,5,8.79,0.57,0.57,0.28
+11764,A. GARCIA ALBO,Stade Français Paris,6,0.0,5,10.72,0.0,0.0,0.0
+13648,A. GARCIA IANDOLINO,Aviron Bayonnais,2,0.0,2,11.43,0.0,0.0,0.0
+440,A. GRANDIDIER-NKANANG,Section Paloise,16,0.938,5,2.0,0.8,0.2,0.0
+1028,A. KADDOURI,Stade Rochelais,12,0.417,5,9.77,0.0,0.0,1.09
+935,A. KUNTELIA,Stade Rochelais,19,0.0,5,9.89,0.0,0.43,0.0
+1544,A. LOALOA,ASM Clermont,11,0.909,5,10.0,0.6,1.6,0.8
+11791,A. MAALO,LOU Rugby,2,0.0,2,8.89,0.0,0.0,0.0
+1400,A. MASIBAKA,Montpellier Hérault Rugby,14,0.0,5,16.0,2.46,0.0,0.0
+12629,A. MOON,Aviron Bayonnais,9,0.333,5,8.8,0.0,0.0,0.0
+13452,A. PRICE,Montpellier Hérault Rugby,14,0.643,5,3.31,0.24,0.71,0.0
+696,A. RAKA,ASM Clermont,5,0.6,5,1.57,1.05,1.05,0.26
+2462,A. ROUMAT,Stade Toulousain,16,0.5,5,7.04,0.0,0.32,0.0
+11794,A. SOKOBALE,Castres Olympique,1,0.0,1,12.0,0.0,0.0,0.0
+1124,A. TCHAPTCHET NOUTCHA,LOU Rugby,6,0.667,5,2.94,0.24,0.98,0.0
+11731,A. ZAPEDOWSKI,Union Bordeaux-Bègles,2,0.0,2,6.67,0.0,0.0,0.0
+384,Abraham PAPALII,Castres Olympique,10,0.2,5,8.35,0.0,1.39,0.0
+13459,Adam BEARD,Montpellier Hérault Rugby,9,0.444,5,11.89,0.0,0.32,0.64
+9642,Adam COLEMAN,Union Bordeaux-Bègles,7,0.143,5,10.29,0.0,0.86,0.29
+2989,Adam VARGAS,Castres Olympique,9,1.0,5,5.55,0.62,0.41,0.21
+591,Adrea COCAGI,Castres Olympique,8,0.625,5,11.5,0.0,0.49,0.24
+12202,Adrien DRAULT,Union Bordeaux-Bègles,4,0.5,4,7.36,0.46,0.0,0.0
+596,Adrien SEGURET,Stade Rochelais,11,0.455,5,7.14,0.0,0.29,0.29
+2388,Adrien WARION,USA Perpignan,11,0.455,5,13.19,0.0,0.29,0.0
+2022,Akato FAKATIKA,USA Perpignan,1,0.0,1,10.67,0.0,0.0,0.0
+646,Alex NEWSOME,ASM Clermont,12,0.75,5,2.13,0.21,0.21,0.0
+2769,Alexis BERNADET,Montpellier Hérault Rugby,7,0.286,5,5.5,0.27,0.27,0.0
+1126,Alfred PARISIEN,LOU Rugby,9,0.444,5,3.98,0.0,0.4,0.0
+12480,Andro DVALI,USA Perpignan,2,0.0,2,10.0,0.0,0.0,0.0
+2565,Andy BORDELAI,Aviron Bayonnais,13,0.308,5,10.45,0.0,0.0,0.0
+2483,Ange CAPUOZZO,Stade Toulousain,6,0.5,5,2.23,1.67,0.28,0.0
+2195,Anthime HEMERY,ASM Clermont,13,0.308,5,13.39,0.35,0.0,0.7
+2454,Anthony JELONCH,Stade Toulousain,9,0.778,5,8.89,0.48,1.2,0.0
+1646,Antoine AUCAGNE,USA Perpignan,3,0.333,3,2.96,0.59,0.0,0.0
+12477,Antoine DELIANCE,LOU Rugby,2,1.0,2,12.5,0.0,0.0,0.0
+2449,Antoine DUPONT,Stade Toulousain,4,0.5,4,4.73,1.72,3.01,0.0
+8861,Antoine FRISCH,RC Toulon,2,0.0,2,5.23,1.5,3.74,0.0
+2150,Antoine GIBERT,Racing 92,12,0.167,5,2.29,0.38,0.0,0.0
+997,Antoine HASTOY,Stade Rochelais,14,0.714,5,5.68,0.27,0.54,0.0
+12376,Antoine LATRASSE,Racing 92,0,0.0,0,,,,
+593,Antoine TICHIT,Castres Olympique,10,0.1,5,4.03,0.0,0.0,0.67
+1077,Arno BOTHA,LOU Rugby,10,0.4,5,16.18,0.0,0.0,0.0
+690,Arthur ITURRIA,Aviron Bayonnais,13,0.538,5,8.37,0.0,0.26,0.26
+1037,Arthur MATHIRON,LOU Rugby,2,0.5,2,7.91,0.0,0.0,0.0
+2441,Arthur RETIERE,Union Bordeaux-Bègles,9,0.111,5,4.03,2.69,4.71,0.0
+11832,Arthur ROCHE,Racing 92,1,0.0,1,0.0,0.0,0.0,0.0
+1416,Arthur VINCENT,Montpellier Hérault Rugby,16,0.875,5,9.06,0.6,0.0,0.0
+250,Auguste CADOT,Montpellier Hérault Rugby,11,0.818,5,4.26,0.61,0.61,0.3
+12492,Axel GUILLAUD,ASM Clermont,3,1.0,3,0.69,1.04,0.0,0.0
+2336,Aymeric LUC,Section Paloise,9,0.667,5,4.16,0.89,0.0,0.0
+12438,B. BERTRAND,Stade Toulousain,8,0.0,5,9.86,0.0,0.0,1.14
+2171,B. CHOUZENOUX,Aviron Bayonnais,5,0.4,5,7.58,0.0,0.76,0.0
+633,B. COPE,Castres Olympique,11,0.182,5,16.6,0.0,0.38,0.0
+1106,B. COUILLOUD,LOU Rugby,8,0.625,5,5.25,1.31,1.31,0.26
+606,B. DELAPORTE,Castres Olympique,11,0.727,5,13.95,0.0,0.21,0.21
+712,B. DELGUY,ASM Clermont,11,0.909,5,4.38,0.21,0.42,0.0
+267,B. ERDOCIO,Montpellier Hérault Rugby,16,0.0,5,15.82,0.0,0.0,0.45
+241,B. GERMAIN,Aviron Bayonnais,11,0.636,5,7.37,0.0,0.0,0.0
+2362,B. GIGASHVILI,RC Toulon,11,0.0,5,15.89,0.0,0.0,0.0
+2633,B. HEGUY,Aviron Bayonnais,13,0.385,5,9.87,0.34,0.0,0.0
+11297,B. JAUNEAU,ASM Clermont,14,0.571,5,8.33,0.59,1.19,0.3
+862,B. MASSA,ASM Clermont,16,0.125,5,13.15,0.55,0.55,1.37
+11912,B. MECHENTEL,RC Toulon,2,0.5,2,3.6,0.0,0.9,0.0
+497,B. MOUCHOUS,US Montauban,14,0.857,5,2.8,0.0,1.2,0.0
+1806,B. PESENTI,Stade Français Paris,14,0.5,5,14.63,0.0,0.65,0.0
+2352,B. SERIN,RC Toulon,15,0.333,5,7.27,0.3,0.3,0.3
+1584,B. SHVANGIRADZE,LOU Rugby,6,0.333,5,13.6,0.32,0.0,0.65
+340,B. TAMEIFUNA,Union Bordeaux-Bègles,7,0.0,5,4.64,0.39,1.16,0.39
+11937,B. TILLOLES,Aviron Bayonnais,7,0.0,5,2.25,0.0,0.56,0.0
+594,B. URDAPILLETA,USA Perpignan,8,0.375,5,6.11,0.0,0.0,0.0
+335,B. VERGNES TAILLEFER,Union Bordeaux-Bègles,16,0.312,5,13.23,0.6,0.0,0.0
+11845,B. WHITE,RC Toulon,10,0.0,5,6.49,0.0,0.0,1.08
+1432,Bastien CHALUREAU,Montpellier Hérault Rugby,14,0.357,5,10.61,0.0,0.0,0.0
+1970,Bastien CHINARRO,USA Perpignan,9,0.444,5,7.33,0.64,0.32,0.0
+1893,Beka GORGADZE,Section Paloise,13,0.923,5,14.36,0.0,0.41,1.03
+1127,Beka SAGINADZE,LOU Rugby,8,0.125,5,8.84,0.0,0.42,0.0
+12335,Blair KINGHORN,Stade Toulousain,12,0.667,5,1.44,0.96,1.68,0.0
+13465,Bobby BISSU,Union Bordeaux-Bègles,1,0.0,1,20.0,0.0,0.0,0.0
+2156,Boris PALU,Union Bordeaux-Bègles,18,0.611,5,9.72,0.0,0.45,0.0
+2389,Bruce DEVAUX,USA Perpignan,16,0.062,5,9.6,0.0,0.0,0.0
+169,C. BITZ,US Montauban,10,0.2,5,6.85,0.36,0.36,0.0
+286,C. COULARIS,US Montauban,2,0.5,2,12.58,0.0,0.9,0.0
+12807,C. EVERITT,Union Bordeaux-Bègles,0,0.0,0,,,,
+1562,C. GUETANG AMBADIANG,Castres Olympique,10,1.0,5,6.0,0.6,1.2,0.2
+969,C. KANTE SAMBA,Stade Rochelais,12,0.333,5,6.86,0.0,0.51,0.0
+12590,C. LUAKI,Stade Rochelais,4,0.0,4,17.25,0.0,0.0,1.57
+11823,C. MEZOU,RC Toulon,7,0.143,5,7.96,0.0,0.0,0.0
+694,C. OJOVAN,ASM Clermont,16,0.125,5,13.76,0.0,0.0,0.0
+2430,C. POUZELGUES,Stade Toulousain,5,0.2,5,5.26,0.7,0.7,0.35
+11240,C. SADIE,Union Bordeaux-Bègles,18,0.0,5,10.78,0.0,0.0,0.0
+707,C. TIBERGHIEN,Aviron Bayonnais,16,0.688,5,1.2,0.6,0.6,0.0
+2354,C. TOLOFUA,Montpellier Hérault Rugby,15,0.0,5,5.48,0.0,0.0,1.1
+2177,Cameron WOKI,Union Bordeaux-Bègles,17,0.882,5,7.0,0.2,1.0,0.0
+2165,Camille CHAT,LOU Rugby,11,0.091,5,12.65,0.0,0.68,0.0
+13440,Carwyn TUIPULOTU,Section Paloise,1,0.0,1,0.0,0.0,0.0,0.0
+2162,Cedate GOMES SA,LOU Rugby,9,0.0,5,13.77,0.0,0.66,0.0
+1773,Charles LALOI,Stade Français Paris,5,0.6,5,5.29,0.62,0.31,0.31
+2355,Charles OLLIVON,RC Toulon,9,0.667,5,8.79,0.44,1.32,0.0
+1700,Charlie CASSANG,LOU Rugby,12,0.25,5,6.72,0.31,0.31,0.0
+1843,Clement MONDINAT,Section Paloise,9,0.222,5,2.3,0.92,0.92,0.0
+2490,Clement VERGE,Stade Toulousain,15,0.533,5,11.61,0.32,1.61,0.32
+1886,Clovis LE BAIL,RC Toulon,6,0.5,5,4.0,0.0,0.73,0.0
+12399,Colin DUPUY,Castres Olympique,1,0.0,1,0.0,0.0,0.0,0.0
+531,Connor SA,Union Bordeaux-Bègles,9,0.333,5,11.92,0.38,0.38,0.0
+2451,Cyril BAILLE,Stade Toulousain,10,0.0,5,4.61,0.0,0.84,0.0
+324,Cyril CAZEAUX,Union Bordeaux-Bègles,13,0.462,5,12.47,0.0,0.35,0.0
+708,D. BIBI BIZIWU,Section Paloise,8,0.0,5,11.5,0.0,0.0,0.0
+11474,D. JACKSON,LOU Rugby,7,0.286,5,5.53,0.0,0.33,0.33
+1034,D. NINIASHVILI,Stade Rochelais,15,0.867,5,5.89,1.81,2.72,0.23
+2365,D. PRISO MOUANGUE,RC Toulon,17,0.176,5,10.6,0.0,0.0,0.0
+11798,D. RIBBANS,RC Toulon,15,0.8,5,7.96,0.0,0.86,0.0
+2151,D. TAOFIFENUA,Montpellier Hérault Rugby,10,0.6,5,6.82,0.0,0.0,0.0
+695,Damian PENAUD,Union Bordeaux-Bègles,13,1.0,5,3.53,1.45,3.32,0.0
+432,Daniel BRENNAN,RC Toulon,12,0.0,5,8.28,0.0,0.0,0.0
+1870,Daniel ROBSON,Section Paloise,10,0.3,5,6.27,0.9,0.3,0.0
+13764,Daniel TUPOU,Racing 92,0,0.0,0,,,,
+2500,David AINUU,Stade Toulousain,9,0.0,5,7.0,0.0,0.0,0.74
+1079,Demba BAMBA,Racing 92,17,0.059,5,13.16,0.0,0.36,0.0
+12570,Diego ESCOBAR,Racing 92,12,0.167,5,15.18,0.32,0.63,0.95
+12408,Diego JURD,Stade Rochelais,6,0.333,5,3.85,0.43,0.86,0.0
+1014,Dillyn LEYDS,Stade Rochelais,12,0.917,5,2.37,1.08,0.65,0.0
+2501,Dimitri DELIBES,Stade Toulousain,10,0.7,5,4.78,0.8,1.33,0.27
+2448,Dorian ALDEGHERI,Stade Toulousain,11,0.0,5,9.39,0.35,0.0,0.0
+2385,Duncan PAIA'AUA,USA Perpignan,4,0.75,4,4.93,0.29,0.29,0.0
+1078,Dylan CRETIN,LOU Rugby,14,0.929,5,10.75,0.0,0.22,0.65
+2632,E. BULIRUARUA,USA Perpignan,11,0.636,5,8.06,1.15,1.15,0.0
+11820,E. GOODHUE,Castres Olympique,14,0.714,5,9.82,0.47,0.94,0.23
+12646,E. JABEA NJOCKE,Racing 92,6,0.0,5,17.84,0.58,0.0,0.0
+2498,E. MEAFOU,Stade Toulousain,7,0.714,5,9.06,0.0,1.26,0.75
+12628,E. TUILAGI,Aviron Bayonnais,10,0.8,5,3.62,0.84,0.56,0.0
+12363,Efrain ELIAS,Stade Toulousain,13,0.308,5,10.24,0.32,0.96,0.32
+2349,Emerick SETIANO,Aviron Bayonnais,14,0.143,5,7.46,0.0,0.0,0.0
+1927,Emilien GAILLETON,Section Paloise,11,0.727,5,5.76,0.61,0.0,0.3
+1440,Enzo FORLETTA,Montpellier Hérault Rugby,15,0.2,5,10.4,0.0,0.0,0.0
+427,Enzo HERVE,Castres Olympique,8,0.5,5,6.26,0.35,0.35,0.0
+431,Esteban ABADIE,RC Toulon,16,0.562,5,11.73,0.0,0.53,0.0
+2607,Esteban CAPILLA,Aviron Bayonnais,11,0.636,5,10.92,0.27,0.27,0.82
+1068,Esteban GONZALEZ,LOU Rugby,11,0.182,5,6.27,0.52,0.0,0.0
+1125,Ethan DUMORTIER,LOU Rugby,12,0.833,5,6.57,1.71,0.29,0.0
+12374,Ethan TIA,Stade Français Paris,1,0.0,1,19.51,0.0,1.95,0.0
+667,Etienne FALGOUX,ASM Clermont,9,0.0,5,6.67,0.0,0.0,0.0
+657,Etienne FOURCADE,ASM Clermont,14,0.0,5,10.0,0.62,0.0,0.0
+2569,Ewan JOHNSON,Aviron Bayonnais,17,0.471,5,8.75,0.0,0.0,0.26
+10722,F. BRADSHAW RYAN,US Montauban,1,0.0,1,6.67,0.0,3.33,0.0
+11716,F. BRAU-BOIRIE,Section Paloise,13,1.0,5,7.4,0.8,0.2,0.0
+2453,F. CROS,Stade Toulousain,2,1.0,2,19.31,0.55,0.0,1.1
+280,F. MORI,Aviron Bayonnais,7,0.714,5,4.0,0.31,0.31,0.0
+14041,F. POPOALII,US Montauban,0,0.0,0,,,,
+556,F. TUKINO,Castres Olympique,6,0.333,5,9.87,0.0,0.35,0.35
+624,F. VANVERBERGHE,Castres Olympique,15,0.667,5,16.8,0.0,0.0,0.0
+2157,Fabien SANCONNIE,Racing 92,7,0.0,5,17.0,0.0,0.0,0.39
+2658,Facundo BOSCH,Aviron Bayonnais,15,0.067,5,13.52,0.0,1.83,0.73
+2335,Facundo ISA,Section Paloise,16,0.5,5,12.5,0.0,0.91,0.45
+10998,Facundo POMPONIO,US Montauban,13,0.0,5,7.34,0.0,0.0,0.0
+1438,Florian VERHAEGHE,Montpellier Hérault Rugby,11,0.727,5,9.27,0.2,1.81,0.0
+1329,Fred QUERCY,US Montauban,9,0.778,5,10.3,0.0,0.0,0.3
+1095,Félix LAMBEY,LOU Rugby,9,0.222,5,17.82,0.0,0.38,0.38
+980,G. ALLDRITT,Stade Rochelais,16,0.812,5,9.42,0.0,1.47,0.84
+13654,G. ANSCOMBE,Aviron Bayonnais,5,0.0,5,7.8,0.0,0.0,0.0
+1861,G. ARFEUIL,Section Paloise,16,0.75,5,3.16,0.26,0.26,0.0
+1009,G. COLOMBE REAZEL,Stade Toulousain,8,0.0,5,6.63,0.47,0.47,0.0
+2484,G. CRAMONT,Stade Toulousain,11,0.0,5,9.04,0.9,2.26,0.9
+612,G. DOUBRERE,Castres Olympique,9,0.111,5,9.14,0.0,0.0,0.0
+1892,G. DUCAT,Castres Olympique,13,0.692,5,7.37,0.0,0.22,0.0
+3233,G. DZMANASHVILI,ASM Clermont,7,0.0,5,8.5,0.0,0.0,0.0
+13780,G. GALVAN MONSALVE,Stade Rochelais,0,0.0,0,,,,
+2190,G. GOGICHASHVILI,Racing 92,17,0.0,5,15.67,0.0,0.0,0.0
+1812,G. HABEL KUFFNER,Aviron Bayonnais,7,0.571,5,7.8,0.29,0.58,0.0
+2201,G. KHARAISHVILI,Racing 92,13,0.154,5,12.33,0.0,0.0,0.32
+1962,G. KRETCHMANN,USA Perpignan,2,0.0,2,8.33,0.0,0.0,0.0
+11728,G. LAPEGUE LAFAYE,Aviron Bayonnais,2,0.0,2,0.0,0.0,0.0,0.0
+12577,G. LUCCHESI,RC Toulon,2,0.0,2,17.63,0.0,0.0,0.0
+580,G. MARAVAT,Castres Olympique,12,0.25,5,11.97,0.0,0.0,0.0
+1084,G. MARCHAND,LOU Rugby,15,0.267,5,15.24,0.0,0.0,1.14
+2657,G. MARTOCQ,Aviron Bayonnais,11,0.636,5,7.23,0.0,0.26,0.0
+603,G. PALIS,Castres Olympique,9,0.444,5,5.36,0.0,0.36,0.0
+13832,G. PRISCIANTELLI,Racing 92,8,0.5,5,2.55,1.82,0.73,0.0
+1990,G. TETRASHVILI,USA Perpignan,11,0.0,5,8.63,0.0,0.0,0.0
+179,Gabin LORRE,LOU Rugby,11,0.818,5,3.89,0.86,0.86,0.0
+2360,Gabin VILLIERE,RC Toulon,4,0.75,4,3.24,0.65,0.97,0.97
+1444,Gabriel NGANDEBE,Montpellier Hérault Rugby,16,1.0,5,4.0,0.4,0.6,0.0
+2168,Gael FICKOU,Racing 92,12,0.833,5,7.59,0.69,0.69,0.0
+2300,Gaël DREAN,RC Toulon,13,1.0,5,3.82,1.01,0.6,0.0
+638,Gaëtan BARLOT,Union Bordeaux-Bègles,10,0.1,5,15.17,0.0,1.9,0.76
+1447,Gela APRASIDZE,USA Perpignan,7,0.143,5,5.49,0.0,0.46,0.0
+709,George MOALA,ASM Clermont,3,0.667,3,3.54,0.44,0.88,0.0
+12539,Giacomo NICOTERA,Stade Français Paris,13,0.231,5,15.18,0.0,0.0,0.29
+184,Giorgi AKHALADZE,ASM Clermont,15,0.267,5,9.1,0.0,0.0,0.0
+662,Giorgi BERIA,USA Perpignan,11,0.0,5,17.47,0.0,1.84,0.46
+1621,Giorgi JAVAKHIA,RC Toulon,7,0.0,5,12.2,0.0,0.0,0.0
+1811,Giorgi MELIKIDZE,Stade Français Paris,16,0.125,5,12.37,0.0,0.0,0.39
+1887,Guram PAPIDZE,Section Paloise,7,0.143,5,15.27,0.0,0.36,0.0
+13711,H. GONZÁLEZ HERNÁNDEZ,Aviron Bayonnais,3,0.0,3,9.41,0.0,0.0,1.18
+13649,H. JANTJIES,Aviron Bayonnais,11,0.273,5,4.35,0.87,0.29,0.0
+11987,H. MIOTTI,Montpellier Hérault Rugby,16,0.812,5,8.2,0.2,1.8,0.0
+13371,H. PLUMMER,ASM Clermont,11,1.0,5,3.2,0.8,0.4,0.2
+1107,Hamza KAABECHE,LOU Rugby,8,0.125,5,10.53,0.0,0.0,0.66
+2175,Hassane KOLINGAR,Racing 92,13,0.0,5,18.01,0.0,0.42,0.0
+964,Hoani BOSMORIN,Stade Rochelais,8,0.125,5,2.98,0.5,1.49,0.0
+1845,Hugo AURADOU,Section Paloise,14,0.786,5,10.46,0.0,0.0,0.28
+1849,Hugo PARROU,Section Paloise,6,0.0,5,11.43,0.0,0.74,0.0
+949,Hugo REUS,USA Perpignan,12,0.167,5,4.39,0.0,1.46,0.0
+354,Hugo ZABALZA,US Montauban,16,0.188,5,6.96,0.0,1.3,0.0
+13410,I. BALEIWAIRIKI,LOU Rugby,5,0.8,5,8.74,0.92,1.15,0.0
+11725,I. KOFFI,Stade Français Paris,1,0.0,1,26.67,0.0,0.0,0.0
+13812,I. PETELO MAPU,Stade Français Paris,3,0.0,3,12.58,0.0,0.0,0.0
+647,I. SIMONE,ASM Clermont,9,0.444,5,7.69,0.85,0.28,0.0
+2148,Ibrahim DIALLO,Racing 92,1,0.0,1,19.26,1.48,0.0,0.0
+1885,Ignacio CALLES,Aviron Bayonnais,7,0.143,5,6.77,0.0,0.31,0.62
+11989,Ignacio RUIZ,USA Perpignan,8,0.25,5,12.28,0.0,0.37,0.0
+2387,Ihaia WEST,Stade Rochelais,10,0.4,5,1.7,0.0,0.0,0.0
+857,Irakli APTSIAURI,LOU Rugby,14,0.286,5,18.04,0.0,0.0,0.34
+12591,J. AINSLEY,LOU Rugby,13,0.308,5,15.67,0.0,0.0,0.0
+1334,J. BOSVIEL,US Montauban,12,0.583,5,2.83,0.0,1.42,0.0
+13528,J. BREX,RC Toulon,9,1.0,5,7.14,0.0,0.21,0.0
+675,J. CANCORIET,Stade Rochelais,8,0.875,5,7.27,0.0,0.47,0.47
+991,J. DANTY,Stade Rochelais,2,1.0,2,6.07,0.0,2.21,0.0
+1958,J. DE LA FUENTE,USA Perpignan,15,0.8,5,6.96,0.46,0.93,0.0
+13507,J. DU PREEZ,Union Bordeaux-Bègles,1,0.0,1,4.57,2.29,2.29,0.0
+611,J. FERNANDEZ,Castres Olympique,13,0.308,5,5.88,1.36,0.45,0.45
+12498,J. GRAY,Union Bordeaux-Bègles,10,0.4,5,17.56,0.0,0.56,0.0
+2358,J. GROS,RC Toulon,8,0.0,5,10.62,0.0,1.52,0.0
+1782,J. HALL,USA Perpignan,13,0.231,5,9.25,0.0,0.4,0.4
+13604,J. HILL,Racing 92,16,0.812,5,11.21,0.43,0.22,0.22
+2212,J. JACKSON,US Montauban,14,0.571,5,6.43,0.44,0.66,0.0
+92,J. JOSEPH,USA Perpignan,12,0.833,5,5.4,0.6,0.6,0.0
+12243,J. K'POKU,RC Toulon,8,0.125,5,17.32,0.82,0.0,0.82
+11744,J. LAHARRAGUE,Union Bordeaux-Bègles,7,0.286,5,7.35,0.41,0.41,0.0
+2503,J. MALLIA,Stade Toulousain,2,1.0,2,2.58,2.06,1.55,0.0
+1074,J. MARAKU,LOU Rugby,8,0.5,5,9.27,0.24,0.0,0.0
+12593,J. MARTIN MONTILLA,ASM Clermont,2,0.0,2,5.0,0.0,0.0,0.0
+2005,J. MCINTYRE,USA Perpignan,1,0.0,1,6.4,0.0,0.0,0.0
+2399,J. MERKLER PEREZ,Stade Toulousain,9,0.0,5,12.39,0.0,0.0,0.0
+13598,J. MONTOYA,Section Paloise,8,0.125,5,7.83,0.0,0.0,0.0
+13878,J. PETAIA,USA Perpignan,4,0.5,4,5.41,0.0,0.0,0.0
+329,J. POIROT,Union Bordeaux-Bègles,15,0.0,5,10.45,0.4,0.8,0.0
+12373,J. POWELL,US Montauban,15,0.2,5,9.6,0.0,0.0,0.32
+2307,J. QUERE KARABA,RC Toulon,9,0.444,5,8.92,0.29,0.29,0.0
+1083,J. REY,LOU Rugby,13,0.077,5,17.48,0.34,0.0,0.0
+13558,J. RITCHIE,USA Perpignan,11,0.818,5,12.51,0.22,0.43,1.08
+1752,J. SCELZO,Stade Français Paris,6,0.333,5,11.48,0.0,0.68,0.0
+970,J. SCLAVI,Stade Rochelais,5,0.0,5,5.26,0.0,0.0,0.58
+2353,J. SINZELLE,RC Toulon,13,0.692,5,9.23,0.0,0.77,0.26
+12442,J. TOEVALU,RC Toulon,3,0.0,3,4.26,0.0,0.0,0.0
+1342,J. TUCULET,US Montauban,8,1.0,5,3.4,0.68,0.45,0.0
+693,J. VAN TONDER,USA Perpignan,11,0.455,5,12.56,0.51,0.51,0.77
+2277,J. WAINIQOLO,LOU Rugby,13,0.923,5,4.33,2.28,1.37,0.0
+1756,J. WARD,Stade Français Paris,14,0.786,5,10.59,0.94,0.47,0.24
+133,J. ZABALA ARRIETA,Section Paloise,5,0.0,5,14.6,0.0,0.0,1.17
+1853,Jack MADDOCKS,Section Paloise,13,0.846,5,4.21,0.22,0.22,0.0
+954,Jack NOWELL,Stade Rochelais,13,0.846,5,3.6,1.06,1.06,0.0
+2425,Jack WILLIS,Stade Toulousain,14,0.571,5,8.51,0.85,1.7,1.42
+2188,Janick TARRIT,Racing 92,13,0.385,5,13.72,0.29,0.0,0.29
+838,Janse ROUX,LOU Rugby,13,0.308,5,16.19,0.0,0.0,0.32
+1433,Jeremie MAUROUARD,US Montauban,12,0.0,5,9.71,0.46,1.85,0.46
+2413,Jeremy NEMOR,Stade Toulousain,1,0.0,1,0.0,0.0,0.0,0.0
+2232,Jimi MAXIMIN,Section Paloise,17,0.235,5,15.89,0.0,0.0,0.26
+1955,Joaquin OVIEDO,USA Perpignan,8,0.625,5,12.75,0.58,0.87,0.29
+11982,Job POULET,USA Perpignan,9,0.222,5,6.92,0.77,0.0,0.0
+263,Joe JONAS,Stade Français Paris,5,0.2,5,5.39,1.35,0.45,0.0
+4000,Joe SIMMONDS,Section Paloise,6,0.667,5,2.71,0.54,0.81,0.0
+1075,Joel KPOKU,Section Paloise,3,0.0,3,13.33,0.0,0.0,0.0
+13940,John ISCARO,Stade Français Paris,3,0.0,3,16.3,0.0,0.0,0.0
+11712,Jon ECHEGARAY,Union Bordeaux-Bègles,4,0.25,4,1.34,0.34,2.02,0.0
+1909,Jordan JOSEPH,Racing 92,9,0.111,5,12.61,0.0,0.79,1.18
+12799,Jordan UELESE,Montpellier Hérault Rugby,11,0.0,5,12.39,0.0,0.0,0.75
+402,Joris JURAND,ASM Clermont,11,0.909,5,3.57,0.63,0.63,0.0
+1807,Joris SEGONDS,Aviron Bayonnais,17,0.882,5,7.76,0.0,0.24,0.0
+12425,Joseph CARBERY,Union Bordeaux-Bègles,8,0.375,5,4.09,0.31,0.63,0.0
+13640,Joseph MANU,Racing 92,13,0.615,5,7.72,0.62,1.24,0.0
+11736,Joseph MARCHANT,Stade Français Paris,14,0.643,5,6.95,0.51,0.0,0.0
+2492,Joshua BRENNAN,Stade Toulousain,11,0.455,5,11.39,0.0,0.58,0.0
+1102,Josua TUISOVA,Racing 92,14,0.643,5,8.99,0.29,1.16,0.58
+1351,Josua VICI,US Montauban,14,0.929,5,4.0,0.63,0.84,0.84
+13790,Jovan SRECKOVIC,RC Toulon,1,1.0,1,6.15,0.0,0.0,0.0
+2290,Jules COULON,RC Toulon,10,0.4,5,7.71,0.0,0.0,0.32
+1018,Jules FAVRE,Stade Rochelais,15,0.867,5,6.11,1.27,0.0,0.25
+2445,Julien MARCHAND,Stade Toulousain,7,0.286,5,11.78,0.0,1.92,0.27
+13817,Justo PICCARDO,Montpellier Hérault Rugby,9,0.667,5,10.24,0.0,0.0,0.0
+2391,K. ALAINUUESE,RC Toulon,20,0.2,5,14.52,0.0,0.65,0.0
+1375,K. MARTIN,Montpellier Hérault Rugby,2,0.0,2,8.08,0.0,0.0,0.0
+2432,Kalvin GOURGUES,Stade Toulousain,12,0.667,5,4.01,1.07,1.61,0.0
+360,Kane DOUGLAS,Stade Rochelais,9,0.222,5,8.46,0.0,0.33,0.33
+1030,Karl SORIN,Stade Rochelais,10,0.1,5,8.59,0.0,0.39,0.0
+10149,Karl WILKINS,US Montauban,13,0.385,5,9.45,0.0,0.0,0.63
+1322,Kevin FIRMIN,US Montauban,12,0.083,5,10.14,0.38,0.0,0.0
+2282,Kieran BROOKES,USA Perpignan,15,0.2,5,7.24,0.0,0.0,0.0
+1105,Killian GERACI,LOU Rugby,10,0.3,5,18.29,0.0,0.0,0.0
+11554,Killian TIXERONT,ASM Clermont,16,0.625,5,14.21,0.0,0.37,0.0
+13500,Kirill FRAINDT,Stade Rochelais,7,0.429,5,4.68,0.72,0.0,0.0
+12366,Kleo LABARBE,Racing 92,6,0.167,5,7.55,0.0,0.38,0.0
+1793,Kylan HAMDAOUI,ASM Clermont,12,0.75,5,3.4,1.54,1.24,0.31
+12566,Kyle SINCKLER,RC Toulon,15,0.133,5,10.92,0.0,0.0,0.0
+1284,Kyllian RINGUET,US Montauban,14,0.643,5,15.3,0.5,0.5,0.25
+1052,L. ALLEN,LOU Rugby,9,0.444,5,24.31,0.0,0.0,1.77
+12674,L. ANDJISSERAMATCHI,Stade Rochelais,10,0.0,5,10.43,0.0,0.0,0.87
+277,L. BIELLE-BIARREY,Union Bordeaux-Bègles,10,0.8,5,2.3,2.3,1.02,0.0
+1960,L. BOYER GALLARDO,USA Perpignan,0,0.0,0,,,,
+461,L. CARBONNEAU,Racing 92,16,0.812,5,5.2,0.0,0.0,0.22
+585,L. CHILACHAVA,Castres Olympique,7,0.0,5,6.56,0.0,0.66,0.0
+2709,L. DARRICARRERE,ASM Clermont,10,0.9,5,5.63,0.47,1.17,0.0
+1457,L. FOURSANS BOURDETTE,Stade Français Paris,1,1.0,1,9.0,1.0,0.0,0.0
+560,L. GUEROIS GALISSON,Castres Olympique,17,0.118,5,17.33,0.0,0.0,0.0
+317,L. KAULASHVILI,Section Paloise,10,0.1,5,8.0,0.0,0.0,0.0
+2008,L. LAM,ASM Clermont,3,0.0,3,5.88,0.0,0.0,0.0
+1824,L. LATU,Stade Rochelais,12,0.167,5,5.14,0.32,1.29,0.0
+12565,L. LEOTA,Racing 92,1,0.0,1,8.7,0.0,0.0,0.0
+12567,L. LUDLAM,RC Toulon,18,0.778,5,10.93,0.0,0.23,0.0
+12343,L. MICHAUX VARGAS,ASM Clermont,4,0.0,4,8.31,0.0,0.87,0.44
+416,L. PAULOS ADLER,Aviron Bayonnais,12,0.417,5,7.44,0.0,0.0,0.31
+1027,L. PENVERNE,Stade Rochelais,8,0.0,5,8.45,0.56,1.13,0.56
+1779,L. PEYRESBLANQUES,Stade Français Paris,14,0.071,5,17.06,0.0,0.0,0.59
+1911,L. TAGITAGIVALU,Racing 92,13,0.308,5,15.09,0.0,0.38,1.13
+985,L. VEIVUKE,Stade Rochelais,19,0.421,5,9.14,1.02,1.02,1.27
+68,L. ZARANTONELLO,Castres Olympique,10,0.0,5,13.03,0.0,0.0,0.0
+1376,Lenni NOUCHI,Montpellier Hérault Rugby,14,0.929,5,11.11,0.44,0.89,0.0
+1001,Leo AOUF,US Montauban,8,0.0,5,9.26,0.0,0.0,0.0
+1829,Leo BARRE,Stade Français Paris,16,0.875,5,1.6,0.4,1.4,0.0
+575,Leone NAKARAWA,Castres Olympique,3,0.0,3,4.21,0.0,4.21,0.0
+1788,Lester ETIEN,Stade Français Paris,4,0.75,4,4.29,0.61,0.92,0.0
+4957,Lewis BEAN,US Montauban,4,0.0,4,10.55,0.0,0.0,0.0
+11810,Lohann GIL,RC Toulon,1,0.0,1,3.08,0.0,0.0,0.0
+1428,Louis CARBONEL,Stade Français Paris,15,1.0,5,6.32,0.63,0.63,0.0
+553,Louis LE BRUN,Castres Olympique,3,0.667,3,2.71,0.0,0.45,0.45
+11950,Louis MARY,Union Bordeaux-Bègles,2,0.0,2,9.7,0.0,0.0,2.42
+12576,Louis VERMEULEN,ASM Clermont,1,0.0,1,25.26,0.0,0.0,4.21
+11838,Louka GUILHOT,Castres Olympique,6,0.0,5,5.77,0.0,0.0,0.72
+1678,Loïc CREDOZ,Section Paloise,17,0.235,5,11.23,0.0,0.0,0.0
+661,Lucas DESSAIGNE,ASM Clermont,9,0.222,5,20.74,0.0,0.0,0.0
+2010,Lucas DUBOIS,USA Perpignan,7,0.857,5,2.33,0.47,0.47,0.0
+2102,Lucas MARTIN,Aviron Bayonnais,16,0.062,5,8.32,0.4,0.79,0.79
+1896,Lucas REY,Section Paloise,11,0.0,5,16.23,0.0,0.75,0.0
+1341,Lucas SEYROLLE,US Montauban,11,0.0,5,6.03,0.0,0.0,0.55
+2444,Lucas TAUZIN,ASM Clermont,9,0.667,5,2.4,0.6,0.3,0.3
+2025,Lucas VELARTE,USA Perpignan,8,0.25,5,11.9,0.0,1.65,0.0
+2417,Lucas VIGNERES,Stade Toulousain,2,0.5,2,14.25,0.0,0.0,0.0
+937,Lucas ZAMORA,ASM Clermont,12,0.167,5,6.02,0.29,0.86,0.0
+13461,Lucien RICHARDIS,Stade Toulousain,2,0.5,2,2.09,0.7,0.0,0.0
+3505,Lucio SORDONI,US Montauban,8,0.375,5,7.93,0.0,0.0,0.0
+454,Luka JAPARIDZE,Montpellier Hérault Rugby,11,0.0,5,12.58,0.0,0.0,0.0
+2100,Luke TAGI,Aviron Bayonnais,5,0.0,5,8.0,0.0,1.2,0.0
+1929,Luke WHITELOCK,Section Paloise,12,0.333,5,13.19,0.0,0.0,1.32
+1401,Lyam AKRAB,Montpellier Hérault Rugby,2,0.0,2,5.33,0.0,1.07,0.0
+2297,Léo AMETLLA,RC Toulon,10,0.0,5,11.27,0.0,0.0,1.69
+11251,Léo BANOS,Stade Toulousain,15,0.467,5,6.84,0.0,0.59,0.0
+1081,Léo BERDEU,LOU Rugby,14,0.429,5,6.82,0.72,1.43,0.0
+1460,Léo COLY,Montpellier Hérault Rugby,12,0.083,5,3.87,1.29,2.58,0.0
+1741,Léo MONIN,Stade Français Paris,1,0.0,1,1.9,0.0,0.0,0.0
+1831,M. ALO EMILE,Stade Français Paris,15,0.0,5,10.05,0.0,0.39,0.77
+3252,M. ARICETA MAESTRO,Aviron Bayonnais,6,0.0,5,10.28,1.47,0.0,0.0
+2401,M. CASTRO FERREIRA,Stade Toulousain,9,0.333,5,6.89,0.0,0.0,0.3
+323,M. DIABY,USA Perpignan,11,0.182,5,12.41,0.0,0.0,0.0
+724,M. FEPULEA'I,Aviron Bayonnais,3,0.0,3,5.82,0.0,0.0,0.0
+1123,M. GUILLARD,LOU Rugby,9,0.667,5,14.15,0.51,0.0,0.26
+1025,M. HADDAD,Stade Rochelais,10,0.4,5,9.65,0.0,0.31,0.31
+2384,M. HALAGAHU,RC Toulon,2,0.0,2,44.8,0.0,0.0,0.0
+2407,M. HAWKES FAIMANIFO,Stade Toulousain,2,0.0,2,7.84,0.0,0.0,0.0
+339,M. JALIBERT,Union Bordeaux-Bègles,11,0.909,5,5.64,1.08,3.25,0.0
+10338,M. NONU,RC Toulon,10,0.1,5,12.46,0.0,0.0,0.0
+1117,M. OKUYA,LOU Rugby,6,0.5,5,14.51,0.0,0.39,0.39
+929,M. SARRAGALLET,LOU Rugby,8,0.125,5,23.93,0.0,0.0,0.0
+12692,M. SHIOSHVILI,RC Toulon,1,1.0,1,6.56,0.0,0.0,0.0
+1378,M. UHILA,Montpellier Hérault Rugby,2,0.0,2,13.13,0.0,1.19,1.19
+299,Madosha TAMBWE,Union Bordeaux-Bègles,5,0.6,5,3.92,0.3,0.91,0.0
+11742,Mael CASTEL,US Montauban,5,0.0,5,3.45,0.58,0.0,0.0
+1441,Marco TAULEIGNE,Montpellier Hérault Rugby,10,0.2,5,8.13,0.43,0.86,0.0
+1745,Marcos KREMER,ASM Clermont,7,0.857,5,13.56,0.0,0.45,0.23
+2291,Marius DOMON,RC Toulon,13,0.385,5,1.18,0.89,0.0,0.3
+3607,Marko GAZZOTTI,Union Bordeaux-Bègles,11,0.364,5,12.2,0.0,1.02,0.0
+2122,Martin MELIANDE,LOU Rugby,11,0.636,5,3.22,0.81,0.6,0.0
+2495,Martin PAGE RELO,Union Bordeaux-Bègles,9,0.556,5,3.4,0.0,0.62,0.0
+12404,Mateo CARRERAS,Aviron Bayonnais,7,0.857,5,4.49,1.0,0.75,0.0
+11027,Mateo GARCIA,RC Toulon,8,0.5,5,4.02,0.47,0.24,0.0
+599,Mathieu BABILLOT,Castres Olympique,12,0.667,5,10.78,0.0,1.04,0.35
+1780,Mathieu HIRIGOYEN,Stade Français Paris,15,0.333,5,13.22,0.0,0.33,0.0
+2361,Mathieu SMAILI,RC Toulon,9,0.778,5,4.8,0.4,0.2,0.0
+2342,Mathieu TANGUY,USA Perpignan,18,0.278,5,8.26,0.0,0.85,0.0
+395,Mathis FERTE,RC Toulon,17,0.706,5,5.29,0.62,0.0,0.0
+13642,Mathis GIL,Stade Toulousain,1,0.0,1,0.0,0.0,0.0,0.0
+1751,Mathis IBO,Stade Français Paris,1,0.0,1,10.0,0.0,5.0,0.0
+648,Mathys BELAUBRE,ASM Clermont,2,1.0,2,5.57,0.0,0.51,0.0
+1967,Mathys LOTRIAN,USA Perpignan,11,0.0,5,11.78,0.0,0.0,0.0
+655,Mathéo FRISACH,ASM Clermont,2,0.5,2,11.03,0.0,0.0,0.0
+12340,Matias REMUE,Stade Toulousain,2,1.0,2,0.5,1.0,0.5,0.0
+2671,Matis PERCHAUD,Union Bordeaux-Bègles,18,0.111,5,12.73,0.0,1.82,0.45
+2437,Matthis LEBEL,Stade Toulousain,12,0.75,5,1.25,1.25,0.62,0.0
+2383,Mattéo LE CORVEC,USA Perpignan,12,0.25,5,10.18,0.35,0.0,0.35
+12441,Matéo GRACIEUX,RC Toulon,2,1.0,2,1.7,0.57,0.57,0.0
+2198,Max SPRING,Racing 92,12,0.667,5,4.96,1.24,0.41,0.21
+1961,Maxim GRANELL,USA Perpignan,8,1.0,5,7.14,0.43,0.43,0.0
+2197,Maxime BAUDONNE,Racing 92,18,0.611,5,13.87,0.36,1.42,0.0
+158,Maxime ESPEUT,US Montauban,15,0.8,5,7.84,0.21,1.24,0.0
+1128,Maxime GOUZOU,LOU Rugby,2,0.0,2,5.93,0.0,0.0,0.0
+349,Maxime LAMOTHE,Union Bordeaux-Bègles,14,0.214,5,15.37,0.31,0.0,0.31
+331,Maxime LUCU,Union Bordeaux-Bègles,7,1.0,5,6.4,0.8,0.4,0.0
+2640,Maxime MACHENAUD,Aviron Bayonnais,4,0.25,4,6.15,0.0,1.68,0.0
+1330,Maxime MATHY,US Montauban,10,0.3,5,5.52,1.38,0.0,0.69
+12733,Maxwell HICKS,USA Perpignan,15,0.733,5,8.58,0.0,0.0,0.5
+12362,Mayron FAHY,USA Perpignan,1,0.0,1,0.0,0.0,0.0,0.0
+350,Maël MOUSTIN,Montpellier Hérault Rugby,9,0.889,5,4.24,1.7,1.7,0.0
+2479,Melvyn JAMINET,RC Toulon,11,0.727,5,1.22,0.61,0.61,0.0
+864,Melvyn RATES,Montpellier Hérault Rugby,2,0.5,2,6.36,0.91,0.0,0.0
+1901,Mickael CAPELLI,Section Paloise,11,0.091,5,15.15,0.39,0.39,0.39
+1446,Mohamed HAOUAS,Montpellier Hérault Rugby,8,0.0,5,12.73,0.0,0.0,0.0
+11734,Monty IOANE,LOU Rugby,9,0.778,5,2.29,0.51,1.02,0.0
+938,N. BOLLENGIER,Stade Rochelais,3,0.333,3,2.61,0.0,0.0,0.43
+1013,N. DELLA SCHIAVA,USA Perpignan,4,0.25,4,7.89,0.0,1.05,0.0
+304,N. DEPOORTERE,Union Bordeaux-Bègles,12,0.833,5,8.05,1.15,0.46,0.0
+2596,N. HULLEU,Castres Olympique,7,0.714,5,3.76,1.07,0.54,0.0
+1749,N. KANIKA-BILONDA,US Montauban,15,0.333,5,8.83,0.0,0.0,0.0
+239,N. MAAFU,US Montauban,15,0.2,5,12.95,0.0,1.0,0.0
+1771,N. NENE,Stade Français Paris,10,0.8,5,7.65,0.66,0.44,0.22
+1784,N. ROELOFSE,USA Perpignan,9,0.0,5,6.76,0.56,0.0,0.0
+479,N. SOMKHISVHILI,US Montauban,3,0.0,3,14.12,0.0,0.0,0.78
+965,N. SUTIDZE,Stade Rochelais,11,0.0,5,6.42,0.0,0.99,0.0
+11682,N. TRAVERSIER,Aviron Bayonnais,1,0.0,1,13.33,0.0,0.0,0.0
+1805,Nadir MEGDOUD,Aviron Bayonnais,1,1.0,1,6.0,1.0,0.0,0.0
+12751,Naoto SAITO,Stade Toulousain,9,0.111,5,3.61,0.0,0.0,0.0
+1902,Nathan DECRON,Section Paloise,10,0.8,5,12.13,0.0,0.0,1.06
+13744,Nathan HUGHES,Racing 92,18,0.056,5,14.12,0.0,1.09,0.36
+2502,Nelson EPEE,Stade Toulousain,1,0.0,1,10.67,5.33,5.33,0.0
+1888,Nicolas CORATO,Castres Olympique,11,0.0,5,12.03,0.0,0.0,0.0
+12541,Nika ABULADZE,Montpellier Hérault Rugby,5,0.0,5,10.63,0.0,0.51,0.0
+3060,Nikoloz NARMANIA,RC Toulon,3,0.0,3,10.32,0.0,0.0,0.0
+2120,Noa ZINZEN,Racing 92,7,0.0,5,15.86,0.0,0.0,0.0
+13792,Noam MOREAU,RC Toulon,1,0.0,1,13.33,0.0,0.0,0.0
+13419,Nolann DONGUY,Racing 92,2,1.0,2,5.63,1.13,0.0,0.0
+2196,Nolann LE GARREC,Stade Rochelais,11,0.818,5,5.87,1.12,0.84,0.0
+13550,Nolhann COUILLAUD,Stade Rochelais,4,0.5,4,6.01,0.0,0.0,0.0
+2167,O. KLEMENCZAK,Section Paloise,1,0.0,1,9.41,0.0,0.0,0.0
+2317,Oliver COWIE,RC Toulon,11,0.636,5,7.57,0.65,0.43,0.43
+939,Oscar JEGOU,Stade Rochelais,12,0.75,5,10.43,0.23,0.93,0.23
+11811,Owen SORHAINDO,RC Toulon,2,0.0,2,6.96,0.0,0.0,0.0
+1814,P. AZAGOH KOUADIO,Stade Français Paris,16,0.188,5,16.45,0.32,0.0,0.0
+2460,P. BARASSI,Stade Toulousain,9,0.667,5,6.38,0.87,1.16,0.29
+398,P. CECCARELLI,USA Perpignan,12,0.0,5,7.47,0.0,0.0,0.0
+1789,P. GABRILLAGUES,Stade Français Paris,16,0.688,5,10.7,0.0,0.47,0.0
+12302,P. SOWAKULA,ASM Clermont,12,0.667,5,10.03,0.0,1.29,0.0
+13641,P. TUIFUA,RC Toulon,0,0.0,0,,,,
+313,Pablo UBERTI,Union Bordeaux-Bègles,13,0.769,5,7.21,0.66,0.87,0.0
+1377,Paolo GARBISI,RC Toulon,8,0.875,5,5.0,0.23,0.68,0.0
+2645,Pascal COTET,Aviron Bayonnais,12,0.0,5,7.0,0.0,0.5,0.0
+415,Paul ABADIE,Stade Français Paris,11,0.273,5,10.05,0.0,1.49,0.0
+1802,Paul ALO EMILE,Stade Français Paris,15,0.067,5,17.32,0.0,0.41,0.0
+1017,Paul BOUDEHENT,Stade Rochelais,10,0.7,5,10.03,0.25,0.75,0.5
+2427,Paul COSTES,Stade Toulousain,10,0.8,5,4.34,0.0,2.17,0.0
+2463,Paul GRAOU,Stade Toulousain,18,0.333,5,5.76,1.52,2.42,0.3
+687,Paul JEDRASIAK,Castres Olympique,5,0.4,5,9.59,0.0,0.0,0.0
+2485,Paul MALLEZ,Stade Toulousain,5,0.2,5,8.21,0.0,0.0,1.23
+1385,Paul VALLEE,US Montauban,11,0.727,5,2.94,0.45,0.45,0.0
+2461,Peato MAUVAKA,Stade Toulousain,3,0.0,3,14.63,1.95,2.93,0.0
+679,Peceli YATO,USA Perpignan,14,0.5,5,10.26,0.29,1.47,0.88
+1757,Peniasi DAKUWAQA,Stade Français Paris,12,0.917,5,4.9,0.45,1.11,0.22
+279,Pierre BOCHATON,Union Bordeaux-Bègles,8,0.75,5,8.86,0.44,0.44,0.44
+999,Pierre BOURGARIT,Stade Rochelais,5,0.0,5,13.01,0.0,0.0,0.77
+11813,Pierre CASTILLON,Aviron Bayonnais,3,0.0,3,14.46,0.0,0.0,0.0
+637,Pierre COLONNA,Castres Olympique,6,0.167,5,9.58,0.0,0.0,0.0
+2329,Pierre DAMOND,RC Toulon,16,0.0,5,12.94,0.0,0.0,0.0
+2456,Pierre FOUYSSAC,ASM Clermont,4,0.5,4,8.5,0.39,1.16,0.0
+990,Pierre POPELIN,Castres Olympique,12,0.75,5,3.67,0.0,0.52,0.0
+906,Pio MUARUA,ASM Clermont,10,0.0,5,10.0,0.0,0.0,0.42
+1952,Posolo TUILAGI,USA Perpignan,6,0.167,5,13.75,0.0,0.83,0.83
+986,Quentin LESPIAUCQ,Stade Rochelais,10,0.0,5,6.26,0.45,0.45,0.45
+12499,Quentin VALENTINO,Section Paloise,1,0.0,1,4.71,0.0,0.0,0.0
+592,Quentin WALCKER,Castres Olympique,8,0.25,5,9.43,0.29,0.0,0.0
+12341,R. BONNARD MARTIN,Stade Toulousain,3,0.0,3,22.22,0.0,0.0,0.0
+12571,R. JANSE VAN RENSBURG,Union Bordeaux-Bègles,12,0.667,5,10.35,0.0,0.56,1.4
+2443,R. NETI,Stade Toulousain,10,0.2,5,6.67,0.0,0.0,0.0
+2395,R. PORTAT,Stade Toulousain,2,0.0,2,8.89,0.0,0.0,0.0
+13460,R. RICCITELLI,Montpellier Hérault Rugby,8,0.0,5,11.49,0.0,0.0,0.44
+1093,R. TAOFIFENUA,Racing 92,12,0.5,5,7.18,0.0,0.34,0.68
+14057,Raphael MARCHESIN,Aviron Bayonnais,2,0.0,2,15.48,0.0,0.0,0.0
+2381,Rayan REBBADJ,RC Toulon,4,0.75,4,4.69,1.17,1.17,0.0
+1000,Reda WARDI,Stade Rochelais,11,0.182,5,11.53,0.0,1.02,0.0
+1940,Reece HEWAT,Section Paloise,17,0.353,5,8.23,0.28,0.0,0.0
+2677,Remy BAGET,Castres Olympique,6,0.833,5,3.66,0.22,1.29,0.65
+13647,Robert LEOTA,Aviron Bayonnais,8,0.625,5,11.06,0.47,0.24,0.0
+5847,Robert SIMMONS,ASM Clermont,14,0.5,5,9.14,0.0,0.65,0.33
+12001,Robin COULY,Racing 92,1,0.0,1,20.74,0.0,0.0,0.0
+462,Rodrigo BRUNI,Aviron Bayonnais,12,0.75,5,10.28,0.67,1.56,0.22
+1790,Romain BRIATTE,Stade Français Paris,13,0.615,5,13.95,0.0,0.93,0.0
+318,Romain BUROS,Union Bordeaux-Bègles,10,0.7,5,2.9,0.29,0.29,0.0
+1873,Romain FONNICOLA,US Montauban,2,0.0,2,6.15,0.0,1.76,0.0
+2737,Romain GARDRAT,Union Bordeaux-Bègles,2,0.0,2,6.86,0.0,0.0,0.0
+1456,Romain MACURDY,Castres Olympique,1,0.0,1,22.86,0.0,0.0,0.0
+2436,Romain NTAMACK,Stade Toulousain,9,0.778,5,8.31,0.9,0.67,0.0
+2266,Ru-hann GREYLING,US Montauban,12,0.0,5,11.16,0.0,0.0,0.0
+1804,Ryan CHAPUIS,Stade Français Paris,5,0.4,5,13.6,0.0,0.32,0.32
+921,Régis MONTAGNE,ASM Clermont,13,0.077,5,9.02,0.0,0.29,0.29
+994,Rémi PICQUETTE,Section Paloise,6,0.0,5,7.55,0.0,0.0,0.0
+1889,Rémi SENECA,Section Paloise,10,0.0,5,17.33,0.0,0.89,0.0
+1736,S. ABRAMISHVILI,Stade Français Paris,5,0.0,5,13.39,0.0,0.0,0.0
+1747,S. AHMED,US Montauban,6,1.0,5,4.01,1.56,1.56,0.22
+555,S. ARATA PERRONE,Castres Olympique,12,0.667,5,7.0,0.0,1.33,0.0
+669,S. BEZY,ASM Clermont,8,0.125,5,10.75,0.0,1.19,0.0
+548,S. BURUIANA,Castres Olympique,1,0.0,1,10.0,0.0,0.0,0.0
+12612,S. CAMARA,Racing 92,4,0.25,4,11.94,0.0,0.6,0.6
+2397,S. CHOCOBARES,Stade Toulousain,7,0.857,5,5.76,0.0,1.77,0.0
+14049,S. MAFILE'O,US Montauban,0,0.0,0,,,,
+13637,S. MALOLO,USA Perpignan,6,0.167,5,11.84,1.6,0.96,0.32
+11803,S. MANYARARA,Racing 92,10,0.3,5,14.75,0.28,0.0,0.0
+12704,S. NOTSHE,US Montauban,12,0.417,5,6.86,0.0,0.0,0.0
+13613,S. RAVUTAUMADA,Racing 92,7,0.571,5,6.9,0.28,0.83,0.28
+1850,S. TOKOLAHI,Section Paloise,10,0.0,5,12.41,0.0,0.0,0.0
+2446,S. TOLOFUA,ASM Clermont,15,0.467,5,13.22,0.23,0.93,0.0
+429,S. TUICUVU,RC Toulon,10,0.7,5,2.65,0.53,0.0,0.79
+12357,S. TURAGACOKE,Stade Français Paris,0,0.0,0,,,,
+2023,Sacha LOTRIAN,ASM Clermont,10,0.0,5,15.33,0.0,0.96,0.0
+1914,Sacha ZEGUEUR,Section Paloise,15,0.533,5,16.42,0.0,0.0,0.0
+12774,Salesi RAYASI,Union Bordeaux-Bègles,14,0.571,5,2.51,1.0,0.5,0.0
+660,Samuel EZEALA,Stade Français Paris,13,0.692,5,4.91,0.58,0.0,0.29
+12647,Samuel JAMES,Racing 92,11,1.0,5,1.68,0.42,0.84,0.0
+8958,Samuel SIMMONDS,LOU Rugby,16,0.625,5,15.29,0.66,0.89,0.22
+1794,Sekou MACALOU,Stade Français Paris,10,0.4,5,12.78,0.0,0.41,0.82
+3221,Semi LAGIVALA,Stade Rochelais,10,0.4,5,6.59,0.29,1.15,0.0
+966,Simeli DAUNIVUCU,Stade Rochelais,7,0.429,5,11.98,0.39,0.39,0.0
+940,Simon HUCHET,Stade Rochelais,3,0.0,3,9.7,0.0,0.0,0.0
+533,Simon MEKA,Castres Olympique,3,0.333,3,13.07,0.0,0.0,0.0
+1244,Simon RENDA,US Montauban,11,0.636,5,6.89,0.53,0.26,0.26
+311,Sipili FALATEA,Union Bordeaux-Bègles,7,0.0,5,11.78,0.0,0.62,0.0
+2612,Sireli MAQALA,Aviron Bayonnais,14,0.643,5,6.93,0.89,1.34,0.22
+12786,Stuart HOGG,Montpellier Hérault Rugby,5,0.0,5,6.5,1.3,1.95,0.0
+13364,Suliasi VUNIVALU,Stade Rochelais,4,0.25,4,5.9,1.11,0.37,0.0
+2669,Swan CORMENIER,Aviron Bayonnais,7,0.0,5,5.79,0.0,0.0,0.0
+2363,Swan REBBADJ,RC Toulon,10,0.5,5,10.27,0.0,0.0,0.31
+1944,T. ATTISSOGBE,Section Paloise,4,0.75,4,5.93,0.0,1.48,0.3
+11695,T. BUTLIN,Section Paloise,0,0.0,0,,,,
+1895,T. DAUBAGNA,Section Paloise,14,0.286,5,7.52,0.68,0.34,0.34
+909,T. HALAIFONUA,Stade Français Paris,15,0.467,5,13.29,0.58,0.58,0.29
+981,T. KERR BARLOW,Stade Français Paris,14,0.214,5,6.96,0.0,0.0,0.32
+1289,T. LEZANA,US Montauban,2,0.0,2,2.86,0.0,0.0,0.0
+1769,T. MOTASSI DIBONGUE,Stade Français Paris,9,0.0,5,12.74,1.42,2.83,0.0
+2200,T. MOUKORO ABOUEM,LOU Rugby,13,0.0,5,19.28,0.0,0.0,0.0
+2486,T. NTAMACK MUYENGA,Stade Toulousain,11,0.364,5,9.72,1.33,1.33,0.88
+460,T. RATUVA,ASM Clermont,8,0.75,5,6.35,0.47,1.41,0.71
+640,T. STANIFORTH,Castres Olympique,14,0.357,5,14.88,0.0,0.37,0.0
+903,T. TAUFA,Union Bordeaux-Bègles,4,0.0,4,7.55,0.75,0.0,0.75
+1976,T. TEDDER,USA Perpignan,8,0.75,5,1.73,0.86,1.08,0.0
+336,Tani VILI,Stade Français Paris,8,0.875,5,5.85,0.43,0.65,0.22
+1047,Tavite VEREDAMU,USA Perpignan,7,0.857,5,6.68,1.29,0.86,0.22
+2373,Teddy BAUBIGNY,RC Toulon,18,0.167,5,9.83,0.0,0.27,0.0
+11435,Teddy DURAND,Castres Olympique,17,0.294,5,16.54,0.0,0.89,0.0
+987,Teddy THOMAS,Stade Toulousain,13,0.692,5,2.41,1.32,0.88,0.0
+205,Temo MATIU,Union Bordeaux-Bègles,14,0.643,5,7.56,0.42,0.42,0.21
+2674,Tevita TATAFU,Aviron Bayonnais,3,0.0,3,8.0,0.0,0.0,0.0
+1971,Theo FORNER,USA Perpignan,12,0.917,5,3.4,1.2,1.2,1.0
+1712,Theo MILLET,LOU Rugby,16,0.938,5,12.66,0.4,0.0,0.0
+1122,Theo WILLIAM,LOU Rugby,17,0.647,5,14.0,0.29,0.57,0.0
+2405,Thibaud FLAMENT,Stade Toulousain,9,0.667,5,8.61,0.28,0.83,0.28
+711,Thibaud LANEN,ASM Clermont,10,0.2,5,16.27,0.0,0.45,0.45
+1101,Thibaut REGARD,LOU Rugby,4,0.5,4,7.27,0.0,0.0,0.0
+984,Thierry PAIVA,Stade Français Paris,10,0.1,5,11.68,0.0,0.0,0.86
+2415,Thomas ALARY,Stade Toulousain,1,1.0,1,4.0,0.0,2.0,0.0
+1004,Thomas BERJON,Stade Rochelais,15,0.4,5,6.67,0.0,0.48,0.48
+2713,Thomas BUE,US Montauban,14,0.071,5,14.63,0.0,0.93,0.0
+1935,Thomas CAROL,Section Paloise,1,0.0,1,17.78,0.0,0.0,0.0
+2655,Thomas CEYTE,ASM Clermont,14,0.714,5,11.76,0.29,2.01,0.0
+1445,Thomas DARMON,Montpellier Hérault Rugby,5,0.0,5,7.72,0.7,0.0,0.0
+891,Thomas FORTUNEL,US Montauban,10,0.3,5,4.67,0.0,0.67,0.0
+320,Thomas JOLMES,Section Paloise,7,0.429,5,16.2,0.0,0.0,0.0
+1707,Thomas LACLAYAT,Section Paloise,16,0.125,5,8.42,0.0,0.0,0.6
+2429,Thomas LACOMBRE,Stade Toulousain,13,0.154,5,11.84,0.0,1.63,0.41
+888,Thomas LAINAULT,Racing 92,15,0.533,5,18.36,0.0,0.0,0.5
+626,Thomas LARREGAIN,US Montauban,3,0.667,3,3.25,0.0,0.41,0.41
+982,Thomas LAVAULT,Stade Rochelais,12,0.417,5,6.28,0.0,0.0,0.0
+1060,Thomas MARCELINE,LOU Rugby,2,0.0,2,13.58,1.51,0.0,0.0
+2450,Thomas RAMOS,Stade Toulousain,10,0.7,5,2.09,1.16,1.4,0.0
+1877,Thomas SOUVERBIE,Section Paloise,13,0.0,5,5.62,0.62,0.0,0.0
+88,Thomas VINCENT,Montpellier Hérault Rugby,5,0.2,5,7.57,0.0,0.47,0.0
+543,Théo CHABOUNI,Castres Olympique,15,0.933,5,2.8,0.4,1.4,0.2
+203,Tiaan JACOBS,Union Bordeaux-Bègles,13,0.385,5,9.62,0.0,0.44,0.0
+13540,Timéo FRIER,ASM Clermont,0,0.0,0,,,,
+1318,Tjiuee UANIVI,US Montauban,14,0.643,5,6.39,0.0,0.0,0.61
+13735,Tom BANKS,Montpellier Hérault Rugby,18,1.0,5,1.6,0.0,0.6,0.0
+11782,Tom BELKESSA,ASM Clermont,0,0.0,0,,,,
+1987,Tom ECOCHARD,USA Perpignan,15,0.4,5,10.55,0.36,0.36,0.0
+11741,Tom LEVEQUE,Aviron Bayonnais,1,0.0,1,0.0,0.0,0.0,0.0
+382,Tom RAFFY,ASM Clermont,8,0.125,5,4.77,0.0,0.0,0.0
+2753,Tom SPRING,Aviron Bayonnais,16,0.75,5,4.26,0.47,0.24,0.0
+14078,Tomas ALBORNOZ,RC Toulon,6,0.667,5,6.15,0.85,0.42,0.0
+13644,Tomas RAPETTI,Stade Toulousain,1,0.0,1,0.0,0.0,0.0,0.0
+9603,Tommaso ALLAN,USA Perpignan,8,0.5,5,1.73,0.58,0.58,0.0
+1858,Tumua MANU,Section Paloise,4,0.75,4,5.45,0.68,0.68,0.34
+550,Tyler ARDRON,Castres Olympique,12,0.75,5,11.64,0.25,0.5,0.5
+1383,Tyler DUGUID,Montpellier Hérault Rugby,17,0.706,5,12.34,0.0,0.0,0.22
+1312,Tyrone VIIGA,US Montauban,9,0.444,5,10.99,0.28,0.0,0.0
+309,Ugo BONIFACE,Union Bordeaux-Bègles,4,0.0,4,10.26,0.0,2.05,0.0
+11875,Ugo PACOME,Stade Rochelais,7,0.571,5,2.02,0.0,0.67,0.0
+12473,Ugo SEUNES,Racing 92,16,0.75,5,4.39,0.73,0.24,0.24
+983,Uini ATONIO,Stade Rochelais,3,0.0,3,3.92,0.0,0.0,0.0
+950,Ultan DILLANE,Stade Rochelais,6,0.333,5,8.2,0.0,0.33,0.33
+988,Ulupano SEUTENI,Stade Rochelais,12,0.583,5,3.59,0.51,1.54,0.0
+12387,Upaleto FEAO,Stade Rochelais,2,0.0,2,8.16,0.0,0.0,0.0
+549,V. BOTITU,Castres Olympique,13,0.692,5,6.53,0.48,0.73,0.0
+2414,V. DELPY,Stade Toulousain,4,0.75,4,5.31,0.28,0.56,0.0
+13811,V. FIFITA,US Montauban,15,0.6,5,5.1,0.0,0.0,0.0
+1424,V. GIUDICELLI,Aviron Bayonnais,7,0.0,5,12.92,0.5,0.0,0.0
+13482,V. HUTTEAU,Union Bordeaux-Bègles,10,0.1,5,2.07,0.41,2.07,0.41
+13511,V. KARAWALEVU,Castres Olympique,10,0.6,5,2.74,1.37,0.69,0.0
+2009,V. MONTGAILLARD,USA Perpignan,5,0.0,5,17.25,0.0,0.0,0.52
+1264,V. RAMOTOTABUA,Castres Olympique,6,0.167,5,13.27,0.0,0.0,0.36
+10999,V. SIMUTOGA,US Montauban,11,0.091,5,9.55,0.0,0.0,0.45
+1397,V. WELSCH,Montpellier Hérault Rugby,2,0.0,2,11.85,0.0,0.0,0.0
+3063,Victor HANNOUN,Aviron Bayonnais,3,1.0,3,3.84,0.0,0.0,0.35
+1991,Victor MOREAUX,US Montauban,2,0.0,2,8.89,0.0,2.96,0.0
+12461,Viliami VUNIPOLA,Montpellier Hérault Rugby,15,0.8,5,11.3,0.0,0.9,0.0
+2132,Vinaya HABOSI,Racing 92,16,0.688,5,7.56,0.29,1.45,0.58
+1437,Vincent RATTEZ,LOU Rugby,3,0.667,3,6.4,0.0,1.37,0.46
+11673,Vladi ASHVETIA,Racing 92,2,0.5,2,6.96,1.39,0.7,0.0
+574,W. HOUNKPATIN,Montpellier Hérault Rugby,15,0.067,5,10.49,0.0,0.3,0.9
+916,W. HULLEU,Racing 92,13,0.846,5,3.87,0.91,0.68,0.0
+1245,Wame NAITUVI,Racing 92,2,0.5,2,3.2,1.6,1.6,0.0
+11839,Will ROWLANDS,Racing 92,6,0.667,5,14.21,0.0,0.26,0.26
+12516,William COLLIER,Castres Olympique,9,0.111,5,7.72,0.0,0.0,0.35
+1015,William SKELTON,Stade Rochelais,5,0.6,5,4.06,0.0,0.62,0.0
+3536,Xan MOUSQUES,Union Bordeaux-Bègles,10,0.5,5,4.93,0.0,1.14,0.0
+338,Y. FALATEA MOEFANA,Union Bordeaux-Bègles,5,0.4,5,6.74,0.28,2.25,0.0
+975,Y. TANGA MANGENE,Stade Français Paris,14,0.286,5,13.81,0.81,0.81,1.22
+1434,Yacouba CAMARA,Montpellier Hérault Rugby,10,0.7,5,10.58,0.0,0.49,0.74
+13447,Yanis BASSE,Racing 92,9,0.0,5,20.22,0.0,0.0,0.0
+1753,Yanis LUX,Stade Français Paris,1,0.0,1,8.28,0.0,0.0,0.0
+11002,Yerim FALL,ASM Clermont,4,1.0,4,4.0,0.0,0.0,0.25
+2628,Yohan ORABE,Aviron Bayonnais,13,0.462,5,4.51,1.0,0.75,0.0
+1917,Youri DELHOMMEL,Section Paloise,17,0.118,5,12.63,0.0,0.0,0.7
+1897,Yvan REILHAC,US Montauban,2,1.0,2,3.24,1.08,1.62,0.0
+1373,Z. MERCER,RC Toulon,15,0.4,5,9.95,0.0,1.19,0.0
+1939,Zack HENRY,Stade Français Paris,2,0.5,2,4.44,0.0,0.74,0.0

@@ -1,0 +1,91 @@
+# Rugby Rating Engine — Pondérations par poste (v3 Groupes LNR)
+# Mode Groupes LNR : FRONT_ROW (Piliers+Talonneur) / BACK_ROW (Flankers+N°8)
+# weight : importance du critère (somme ≈ 1.0 par poste)
+# negative : true = un score bas est meilleur (pénalités, erreurs...)
+
+FRONT_ROW:
+  # Moyenne pondérée des anciens PROP + HOOKER
+  penalties_per80:      {weight: 0.17, negative: true}
+  ruck_arrivals_per80:  {weight: 0.13, negative: false}
+  tackles_per80:        {weight: 0.12, negative: false}
+  tackle_success_pct:   {weight: 0.10, negative: false}
+  scrum_success_pct:    {weight: 0.11, negative: false}
+  lineout_wins_per80:   {weight: 0.10, negative: false}
+  turnovers_won_per80:  {weight: 0.09, negative: false}
+  carries_per80:        {weight: 0.09, negative: false}
+  errors_per80:         {weight: 0.09, negative: true}
+
+LOCK:
+  lineout_wins_per80:   {weight: 0.20, negative: false}
+  ruck_arrivals_per80:  {weight: 0.16, negative: false}
+  tackles_per80:        {weight: 0.12, negative: false}
+  penalties_per80:      {weight: 0.14, negative: true}
+  carries_per80:        {weight: 0.10, negative: false}
+  meters_per80:         {weight: 0.08, negative: false}
+  turnovers_won_per80:  {weight: 0.10, negative: false}
+  errors_per80:         {weight: 0.10, negative: true}
+
+BACK_ROW:
+  # Moyenne pondérée des anciens FLANKER + NUMBER_8
+  turnovers_won_per80:  {weight: 0.16, negative: false}
+  tackles_per80:        {weight: 0.15, negative: false}
+  carries_per80:        {weight: 0.12, negative: false}
+  ruck_arrivals_per80:  {weight: 0.12, negative: false}
+  penalties_per80:      {weight: 0.11, negative: true}
+  meters_per80:         {weight: 0.10, negative: false}
+  offloads_per80:       {weight: 0.07, negative: false}
+  line_breaks_per80:    {weight: 0.05, negative: false}
+  errors_per80:         {weight: 0.07, negative: true}
+  tackle_success_pct:   {weight: 0.05, negative: false}
+
+SCRUM_HALF:
+  passes_per80:         {weight: 0.20, negative: false}
+  turnovers_lost_per80: {weight: 0.16, negative: true}
+  kick_meters_per80:    {weight: 0.14, negative: false}
+  penalties_per80:      {weight: 0.10, negative: true}
+  line_breaks_per80:    {weight: 0.08, negative: false}
+  tackles_per80:        {weight: 0.06, negative: false}
+  meters_per80:         {weight: 0.06, negative: false}
+  errors_per80:         {weight: 0.10, negative: true}
+  points_scored_per80:  {weight: 0.10, negative: false}
+
+FLY_HALF:
+  points_scored_per80:  {weight: 0.18, negative: false}
+  kick_meters_per80:    {weight: 0.18, negative: false}
+  passes_per80:         {weight: 0.12, negative: false}
+  turnovers_lost_per80: {weight: 0.14, negative: true}
+  penalties_per80:      {weight: 0.10, negative: true}
+  line_breaks_per80:    {weight: 0.08, negative: false}
+  meters_per80:         {weight: 0.08, negative: false}
+  errors_per80:         {weight: 0.12, negative: true}
+
+WINGER:
+  meters_per80:         {weight: 0.22, negative: false}
+  line_breaks_per80:    {weight: 0.18, negative: false}
+  points_scored_per80:  {weight: 0.16, negative: false}
+  tackle_success_pct:   {weight: 0.10, negative: false}
+  errors_per80:         {weight: 0.12, negative: true}
+  turnovers_lost_per80: {weight: 0.10, negative: true}
+  offloads_per80:       {weight: 0.08, negative: false}
+  tackles_per80:        {weight: 0.04, negative: false}
+
+CENTRE:
+  meters_per80:         {weight: 0.16, negative: false}
+  line_breaks_per80:    {weight: 0.14, negative: false}
+  tackles_per80:        {weight: 0.14, negative: false}
+  tackle_success_pct:   {weight: 0.10, negative: false}
+  passes_per80:         {weight: 0.08, negative: false}
+  offloads_per80:       {weight: 0.10, negative: false}
+  turnovers_lost_per80: {weight: 0.12, negative: true}
+  penalties_per80:      {weight: 0.08, negative: true}
+  errors_per80:         {weight: 0.08, negative: true}
+
+FULLBACK:
+  meters_per80:         {weight: 0.18, negative: false}
+  kick_meters_per80:    {weight: 0.18, negative: false}
+  line_breaks_per80:    {weight: 0.14, negative: false}
+  errors_per80:         {weight: 0.14, negative: true}
+  tackle_success_pct:   {weight: 0.10, negative: false}
+  points_scored_per80:  {weight: 0.08, negative: false}
+  passes_per80:         {weight: 0.08, negative: false}
+  turnovers_lost_per80: {weight: 0.10, negative: true}

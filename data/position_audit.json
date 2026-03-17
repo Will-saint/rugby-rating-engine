@@ -1,0 +1,177 @@
+{
+  "summary": {
+    "n_unique_position_raw": 8,
+    "n_players_total": 554,
+    "n_explicit_mappings": 8,
+    "n_keyword_fallbacks": 0,
+    "n_unmapped": 0,
+    "n_players_unmapped": 0,
+    "pct_explicit": 100.0,
+    "pct_keyword": 0.0,
+    "pct_unknown": 0.0,
+    "has_statbunker": false,
+    "conclusion": "Source LNR-only -> postes fins IMPOSSIBLES. LNR ne differencie pas Pilier/Talonneur ni Flanker/N8 dans ses donnees. Postes en groupes : FRONT_ROW (1,2,3) / LOCK (4,5) / BACK_ROW (6,7,8). Integrer Statbunker pour obtenir HOOKER et NUMBER_8."
+  },
+  "by_position_raw": [
+    {
+      "position_raw": "1ère ligne",
+      "count": 157,
+      "position_group": "FRONT_ROW",
+      "position_source": "lnr_explicit",
+      "examples": [
+        {
+          "name": "B. Massa",
+          "team": "Clermont"
+        },
+        {
+          "name": "C. Ojovan",
+          "team": "Clermont"
+        },
+        {
+          "name": "Giorgi Akhaladze",
+          "team": "Clermont"
+        }
+      ]
+    },
+    {
+      "position_raw": "3ème ligne",
+      "count": 93,
+      "position_group": "BACK_ROW",
+      "position_source": "lnr_explicit",
+      "examples": [
+        {
+          "name": "Killian Tixeront",
+          "team": "Clermont"
+        },
+        {
+          "name": "Anthime Hemery",
+          "team": "Clermont"
+        },
+        {
+          "name": "P. Sowakula",
+          "team": "Clermont"
+        }
+      ]
+    },
+    {
+      "position_raw": "Centre",
+      "count": 78,
+      "position_group": "CENTRE",
+      "position_source": "lnr_explicit",
+      "examples": [
+        {
+          "name": "S. Tolofua",
+          "team": "Clermont"
+        },
+        {
+          "name": "Joris Jurand",
+          "team": "Clermont"
+        },
+        {
+          "name": "A. Loaloa",
+          "team": "Clermont"
+        }
+      ]
+    },
+    {
+      "position_raw": "2ème ligne",
+      "count": 71,
+      "position_group": "LOCK",
+      "position_source": "lnr_explicit",
+      "examples": [
+        {
+          "name": "Thomas Ceyte",
+          "team": "Clermont"
+        },
+        {
+          "name": "Robert Simmons",
+          "team": "Clermont"
+        },
+        {
+          "name": "Thibaud Lanen",
+          "team": "Clermont"
+        }
+      ]
+    },
+    {
+      "position_raw": "Demi de mêlée",
+      "count": 42,
+      "position_group": "SCRUM_HALF",
+      "position_source": "lnr_explicit",
+      "examples": [
+        {
+          "name": "B. Jauneau",
+          "team": "Clermont"
+        },
+        {
+          "name": "Lucas Zamora",
+          "team": "Clermont"
+        },
+        {
+          "name": "S. Bezy",
+          "team": "Clermont"
+        }
+      ]
+    },
+    {
+      "position_raw": "Ailier",
+      "count": 41,
+      "position_group": "WINGER",
+      "position_source": "lnr_explicit",
+      "examples": [
+        {
+          "name": "B. Delguy",
+          "team": "Clermont"
+        },
+        {
+          "name": "Lucas Tauzin",
+          "team": "Clermont"
+        },
+        {
+          "name": "A. Raka",
+          "team": "Clermont"
+        }
+      ]
+    },
+    {
+      "position_raw": "Demi d'ouverture",
+      "count": 39,
+      "position_group": "FLY_HALF",
+      "position_source": "lnr_explicit",
+      "examples": [
+        {
+          "name": "Tom Raffy",
+          "team": "Clermont"
+        },
+        {
+          "name": "G. Anscombe",
+          "team": "Bayonne"
+        },
+        {
+          "name": "Enzo Herve",
+          "team": "Castres"
+        }
+      ]
+    },
+    {
+      "position_raw": "Arrière",
+      "count": 33,
+      "position_group": "FULLBACK",
+      "position_source": "lnr_explicit",
+      "examples": [
+        {
+          "name": "Kylan Hamdaoui",
+          "team": "Clermont"
+        },
+        {
+          "name": "Alex Newsome",
+          "team": "Clermont"
+        },
+        {
+          "name": "Axel Guillaud",
+          "team": "Clermont"
+        }
+      ]
+    }
+  ]
+}

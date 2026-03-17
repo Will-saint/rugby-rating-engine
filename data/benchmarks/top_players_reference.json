@@ -1,0 +1,43 @@
+{
+  "version": "2025-2026",
+  "description": "Reference tier list for Top14 2025-2026 — expert assessment (manual)",
+  "tiers": {
+    "S": "Elite — meilleur du monde au poste, doit figurer dans le Top 5 de sa position",
+    "A": "Tres bon — international regulier, doit figurer dans le Top 15 de sa position",
+    "B": "Bon niveau Top14 — doit figurer dans le Top 30 de sa position"
+  },
+  "thresholds": {
+    "S_top_global": 50,
+    "S_top_position": 5,
+    "A_top_global": 100,
+    "A_top_position": 15,
+    "B_top_position": 30
+  },
+  "players": [
+    {"name": "Antoine Dupont",    "team": "Toulouse",    "position_group": "SCRUM_HALF", "tier": "S", "note": "Meilleur joueur mondial 2023"},
+    {"name": "Romain Ntamack",    "team": "Toulouse",    "position_group": "FLY_HALF",   "tier": "S", "note": "Ouvreur de reference francais"},
+    {"name": "Thomas Ramos",      "team": "Toulouse",    "position_group": "FULLBACK",   "tier": "S", "note": "Top 3 mondial arriere"},
+    {"name": "Gregory Alldritt",  "team": "La Rochelle", "position_group": "BACK_ROW",   "tier": "S", "note": "Meilleur N8 europeen"},
+    {"name": "Damian Penaud",     "team": "Clermont",    "position_group": "WINGER",     "tier": "S", "note": "Meilleur ailier francais"},
+    {"name": "Uini Atonio",       "team": "La Rochelle", "position_group": "FRONT_ROW",  "tier": "S", "note": "Pilier reference mundial"},
+    {"name": "Matthieu Jalibert", "team": "Bordeaux",    "position_group": "FLY_HALF",   "tier": "A", "note": "Ouvreur international regulier"},
+    {"name": "Maxime Lucu",       "team": "Bordeaux",    "position_group": "SCRUM_HALF", "tier": "A", "note": "Demi de melee international"},
+    {"name": "Nolann Le Garrec",  "team": "Racing 92",   "position_group": "SCRUM_HALF", "tier": "A", "note": "Demi de melee talentueux"},
+    {"name": "Francois Cros",     "team": "Toulouse",    "position_group": "BACK_ROW",   "tier": "A", "note": "Flanker international francais"},
+    {"name": "Charles Ollivon",   "team": "Toulon",      "position_group": "BACK_ROW",   "tier": "A", "note": "Capitaine XV de France"},
+    {"name": "Dylan Cretin",      "team": "Lyon",        "position_group": "BACK_ROW",   "tier": "A", "note": "Flanker international"},
+    {"name": "Matthis Lebel",     "team": "Toulouse",    "position_group": "CENTRE",     "tier": "A", "note": "Centre international France"},
+    {"name": "Jonathan Danty",    "team": "La Rochelle", "position_group": "CENTRE",     "tier": "A", "note": "Centre international puissant"},
+    {"name": "Gabin Villiere",    "team": "Toulon",      "position_group": "WINGER",     "tier": "A", "note": "Ailier international france"},
+    {"name": "Jack Willis",       "team": "Toulouse",    "position_group": "BACK_ROW",   "tier": "A", "note": "Flanker anglais tres productif"},
+    {"name": "Cameron Woki",      "team": "Bordeaux",    "position_group": "LOCK",       "tier": "A", "note": "2eme ligne international"},
+    {"name": "Thibaud Flament",   "team": "Toulouse",    "position_group": "LOCK",       "tier": "A", "note": "2eme ligne france"},
+    {"name": "Demba Bamba",       "team": "Racing 92",   "position_group": "FRONT_ROW",  "tier": "B", "note": "Pilier international France"},
+    {"name": "Hugo Auradou",      "team": "Pau",         "position_group": "LOCK",       "tier": "B", "note": "2eme ligne prometteur"},
+    {"name": "Teddy Thomas",      "team": "Toulouse",    "position_group": "WINGER",     "tier": "B", "note": "Ailier rapide international"},
+    {"name": "Paul Graou",        "team": "Toulouse",    "position_group": "SCRUM_HALF", "tier": "B", "note": "Demi de melee remplacant Dupont"},
+    {"name": "Baptiste Couilloud","team": "Lyon",        "position_group": "SCRUM_HALF", "tier": "A", "note": "Demi de melee international France"},
+    {"name": "Ethan Dumortier",   "team": "Lyon",        "position_group": "CENTRE",     "tier": "B", "note": "Centre prometteur"},
+    {"name": "Oscar Jegou",       "team": "La Rochelle", "position_group": "BACK_ROW",   "tier": "A", "note": "Flanker international"}
+  ]
+}
