@@ -113,6 +113,75 @@ with cc_mid:
 
 st.divider()
 
+# --- Section Internationale (si données disponibles) ---
+intl_axes = ["axis_course_intl","axis_distrib_intl","axis_kicking_intl",
+             "axis_physique_intl","axis_rigueur_intl","axis_danger_intl","axis_melee_intl"]
+intl_labels = ["Course","Distrib","Kicking","Physique","Rigueur","Danger","Mêlée"]
+
+has_intl_a = any(player_a.get(a) not in (None, float("nan"), "") and str(player_a.get(a)) != "nan"
+                 for a in intl_axes)
+has_intl_b = any(player_b.get(a) not in (None, float("nan"), "") and str(player_b.get(a)) != "nan"
+                 for a in intl_axes)
+
+if has_intl_a or has_intl_b:
+    st.subheader("Profil International (données Naim — ESPN Tests 2016–2024)")
+    intl_col1, intl_col2 = st.columns(2)
+
+    def safe_intl_val(p, col):
+        v = p.get(col)
+        try:
+            return float(v) if v is not None and str(v) != "nan" else None
+        except (ValueError, TypeError):
+            return None
+
+    with intl_col1:
+        ri_a = safe_intl_val(player_a, "rating_intl")
+        if ri_a:
+            st.metric("Note Intl", f"{ri_a:.1f}",
+                      delta=f"{ri_a - player_a.get('rating', 0):.1f} vs T14",
+                      help="Note internationale Naim")
+            st.caption(f"🌍 {player_a.get('team_intl','')} · {int(player_a.get('matches_intl',0))} caps")
+        else:
+            st.caption(f"_{player_a_name} : pas de données intl_")
+
+    with intl_col2:
+        ri_b = safe_intl_val(player_b, "rating_intl")
+        if ri_b:
+            st.metric("Note Intl", f"{ri_b:.1f}",
+                      delta=f"{ri_b - player_b.get('rating', 0):.1f} vs T14",
+                      help="Note internationale Naim")
+            st.caption(f"🌍 {player_b.get('team_intl','')} · {int(player_b.get('matches_intl',0))} caps")
+        else:
+            st.caption(f"_{player_b_name} : pas de données intl_")
+
+    # Radar intl superposé (uniquement joueurs avec données)
+    if has_intl_a or has_intl_b:
+        fig_intl = go.Figure()
+        for player, name, color, has_data in [
+            (player_a, player_a_name, "#EF4444", has_intl_a),
+            (player_b, player_b_name, "#3B82F6", has_intl_b),
+        ]:
+            if not has_data:
+                continue
+            vals = [safe_intl_val(player, a) or 50 for a in intl_axes]
+            closed = vals + [vals[0]]
+            fig_intl.add_trace(go.Scatterpolar(
+                r=closed, theta=intl_labels + [intl_labels[0]],
+                fill="toself",
+                fillcolor=hex_rgba(color, 0.15),
+                line=dict(color=color, width=2),
+                name=f"{name} (Intl)",
+            ))
+        fig_intl.update_layout(
+            polar=dict(radialaxis=dict(visible=True, range=[0, 100])),
+            legend=dict(x=0.5, y=-0.1, xanchor="center", orientation="h"),
+            margin=dict(l=20, r=20, t=20, b=40),
+            height=350,
+            paper_bgcolor="rgba(0,0,0,0)",
+        )
+        st.plotly_chart(fig_intl, use_container_width=True)
+    st.divider()
+
 # --- Comparaison barre horizontale par axe ---
 st.subheader("Duel axe par axe")
 
@@ -169,21 +238,27 @@ st.divider()
 
 # --- Stats numériques brutes ---
 st.subheader("Stats brutes comparées")
+# Uniquement les stats disponibles à 100% (LNR public sans paywall)
 stat_keys = [
-    "tackles_per80", "tackle_success_pct", "penalties_per80",
-    "turnovers_won_per80", "turnovers_lost_per80", "carries_per80",
-    "meters_per80", "line_breaks_per80", "offloads_per80",
-    "passes_per80", "kick_meters_per80", "points_scored_per80",
+    "tackles_per80", "line_breaks_per80", "offloads_per80",
+    "turnovers_won_per80", "points_scored_per80", "tries_per80",
+    "yellow_cards", "orange_cards", "red_cards",
+    "minutes_total", "matches_played",
 ]
 labels_map = {
-    "tackles_per80": "Plaquages /80", "tackle_success_pct": "% Plaquages",
-    "penalties_per80": "Pénalités /80", "turnovers_won_per80": "TO gagnés /80",
-    "turnovers_lost_per80": "TO perdus /80", "carries_per80": "Courses /80",
-    "meters_per80": "Mètres /80", "line_breaks_per80": "Franchissements /80",
-    "offloads_per80": "Offloads /80", "passes_per80": "Passes /80",
-    "kick_meters_per80": "Mètres au pied /80", "points_scored_per80": "Points /80",
+    "tackles_per80": "Plaquages /80",
+    "line_breaks_per80": "Franchissements /80",
+    "offloads_per80": "Offloads /80",
+    "turnovers_won_per80": "Ballons grattés /80",
+    "points_scored_per80": "Points /80",
+    "tries_per80": "Essais /80",
+    "yellow_cards": "Cartons jaunes",
+    "orange_cards": "Cartons oranges",
+    "red_cards": "Cartons rouges",
+    "minutes_total": "Minutes totales",
+    "matches_played": "Matchs joués",
 }
-negative_stats = {"penalties_per80", "turnovers_lost_per80"}
+negative_stats = {"yellow_cards", "orange_cards", "red_cards"}
 
 raw_rows = []
 for k in stat_keys:

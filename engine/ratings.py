@@ -271,6 +271,13 @@ def calculate_ratings(df: pd.DataFrame) -> pd.DataFrame:
         lambda s: s.rank(pct=True) * 100
     ).round(1)
 
+    # Enrichissement données internationales (Naim)
+    try:
+        from engine.merge_intl import enrich_with_intl
+        combined = enrich_with_intl(combined)
+    except Exception as e:
+        print(f"[MERGE] Enrichissement intl ignoré : {e}")
+
     return combined
 
 

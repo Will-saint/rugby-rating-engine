@@ -29,10 +29,28 @@ def load_intl() -> pd.DataFrame:
 
 
 try:
-    df = load_intl()
+    df_raw = load_intl()
 except FileNotFoundError:
     st.error("Fichier `data/international_ratings.csv` introuvable.")
     st.stop()
+
+# ---------------------------------------------------------------------------
+# Filtre recency (sidebar) — exclure les joueurs retraités
+# ---------------------------------------------------------------------------
+st.sidebar.markdown("---")
+st.sidebar.markdown("**Filtre Internationaux**")
+min_caps = st.sidebar.slider("Caps minimum", 1, 30, 5, key="intl_caps",
+    help="Exclut les joueurs avec peu de sélections")
+max_age = st.sidebar.slider("Âge max", 25, 45, 38, key="intl_age",
+    help="Limite aux joueurs en activité. 38 = exclut la plupart des retraités")
+only_top_cluster = st.sidebar.checkbox("Top nations uniquement (cluster_1)", value=False, key="intl_cluster")
+
+df = df_raw.copy()
+df = df[df["matches_intl"] >= min_caps]
+if "Age" in df.columns:
+    df = df[df["Age"].isna() | (df["Age"] <= max_age)]
+if only_top_cluster:
+    df = df[df["cluster"] == "cluster_1"]
 
 # ---------------------------------------------------------------------------
 # En-tête
@@ -41,7 +59,7 @@ except FileNotFoundError:
 st.title("Classements Internationaux")
 st.markdown(
     "**Source :** Analyse Naim (M2PSTB) — ESPN Tests 2016–2024 · "
-    f"**{len(df):,} joueurs** · 20 nations · 7 axes (Naim methodology)"
+    f"**{len(df):,} joueurs** (/{len(df_raw):,} total) · 20 nations · 7 axes (Naim methodology)"
 )
 st.info(
     "Ces notes mesurent la **performance en tests internationaux** (6 Nations, Coupe du Monde, "

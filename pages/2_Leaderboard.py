@@ -137,7 +137,9 @@ with tab_pos:
         extra_cols.append("rating_value")
     if "has_prior" in view.columns:
         extra_cols.append("has_prior")
-    display_cols = ["name", "team", "nationality", "rating"] + extra_cols + [
+    has_intl = "rating_intl" in view.columns and view["rating_intl"].notna().any()
+    intl_extra = ["rating_intl", "team_intl"] if has_intl else []
+    display_cols = ["name", "team", "nationality", "rating"] + extra_cols + intl_extra + [
         "axis_att", "axis_def", "axis_disc", "axis_ctrl", "axis_kick", "axis_pow"
     ]
     col_labels = {
@@ -147,11 +149,14 @@ with tab_pos:
         "confidence_badge": "Confiance", "confidence_score": "Confiance %",
         "matches_played": "Matchs", "minutes_bucket": "Temps jeu",
         "data_insufficient": "DATA?", "rank_position": "Rang",
-        "axis_att": "CARRY", "axis_def": "DEF", "axis_disc": "DISC",
-        "axis_ctrl": "BRKD", "axis_kick": "KICK", "axis_pow": "SETP",
+        "rating_intl": "🌍 Note Intl", "team_intl": "Sélection",
+        "axis_att": "Course", "axis_def": "Physique", "axis_disc": "Rigueur",
+        "axis_ctrl": "Distrib", "axis_kick": "Kicking", "axis_pow": "Danger",
     }
-    display_df = view[display_cols].rename(columns=col_labels)
-    grad_cols = ["Note", "CARRY", "DEF", "DISC", "BRKD", "KICK", "SETP"]
+    display_df = view[[c for c in display_cols if c in view.columns]].rename(columns=col_labels)
+    grad_cols = ["Note Saison", "Course", "Physique", "Rigueur", "Distrib", "Kicking", "Danger"]
+    if "🌍 Note Intl" in display_df.columns:
+        grad_cols.append("🌍 Note Intl")
     if "Confiance %" in display_df.columns:
         grad_cols.append("Confiance %")
     st.dataframe(
@@ -209,15 +214,19 @@ with tab_global:
     st.plotly_chart(fig_g, use_container_width=True)
 
     g_extra = [g_col] if g_col != "rating" and g_col in view_g.columns else []
-    display_g = view_g[["name", "position_group", "team", "nationality", "rating"] + g_extra + [
+    has_intl_g = "rating_intl" in view_g.columns and view_g["rating_intl"].notna().any()
+    intl_g_cols = ["rating_intl", "team_intl"] if has_intl_g else []
+    g_base_cols = ["name", "position_group", "team", "nationality", "rating"] + g_extra + intl_g_cols + [
         "axis_att", "axis_def", "axis_disc", "axis_ctrl", "axis_kick", "axis_pow"
-    ]].rename(columns={
+    ]
+    display_g = view_g[[c for c in g_base_cols if c in view_g.columns]].rename(columns={
         "name": "Joueur", "position_group": "Poste", "team": "Equipe",
         "nationality": "Nationalité", "rating": "Note Saison", "rating_value": "Note Valeur",
-        "axis_att": "CARRY", "axis_def": "DEF", "axis_disc": "DISC",
-        "axis_ctrl": "BRKD", "axis_kick": "KICK", "axis_pow": "SETP",
+        "rating_intl": "🌍 Note Intl", "team_intl": "Sélection",
+        "axis_att": "Course", "axis_def": "Physique", "axis_disc": "Rigueur",
+        "axis_ctrl": "Distrib", "axis_kick": "Kicking", "axis_pow": "Danger",
     })
-    g_grad = [c for c in ["Note Saison", "Note Valeur", "CARRY", "DEF", "DISC", "BRKD", "KICK", "SETP"] if c in display_g.columns]
+    g_grad = [c for c in ["Note Saison", "Note Valeur", "🌍 Note Intl", "Course", "Physique", "Rigueur", "Distrib", "Kicking", "Danger"] if c in display_g.columns]
     st.dataframe(
         display_g.style.background_gradient(subset=g_grad, cmap="YlOrRd"),
         use_container_width=True,
