@@ -1,23 +1,23 @@
 """
-Rugby Rating Engine v3 — Z-score par poste.
+Rugby Rating Engine v4 — Architecture 7 axes (inspiré Naim/M2PSTB).
 
 Pipeline :
-  1. Z-score chaque métrique dans le poste (clip ±3).
-  2. Discipline : P = 0.6·YC + 1.2·OC + 2.0·RC → Z-scoré dans le poste.
-  3. score_raw = clip(50 + 10 · S_pos, 0, 100)
-       où S_pos = Σ w_m · Z_m  −  w_disc · Z_P
-  4. Fiabilité : conf = clip(minutes_total / p90_minutes_pos, 0, 1)
-  5. score_final = conf · score_raw + (1 − conf) · 50
-  6. rating = clip(40 + 0.6 · score_final, 40, 99)
-  7. 6 axes visuels (Z-scores intra-poste → 0–100)
+  1. Discipline per80 = (0.6·YC + 1.2·OC + 2.0·RC) / min_total * 80
+  2. Min-max [p5, p95] pour chaque métrique dans le groupe de poste.
+  3. 6 axes (0-100) :
+       Course      = line_breaks_per80  (franchissements)
+       Distribution = offloads_per80    (jeu de bras)
+       Kicking     = points_scored_per80 (impact offensif/points)
+       Physique    = tackles_per80      (puissance défensive)
+       Rigueur     = 100 - disc_per80   (discipline, inversé)
+       Danger      = 0.6·tries_per80 + 0.4·turnovers_won_per80
+  4. score_raw = Σ(axe_i · poids_position_i) / 100   → [0, 100]
+  5. conf = clip(minutes_total / p90_minutes_poste, 0, 1)
+  6. score_final = conf · score_raw + (1 − conf) · 50
+  7. rating = clip(40 + 0.6 · score_final, 40, 99)
 
-Seules les métriques disponibles dans les données LNR publiques sont utilisées :
-  TACK  = tackles_per80        (100 % coverage)
-  LB    = line_breaks_per80    (100 % coverage)
-  OFF   = offloads_per80       (100 % coverage)
-  TOw   = turnovers_won_per80  (100 % coverage)
-  PTS   = points_scored_per80  (100 % coverage)
-  Disc  = yellow/orange/red_cards  (via P score)
+Poids de position issus des travaux de Naim (categ_weight_cluster1.csv),
+Mêlée redistribuée sur Rigueur (pas de données disponibles en Top14 public).
 """
 
 import pandas as pd
@@ -26,137 +26,53 @@ from pathlib import Path
 
 
 # ---------------------------------------------------------------------------
-# Pondérations par poste
-# Les poids somment à 1.0 (hors discipline).
-# w_disc est le coefficient du malus discipline dans S_pos.
+# Poids des 6 axes par poste (issus de Naim, adaptés Top14)
+# Somme = 100 pour chaque poste.
+# Mêlée = 0 (données indisponibles) → poids redistribués sur Rigueur.
 # ---------------------------------------------------------------------------
 
-POS_WEIGHTS: dict[str, dict] = {
-    "FRONT_ROW": {
-        "metrics": {
-            "tackles_per80":       0.50,
-            "turnovers_won_per80": 0.30,
-            "offloads_per80":      0.15,
-            "points_scored_per80": 0.05,
-        },
-        "w_disc": 0.20,
-    },
-    "LOCK": {
-        "metrics": {
-            "tackles_per80":       0.55,
-            "turnovers_won_per80": 0.25,
-            "points_scored_per80": 0.10,
-            "offloads_per80":      0.10,
-        },
-        "w_disc": 0.20,
-    },
-    "BACK_ROW": {
-        "metrics": {
-            "turnovers_won_per80": 0.35,
-            "tackles_per80":       0.30,
-            "offloads_per80":      0.15,
-            "line_breaks_per80":   0.10,
-            "points_scored_per80": 0.10,
-        },
-        "w_disc": 0.20,
-    },
-    "SCRUM_HALF": {
-        "metrics": {
-            "offloads_per80":      0.30,
-            "line_breaks_per80":   0.25,
-            "points_scored_per80": 0.20,
-            "tackles_per80":       0.15,
-            "turnovers_won_per80": 0.10,
-        },
-        "w_disc": 0.20,
-    },
-    "FLY_HALF": {
-        "metrics": {
-            "points_scored_per80": 0.45,
-            "line_breaks_per80":   0.20,
-            "offloads_per80":      0.15,
-            "tackles_per80":       0.10,
-            "turnovers_won_per80": 0.10,
-        },
-        "w_disc": 0.25,
-    },
-    "WINGER": {
-        "metrics": {
-            "line_breaks_per80":   0.45,
-            "points_scored_per80": 0.30,
-            "offloads_per80":      0.20,
-            "tackles_per80":       0.05,
-        },
-        "w_disc": 0.15,
-    },
-    "CENTRE": {
-        "metrics": {
-            "line_breaks_per80":   0.30,
-            "offloads_per80":      0.25,
-            "tackles_per80":       0.25,
-            "points_scored_per80": 0.15,
-            "turnovers_won_per80": 0.05,
-        },
-        "w_disc": 0.20,
-    },
-    "FULLBACK": {
-        "metrics": {
-            "line_breaks_per80":   0.35,
-            "points_scored_per80": 0.30,
-            "offloads_per80":      0.20,
-            "tackles_per80":       0.10,
-            "turnovers_won_per80": 0.05,
-        },
-        "w_disc": 0.20,
-    },
+NAIM_POS_WEIGHTS: dict[str, dict[str, float]] = {
+    # Backs
+    "CENTRE":     {"course": 29.1, "distrib": 27.6, "kicking":  7.3, "physique":  4.5, "rigueur": 14.4, "danger": 17.1},
+    "SCRUM_HALF": {"course": 14.7, "distrib": 34.4, "kicking":  7.5, "physique":  9.5, "rigueur": 16.0, "danger": 17.9},
+    "FLY_HALF":   {"course": 14.5, "distrib": 26.9, "kicking": 24.9, "physique":  3.9, "rigueur": 14.6, "danger": 15.2},
+    "WINGER":     {"course": 34.6, "distrib": 18.6, "kicking":  1.1, "physique":  3.8, "rigueur": 16.3, "danger": 25.7},
+    "FULLBACK":   {"course": 25.5, "distrib": 21.7, "kicking": 16.0, "physique":  6.6, "rigueur": 10.9, "danger": 19.2},
+    # Forwards — Mêlée (FL 6.1, N8 4.3, H 10.6, P 13.3, L 16.9) → Rigueur
+    "BACK_ROW":   {"course": 25.3, "distrib": 19.9, "kicking":  0.0, "physique":  3.0, "rigueur": 37.5, "danger": 14.4},
+    "FRONT_ROW":  {"course": 14.1, "distrib":  4.8, "kicking":  0.0, "physique": 15.0, "rigueur": 54.8, "danger": 11.3},
+    "LOCK":       {"course": 13.8, "distrib": 15.0, "kicking":  0.0, "physique":  5.5, "rigueur": 59.2, "danger":  6.5},
 }
 
-# ---------------------------------------------------------------------------
-# 6 Axes visuels — métriques par poste
-# Chaque axe est la moyenne des Z-scores des métriques listées → mappé en 0-100
-# ---------------------------------------------------------------------------
-
-AXES_METRICS: dict[str, dict[str, list[str]]] = {
-    "att": {  # Ball Carry — activité balle en main
-        "FRONT_ROW":  ["offloads_per80"],
-        "LOCK":       ["offloads_per80", "line_breaks_per80"],
-        "BACK_ROW":   ["offloads_per80", "line_breaks_per80"],
-        "SCRUM_HALF": ["line_breaks_per80", "offloads_per80"],
-        "FLY_HALF":   ["line_breaks_per80", "offloads_per80"],
-        "WINGER":     ["line_breaks_per80", "offloads_per80"],
-        "CENTRE":     ["line_breaks_per80", "offloads_per80"],
-        "FULLBACK":   ["line_breaks_per80", "offloads_per80"],
-    },
-    "def": {  # Defense — plaquages
-        pg: ["tackles_per80"] for pg in POS_WEIGHTS
-    },
-    "disc": {  # Discipline — inversé : Z_P négatif = discipliné
-        pg: ["_disc_score"] for pg in POS_WEIGHTS  # colonne temporaire
-    },
-    "ctrl": {  # Breakdown / contrôle
-        "FRONT_ROW":  ["turnovers_won_per80"],
-        "LOCK":       ["turnovers_won_per80"],
-        "BACK_ROW":   ["turnovers_won_per80"],
-        "SCRUM_HALF": ["turnovers_won_per80", "offloads_per80"],
-        "FLY_HALF":   ["turnovers_won_per80"],
-        "WINGER":     ["turnovers_won_per80"],
-        "CENTRE":     ["turnovers_won_per80", "offloads_per80"],
-        "FULLBACK":   ["turnovers_won_per80"],
-    },
-    "kick": {  # Kicking / impact offensif — proxy via points
-        pg: ["points_scored_per80"] for pg in POS_WEIGHTS
-    },
-    "pow": {  # Set Piece / puissance
-        "FRONT_ROW":  ["tackles_per80", "turnovers_won_per80"],
-        "LOCK":       ["tackles_per80", "turnovers_won_per80"],
-        "BACK_ROW":   ["tackles_per80", "turnovers_won_per80", "offloads_per80"],
-        "SCRUM_HALF": ["tackles_per80"],
-        "FLY_HALF":   ["tackles_per80"],
-        "WINGER":     ["line_breaks_per80"],
-        "CENTRE":     ["tackles_per80"],
-        "FULLBACK":   ["tackles_per80"],
-    },
+# Alias → noms de colonnes UI (rétrocompatibilité)
+AXIS_COLS = {
+    "course":   "axis_att",    # Course → CARRY
+    "distrib":  "axis_ctrl",   # Distribution → DIST
+    "kicking":  "axis_kick",   # Kicking → KICK
+    "physique": "axis_def",    # Physique → DEF
+    "rigueur":  "axis_disc",   # Rigueur → DISC (discipline)
+    "danger":   "axis_pow",    # Danger → DANGER
 }
+
+POSITION_GROUP_LABEL = {
+    "FRONT_ROW":  "1ère Ligne",
+    "LOCK":       "2ème Ligne",
+    "BACK_ROW":   "3ème Ligne",
+    "SCRUM_HALF": "Demi de mêlée",
+    "FLY_HALF":   "Ouvreur",
+    "WINGER":     "Ailier",
+    "CENTRE":     "Centre",
+    "FULLBACK":   "Arrière",
+}
+
+POSITION_ABBR = {
+    "FRONT_ROW":  "1L",  "LOCK":      "2L",  "BACK_ROW":  "3L",
+    "SCRUM_HALF": "9",   "FLY_HALF":  "10",
+    "WINGER":     "AIL", "CENTRE":    "CTR", "FULLBACK":  "ARR",
+}
+
+# Pour get_rating_breakdown (rétrocompatibilité)
+POS_WEIGHTS = {pg: {"metrics": {}, "w_disc": 0.2} for pg in NAIM_POS_WEIGHTS}
 
 POSITION_GROUP_LABEL = {
     "FRONT_ROW":  "1ère Ligne",
@@ -188,6 +104,19 @@ def _zscore(values: np.ndarray, clip: float = 3.0) -> np.ndarray:
     return np.clip((values - mu) / sigma, -clip, clip)
 
 
+def _minmax(arr: np.ndarray, p_low: float = 5.0, p_high: float = 95.0) -> np.ndarray:
+    """
+    Normalise arr en [0, 100] par percentiles p_low/p_high (méthode Naim).
+    Valeurs sous p_low → 0, au-dessus p_high → 100.
+    """
+    lo = float(np.percentile(arr, p_low))
+    hi = float(np.percentile(arr, p_high))
+    if hi - lo < 1e-9:
+        return np.full_like(arr, 50.0, dtype=float)
+    normed = (arr - lo) / (hi - lo) * 100.0
+    return np.clip(normed, 0.0, 100.0)
+
+
 def _minutes_bucket(m: float) -> str:
     if m >= 1400: return "Haute"
     if m >= 800:  return "Bonne"
@@ -195,127 +124,118 @@ def _minutes_bucket(m: float) -> str:
     return "Basse"
 
 
+def _get_col(group: pd.DataFrame, col: str) -> np.ndarray:
+    """Retourne la colonne comme float, rempli par la médiane si NaN."""
+    if col not in group.columns:
+        return np.zeros(len(group), dtype=float)
+    s = group[col].fillna(0.0)
+    return s.values.astype(float)
+
+
 # ---------------------------------------------------------------------------
-# Calcul principal
+# Calcul principal — Architecture Naim v4
 # ---------------------------------------------------------------------------
 
 def calculate_ratings(df: pd.DataFrame) -> pd.DataFrame:
     """
-    Entrée  : DataFrame players (colonnes stats per80 + cartes + minutes)
-    Sortie  : même DataFrame + rating, rating_raw, axis_*, confidence_score,
-              confidence_badge, low_sample, data_insufficient, rank_position,
-              rating_percentile_position, minutes_bucket
+    Architecture 7 axes inspirée de Naim (M2PSTB) :
+      Course, Distribution, Kicking, Physique, Rigueur, Danger.
+    Normalisation min-max [p5, p95] par groupe de poste.
+    Poids de position de Naim (categ_weight_cluster1, adaptés Top14).
     """
-    result_parts = []
+    result_parts: list[pd.DataFrame] = []
 
-    for pg, cfg in POS_WEIGHTS.items():
+    for pg, pos_w in NAIM_POS_WEIGHTS.items():
         group = df[df["position_group"] == pg].copy()
         if group.empty:
             continue
 
-        w_metrics = cfg["metrics"]
-        w_disc    = cfg["w_disc"]
-
         # ----------------------------------------------------------------
         # 0. Minutes totales
         # ----------------------------------------------------------------
-        if "minutes_total" in group.columns:
-            mt = group["minutes_total"].fillna(0).values.astype(float)
-        else:
-            mt = (
-                group["matches_played"].fillna(0) *
-                group["minutes_avg"].fillna(0)
-            ).values.astype(float)
+        mt = _get_col(group, "minutes_total")
+        if mt.sum() == 0 and "matches_played" in group.columns:
+            mt = _get_col(group, "matches_played") * _get_col(group, "minutes_avg")
 
         # ----------------------------------------------------------------
-        # 1. Score discipline per80 = (0.6·YC + 1.2·OC + 2.0·RC) / min_total * 80
-        #    Normalise par le temps joué → comparable entre joueurs
+        # 1. Métriques brutes → min-max [0, 100] par poste
         # ----------------------------------------------------------------
-        yc = group["yellow_cards"].fillna(0).values.astype(float) if "yellow_cards" in group.columns else np.zeros(len(group))
-        oc = group["orange_cards"].fillna(0).values.astype(float) if "orange_cards" in group.columns else np.zeros(len(group))
-        rc = group["red_cards"].fillna(0).values.astype(float)    if "red_cards"    in group.columns else np.zeros(len(group))
-        disc_total = 0.6 * yc + 1.2 * oc + 2.0 * rc
-        disc_raw   = np.where(mt > 0, disc_total / mt * 80, 0.0)  # cartons /80 min
-        z_disc     = _zscore(disc_raw)   # haut = beaucoup de cartes = mauvais
-        group["_disc_score"] = disc_raw  # pour axe visuel
+        lb   = _minmax(_get_col(group, "line_breaks_per80"))    # franchissements
+        off  = _minmax(_get_col(group, "offloads_per80"))       # offloads
+        pts  = _minmax(_get_col(group, "points_scored_per80"))  # points (kicks+essais)
+        tack = _minmax(_get_col(group, "tackles_per80"))        # plaquages
+        tow  = _minmax(_get_col(group, "turnovers_won_per80"))  # grattages
+
+        # tries_per80 : calculé si dispo (LNR raw), sinon estimé via points
+        tries_raw = _get_col(group, "tries_per80")
+        if tries_raw.sum() == 0 and "tries_total" in group.columns:
+            t_tot = _get_col(group, "tries_total")
+            tries_raw = np.where(mt > 0, t_tot / mt * 80, 0.0)
+        tries = _minmax(tries_raw)
 
         # ----------------------------------------------------------------
-        # 2. Z-scores des métriques + score_raw
+        # 2. Discipline per80 → axe Rigueur (inversé : 0 carton = 100)
         # ----------------------------------------------------------------
-        z_matrix = {}
-        for metric in w_metrics:
-            if metric not in group.columns:
-                z_matrix[metric] = np.zeros(len(group))
-                continue
-            vals = group[metric].fillna(group[metric].median()).values.astype(float)
-            z_matrix[metric] = _zscore(vals)
-
-        # S_pos = Σ w_m · Z_m  −  w_disc · Z_P
-        S = sum(w * z_matrix[m] for m, w in w_metrics.items()) - w_disc * z_disc
-        score_raw = np.clip(50.0 + 10.0 * S, 0.0, 100.0)
+        yc = _get_col(group, "yellow_cards")
+        oc = _get_col(group, "orange_cards")
+        rc = _get_col(group, "red_cards")
+        disc_raw = np.where(mt > 0, (0.6 * yc + 1.2 * oc + 2.0 * rc) / mt * 80, 0.0)
+        rigueur  = 100.0 - _minmax(disc_raw, p_low=0, p_high=95)  # inversé
 
         # ----------------------------------------------------------------
-        # 3. Fiabilité conf = clip(min_total / p90_min_pos, 0, 1)
+        # 3. Scores par axe [0, 100]
+        # ----------------------------------------------------------------
+        ax_course  = lb                                   # Course
+        ax_distrib = off                                  # Distribution
+        ax_kicking = pts                                  # Kicking
+        ax_physique = tack                                # Physique
+        ax_rigueur  = rigueur                             # Rigueur (disc inversée)
+        ax_danger   = 0.6 * tries + 0.4 * tow            # Danger
+
+        # ----------------------------------------------------------------
+        # 4. Score global pondéré par poste (Naim) → [0, 100]
+        # ----------------------------------------------------------------
+        w = pos_w
+        score_raw = (
+            w["course"]  * ax_course   +
+            w["distrib"] * ax_distrib  +
+            w["kicking"] * ax_kicking  +
+            w["physique"] * ax_physique +
+            w["rigueur"] * ax_rigueur  +
+            w["danger"]  * ax_danger
+        ) / 100.0  # les poids somment à ~100
+
+        # ----------------------------------------------------------------
+        # 5. Fiabilité (Bayesian shrinkage vers 50)
         # ----------------------------------------------------------------
         p90 = float(np.percentile(mt[mt > 0], 90)) if (mt > 0).sum() >= 5 else 1200.0
         p90 = max(p90, 400.0)
-        conf = np.clip(mt / p90, 0.0, 1.0)
-
-        # ----------------------------------------------------------------
-        # 4. score_final avec shrinkage vers 50 (FIFA neutre)
-        # ----------------------------------------------------------------
+        conf        = np.clip(mt / p90, 0.0, 1.0)
         score_final = conf * score_raw + (1.0 - conf) * 50.0
 
         # ----------------------------------------------------------------
-        # 5. rating FIFA : 40 + 0.6 · score_final  →  [40, 99]
+        # 6. Rating FIFA → [40, 99]
         # ----------------------------------------------------------------
-        rating_raw  = np.round(np.clip(40.0 + 0.6 * score_raw,   40.0, 99.0), 1)
-        rating      = np.round(np.clip(40.0 + 0.6 * score_final, 40.0, 99.0), 1)
+        group["rating_raw"] = np.round(np.clip(40.0 + 0.6 * score_raw,   40.0, 99.0), 1)
+        group["rating"]     = np.round(np.clip(40.0 + 0.6 * score_final, 40.0, 99.0), 1)
+        group["confidence"] = np.round(conf, 3)
 
-        group["rating_raw"]  = rating_raw
-        group["rating"]      = rating
-        group["confidence"]  = np.round(conf, 3)
+        # ----------------------------------------------------------------
+        # 7. Axes visuels [0, 100] → colonnes axis_*
+        # ----------------------------------------------------------------
+        group["axis_att"]  = np.round(ax_course).astype(int)    # Course
+        group["axis_ctrl"] = np.round(ax_distrib).astype(int)   # Distribution
+        group["axis_kick"] = np.round(ax_kicking).astype(int)   # Kicking
+        group["axis_def"]  = np.round(ax_physique).astype(int)  # Physique
+        group["axis_disc"] = np.round(ax_rigueur).astype(int)   # Rigueur
+        group["axis_pow"]  = np.round(ax_danger).astype(int)    # Danger
 
         result_parts.append(group)
 
     combined = pd.concat(result_parts).sort_index()
 
     # ----------------------------------------------------------------
-    # 6. Axes visuels  (Z-score intra-poste → 0-100)
-    # ----------------------------------------------------------------
-    for axis_name, metrics_by_pos in AXES_METRICS.items():
-        axis_vals = pd.Series(50.0, index=combined.index)
-        for pg in combined["position_group"].unique():
-            grp      = combined[combined["position_group"] == pg]
-            metrics  = metrics_by_pos.get(pg, [])
-            if not metrics:
-                continue
-
-            z_list = []
-            for metric in metrics:
-                if metric not in grp.columns:
-                    continue
-                col = grp[metric].fillna(grp[metric].median()).values.astype(float)
-                z   = _zscore(col)
-                # Pour l'axe discipline : inverser (bas Z_disc = discipliné = bien)
-                if axis_name == "disc":
-                    z = -z
-                z_list.append(z)
-
-            if not z_list:
-                continue
-            z_mean = np.mean(z_list, axis=0)
-            scores = np.round(np.clip(50.0 + 10.0 * z_mean, 0.0, 100.0)).astype(int)
-            axis_vals.loc[grp.index] = scores
-
-        combined[f"axis_{axis_name}"] = axis_vals.astype(int)
-
-    # Supprimer la colonne temporaire disc_score
-    if "_disc_score" in combined.columns:
-        combined.drop(columns=["_disc_score"], inplace=True)
-
-    # ----------------------------------------------------------------
-    # 7. Métadonnées UI
+    # 8. Métadonnées UI
     # ----------------------------------------------------------------
     combined["position_label"] = combined["position_group"].map(POSITION_GROUP_LABEL)
     combined["position_abbr"]  = combined["position_group"].map(POSITION_ABBR)
@@ -327,12 +247,11 @@ def calculate_ratings(df: pd.DataFrame) -> pd.DataFrame:
         if c >= 0.40: return "Moyenne"
         return "Basse"
     combined["confidence_badge"] = combined["confidence"].apply(_conf_badge)
-
-    combined["low_sample"] = combined["confidence"] < 0.40
+    combined["low_sample"]       = combined["confidence"] < 0.40
 
     if "matches_played" in combined.columns and "minutes_avg" in combined.columns:
-        mt_calc = combined["matches_played"].fillna(0) * combined["minutes_avg"].fillna(0)
-        combined["minutes_bucket"] = mt_calc.apply(_minutes_bucket)
+        mt_ui = combined["matches_played"].fillna(0) * combined["minutes_avg"].fillna(0)
+        combined["minutes_bucket"] = mt_ui.apply(_minutes_bucket)
     else:
         combined["minutes_bucket"] = "Basse"
 

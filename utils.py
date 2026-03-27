@@ -208,51 +208,51 @@ def rating_badge(r: float) -> str:
 
 
 AXIS_LABELS = {
-    "axis_att":  "Ball Carry",
-    "axis_def":  "Defense",
-    "axis_disc": "Discipline",
-    "axis_ctrl": "Breakdown",
+    "axis_att":  "Course",
+    "axis_def":  "Physique",
+    "axis_disc": "Rigueur",
+    "axis_ctrl": "Distribution",
     "axis_kick": "Kicking",
-    "axis_pow":  "Set Piece",
+    "axis_pow":  "Danger",
 }
 
-# Description détaillée de chaque axe (pour tooltips / expanders)
+# Description détaillée de chaque axe v4 — architecture Naim
 AXIS_DESCRIPTIONS = {
     "axis_att": {
-        "label": "Ball Carry (Menace avec ballon)",
+        "label": "Course (Franchissements)",
         "emoji": "🏃",
-        "metrics": ["Mètres gagnés /80", "Franchissements /80", "Points marqués /80", "Offloads /80"],
-        "note": "Compare au sein de TOUS les postes. Ailiers et centres naturellement favorisés.",
+        "metrics": ["Franchissements /80 (line breaks)"],
+        "note": "Normalisé par poste [p5–p95]. Mesure la capacité à gagner du terrain balle en main.",
     },
     "axis_def": {
-        "label": "Defense (Solidité défensive)",
+        "label": "Physique (Défense)",
         "emoji": "🛡️",
-        "metrics": ["Plaquages /80", "% Plaquages réussis"],
-        "note": "Compare au sein de TOUS les postes. Flankers et centres dominent.",
+        "metrics": ["Plaquages réussis /80"],
+        "note": "Normalisé par poste [p5–p95]. Forwards naturellement favorisés (volume de plaquages).",
     },
     "axis_disc": {
-        "label": "Discipline (Rigueur)",
+        "label": "Rigueur (Discipline)",
         "emoji": "🟡",
-        "metrics": ["Pénalités /80 (inversé)", "Turnovers perdus /80 (inversé)", "Erreurs /80 (inversé)"],
-        "note": "Score élevé = peu de fautes. Inversé : moins tu en fais, mieux tu scores.",
+        "metrics": ["Cartons per80 inversé"],
+        "note": "100 = parfaitement discipliné. Jaune 0.6pt, Orange 1.2pt, Rouge 2.0pt / 80min.",
     },
     "axis_ctrl": {
-        "label": "Breakdown (Domination au sol)",
+        "label": "Distribution (Jeu de bras)",
         "emoji": "⚡",
-        "metrics": ["Passes /80", "Turnovers gagnés /80"],
-        "note": "Combine gestion du ballon (9/10) et grattages (flankers). Axes mixtes.",
+        "metrics": ["Offloads /80"],
+        "note": "Proxy distribution. Normalisé par poste. Backs et 3e ligne favorisés.",
     },
     "axis_kick": {
-        "label": "Kicking (Jeu au pied)",
+        "label": "Kicking (Impact points)",
         "emoji": "👟",
-        "metrics": ["Mètres au pied /80", "% Réussite mêlée"],
-        "note": "Ouvreurs et demis dominent. Inclut aussi réussite mêlée pour les avants.",
+        "metrics": ["Points marqués /80"],
+        "note": "Poids fort pour ouvreurs (25%) et arrières (16%). Poids nul pour avants.",
     },
     "axis_pow": {
-        "label": "Set Piece (Puissance & Conquête)",
+        "label": "Danger (Menace offensive)",
         "emoji": "💪",
-        "metrics": ["Courses /80", "Arrivées au ruck /80", "Touches gagnées /80"],
-        "note": "Avants favorisés (rucks, touches). Reflète la domination physique.",
+        "metrics": ["Essais /80 (×0.6)", "Grattages /80 (×0.4)"],
+        "note": "Combine capacité à marquer et à créer des occasions. Poids Naim par poste.",
     },
 }
 

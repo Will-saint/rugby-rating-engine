@@ -43,7 +43,7 @@ OPTIONAL_STAT_COLUMNS = [
     "turnovers_won_per80", "turnovers_lost_per80",
     "carries_per80", "meters_per80", "line_breaks_per80",
     "offloads_per80", "passes_per80", "kick_meters_per80",
-    "points_scored_per80", "errors_per80",
+    "points_scored_per80", "tries_per80", "errors_per80",
     "ruck_arrivals_per80", "lineout_wins_per80", "scrum_success_pct",
 ]
 
@@ -69,6 +69,7 @@ STAT_BOUNDS = {
     "passes_per80": (0, 100),
     "kick_meters_per80": (0, 300),
     "points_scored_per80": (0, 30),
+    "tries_per80": (0, 5),
     "errors_per80": (0, 10),
     "ruck_arrivals_per80": (0, 30),
     "lineout_wins_per80": (0, 10),
@@ -160,6 +161,7 @@ def compute_missing_per80(df: pd.DataFrame) -> pd.DataFrame:
         ("passes_total", "passes_per80"),
         ("kick_meters_total", "kick_meters_per80"),
         ("points_scored_total", "points_scored_per80"),
+        ("tries_total", "tries_per80"),
         ("errors_total", "errors_per80"),
         ("penalties_total", "penalties_per80"),
         ("turnovers_won_total", "turnovers_won_per80"),
