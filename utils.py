@@ -325,3 +325,52 @@ AXIS_COLORS = {
     "axis_kick": "#8B5CF6",
     "axis_pow":  "#EC4899",
 }
+
+NATIONALITY_FLAG: dict[str, str] = {
+    "France":                      "🇫🇷",
+    "Angleterre":                  "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+    "Irlande":                     "🇮🇪",
+    "Ecosse":                      "🏴󠁧󠁢󠁳󠁣󠁴󠁿",
+    "Pays de Galles":              "🏴󠁧󠁢󠁷󠁬󠁳󠁿",
+    "Italie":                      "🇮🇹",
+    "Argentine":                   "🇦🇷",
+    "Afrique du Sud":              "🇿🇦",
+    "Australie":                   "🇦🇺",
+    "Nouvelle Zélande":            "🇳🇿",
+    "Nouvelle Zéeland":            "🇳🇿",
+    "Nouvelle Z\u00e9lande":       "🇳🇿",
+    "Fidji":                       "🇫🇯",
+    "Samoa":                       "🇼🇸",
+    "Samoa occidental":            "🇼🇸",
+    "Samoa américain":             "🇦🇸",
+    "Tonga":                       "🇹🇴",
+    "Japon":                       "🇯🇵",
+    "Géorgie":                     "🇬🇪",
+    "G\u00e9orgie":                "🇬🇪",
+    "Roumanie":                    "🇷🇴",
+    "Uruguay":                     "🇺🇾",
+    "Namibie":                     "🇳🇦",
+    "Chili":                       "🇨🇱",
+    "Portugal":                    "🇵🇹",
+    "Espagne":                     "🇪🇸",
+    "Allemagne":                   "🇩🇪",
+    "Belgique":                    "🇧🇪",
+    "Canada":                      "🇨🇦",
+    "Etats-Unis":                  "🇺🇸",
+    "États-Unis":                  "🇺🇸",
+    "Russie":                      "🇷🇺",
+    "Moldavie":                    "🇲🇩",
+    "Autriche":                    "🇦🇹",
+    "Grande-Bretagne":             "🇬🇧",
+    "Cameroun":                    "🇨🇲",
+    "Zimbabwe":                    "🇿🇼",
+    "République Démocratique du Congo": "🇨🇩",
+    "R\u00e9publique D\u00e9mocratique du Congo": "🇨🇩",
+}
+
+
+def nat_flag(nationality: str) -> str:
+    """Retourne le drapeau emoji pour une nationalité, '' si inconnu."""
+    if not nationality or str(nationality) in ("nan", "None", ""):
+        return ""
+    return NATIONALITY_FLAG.get(str(nationality).strip(), "🏳️")

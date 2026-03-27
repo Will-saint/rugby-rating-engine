@@ -1,5 +1,5 @@
 """
-Rugby Rating Engine v4 — Architecture 7 axes (inspiré Naim/M2PSTB).
+Rugby Rating Engine v5 — Architecture 7 axes (inspiré Naim/M2PSTB).
 
 Pipeline :
   1. Discipline per80 = (0.6·YC + 1.2·OC + 2.0·RC) / min_total * 80
@@ -8,13 +8,20 @@ Pipeline :
        Course      = line_breaks_per80  (franchissements)
        Distribution = offloads_per80    (jeu de bras)
        Kicking     = points_scored_per80 (impact offensif/points)
-       Physique    = tackles_per80      (puissance défensive)
+       Physique    = gabarit_physique   (voir ci-dessous)
        Rigueur     = 100 - disc_per80   (discipline, inversé)
        Danger      = 0.6·tries_per80 + 0.4·turnovers_won_per80
   4. score_raw = Σ(axe_i · poids_position_i) / 100   → [0, 100]
   5. conf = clip(minutes_total / p90_minutes_poste, 0, 1)
   6. score_final = conf · score_raw + (1 − conf) · 50
   7. rating = clip(40 + 0.6 · score_final, 40, 99)
+
+Axe Physique (gabarit_physique) — v5 :
+  FRONT_ROW : 0.70 · _minmax(tackles_per80) + 0.30 · _minmax(weight_kg)
+  LOCK       : 0.70 · _minmax(tackles_per80) + 0.30 · _minmax(height_cm)
+  Autres     : _minmax(tackles_per80)  (inchangé)
+  Fallback : si weight_kg / height_cm manquent → _minmax(tackles_per80) pur.
+  La colonne axis_gabarit expose la composante gabarit normalisée (0–100).
 
 Poids de position issus des travaux de Naim (categ_weight_cluster1.csv),
 Mêlée redistribuée sur Rigueur (pas de données disponibles en Top14 public).
@@ -188,9 +195,29 @@ def calculate_ratings(df: pd.DataFrame) -> pd.DataFrame:
         ax_course  = lb                                   # Course
         ax_distrib = off                                  # Distribution
         ax_kicking = pts                                  # Kicking
-        ax_physique = tack                                # Physique
         ax_rigueur  = rigueur                             # Rigueur (disc inversée)
         ax_danger   = 0.6 * tries + 0.4 * tow            # Danger
+
+        # Physique v5 — gabarit physique selon le groupe de poste
+        if pg == "FRONT_ROW":
+            weight_raw = _get_col(group, "weight_kg")
+            if weight_raw.sum() > 0:
+                gabarit = _minmax(weight_raw)             # poids normalisé dans le groupe
+                ax_physique = 0.70 * tack + 0.30 * gabarit
+            else:
+                gabarit = np.zeros(len(group), dtype=float)
+                ax_physique = tack                        # fallback : tackles pur
+        elif pg == "LOCK":
+            height_raw = _get_col(group, "height_cm")
+            if height_raw.sum() > 0:
+                gabarit = _minmax(height_raw)             # taille normalisée dans le groupe
+                ax_physique = 0.70 * tack + 0.30 * gabarit
+            else:
+                gabarit = np.zeros(len(group), dtype=float)
+                ax_physique = tack                        # fallback : tackles pur
+        else:
+            gabarit = np.zeros(len(group), dtype=float)
+            ax_physique = tack                            # inchangé pour les autres postes
 
         # ----------------------------------------------------------------
         # 4. Score global pondéré par poste (Naim) → [0, 100]
@@ -223,12 +250,13 @@ def calculate_ratings(df: pd.DataFrame) -> pd.DataFrame:
         # ----------------------------------------------------------------
         # 7. Axes visuels [0, 100] → colonnes axis_*
         # ----------------------------------------------------------------
-        group["axis_att"]  = np.round(ax_course).astype(int)    # Course
-        group["axis_ctrl"] = np.round(ax_distrib).astype(int)   # Distribution
-        group["axis_kick"] = np.round(ax_kicking).astype(int)   # Kicking
-        group["axis_def"]  = np.round(ax_physique).astype(int)  # Physique
-        group["axis_disc"] = np.round(ax_rigueur).astype(int)   # Rigueur
-        group["axis_pow"]  = np.round(ax_danger).astype(int)    # Danger
+        group["axis_att"]     = np.round(ax_course).astype(int)    # Course
+        group["axis_ctrl"]    = np.round(ax_distrib).astype(int)   # Distribution
+        group["axis_kick"]    = np.round(ax_kicking).astype(int)   # Kicking
+        group["axis_def"]     = np.round(ax_physique).astype(int)  # Physique (gabarit v5)
+        group["axis_disc"]    = np.round(ax_rigueur).astype(int)   # Rigueur
+        group["axis_pow"]     = np.round(ax_danger).astype(int)    # Danger
+        group["axis_gabarit"] = np.round(np.clip(gabarit, 0.0, 100.0)).astype(int)  # Gabarit seul
 
         result_parts.append(group)
 

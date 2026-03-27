@@ -9,7 +9,7 @@ import streamlit as st
 import plotly.graph_objects as go
 import plotly.express as px
 import pandas as pd
-from utils import load_data, page_config, AXIS_LABELS, AXIS_COLORS, rating_to_tier, TIER_COLORS, AXIS_DESCRIPTIONS, get_available_positions, get_photo_url, fetch_player_photo_bytes, season_selector
+from utils import load_data, page_config, AXIS_LABELS, AXIS_COLORS, rating_to_tier, TIER_COLORS, AXIS_DESCRIPTIONS, get_available_positions, get_photo_url, fetch_player_photo_bytes, season_selector, nat_flag, ALL_SEASONS_PATH
 from engine.card import render_card
 from engine.ratings import get_rating_breakdown
 
@@ -172,33 +172,66 @@ with col_details:
             st.markdown(f"**{ax_info['emoji']} {ax_info['label']}** — {', '.join(ax_info['metrics'])}")
             st.caption(ax_info["note"])
 
-    st.markdown("**Radar — 6 axes FIFA**")
-    axes = ["axis_att", "axis_def", "axis_disc", "axis_ctrl", "axis_kick", "axis_pow"]
-    labels = [AXIS_LABELS[a] for a in axes]
-    values = [player.get(a, 50) for a in axes]
-    values_closed = values + [values[0]]
-    labels_closed = labels + [labels[0]]
+    t14_axes  = ["axis_att", "axis_def", "axis_disc", "axis_ctrl", "axis_kick", "axis_pow"]
+    t14_labels = [AXIS_LABELS[a] for a in t14_axes]
+    intl_axes  = ["axis_course_intl","axis_distrib_intl","axis_kicking_intl",
+                  "axis_physique_intl","axis_rigueur_intl","axis_danger_intl","axis_melee_intl"]
+    intl_labels = ["Course","Distrib","Kicking","Physique","Rigueur","Danger","Mêlée"]
 
-    fig_radar = go.Figure(go.Scatterpolar(
-        r=values_closed,
-        theta=labels_closed,
-        fill="toself",
-        fillcolor="rgba(239,68,68,0.25)",
-        line=dict(color="#EF4444", width=2),
-        name=player["name"],
-    ))
-    fig_radar.update_layout(
-        polar=dict(
-            radialaxis=dict(visible=True, range=[0, 100], tickfont=dict(size=8)),
-            angularaxis=dict(tickfont=dict(size=11)),
-        ),
-        showlegend=False,
-        margin=dict(l=30, r=30, t=30, b=30),
-        height=300,
-        paper_bgcolor="rgba(0,0,0,0)",
-        plot_bgcolor="rgba(0,0,0,0)",
+    has_intl_data = any(
+        player.get(a) not in (None, "") and str(player.get(a)) != "nan"
+        for a in intl_axes
     )
-    st.plotly_chart(fig_radar, use_container_width=True)
+
+    if has_intl_data:
+        st.markdown("**Radar — Top14 vs International**")
+        rad_col1, rad_col2 = st.columns(2)
+
+        def _make_radar(vals, labels, color, title, note):
+            closed = vals + [vals[0]]
+            cl = labels + [labels[0]]
+            fig = go.Figure(go.Scatterpolar(
+                r=closed, theta=cl, fill="toself",
+                fillcolor=f"rgba({int(color[1:3],16)},{int(color[3:5],16)},{int(color[5:7],16)},0.25)",
+                line=dict(color=color, width=2), name=title,
+            ))
+            fig.update_layout(
+                polar=dict(radialaxis=dict(visible=True, range=[0,100], tickfont=dict(size=8))),
+                showlegend=False, title=dict(text=title, font=dict(size=12), x=0.5),
+                margin=dict(l=30,r=30,t=40,b=10), height=280,
+                paper_bgcolor="rgba(0,0,0,0)",
+            )
+            return fig
+
+        with rad_col1:
+            vals_t14 = [float(player.get(a, 50)) for a in t14_axes]
+            st.plotly_chart(_make_radar(vals_t14, t14_labels, "#EF4444", "Top14 Saison", ""), use_container_width=True)
+            ri = player.get("rating_intl")
+            st.caption(f"Note T14 : **{player['rating']:.1f}**")
+
+        with rad_col2:
+            vals_intl = [float(v) if (v := player.get(a)) not in (None,"") and str(v) != "nan" else 50
+                         for a in intl_axes]
+            team_intl = player.get("team_intl", "International")
+            caps = int(player.get("matches_intl", 0) or 0)
+            st.plotly_chart(_make_radar(vals_intl, intl_labels, "#60A5FA", f"International ({team_intl})", ""), use_container_width=True)
+            st.caption(f"Note Intl : **{float(player.get('rating_intl',0)):.1f}** · {caps} caps")
+    else:
+        st.markdown("**Radar — 6 axes FIFA**")
+        vals_t14 = [float(player.get(a, 50)) for a in t14_axes]
+        closed = vals_t14 + [vals_t14[0]]
+        cl = t14_labels + [t14_labels[0]]
+        fig_radar = go.Figure(go.Scatterpolar(
+            r=closed, theta=cl, fill="toself",
+            fillcolor="rgba(239,68,68,0.25)",
+            line=dict(color="#EF4444", width=2), name=player["name"],
+        ))
+        fig_radar.update_layout(
+            polar=dict(radialaxis=dict(visible=True, range=[0,100], tickfont=dict(size=8))),
+            showlegend=False, margin=dict(l=30,r=30,t=30,b=30), height=300,
+            paper_bgcolor="rgba(0,0,0,0)",
+        )
+        st.plotly_chart(fig_radar, use_container_width=True)
 
 st.divider()
 
@@ -298,43 +331,34 @@ st.divider()
 # --- Stats détaillées ---
 st.subheader("Statistiques détaillées (par 80 min)")
 
-stat_cols = [
-    "tackles_per80", "tackle_success_pct", "penalties_per80",
-    "turnovers_won_per80", "turnovers_lost_per80", "carries_per80",
-    "meters_per80", "line_breaks_per80", "offloads_per80",
-    "passes_per80", "kick_meters_per80", "points_scored_per80",
-    "errors_per80", "ruck_arrivals_per80", "lineout_wins_per80",
-    "scrum_success_pct",
-]
-
-labels_map = {
-    "tackles_per80": "Plaquages /80",
-    "tackle_success_pct": "% Plaquages réussis",
-    "penalties_per80": "Pénalités /80",
-    "turnovers_won_per80": "Turnovers gagnés /80",
-    "turnovers_lost_per80": "Turnovers perdus /80",
-    "carries_per80": "Courses /80",
-    "meters_per80": "Mètres gagnés /80",
-    "line_breaks_per80": "Franchissements /80",
-    "offloads_per80": "Offloads /80",
-    "passes_per80": "Passes /80",
-    "kick_meters_per80": "Mètres au pied /80",
-    "points_scored_per80": "Points marqués /80",
-    "errors_per80": "Erreurs /80",
-    "ruck_arrivals_per80": "Arrivées au ruck /80",
-    "lineout_wins_per80": "Touches gagnées /80",
-    "scrum_success_pct": "% Réussite mêlée",
+# Stats disponibles à 100% (LNR public sans paywall)
+REAL_STATS = {
+    "tackles_per80":      "Plaquages /80",
+    "line_breaks_per80":  "Franchissements /80",
+    "offloads_per80":     "Offloads /80",
+    "turnovers_won_per80":"Ballons grattés /80",
+    "points_scored_per80":"Points /80",
+    "tries_per80":        "Essais /80",
+    "yellow_cards":       "Cartons jaunes",
+    "orange_cards":       "Cartons oranges",
+    "red_cards":          "Cartons rouges",
+    "minutes_total":      "Minutes totales",
+    "matches_played":     "Matchs joués",
+    "height_cm":          "Taille (cm)",
+    "weight_kg":          "Poids (kg)",
+    "age":                "Âge",
 }
 
-# Afficher en grille 4 colonnes
-stat_items = [(labels_map.get(s, s), player.get(s, "N/A")) for s in stat_cols if s in player]
+stat_items = [(lbl, player.get(col)) for col, lbl in REAL_STATS.items()
+              if player.get(col) not in (None, "", "nan") and str(player.get(col)) != "nan"
+              and float(player.get(col, 0) or 0) != 0]
 
 cols = st.columns(4)
 for i, (label, value) in enumerate(stat_items):
     with cols[i % 4]:
-        if isinstance(value, float):
-            st.metric(label, f"{value:.1f}")
-        else:
+        try:
+            st.metric(label, f"{float(value):.1f}" if isinstance(value, float) else str(int(float(value))))
+        except Exception:
             st.metric(label, str(value))
 
 # --- Forme récente (rolling 5 derniers matchs) ---
@@ -374,3 +398,75 @@ if form_window and not pd.isna(form_window):
             )
         else:
             col_ui.metric(label, "N/A")
+
+# ================================================================
+# Historique par saison
+# ================================================================
+import os as _os
+if _os.path.exists(ALL_SEASONS_PATH):
+    st.divider()
+    st.subheader("Progression historique")
+    df_all = pd.read_csv(ALL_SEASONS_PATH)
+    # Chercher le joueur par slug (plus fiable) puis par nom
+    slug = player.get("lnr_slug", "")
+    if slug and "lnr_slug" in df_all.columns:
+        hist = df_all[df_all["lnr_slug"] == slug]
+    else:
+        hist = df_all[df_all["name"].str.upper() == str(player.get("name","")).upper()]
+    if not hist.empty and "season" in hist.columns and "rating" in hist.columns:
+        hist = hist.sort_values("season")
+        fig_hist = px.line(
+            hist, x="season", y="rating",
+            markers=True,
+            labels={"season": "Saison", "rating": "Note"},
+            title=f"Évolution de la note — {player['name']}",
+        )
+        if "rating_value" in hist.columns:
+            fig_hist.add_scatter(x=hist["season"], y=hist["rating_value"],
+                                 mode="lines+markers", name="Note Valeur",
+                                 line=dict(dash="dot", color="#60A5FA"))
+        fig_hist.add_hline(y=70, line_dash="dash", line_color="#6B7280",
+                           annotation_text="Seuil BRONZE")
+        fig_hist.add_hline(y=77, line_dash="dash", line_color="#10B981",
+                           annotation_text="Seuil ARGENT")
+        fig_hist.update_layout(
+            height=300, margin=dict(l=10,r=10,t=50,b=10),
+            paper_bgcolor="rgba(0,0,0,0)", legend=dict(x=0, y=1),
+        )
+        st.plotly_chart(fig_hist, use_container_width=True)
+    else:
+        st.caption("Données historiques insuffisantes pour ce joueur.")
+
+# ================================================================
+# Joueurs similaires (distance euclidienne sur les 6 axes)
+# ================================================================
+st.divider()
+st.subheader("Joueurs similaires")
+
+_axes_sim = ["axis_att", "axis_def", "axis_disc", "axis_ctrl", "axis_kick", "axis_pow"]
+_sim_pool = df[df["position_group"] == player["position_group"]].copy()
+_sim_pool = _sim_pool[_sim_pool["name"] != player["name"]]
+
+if not _sim_pool.empty and all(a in _sim_pool.columns for a in _axes_sim):
+    import numpy as _np
+    p_vec = _np.array([float(player.get(a, 50)) for a in _axes_sim])
+    _sim_pool = _sim_pool.copy()
+    _sim_pool["_dist"] = _sim_pool[_axes_sim].apply(
+        lambda row: float(_np.linalg.norm(row.values.astype(float) - p_vec)), axis=1
+    )
+    top_sim = _sim_pool.nsmallest(6, "_dist")[
+        ["name", "team", "rating", "rating_intl"] + _axes_sim
+    ].reset_index(drop=True)
+    top_sim.index += 1
+    col_sim_labels = {"name": "Joueur", "team": "Equipe", "rating": "Note T14",
+                      "rating_intl": "🌍 Note Intl",
+                      "axis_att": "Course", "axis_def": "Physique", "axis_disc": "Rigueur",
+                      "axis_ctrl": "Distrib", "axis_kick": "Kicking", "axis_pow": "Danger"}
+    disp_sim = top_sim[[c for c in top_sim.columns if c in col_sim_labels]].rename(columns=col_sim_labels)
+    sim_grad = [c for c in ["Note T14", "Course", "Physique", "Rigueur", "Distrib", "Kicking", "Danger"] if c in disp_sim.columns]
+    st.dataframe(
+        disp_sim.style.background_gradient(subset=sim_grad, cmap="Blues"),
+        use_container_width=True, hide_index=False,
+    )
+else:
+    st.caption("Pas assez de joueurs au même poste pour calculer la similarité.")

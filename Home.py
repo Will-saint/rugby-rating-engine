@@ -12,11 +12,43 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 import streamlit as st
 import plotly.express as px
-from utils import load_data, load_team_strength, page_config, AXIS_COLORS, load_source_mode, get_available_seasons
+from utils import load_data, load_team_strength, page_config, AXIS_COLORS, load_source_mode, get_available_seasons, nat_flag, rating_to_tier, TIER_COLORS
 
 page_config("Accueil")
 
 st.title("Rugby Rating Engine")
+
+# ================================================================
+# Barre de recherche globale
+# ================================================================
+with st.container():
+    search_query = st.text_input(
+        "🔍 Recherche rapide",
+        placeholder="Nom d'un joueur (ex : Dupont, Jalibert…)",
+        label_visibility="collapsed",
+    )
+    if search_query and len(search_query) >= 2:
+        _df_search = load_data(st.session_state.get("selected_season", "2025-2026"))
+        _results = _df_search[_df_search["name"].str.contains(search_query, case=False, na=False)]
+        if not _results.empty:
+            _results = _results.sort_values("rating", ascending=False).head(8)
+            cols_sr = st.columns(min(4, len(_results)))
+            for i, (_, row) in enumerate(_results.iterrows()):
+                flag = nat_flag(row.get("nationality",""))
+                tier = rating_to_tier(row["rating"])
+                color = TIER_COLORS[tier]
+                with cols_sr[i % 4]:
+                    st.markdown(
+                        f'<div style="border:1px solid {color};border-radius:8px;padding:8px;margin:2px">'
+                        f'<div style="font-weight:bold;font-size:0.95em">{flag} {row["name"]}</div>'
+                        f'<div style="color:#9CA3AF;font-size:0.8em">{row["position_group"]} · {row["team"]}</div>'
+                        f'<div style="color:{color};font-weight:bold;font-size:1.1em">{row["rating"]:.1f}'
+                        f'&nbsp;<span style="font-size:0.75em">{tier}</span></div>'
+                        f'</div>',
+                        unsafe_allow_html=True,
+                    )
+        elif len(search_query) >= 3:
+            st.caption("Aucun joueur trouvé.")
 
 # ================================================================
 # Sidebar : gestion du dataset et du cache
@@ -192,6 +224,34 @@ with col_right:
         showlegend=False,
     )
     st.plotly_chart(fig_teams, use_container_width=True)
+
+st.divider()
+
+# ================================================================
+# Top Movers — écart Note T14 ↔ Note Internationale
+# ================================================================
+if "rating_intl" in df.columns and df["rating_intl"].notna().any():
+    st.subheader("Top Movers — Internationaux sous-utilisés en club")
+    st.caption("Joueurs dont la note internationale dépasse significativement leur note Top14 cette saison.")
+    _intl = df[df["rating_intl"].notna()].copy()
+    _intl["_gap"] = _intl["rating_intl"] - _intl["rating"]
+    _movers = _intl.nlargest(10, "_gap").reset_index(drop=True)
+    col_mv = st.columns(5)
+    for i, row in _movers.iterrows():
+        flag = nat_flag(str(row.get("nationality", "")))
+        tier_intl = rating_to_tier(float(row["rating_intl"]))
+        color = TIER_COLORS[tier_intl]
+        with col_mv[i % 5]:
+            st.markdown(
+                f'<div style="border:1px solid {color};border-radius:8px;padding:8px;text-align:center;margin:2px">'
+                f'<div style="font-size:0.85em;font-weight:bold">{flag} {str(row["name"]).split()[-1]}</div>'
+                f'<div style="color:#9CA3AF;font-size:0.7em">{row.get("team_intl","")}</div>'
+                f'<div style="font-size:0.8em">T14 <b>{row["rating"]:.0f}</b> → '
+                f'<b style="color:{color}">{row["rating_intl"]:.0f}</b> Intl</div>'
+                f'<div style="color:#10B981;font-size:0.85em">+{row["_gap"]:.1f}</div>'
+                f'</div>',
+                unsafe_allow_html=True,
+            )
 
 st.divider()
 

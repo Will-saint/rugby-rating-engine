@@ -8,7 +8,7 @@ sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 import streamlit as st
 import plotly.express as px
 import pandas as pd
-from utils import load_data, page_config, TIER_COLORS, rating_to_tier, AXIS_DESCRIPTIONS, get_available_positions, load_source_mode, season_selector, rating_mode_selector
+from utils import load_data, page_config, TIER_COLORS, rating_to_tier, AXIS_DESCRIPTIONS, get_available_positions, load_source_mode, season_selector, rating_mode_selector, nat_flag
 
 page_config("Classements")
 st.title("Classements par poste")
@@ -82,23 +82,41 @@ with tab_pos:
     )
     view = view.nlargest(show_n, active_col).reset_index(drop=True)
     view.index = view.index + 1
+    # Enrichir : drapeau + tier badge
+    view["_flag"] = view["nationality"].apply(nat_flag)
+    view["_label"] = view["_flag"] + " " + view["name"]
+    view["_tier"] = view["rating"].apply(rating_to_tier)
 
     mode_label = {"rating": "Saison", "rating_value": "Valeur", "rating_raw": "Brute"}.get(active_col, "")
     st.subheader(f"Top {show_n} — {sel_pos}  ·  Note {mode_label}")
 
     chart_col = active_col
     chart_label = {"rating": "Note Saison", "rating_value": "Note Valeur", "rating_raw": "Note brute"}.get(active_col, "Note")
+    intl_note = view.get("rating_intl") if "rating_intl" in view.columns else None
     fig = px.bar(
         view,
         x=chart_col,
-        y="name",
+        y="_label",
         orientation="h",
         color=chart_col,
         color_continuous_scale="RdYlGn",
-        hover_data=["team", "nationality", "axis_att", "axis_def"],
-        labels={chart_col: chart_label, "name": ""},
+        hover_data={"team": True, "nationality": True, "axis_att": True, "axis_def": True,
+                    "_tier": True, "_label": False, "_flag": False},
+        labels={chart_col: chart_label, "_label": ""},
         text=view[chart_col].apply(lambda x: f"{x:.1f}"),
     )
+    # Overlay Note Intl (scatter) si disponible
+    if intl_note is not None and intl_note.notna().any():
+        import plotly.graph_objects as go
+        intl_view = view[view["rating_intl"].notna()]
+        fig.add_trace(go.Scatter(
+            x=intl_view["rating_intl"],
+            y=intl_view["_label"],
+            mode="markers",
+            marker=dict(symbol="diamond", size=9, color="#60A5FA", line=dict(color="#1D4ED8", width=1)),
+            name="🌍 Note Intl",
+            hovertemplate="%{x:.1f} Intl<extra></extra>",
+        ))
     fig.update_traces(textposition="outside")
     fig.update_layout(
         height=max(300, show_n * 28),
@@ -139,7 +157,10 @@ with tab_pos:
         extra_cols.append("has_prior")
     has_intl = "rating_intl" in view.columns and view["rating_intl"].notna().any()
     intl_extra = ["rating_intl", "team_intl"] if has_intl else []
-    display_cols = ["name", "team", "nationality", "rating"] + extra_cols + intl_extra + [
+    # Construire colonne drapeau + tier pour le tableau
+    view["Drapeau"] = view["_flag"]
+    view["Tier"] = view["_tier"]
+    display_cols = ["Drapeau", "name", "team", "nationality", "Tier", "rating"] + extra_cols + intl_extra + [
         "axis_att", "axis_def", "axis_disc", "axis_ctrl", "axis_kick", "axis_pow"
     ]
     col_labels = {
@@ -150,6 +171,7 @@ with tab_pos:
         "matches_played": "Matchs", "minutes_bucket": "Temps jeu",
         "data_insufficient": "DATA?", "rank_position": "Rang",
         "rating_intl": "🌍 Note Intl", "team_intl": "Sélection",
+        "Drapeau": "🏳️", "Tier": "Tier",
         "axis_att": "Course", "axis_def": "Physique", "axis_disc": "Rigueur",
         "axis_ctrl": "Distrib", "axis_kick": "Kicking", "axis_pow": "Danger",
     }
@@ -193,15 +215,17 @@ with tab_global:
         view_g = view_g[view_g["minutes_avg"] >= min_min_g]
     view_g = view_g.nlargest(show_n_g, g_col).reset_index(drop=True)
     view_g.index = view_g.index + 1
+    view_g["_flag_g"] = view_g["nationality"].apply(nat_flag)
+    view_g["_label_g"] = view_g["_flag_g"] + " " + view_g["name"]
 
     fig_g = px.bar(
         view_g,
         x=g_col,
-        y="name",
+        y="_label_g",
         orientation="h",
         color="position_group",
-        hover_data=["position_group", "team", g_col],
-        labels={g_col: g_label, "name": "", "position_group": "Poste"},
+        hover_data={"position_group": True, "team": True, g_col: True, "_label_g": False, "_flag_g": False},
+        labels={g_col: g_label, "_label_g": "", "position_group": "Poste"},
         text=view_g[g_col].apply(lambda x: f"{x:.1f}"),
     )
     fig_g.update_traces(textposition="outside")
