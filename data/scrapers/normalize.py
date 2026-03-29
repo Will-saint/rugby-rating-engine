@@ -38,13 +38,24 @@ REQUIRED_COLUMNS = [
     "matches_played", "minutes_avg",
 ]
 
+# Uniquement les stats disponibles à 100% depuis LNR public (sans paywall).
+# Les colonnes paywall (carries, meters, passes, kick_meters, penalties, errors,
+# ruck_arrivals, lineout_wins, scrum_success_pct, tackle_success_pct,
+# turnovers_lost) sont définitivement retirées du schéma.
 OPTIONAL_STAT_COLUMNS = [
-    "tackles_per80", "tackle_success_pct", "penalties_per80",
-    "turnovers_won_per80", "turnovers_lost_per80",
-    "carries_per80", "meters_per80", "line_breaks_per80",
-    "offloads_per80", "passes_per80", "kick_meters_per80",
-    "points_scored_per80", "tries_per80", "errors_per80",
-    "ruck_arrivals_per80", "lineout_wins_per80", "scrum_success_pct",
+    "tackles_per80",
+    "turnovers_won_per80",
+    "line_breaks_per80",
+    "offloads_per80",
+    "points_scored_per80",
+    "tries_per80",
+]
+
+# Colonnes paywall confirmées à 0% — exclues du CSV final
+PAYWALL_COLUMNS = [
+    "tackle_success_pct", "penalties_per80", "turnovers_lost_per80",
+    "carries_per80", "meters_per80", "passes_per80", "kick_meters_per80",
+    "errors_per80", "ruck_arrivals_per80", "lineout_wins_per80", "scrum_success_pct",
 ]
 
 VALID_POSITIONS = {
@@ -57,25 +68,14 @@ VALID_POSITIONS = {
 
 # Plages de valeurs plausibles (min, max) pour sanity check
 STAT_BOUNDS = {
-    "tackles_per80": (0, 30),
-    "tackle_success_pct": (40, 100),
-    "penalties_per80": (0, 10),
+    "tackles_per80":       (0, 30),
     "turnovers_won_per80": (0, 5),
-    "turnovers_lost_per80": (0, 8),
-    "carries_per80": (0, 40),
-    "meters_per80": (0, 200),
-    "line_breaks_per80": (0, 8),
-    "offloads_per80": (0, 6),
-    "passes_per80": (0, 100),
-    "kick_meters_per80": (0, 300),
+    "line_breaks_per80":   (0, 8),
+    "offloads_per80":      (0, 6),
     "points_scored_per80": (0, 30),
-    "tries_per80": (0, 5),
-    "errors_per80": (0, 10),
-    "ruck_arrivals_per80": (0, 30),
-    "lineout_wins_per80": (0, 10),
-    "scrum_success_pct": (40, 100),
-    "minutes_avg": (0, 80),
-    "matches_played": (1, 26),
+    "tries_per80":         (0, 5),
+    "minutes_avg":         (0, 80),
+    "matches_played":      (1, 26),
 }
 
 # Seuil minimum de donnees pour conserver un joueur
@@ -152,22 +152,14 @@ def compute_missing_per80(df: pd.DataFrame) -> pd.DataFrame:
     if total_col not in df.columns:
         return df
 
+    # Uniquement les paires dont le total LNR est effectivement scraped
     stat_pairs = [
-        ("tackles_total", "tackles_per80"),
-        ("carries_total", "carries_per80"),
-        ("meters_total", "meters_per80"),
-        ("line_breaks_total", "line_breaks_per80"),
-        ("offloads_total", "offloads_per80"),
-        ("passes_total", "passes_per80"),
-        ("kick_meters_total", "kick_meters_per80"),
+        ("tackles_total",       "tackles_per80"),
+        ("line_breaks_total",   "line_breaks_per80"),
+        ("offloads_total",      "offloads_per80"),
         ("points_scored_total", "points_scored_per80"),
-        ("tries_total", "tries_per80"),
-        ("errors_total", "errors_per80"),
-        ("penalties_total", "penalties_per80"),
+        ("tries_total",         "tries_per80"),
         ("turnovers_won_total", "turnovers_won_per80"),
-        ("turnovers_lost_total", "turnovers_lost_per80"),
-        ("ruck_arrivals_total", "ruck_arrivals_per80"),
-        ("lineout_wins_total", "lineout_wins_per80"),
     ]
 
     filled = 0
@@ -426,6 +418,9 @@ def normalize_pipeline(
         print(f"\n  [WARN] Colonnes requises manquantes: {missing_cols}")
 
     if not dry_run:
+        # Supprimer les colonnes paywall (0% de couverture LNR public)
+        df = df.drop(columns=[c for c in PAYWALL_COLUMNS if c in df.columns], errors="ignore")
+
         # Selectionner et ordonner les colonnes de sortie
         out_cols = [
             "player_id", "lnr_id", "lnr_slug", "photo_url", "name", "team", "team_code", "position_group",

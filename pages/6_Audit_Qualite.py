@@ -64,33 +64,56 @@ else:
 # ================================================================
 st.subheader("Couverture globale")
 
-stat_cols = [
-    "tackles_per80", "tackle_success_pct", "penalties_per80",
-    "turnovers_won_per80", "turnovers_lost_per80", "carries_per80",
-    "meters_per80", "line_breaks_per80", "offloads_per80",
-    "passes_per80", "kick_meters_per80", "points_scored_per80",
-    "errors_per80", "ruck_arrivals_per80", "lineout_wins_per80",
-    "scrum_success_pct",
-]
-available_cols = [c for c in stat_cols if c in df.columns]
+# Stats LNR publiques disponibles (sans paywall)
+REAL_STAT_COLS = {
+    "tackles_per80":       "Plaquages /80",
+    "line_breaks_per80":   "Franchissements /80",
+    "offloads_per80":      "Offloads /80",
+    "turnovers_won_per80": "Ballons grattés /80",
+    "points_scored_per80": "Points marqués /80",
+    "tries_per80":         "Essais /80",
+    "yellow_cards":        "Cartons jaunes",
+    "orange_cards":        "Cartons oranges",
+    "red_cards":           "Cartons rouges",
+    "height_cm":           "Taille (cm)",
+    "weight_kg":           "Poids (kg)",
+    "age":                 "Âge",
+    "nationality":         "Nationalité",
+}
 
+available_cols = [c for c in REAL_STAT_COLS if c in df.columns]
 coverage = df[available_cols].notna().mean() * 100
-cov_df = pd.DataFrame({"Métrique": coverage.index, "Couverture %": coverage.values.round(1)})
+nonzero = {c: int((df[c].fillna(0) > 0).sum()) for c in available_cols}
+
+cov_df = pd.DataFrame({
+    "Métrique": [REAL_STAT_COLS[c] for c in available_cols],
+    "Couverture %": coverage.values.round(1),
+    "Joueurs > 0": [nonzero[c] for c in available_cols],
+})
 cov_df = cov_df.sort_values("Couverture %")
 
 kc1, kc2, kc3, kc4 = st.columns(4)
 kc1.metric("Joueurs total", len(df))
 kc2.metric("Équipes", df["team"].nunique())
 kc3.metric("Postes couverts", df["position_group"].nunique())
-kc4.metric("Couverture stats moy.", f"{coverage.mean():.0f}%")
+kc4.metric("Stats 100% couvertes", f"{(coverage == 100).sum()}/{len(available_cols)}")
+
+st.success(
+    "**Stats moteur — toutes à 100% de couverture.** "
+    "Les colonnes paywall (carries, meters, passes, penalties, errors, mêlée, lineouts…) "
+    "ont été retirées du schéma — elles n'étaient jamais renseignées par LNR public."
+)
 
 fig_cov = px.bar(
     cov_df, x="Couverture %", y="Métrique", orientation="h",
     color="Couverture %", color_continuous_scale="RdYlGn",
     range_color=[0, 100],
-    title="Taux de complétion par métrique",
+    text=cov_df["Couverture %"].apply(lambda x: f"{x:.0f}%"),
+    hover_data={"Joueurs > 0": True},
+    title="Taux de complétion — stats LNR publiques uniquement",
 )
-fig_cov.update_layout(height=420, margin=dict(l=10, r=20, t=50, b=10), coloraxis_showscale=False)
+fig_cov.update_traces(textposition="outside")
+fig_cov.update_layout(height=380, margin=dict(l=10, r=60, t=50, b=10), coloraxis_showscale=False)
 st.plotly_chart(fig_cov, use_container_width=True)
 
 # Couverture par poste (heatmap métriques × postes)

@@ -1,551 +1,551 @@
-player_id,lnr_id,lnr_slug,name,team,team_code,position_group,position_raw,nationality,age,height_cm,weight_kg,season,matches_played,minutes_total,minutes_avg,yellow_cards,orange_cards,red_cards,tackles_per80,tackle_success_pct,penalties_per80,turnovers_won_per80,turnovers_lost_per80,carries_per80,meters_per80,line_breaks_per80,offloads_per80,passes_per80,kick_meters_per80,points_scored_per80,tries_per80,errors_per80,ruck_arrivals_per80,lineout_wins_per80,scrum_success_pct,_source
-lnr_862,862,barnabe-massa,B. Massa,Clermont,CLR,FRONT_ROW,1ère ligne,France,21.0,180.0,101.0,2025-2026,16,801.0,50.1,1,0,0,10.49,,,0.6,,,,0.2,0.4,,,3.0,0.6,,,,,lnr
-lnr_694,694,cristian-ojovan,C. Ojovan,Clermont,CLR,FRONT_ROW,1ère ligne,Moldavie,29.0,183.0,120.0,2025-2026,16,681.0,42.6,1,0,0,10.34,,,0.12,,,,0.0,0.12,,,0.0,0.0,,,,,lnr
-lnr_11554,11554,killian-tixeront,Killian Tixeront,Clermont,CLR,BACK_ROW,3ème ligne,France,24.0,196.0,107.0,2025-2026,16,931.0,58.2,0,0,0,9.71,,,0.0,,,,0.34,0.09,,,0.86,0.17,,,,,lnr
-lnr_184,184,giorgi-akhaladze,Giorgi Akhaladze,Clermont,CLR,FRONT_ROW,1ère ligne,Géorgie,26.0,186.0,128.0,2025-2026,15,736.0,49.1,1,0,0,9.13,,,0.0,,,,0.0,0.22,,,2.17,0.43,,,,,lnr
-lnr_2446,2446,selevasio-tolofua,S. Tolofua,Clermont,CLR,CENTRE,Centre,France,28.0,186.0,116.0,2025-2026,15,865.0,57.7,0,0,0,11.47,,,0.09,,,,0.09,1.57,,,0.92,0.18,,,,,lnr
-lnr_2655,2655,thomas-ceyte,Thomas Ceyte,Clermont,CLR,LOCK,2ème ligne,France,35.0,196.0,117.0,2025-2026,14,886.0,63.3,2,0,0,9.3,,,0.18,,,,0.18,1.72,,,0.0,0.0,,,,,lnr
-lnr_657,657,etienne-fourcade,Etienne Fourcade,Clermont,CLR,FRONT_ROW,1ère ligne,France,28.0,180.0,103.0,2025-2026,14,443.0,31.6,1,0,0,8.49,,,0.36,,,,0.18,0.18,,,1.81,0.36,,,,,lnr
-lnr_11297,11297,baptiste-jauneau,B. Jauneau,Clermont,CLR,SCRUM_HALF,Demi de mêlée,France,22.0,178.0,81.0,2025-2026,14,790.0,56.4,0,0,0,7.7,,,0.3,,,,0.71,1.01,,,3.04,0.61,,,,,lnr
-lnr_5847,5847,robert-simmons-1,Robert Simmons,Clermont,CLR,LOCK,2ème ligne,Australie,36.0,,115.0,2025-2026,14,738.0,52.7,0,1,0,9.11,,,0.33,,,,0.11,0.54,,,0.0,0.0,,,,,lnr
-lnr_2195,2195,anthime-hemery,Anthime Hemery,Clermont,CLR,BACK_ROW,3ème ligne,France,25.0,189.0,110.0,2025-2026,13,522.0,40.2,1,0,0,12.41,,,0.61,,,,0.31,0.61,,,0.0,0.0,,,,,lnr
-lnr_921,921,regis-montagne,Régis Montagne,Clermont,CLR,FRONT_ROW,1ère ligne,France,25.0,186.0,132.0,2025-2026,13,600.0,46.2,1,0,0,9.73,,,0.4,,,,0.0,0.27,,,0.0,0.0,,,,,lnr
-lnr_1793,1793,kylan-hamdaoui,Kylan Hamdaoui,Clermont,CLR,FULLBACK,Arrière,France,31.0,182.0,91.0,2025-2026,12,754.0,62.8,0,0,0,2.33,,,0.11,,,,1.27,0.74,,,2.65,0.53,,,,,lnr
-lnr_646,646,alex-newsome,Alex Newsome,Clermont,CLR,FULLBACK,Arrière,Australie,31.0,189.0,93.0,2025-2026,12,808.0,67.3,0,0,0,2.87,,,0.1,,,,0.4,0.79,,,2.48,0.5,,,,,lnr
-lnr_12302,12302,pita-gus-sowakula,P. Sowakula,Clermont,CLR,BACK_ROW,3ème ligne,Fidji,31.0,196.0,117.0,2025-2026,12,784.0,65.3,1,0,0,8.98,,,0.0,,,,0.2,1.53,,,0.51,0.1,,,,,lnr
-lnr_937,937,lucas-zamora,Lucas Zamora,Clermont,CLR,SCRUM_HALF,Demi de mêlée,France,21.0,170.0,80.0,2025-2026,12,407.0,33.9,0,0,0,5.7,,,0.0,,,,0.79,1.38,,,2.95,0.59,,,,,lnr
-lnr_712,712,bautista-delguy,B. Delguy,Clermont,CLR,WINGER,Ailier,Argentine,28.0,183.0,84.0,2025-2026,11,827.0,75.2,0,0,0,3.1,,,0.0,,,,0.58,0.39,,,0.97,0.19,,,,,lnr
-lnr_402,402,joris-jurand,Joris Jurand,Clermont,CLR,CENTRE,Centre,France,30.0,188.0,106.0,2025-2026,11,811.0,73.7,1,0,0,3.26,,,0.0,,,,0.79,0.89,,,2.96,0.59,,,,,lnr
-lnr_1544,1544,alivereti-loaloa,A. Loaloa,Clermont,CLR,CENTRE,Centre,Fidji,25.0,182.0,101.0,2025-2026,11,821.0,74.6,0,0,0,8.77,,,0.68,,,,0.39,1.17,,,0.49,0.1,,,,,lnr
-lnr_906,906,pio-muarua,Pio Muarua,Clermont,CLR,BACK_ROW,3ème ligne,Fidji,29.0,191.0,120.0,2025-2026,11,345.0,31.4,0,0,0,8.35,,,0.23,,,,0.23,0.7,,,1.16,0.23,,,,,lnr
-lnr_2709,2709,leon-darricarrere,L. Darricarrere,Clermont,CLR,CENTRE,Centre,France,21.0,187.0,98.0,2025-2026,10,730.0,73.0,0,0,0,4.6,,,0.0,,,,0.33,0.44,,,0.55,0.11,,,,,lnr
-lnr_711,711,thibaud-lanen,Thibaud Lanen,Clermont,CLR,LOCK,2ème ligne,France,27.0,198.0,109.0,2025-2026,10,453.0,45.3,0,0,0,13.77,,,0.35,,,,0.0,0.71,,,0.0,0.0,,,,,lnr
-lnr_2023,2023,sacha-lotrian,Sacha Lotrian,Clermont,CLR,FRONT_ROW,1ère ligne,France,25.0,180.0,100.0,2025-2026,10,290.0,29.0,0,0,0,16.28,,,0.0,,,,0.0,0.55,,,2.76,0.55,,,,,lnr
-lnr_382,382,tom-raffy,Tom Raffy,Clermont,CLR,FLY_HALF,Demi d'ouverture,France,21.0,179.0,76.0,2025-2026,10,180.0,18.0,0,0,0,4.0,,,0.0,,,,0.0,0.0,,,9.78,0.0,,,,,lnr
-lnr_661,661,lucas-dessaigne,Lucas Dessaigne,Clermont,CLR,BACK_ROW,3ème ligne,France,27.0,188.0,96.0,2025-2026,9,360.0,40.0,1,0,0,16.67,,,0.0,,,,0.0,0.0,,,1.11,0.22,,,,,lnr
-lnr_667,667,etienne-falgoux,Etienne Falgoux,Clermont,CLR,FRONT_ROW,1ère ligne,France,33.0,183.0,105.0,2025-2026,9,316.0,35.1,0,0,0,9.11,,,0.0,,,,0.0,0.0,,,1.27,0.25,,,,,lnr
-lnr_647,647,irae-vincynt-simone,I. Simone,Clermont,CLR,CENTRE,Centre,Nouvelle Zélande,30.0,193.0,105.0,2025-2026,9,398.0,44.2,0,0,0,6.83,,,0.0,,,,1.01,0.2,,,0.0,0.0,,,,,lnr
-lnr_2444,2444,lucas-tauzin,Lucas Tauzin,Clermont,CLR,WINGER,Ailier,France,27.0,187.0,94.0,2025-2026,9,518.0,57.6,0,0,0,3.4,,,0.15,,,,0.62,0.31,,,1.54,0.31,,,,,lnr
-lnr_669,669,sebastien-bezy,S. Bezy,Clermont,CLR,SCRUM_HALF,Demi de mêlée,France,34.0,174.0,76.0,2025-2026,8,265.0,33.1,0,0,0,6.04,,,0.0,,,,0.91,1.81,,,1.51,0.3,,,,,lnr
-lnr_460,460,tevita-kasikasi-ratuva,T. Ratuva,Clermont,CLR,LOCK,2ème ligne,Fidji,30.0,198.0,122.0,2025-2026,8,550.0,68.8,0,0,0,7.71,,,0.44,,,,0.44,1.45,,,1.45,0.29,,,,,lnr
-lnr_3233,3233,giorgi-dzmanashvili,G. Dzmanashvili,Clermont,CLR,FRONT_ROW,1ère ligne,Géorgie,23.0,186.0,122.0,2025-2026,7,151.0,21.6,0,0,0,8.48,,,0.0,,,,0.0,0.0,,,5.3,1.06,,,,,lnr
-lnr_1745,1745,marcos-kremer,Marcos Kremer,Clermont,CLR,BACK_ROW,3ème ligne,Argentine,28.0,195.0,110.0,2025-2026,7,514.0,73.4,0,0,0,12.61,,,0.16,,,,0.0,0.31,,,0.0,0.0,,,,,lnr
-lnr_696,696,alivereti-raka,A. Raka,Clermont,CLR,WINGER,Ailier,Fidji,31.0,189.0,94.0,2025-2026,5,304.0,60.8,0,0,0,1.58,,,0.26,,,,1.05,0.79,,,5.26,1.05,,,,,lnr
-lnr_11002,11002,yerim-fall,Yerim Fall,Clermont,CLR,CENTRE,Centre,France,22.0,178.0,90.0,2025-2026,4,320.0,80.0,0,0,0,4.25,,,0.25,,,,0.0,0.25,,,2.5,0.5,,,,,lnr
-lnr_2456,2456,pierre-fouyssac,Pierre Fouyssac,Clermont,CLR,WINGER,Ailier,France,31.0,189.0,101.0,2025-2026,4,211.0,52.8,0,0,0,7.96,,,0.0,,,,0.38,1.14,,,0.0,0.0,,,,,lnr
-lnr_12492,12492,axel-guillaud,Axel Guillaud,Clermont,CLR,FULLBACK,Arrière,France,19.0,189.0,86.0,2025-2026,4,231.0,57.8,0,0,0,0.69,,,0.0,,,,1.04,0.0,,,1.73,0.35,,,,,lnr
-lnr_12343,12343,leo-michaux-vargas,L. Michaux Vargas,Clermont,CLR,LOCK,2ème ligne,France,18.0,,125.0,2025-2026,4,183.0,45.8,0,0,0,8.31,,,0.44,,,,0.0,0.87,,,0.0,0.0,,,,,lnr
-lnr_709,709,george-moala,George Moala,Clermont,CLR,CENTRE,Centre,Nouvelle Zélande,35.0,188.0,99.0,2025-2026,3,181.0,60.3,0,0,0,3.54,,,0.0,,,,0.44,0.88,,,4.42,0.88,,,,,lnr
-lnr_648,648,mathys-belaubre,Mathys Belaubre,Clermont,CLR,CENTRE,Centre,France,21.0,186.0,107.0,2025-2026,2,158.0,79.0,0,0,0,5.57,,,0.0,,,,0.0,0.51,,,0.0,0.0,,,,,lnr
-lnr_13540,13540,timeo-frier,Timéo Frier,Clermont,CLR,CENTRE,Centre,France,,,,2025-2026,2,40.0,20.0,0,0,0,2.0,,,2.0,,,,0.0,0.0,,,0.0,0.0,,,,,lnr
-lnr_655,655,matheo-frisach,Mathéo Frisach,Clermont,CLR,FRONT_ROW,1ère ligne,France,20.0,188.0,127.0,2025-2026,2,88.0,44.0,0,0,0,10.91,,,0.0,,,,0.0,0.0,,,0.0,0.0,,,,,lnr
-lnr_2008,2008,leon-seilala-lam,L. Lam,Clermont,CLR,FRONT_ROW,1ère ligne,Samoa américain,37.0,183.0,102.0,2025-2026,1,68.0,,0,0,0,5.88,,,0.0,,,,0.0,0.0,,,0.0,0.0,,,,,lnr
-lnr_2569,2569,ewan-johnson,Ewan Johnson,Bayonne,BAY,LOCK,2ème ligne,Grande-Bretagne,26.0,,120.0,2025-2026,17,857.0,50.4,0,0,0,9.52,,,0.19,,,,0.09,0.19,,,0.0,0.0,,,,,lnr
-lnr_2102,2102,lucas-martin,Lucas Martin,Bayonne,BAY,FRONT_ROW,1ère ligne,France,23.0,185.0,96.0,2025-2026,16,603.0,37.7,0,0,0,11.54,,,0.27,,,,0.4,0.53,,,3.32,0.66,,,,,lnr
-lnr_707,707,cheikh-saliou-tiberghien,C. Tiberghien,Bayonne,BAY,FULLBACK,Arrière,France,26.0,186.0,96.0,2025-2026,16,947.0,59.2,1,0,0,1.77,,,0.08,,,,0.42,0.34,,,1.52,0.25,,,,,lnr
-lnr_2658,2658,facundo-bosch,Facundo Bosch,Bayonne,BAY,FRONT_ROW,1ère ligne,Argentine,34.0,180.0,100.0,2025-2026,15,677.0,45.1,2,0,0,12.76,,,0.47,,,,0.0,0.95,,,0.59,0.12,,,,,lnr
-lnr_2612,2612,sireli-maqala,Sireli Maqala,Bayonne,BAY,CENTRE,Centre,Fidji,26.0,172.0,88.0,2025-2026,14,893.0,63.8,2,0,0,5.38,,,0.36,,,,0.72,0.9,,,2.24,0.45,,,,,lnr
-lnr_2349,2349,emerick-setiano,Emerick Setiano,Bayonne,BAY,FRONT_ROW,1ère ligne,France,29.0,183.0,115.0,2025-2026,14,616.0,44.0,2,0,0,6.75,,,0.0,,,,0.13,0.13,,,0.0,0.0,,,,,lnr
-lnr_2565,2565,andy-bordelai,Andy Bordelai,Bayonne,BAY,FRONT_ROW,1ère ligne,France,25.0,186.0,115.0,2025-2026,13,711.0,54.7,2,0,0,9.68,,,0.0,,,,0.11,0.0,,,0.0,0.0,,,,,lnr
-lnr_2645,2645,pascal-cotet,Pascal Cotet,Bayonne,BAY,FRONT_ROW,1ère ligne,France,32.0,184.0,123.0,2025-2026,13,429.0,33.0,2,0,0,8.21,,,0.0,,,,0.0,0.19,,,0.0,0.0,,,,,lnr
-lnr_663,663,alexandre-fischer,A. Fischer,Bayonne,BAY,BACK_ROW,3ème ligne,France,28.0,188.0,107.0,2025-2026,13,721.0,55.5,0,0,0,9.65,,,0.33,,,,0.44,0.55,,,1.66,0.33,,,,,lnr
-lnr_2633,2633,baptiste-heguy,B. Heguy,Bayonne,BAY,BACK_ROW,3ème ligne,France,27.0,196.0,104.0,2025-2026,13,656.0,50.5,0,0,0,10.12,,,0.12,,,,0.12,0.24,,,0.0,0.0,,,,,lnr
-lnr_690,690,arthur-iturria,Arthur Iturria,Bayonne,BAY,LOCK,2ème ligne,France,31.0,198.0,112.0,2025-2026,13,763.0,58.7,0,0,0,9.65,,,0.21,,,,0.0,0.52,,,1.05,0.21,,,,,lnr
-lnr_2628,2628,yohan-orabe,Yohan Orabe,Bayonne,BAY,FULLBACK,Arrière,France,23.0,182.0,83.0,2025-2026,13,695.0,53.5,0,0,0,5.06,,,0.0,,,,0.69,0.23,,,0.58,0.12,,,,,lnr
-lnr_462,462,rodrigo-bruni,Rodrigo Bruni,Bayonne,BAY,BACK_ROW,3ème ligne,Argentine,32.0,187.0,109.0,2025-2026,12,790.0,65.8,1,0,0,9.92,,,0.41,,,,0.41,0.91,,,1.01,0.2,,,,,lnr
-lnr_241,241,baptiste-germain,B. Germain,Bayonne,BAY,SCRUM_HALF,Demi de mêlée,France,25.0,174.0,82.0,2025-2026,12,641.0,53.4,0,0,0,6.61,,,0.12,,,,0.12,0.62,,,4.12,0.5,,,,,lnr
-lnr_416,416,lucas-martin-paulos-adler,L. Paulos Adler,Bayonne,BAY,LOCK,2ème ligne,Espagne,28.0,199.0,123.0,2025-2026,12,682.0,56.8,0,0,0,8.68,,,0.23,,,,0.0,0.12,,,1.17,0.23,,,,,lnr
-lnr_2607,2607,esteban-capilla,Esteban Capilla,Bayonne,BAY,BACK_ROW,3ème ligne,France,23.0,197.0,99.0,2025-2026,11,679.0,61.7,1,0,0,10.01,,,0.35,,,,0.82,0.59,,,4.12,0.82,,,,,lnr
-lnr_2609,2609,arnaud-erbinartegaray,A. Erbinartegaray,Bayonne,BAY,FULLBACK,Arrière,France,25.0,185.0,88.0,2025-2026,11,846.0,76.9,1,0,0,4.63,,,0.0,,,,0.66,0.57,,,0.47,0.09,,,,,lnr
-lnr_2657,2657,guillaume-martocq,G. Martocq,Bayonne,BAY,CENTRE,Centre,France,26.0,183.0,94.0,2025-2026,11,652.0,59.3,2,0,0,6.99,,,0.0,,,,0.0,0.12,,,0.0,0.0,,,,,lnr
-lnr_13647,13647,robert-leota,Robert Leota,Bayonne,BAY,BACK_ROW,3ème ligne,Australie,29.0,190.0,110.0,2025-2026,10,676.0,67.6,0,0,0,9.94,,,0.12,,,,0.24,0.0,,,0.59,0.12,,,,,lnr
-lnr_12628,12628,etuale-manusamoa-tuilagi,E. Tuilagi,Bayonne,BAY,CENTRE,Centre,Grande-Bretagne,34.0,185.0,108.0,2025-2026,10,676.0,67.6,1,0,0,5.44,,,0.12,,,,0.47,0.36,,,0.59,0.12,,,,,lnr
-lnr_12629,12629,alexander-james-moon,A. Moon,Bayonne,BAY,LOCK,2ème ligne,Grande-Bretagne,29.0,,127.0,2025-2026,9,441.0,49.0,0,0,0,9.8,,,0.0,,,,0.0,0.18,,,0.0,0.0,,,,,lnr
-lnr_11937,11937,baptiste-jules-tilloles,B. Tilloles,Bayonne,BAY,SCRUM_HALF,Demi de mêlée,France,19.0,178.0,81.0,2025-2026,8,216.0,27.0,0,0,0,2.22,,,0.0,,,,0.0,0.37,,,0.0,0.0,,,,,lnr
-lnr_3252,3252,manex-ariceta-maestro,M. Ariceta Maestro,Bayonne,BAY,BACK_ROW,3ème ligne,Espagne,22.0,192.0,115.0,2025-2026,7,151.0,21.6,0,0,0,13.25,,,0.0,,,,1.06,0.0,,,0.0,0.0,,,,,lnr
-lnr_1885,1885,ignacio-calles,Ignacio Calles,Bayonne,BAY,FRONT_ROW,1ère ligne,Argentine,30.0,187.0,116.0,2025-2026,7,324.0,46.3,0,0,0,7.9,,,0.49,,,,0.0,0.25,,,0.0,0.0,,,,,lnr
-lnr_12404,12404,mateo-carreras-1,Mateo Carreras,Bayonne,BAY,WINGER,Ailier,Espagne,26.0,173.0,84.0,2025-2026,7,470.0,67.1,0,0,0,4.09,,,0.0,,,,1.36,0.68,,,3.4,0.68,,,,,lnr
-lnr_2669,2669,swan-cormenier,Swan Cormenier,Bayonne,BAY,FRONT_ROW,1ère ligne,France,30.0,175.0,118.0,2025-2026,7,199.0,28.4,0,0,0,7.24,,,0.4,,,,0.0,0.0,,,0.0,0.0,,,,,lnr
-lnr_1424,1424,vincent-giudicelli,V. Giudicelli,Bayonne,BAY,FRONT_ROW,1ère ligne,France,28.0,184.0,102.0,2025-2026,7,218.0,31.1,0,1,0,13.94,,,0.37,,,,0.37,0.0,,,1.83,0.37,,,,,lnr
-lnr_1812,1812,giovanni-habel-kuffner,G. Habel Kuffner,Bayonne,BAY,BACK_ROW,3ème ligne,Allemagne,31.0,196.0,105.0,2025-2026,7,373.0,53.3,0,0,0,8.15,,,0.0,,,,0.21,0.43,,,0.0,0.0,,,,,lnr
-lnr_280,280,federico-mori,F. Mori,Bayonne,BAY,CENTRE,Centre,Italie,25.0,188.0,108.0,2025-2026,7,391.0,55.9,0,0,0,3.89,,,0.0,,,,0.2,0.82,,,0.0,0.0,,,,,lnr
-lnr_13654,13654,gareth-william-anscombe,G. Anscombe,Bayonne,BAY,FLY_HALF,Demi d'ouverture,Angleterre,34.0,183.0,96.0,2025-2026,6,164.0,27.3,0,0,0,7.8,,,0.0,,,,0.0,0.0,,,3.41,0.0,,,,,lnr
-lnr_2171,2171,baptiste-chouzenoux,B. Chouzenoux,Bayonne,BAY,BACK_ROW,3ème ligne,France,32.0,,107.0,2025-2026,5,211.0,42.2,0,0,0,7.58,,,0.0,,,,0.0,0.76,,,0.0,0.0,,,,,lnr
-lnr_2100,2100,luke-tagi,Luke Tagi,Bayonne,BAY,FRONT_ROW,1ère ligne,Fidji,28.0,187.0,130.0,2025-2026,5,200.0,40.0,0,0,0,8.0,,,0.0,,,,0.0,1.2,,,0.0,0.0,,,,,lnr
-lnr_13711,13711,hugo-gonzalez-hernandez,H. González Hernández,Bayonne,BAY,FRONT_ROW,1ère ligne,Espagne,20.0,183.0,119.0,2025-2026,4,100.0,25.0,0,0,0,12.8,,,0.8,,,,0.0,0.0,,,0.0,0.0,,,,,lnr
-lnr_2640,2640,maxime-machenaud,Maxime Machenaud,Bayonne,BAY,SCRUM_HALF,Demi de mêlée,France,37.0,174.0,87.0,2025-2026,4,143.0,35.8,0,0,0,6.15,,,0.0,,,,0.0,1.68,,,0.0,0.0,,,,,lnr
-lnr_11813,11813,pierre-castillon,Pierre Castillon,Bayonne,BAY,FRONT_ROW,1ère ligne,France,22.0,185.0,104.0,2025-2026,3,83.0,27.7,0,0,0,14.46,,,0.0,,,,0.0,0.0,,,0.0,0.0,,,,,lnr
-lnr_724,724,marco-lorenzo-fepuleai,M. Fepulea'i,Bayonne,BAY,FRONT_ROW,1ère ligne,Nouvelle Zélande,30.0,183.0,128.0,2025-2026,3,110.0,36.7,0,0,0,5.82,,,0.0,,,,0.0,0.0,,,0.0,0.0,,,,,lnr
-lnr_3063,3063,victor-hannoun,Victor Hannoun,Bayonne,BAY,WINGER,Ailier,France,22.0,182.0,85.0,2025-2026,3,218.0,72.7,0,0,0,4.04,,,0.37,,,,0.0,0.0,,,0.0,0.0,,,,,lnr
-lnr_2674,2674,tevita-tatafu,Tevita Tatafu,Bayonne,BAY,FRONT_ROW,1ère ligne,Tonga,23.0,183.0,133.0,2025-2026,3,100.0,33.3,0,0,0,8.0,,,0.0,,,,0.0,0.0,,,4.0,0.8,,,,,lnr
-lnr_13648,13648,alvaro-garcia-iandolino,A. Garcia Iandolino,Bayonne,BAY,LOCK,2ème ligne,Italie,20.0,198.0,116.0,2025-2026,2,40.0,20.0,0,0,0,10.0,,,0.0,,,,0.0,0.0,,,0.0,0.0,,,,,lnr
-lnr_11728,11728,gabriel-lapegue-lafaye,G. Lapegue Lafaye,Bayonne,BAY,CENTRE,Centre,France,21.0,,,2025-2026,2,74.0,37.0,0,0,0,0.0,,,0.0,,,,0.0,0.0,,,0.0,0.0,,,,,lnr
-lnr_14057,14057,raphael-marchesin,Raphael Marchesin,Bayonne,BAY,BACK_ROW,3ème ligne,France,20.0,188.0,94.0,2025-2026,2,62.0,31.0,0,0,0,15.48,,,0.0,,,,0.0,0.0,,,0.0,0.0,,,,,lnr
-lnr_1805,1805,nadir-megdoud,Nadir Megdoud,Bayonne,BAY,WINGER,Ailier,France,29.0,181.0,96.0,2025-2026,1,80.0,80.0,0,0,0,6.0,,,0.0,,,,1.0,0.0,,,0.0,0.0,,,,,lnr
-lnr_11435,11435,teddy-durand,Teddy Durand,Castres,CAS,FRONT_ROW,1ère ligne,France,26.0,180.0,102.0,2025-2026,17,914.0,53.8,1,0,0,11.47,,,0.09,,,,0.09,0.35,,,1.31,0.26,,,,,lnr
-lnr_560,560,lois-guerois-galisson,L. Guerois Galisson,Castres,CAS,FRONT_ROW,1ère ligne,France,24.0,192.0,122.0,2025-2026,17,696.0,40.9,0,0,0,11.95,,,0.0,,,,0.0,0.0,,,0.57,0.11,,,,,lnr
-lnr_624,624,florent-vanverberghe,F. Vanverberghe,Castres,CAS,LOCK,2ème ligne,France,25.0,198.0,120.0,2025-2026,15,908.0,60.5,0,0,0,13.66,,,0.0,,,,0.0,0.09,,,0.0,0.0,,,,,lnr
-lnr_11820,11820,elias-jack-goodhue,E. Goodhue,Castres,CAS,CENTRE,Centre,Nouvelle Zélande,30.0,188.0,100.0,2025-2026,14,921.0,65.8,1,0,0,10.77,,,0.17,,,,0.35,0.78,,,1.3,0.26,,,,,lnr
-lnr_640,640,thomas-staniforth,T. Staniforth,Castres,CAS,LOCK,2ème ligne,Australie,31.0,198.0,124.0,2025-2026,14,666.0,47.6,1,1,0,16.1,,,0.12,,,,0.0,0.12,,,0.0,0.0,,,,,lnr
-lnr_549,549,vilimoni-botitu,V. Botitu,Castres,CAS,CENTRE,Centre,Fidji,27.0,183.0,98.0,2025-2026,13,829.0,63.8,0,0,0,7.04,,,0.0,,,,0.68,0.87,,,1.93,0.39,,,,,lnr
-lnr_1892,1892,guillaume-ducat,G. Ducat,Castres,CAS,LOCK,2ème ligne,France,29.0,,115.0,2025-2026,13,846.0,65.1,1,0,0,7.47,,,0.0,,,,0.0,0.09,,,0.0,0.0,,,,,lnr
-lnr_611,611,jeremy-fernandez,J. Fernandez,Castres,CAS,SCRUM_HALF,Demi de mêlée,France,28.0,176.0,90.0,2025-2026,13,536.0,41.2,0,0,0,5.97,,,0.45,,,,0.45,0.45,,,8.96,0.45,,,,,lnr
-lnr_990,990,pierre-popelin,Pierre Popelin,Castres,CAS,FULLBACK,Arrière,France,30.0,181.0,87.0,2025-2026,13,691.0,53.2,2,0,0,3.01,,,0.0,,,,0.12,0.69,,,9.96,0.12,,,,,lnr
-lnr_555,555,santiago-arata-perrone,S. Arata Perrone,Castres,CAS,SCRUM_HALF,Demi de mêlée,Italie,29.0,174.0,75.0,2025-2026,12,717.0,59.8,0,0,0,7.7,,,0.0,,,,0.45,1.34,,,1.12,0.22,,,,,lnr
-lnr_550,550,tyler-ardron,Tyler Ardron,Castres,CAS,LOCK,2ème ligne,Canada,34.0,197.0,108.0,2025-2026,12,822.0,68.5,1,0,0,9.64,,,0.29,,,,0.19,0.68,,,0.97,0.19,,,,,lnr
-lnr_599,599,mathieu-babillot,Mathieu Babillot,Castres,CAS,BACK_ROW,3ème ligne,France,32.0,190.0,110.0,2025-2026,12,735.0,61.2,0,0,0,10.56,,,0.33,,,,0.0,0.54,,,0.0,0.0,,,,,lnr
-lnr_1888,1888,nicolas-corato,Nicolas Corato,Castres,CAS,FRONT_ROW,1ère ligne,France,28.0,184.0,123.0,2025-2026,12,419.0,34.9,0,0,0,9.16,,,0.0,,,,0.0,0.0,,,0.0,0.0,,,,,lnr
-lnr_580,580,gauthier-maravat,G. Maravat,Castres,CAS,BACK_ROW,3ème ligne,France,25.0,198.0,112.0,2025-2026,12,451.0,37.6,0,0,0,9.93,,,0.0,,,,0.0,0.0,,,0.0,0.0,,,,,lnr
-lnr_633,633,baptiste-cope,B. Cope,Castres,CAS,BACK_ROW,3ème ligne,France,24.0,186.0,102.0,2025-2026,11,378.0,34.4,0,0,0,18.2,,,0.42,,,,0.21,0.21,,,0.0,0.0,,,,,lnr
-lnr_606,606,baptiste-delaporte,B. Delaporte,Castres,CAS,BACK_ROW,3ème ligne,France,29.0,190.0,110.0,2025-2026,11,776.0,70.5,1,0,0,12.99,,,0.31,,,,0.0,0.21,,,0.0,0.0,,,,,lnr
-lnr_596,596,adrien-seguret,Adrien Seguret,Castres,CAS,CENTRE,Centre,France,27.0,182.0,95.0,2025-2026,11,269.0,24.5,0,0,0,5.65,,,0.0,,,,0.0,0.3,,,0.0,0.0,,,,,lnr
-lnr_612,612,gauthier-doubrere,G. Doubrere,Castres,CAS,SCRUM_HALF,Demi de mêlée,France,30.0,176.0,82.0,2025-2026,10,182.0,18.2,0,0,0,7.91,,,0.44,,,,0.0,0.44,,,0.0,0.0,,,,,lnr
-lnr_1562,1562,christian-guetang-ambadiang,C. Guetang Ambadiang,Castres,CAS,WINGER,Ailier,Cameroun,27.0,189.0,107.0,2025-2026,10,778.0,77.8,1,0,0,5.45,,,0.31,,,,0.82,1.03,,,2.57,0.51,,,,,lnr
-lnr_13511,13511,vuate-karawalevu,V. Karawalevu,Castres,CAS,WINGER,Ailier,Fidji,25.0,193.0,104.0,2025-2026,10,619.0,61.9,0,0,0,3.36,,,0.0,,,,1.29,0.9,,,0.65,0.13,,,,,lnr
-lnr_384,384,abraham-papalii,Abraham Papalii,Castres,CAS,LOCK,2ème ligne,Nouvelle Zélande,32.0,194.0,126.0,2025-2026,10,487.0,48.7,1,0,0,8.21,,,0.0,,,,0.16,1.15,,,1.64,0.33,,,,,lnr
-lnr_593,593,antoine-tichit,Antoine Tichit,Castres,CAS,FRONT_ROW,1ère ligne,France,36.0,187.0,115.0,2025-2026,10,303.0,30.3,0,0,0,8.18,,,0.0,,,,0.0,0.0,,,0.0,0.0,,,,,lnr
-lnr_68,68,loris-zarantonello,L. Zarantonello,Castres,CAS,FRONT_ROW,1ère ligne,France,25.0,183.0,102.0,2025-2026,10,303.0,30.3,0,0,0,15.31,,,0.0,,,,0.0,0.0,,,2.64,0.53,,,,,lnr
-lnr_12516,12516,william-collier,William Collier,Castres,CAS,FRONT_ROW,1ère ligne,Angleterre,34.0,183.0,120.0,2025-2026,9,391.0,43.4,0,0,0,7.57,,,0.2,,,,0.0,0.0,,,1.02,0.2,,,,,lnr
-lnr_603,603,geoffrey-palis,G. Palis,Castres,CAS,FULLBACK,Arrière,France,34.0,188.0,96.0,2025-2026,9,455.0,50.6,1,0,0,3.87,,,0.0,,,,0.35,0.18,,,1.41,0.18,,,,,lnr
-lnr_2989,2989,adam-vargas,Adam Vargas,Castres,CAS,WINGER,Ailier,France,25.0,180.0,80.0,2025-2026,9,703.0,78.1,0,0,0,5.01,,,0.11,,,,0.8,0.57,,,1.14,0.23,,,,,lnr
-lnr_595,595,aurelien-azar,A. Azar,Castres,CAS,FRONT_ROW,1ère ligne,France,31.0,188.0,126.0,2025-2026,8,452.0,56.5,0,0,0,7.79,,,0.53,,,,0.18,0.0,,,0.0,0.0,,,,,lnr
-lnr_591,591,adrea-cocagi,Adrea Cocagi,Castres,CAS,CENTRE,Centre,Fidji,32.0,185.0,109.0,2025-2026,8,510.0,63.8,0,0,0,9.88,,,0.31,,,,0.0,0.47,,,0.0,0.0,,,,,lnr
-lnr_427,427,enzo-herve,Enzo Herve,Castres,CAS,FLY_HALF,Demi d'ouverture,France,27.0,176.0,90.0,2025-2026,8,417.0,52.1,0,0,0,4.41,,,0.0,,,,0.19,0.19,,,5.76,0.0,,,,,lnr
-lnr_592,592,quentin-walcker,Quentin Walcker,Castres,CAS,FRONT_ROW,1ère ligne,France,30.0,181.0,109.0,2025-2026,8,421.0,52.6,1,0,0,9.31,,,0.0,,,,0.19,0.0,,,0.0,0.0,,,,,lnr
-lnr_585,585,levan-chilachava,L. Chilachava,Castres,CAS,FRONT_ROW,1ère ligne,Géorgie,34.0,188.0,133.0,2025-2026,7,177.0,25.3,2,0,0,6.33,,,0.0,,,,0.0,0.45,,,0.0,0.0,,,,,lnr
-lnr_2596,2596,nathanael-hulleu,N. Hulleu,Castres,CAS,WINGER,Ailier,France,25.0,178.0,86.0,2025-2026,7,466.0,66.6,0,0,0,3.78,,,0.0,,,,0.86,0.34,,,3.43,0.69,,,,,lnr
-lnr_2677,2677,remy-baget,Remy Baget,Castres,CAS,WINGER,Ailier,France,28.0,182.0,89.0,2025-2026,6,387.0,64.5,0,0,0,3.72,,,0.62,,,,0.21,1.24,,,1.03,0.21,,,,,lnr
-lnr_637,637,pierre-colonna,Pierre Colonna,Castres,CAS,FRONT_ROW,1ère ligne,France,24.0,188.0,113.0,2025-2026,6,197.0,32.8,0,0,0,11.37,,,0.0,,,,0.0,0.0,,,2.03,0.41,,,,,lnr
-lnr_11838,11838,louka-guilhot,Louka Guilhot,Castres,CAS,FLY_HALF,Demi d'ouverture,France,20.0,183.0,80.0,2025-2026,6,163.0,27.2,0,0,0,5.4,,,0.0,,,,0.0,0.49,,,3.93,0.0,,,,,lnr
-lnr_1264,1264,veresa-tuqovu-ramototabua,V. Ramototabua,Castres,CAS,WINGER,Ailier,Fidji,25.0,195.0,107.0,2025-2026,6,244.0,40.7,0,0,0,13.77,,,0.33,,,,0.0,0.0,,,3.28,0.66,,,,,lnr
-lnr_556,556,feibyan-cornell-tukino,F. Tukino,Castres,CAS,BACK_ROW,3ème ligne,Nouvelle Zélande,24.0,190.0,111.0,2025-2026,6,287.0,47.8,0,0,0,8.64,,,0.28,,,,0.0,0.28,,,0.0,0.0,,,,,lnr
-lnr_687,687,paul-jedrasiak,Paul Jedrasiak,Castres,CAS,LOCK,2ème ligne,France,33.0,,121.0,2025-2026,5,242.0,48.4,0,0,0,9.59,,,0.0,,,,0.0,0.0,,,0.0,0.0,,,,,lnr
-lnr_553,553,louis-le-brun,Louis Le Brun,Castres,CAS,FLY_HALF,Demi d'ouverture,France,24.0,188.0,100.0,2025-2026,3,177.0,59.0,0,0,0,2.71,,,0.45,,,,0.0,0.45,,,6.78,0.0,,,,,lnr
-lnr_533,533,simon-meka,Simon Meka,Castres,CAS,LOCK,2ème ligne,France,26.0,193.0,110.0,2025-2026,3,153.0,51.0,0,0,0,13.07,,,0.0,,,,0.0,0.0,,,2.61,0.52,,,,,lnr
-lnr_575,575,leone-nakarawa,Leone Nakarawa,Castres,CAS,LOCK,2ème ligne,Fidji,37.0,,115.0,2025-2026,3,95.0,31.7,0,0,0,4.21,,,0.0,,,,0.0,4.21,,,0.0,0.0,,,,,lnr
-lnr_1084,1084,guillaume-marchand,G. Marchand,Lyon,LOU,FRONT_ROW,1ère ligne,France,27.0,183.0,105.0,2025-2026,15,666.0,44.4,1,0,0,15.74,,,0.36,,,,0.12,0.24,,,0.0,0.0,,,,,lnr
-lnr_857,857,irakli-aptsiauri,Irakli Aptsiauri,Lyon,LOU,FRONT_ROW,1ère ligne,Géorgie,23.0,185.0,122.0,2025-2026,14,590.0,42.1,1,0,0,14.24,,,0.27,,,,0.0,0.14,,,0.68,0.14,,,,,lnr
-lnr_1081,1081,leo-berdeu,Léo Berdeu,Lyon,LOU,FLY_HALF,Demi d'ouverture,France,27.0,195.0,99.0,2025-2026,14,743.0,53.1,1,0,0,5.81,,,0.0,,,,0.43,1.08,,,9.48,0.11,,,,,lnr
-lnr_1068,1068,esteban-gonzalez,Esteban Gonzalez,Lyon,LOU,SCRUM_HALF,Demi de mêlée,France,20.0,177.0,80.0,2025-2026,14,365.0,26.1,0,0,0,7.23,,,0.0,,,,1.32,0.22,,,4.38,0.88,,,,,lnr
-lnr_12591,12591,jermaine-ainsley,J. Ainsley,Lyon,LOU,FRONT_ROW,1ère ligne,Nouvelle Zélande,30.0,181.0,127.0,2025-2026,13,671.0,51.6,0,0,0,11.92,,,0.12,,,,0.12,0.12,,,0.0,0.0,,,,,lnr
-lnr_1700,1700,charlie-cassang,Charlie Cassang,Lyon,LOU,SCRUM_HALF,Demi de mêlée,France,31.0,173.0,92.0,2025-2026,13,638.0,49.1,0,0,0,5.14,,,0.0,,,,0.38,0.75,,,1.88,0.38,,,,,lnr
-lnr_2200,2200,thomas-moukoro-abouem,T. Moukoro Abouem,Lyon,LOU,FRONT_ROW,1ère ligne,France,24.0,185.0,121.0,2025-2026,13,471.0,36.2,1,0,0,17.49,,,0.34,,,,0.34,0.0,,,5.1,1.02,,,,,lnr
-lnr_1083,1083,jerome-rey,J. Rey,Lyon,LOU,FRONT_ROW,1ère ligne,France,30.0,181.0,133.0,2025-2026,13,570.0,43.8,0,0,0,14.6,,,0.0,,,,0.14,0.0,,,0.0,0.0,,,,,lnr
-lnr_838,838,janse-roux,Janse Roux,Lyon,LOU,LOCK,2ème ligne,Afrique du Sud,28.0,,122.0,2025-2026,13,519.0,39.9,0,0,0,14.34,,,0.31,,,,0.0,0.0,,,0.0,0.0,,,,,lnr
-lnr_2277,2277,jiuta-naqoli-wainiqolo,J. Wainiqolo,Lyon,LOU,WINGER,Ailier,Fidji,27.0,187.0,97.0,2025-2026,13,970.0,74.6,3,0,0,5.11,,,0.0,,,,1.73,1.4,,,6.19,1.24,,,,,lnr
-lnr_1125,1125,ethan-dumortier,Ethan Dumortier,Lyon,LOU,CENTRE,Centre,France,25.0,191.0,93.0,2025-2026,12,819.0,68.2,1,0,0,5.57,,,0.0,,,,1.56,0.39,,,2.44,0.49,,,,,lnr
-lnr_2122,2122,martin-meliande,Martin Meliande,Lyon,LOU,FLY_HALF,Demi d'ouverture,France,24.0,187.0,82.0,2025-2026,12,651.0,54.2,1,0,0,2.95,,,0.12,,,,0.49,0.61,,,8.73,0.12,,,,,lnr
-lnr_2165,2165,camille-chat,Camille Chat,Lyon,LOU,FRONT_ROW,1ère ligne,France,30.0,178.0,101.0,2025-2026,11,499.0,45.4,0,0,0,11.7,,,0.16,,,,0.16,0.8,,,0.8,0.16,,,,,lnr
-lnr_179,179,gabin-lorre,Gabin Lorre,Lyon,LOU,FULLBACK,Arrière,France,24.0,180.0,81.0,2025-2026,11,828.0,75.3,0,0,0,3.57,,,0.0,,,,0.58,0.48,,,1.74,0.19,,,,,lnr
-lnr_1077,1077,arno-botha,Arno Botha,Lyon,LOU,BACK_ROW,3ème ligne,Afrique du Sud,34.0,190.0,108.0,2025-2026,10,498.0,49.8,0,0,0,12.85,,,0.0,,,,0.0,0.16,,,0.0,0.0,,,,,lnr
-lnr_1105,1105,killian-geraci,Killian Geraci,Lyon,LOU,LOCK,2ème ligne,France,27.0,,115.0,2025-2026,10,457.0,45.7,0,0,0,13.48,,,0.18,,,,0.0,0.0,,,1.75,0.35,,,,,lnr
-lnr_1052,1052,liam-robson-allen,L. Allen,Lyon,LOU,BACK_ROW,3ème ligne,Nouvelle Zélande,26.0,191.0,105.0,2025-2026,9,451.0,50.1,0,0,0,17.92,,,1.42,,,,0.0,0.0,,,0.89,0.18,,,,,lnr
-lnr_13410,13410,iosefo-masi-baleiwairiki,I. Baleiwairiki,Lyon,LOU,CENTRE,Centre,Fidji,27.0,190.0,97.0,2025-2026,9,528.0,58.7,0,0,0,8.64,,,0.15,,,,1.06,0.91,,,3.03,0.61,,,,,lnr
-lnr_2162,2162,cedate-gomes-sa,Cedate Gomes Sa,Lyon,LOU,FRONT_ROW,1ère ligne,France,32.0,185.0,113.0,2025-2026,9,163.0,18.1,0,0,0,13.74,,,0.0,,,,0.0,0.49,,,0.0,0.0,,,,,lnr
-lnr_1123,1123,mickael-guillard,M. Guillard,Lyon,LOU,LOCK,2ème ligne,France,25.0,197.0,113.0,2025-2026,9,571.0,63.4,0,0,0,15.13,,,0.28,,,,0.28,0.0,,,0.0,0.0,,,,,lnr
-lnr_11734,11734,monty-ioane,Monty Ioane,Lyon,LOU,WINGER,Ailier,Australie,31.0,180.0,91.0,2025-2026,9,621.0,69.0,0,0,0,3.48,,,0.0,,,,0.77,1.16,,,3.22,0.64,,,,,lnr
-lnr_1095,1095,felix-lambey,Félix Lambey,Lyon,LOU,LOCK,2ème ligne,France,32.0,196.0,107.0,2025-2026,9,411.0,45.7,0,0,0,14.21,,,0.19,,,,0.0,0.19,,,0.0,0.0,,,,,lnr
-lnr_1126,1126,alfred-parisien,Alfred Parisien,Lyon,LOU,CENTRE,Centre,France,25.0,182.0,91.0,2025-2026,9,401.0,44.6,0,0,0,5.19,,,0.0,,,,0.0,0.2,,,0.0,0.0,,,,,lnr
-lnr_1106,1106,baptiste-couilloud,B. Couilloud,Lyon,LOU,SCRUM_HALF,Demi de mêlée,France,28.0,176.0,82.0,2025-2026,8,450.0,56.2,0,0,0,4.98,,,0.18,,,,1.42,1.07,,,2.67,0.53,,,,,lnr
-lnr_11474,11474,david-patrick-jackson,D. Jackson,Lyon,LOU,FLY_HALF,Demi d'ouverture,Irlande,34.0,180.0,89.0,2025-2026,8,313.0,39.1,0,0,0,6.13,,,0.26,,,,0.0,0.26,,,9.97,0.0,,,,,lnr
-lnr_1107,1107,hamza-kaabeche,Hamza Kaabeche,Lyon,LOU,FRONT_ROW,1ère ligne,France,29.0,189.0,114.0,2025-2026,8,364.0,45.5,0,0,0,9.23,,,0.44,,,,0.0,0.22,,,0.0,0.0,,,,,lnr
-lnr_1074,1074,josiah-meihana-maraku,J. Maraku,Lyon,LOU,CENTRE,Centre,Nouvelle Zélande,25.0,180.0,97.0,2025-2026,8,531.0,66.4,0,0,0,9.34,,,0.0,,,,0.3,0.0,,,0.75,0.15,,,,,lnr
-lnr_1127,1127,beka-saginadze,Beka Saginadze,Lyon,LOU,LOCK,2ème ligne,Géorgie,27.0,191.0,110.0,2025-2026,8,355.0,44.4,1,0,0,9.46,,,0.45,,,,0.0,0.23,,,0.0,0.0,,,,,lnr
-lnr_929,929,mathis-sarragallet,M. Sarragallet,Lyon,LOU,FRONT_ROW,1ère ligne,France,25.0,178.0,109.0,2025-2026,8,212.0,26.5,2,0,0,19.25,,,0.38,,,,0.0,1.13,,,0.0,0.0,,,,,lnr
-lnr_1584,1584,beka-shvangiradze,B. Shvangiradze,Lyon,LOU,BACK_ROW,3ème ligne,Géorgie,23.0,191.0,104.0,2025-2026,7,300.0,42.9,0,0,0,13.6,,,0.8,,,,0.27,0.27,,,0.0,0.0,,,,,lnr
-lnr_1124,1124,alexandre-tchaptchet-noutcha,A. Tchaptchet Noutcha,Lyon,LOU,FULLBACK,Arrière,France,24.0,171.0,79.0,2025-2026,7,399.0,57.0,0,0,0,3.41,,,0.0,,,,0.2,0.6,,,0.0,0.0,,,,,lnr
-lnr_1117,1117,marvin-saint-gys-okuya,M. Okuya,Lyon,LOU,BACK_ROW,3ème ligne,France,22.0,190.0,110.0,2025-2026,6,284.0,47.3,0,0,0,16.06,,,0.28,,,,0.0,0.28,,,0.0,0.0,,,,,lnr
-lnr_1101,1101,thibaut-regard,Thibaut Regard,Lyon,LOU,CENTRE,Centre,France,32.0,180.0,95.0,2025-2026,4,231.0,57.8,0,0,0,7.27,,,0.0,,,,0.0,0.0,,,0.0,0.0,,,,,lnr
-lnr_1128,1128,maxime-gouzou,Maxime Gouzou,Lyon,LOU,BACK_ROW,3ème ligne,France,27.0,189.0,106.0,2025-2026,3,54.0,18.0,0,0,0,5.93,,,0.0,,,,0.0,0.0,,,0.0,0.0,,,,,lnr
-lnr_1037,1037,arthur-mathiron,Arthur Mathiron,Lyon,LOU,CENTRE,Centre,France,22.0,182.0,92.0,2025-2026,3,91.0,30.3,0,0,0,7.91,,,0.0,,,,0.0,0.0,,,0.0,0.0,,,,,lnr
-lnr_1437,1437,vincent-rattez,Vincent Rattez,Lyon,LOU,CENTRE,Centre,France,34.0,181.0,89.0,2025-2026,3,175.0,58.3,0,0,0,6.4,,,0.46,,,,0.0,1.37,,,2.29,0.46,,,,,lnr
-lnr_12477,12477,antoine-deliance,Antoine Deliance,Lyon,LOU,BACK_ROW,3ème ligne,France,20.0,192.0,99.0,2025-2026,2,160.0,80.0,0,0,0,12.5,,,0.0,,,,0.0,0.0,,,0.0,0.0,,,,,lnr
-lnr_11791,11791,ave-jonathan-maalo,A. Maalo,Lyon,LOU,FRONT_ROW,1ère ligne,Nouvelle Zélande,22.0,189.0,132.0,2025-2026,2,45.0,22.5,0,0,0,8.89,,,0.0,,,,0.0,0.0,,,0.0,0.0,,,,,lnr
-lnr_1060,1060,thomas-marceline,Thomas Marceline,Lyon,LOU,FRONT_ROW,1ère ligne,France,20.0,179.0,112.0,2025-2026,2,53.0,26.5,0,0,0,13.58,,,0.0,,,,1.51,0.0,,,7.55,1.51,,,,,lnr
-lnr_267,267,baptiste-erdocio,B. Erdocio,Montpellier,MHR,FRONT_ROW,1ère ligne,France,26.0,175.0,115.0,2025-2026,16,616.0,38.5,0,0,0,12.99,,,0.26,,,,0.0,0.26,,,0.65,0.13,,,,,lnr
-lnr_1416,1416,arthur-vincent,Arthur Vincent,Montpellier,MHR,CENTRE,Centre,France,26.0,182.0,92.0,2025-2026,16,990.0,61.9,0,0,0,5.74,,,0.0,,,,0.24,0.24,,,1.21,0.24,,,,,lnr
-lnr_1427,1427,alexandre-becognee,A. Becognee,Montpellier,MHR,BACK_ROW,3ème ligne,France,29.0,188.0,105.0,2025-2026,15,868.0,57.9,1,0,0,13.09,,,0.46,,,,0.0,0.09,,,1.38,0.28,,,,,lnr
-lnr_1440,1440,enzo-forletta,Enzo Forletta,Montpellier,MHR,FRONT_ROW,1ère ligne,France,31.0,175.0,118.0,2025-2026,15,668.0,44.5,0,0,0,9.46,,,0.0,,,,0.0,0.12,,,0.0,0.0,,,,,lnr
-lnr_574,574,wilfrid-hounkpatin,W. Hounkpatin,Montpellier,MHR,FRONT_ROW,1ère ligne,France,34.0,192.0,124.0,2025-2026,15,690.0,46.0,1,0,0,8.23,,,0.7,,,,0.0,0.12,,,2.9,0.58,,,,,lnr
-lnr_2354,2354,christopher-tolofua,C. Tolofua,Montpellier,MHR,FRONT_ROW,1ère ligne,France,32.0,182.0,120.0,2025-2026,15,541.0,36.1,0,0,0,5.91,,,0.44,,,,0.0,0.15,,,5.91,1.18,,,,,lnr
-lnr_12461,12461,viliami-vunipola,Viliami Vunipola,Montpellier,MHR,BACK_ROW,3ème ligne,Angleterre,33.0,191.0,134.0,2025-2026,15,937.0,62.5,1,0,0,10.16,,,0.34,,,,0.17,0.85,,,0.43,0.09,,,,,lnr
-lnr_1432,1432,bastien-chalureau,Bastien Chalureau,Montpellier,MHR,LOCK,2ème ligne,France,34.0,,118.0,2025-2026,14,627.0,44.8,0,0,0,8.93,,,0.0,,,,0.0,1.02,,,0.0,0.0,,,,,lnr
-lnr_1400,1400,alexander-masibaka,A. Masibaka,Montpellier,MHR,BACK_ROW,3ème ligne,Australie,24.0,186.0,115.0,2025-2026,14,377.0,26.9,0,0,0,15.49,,,0.42,,,,0.64,0.42,,,3.18,0.64,,,,,lnr
-lnr_1460,1460,leo-coly,Léo Coly,Montpellier,MHR,SCRUM_HALF,Demi de mêlée,France,26.0,175.0,76.0,2025-2026,13,310.0,23.8,0,0,0,2.58,,,0.0,,,,0.26,1.03,,,3.1,0.26,,,,,lnr
-lnr_1376,1376,lenni-nouchi,Lenni Nouchi,Montpellier,MHR,BACK_ROW,3ème ligne,France,22.0,192.0,106.0,2025-2026,13,912.0,70.2,0,0,0,10.44,,,0.0,,,,0.88,0.53,,,2.63,0.53,,,,,lnr
-lnr_250,250,auguste-cadot,Auguste Cadot,Montpellier,MHR,FLY_HALF,Demi d'ouverture,France,24.0,181.0,91.0,2025-2026,11,798.0,72.5,0,0,0,4.41,,,0.4,,,,0.6,0.6,,,0.5,0.1,,,,,lnr
-lnr_454,454,luka-japaridze,Luka Japaridze,Montpellier,MHR,FRONT_ROW,1ère ligne,Géorgie,27.0,181.0,125.0,2025-2026,11,434.0,39.5,1,0,0,11.8,,,0.0,,,,0.0,0.0,,,0.0,0.0,,,,,lnr
-lnr_949,949,hugo-reus,Hugo Reus,Montpellier,MHR,FLY_HALF,Demi d'ouverture,France,22.0,183.0,83.0,2025-2026,11,110.0,10.0,0,0,0,0.0,,,0.0,,,,0.0,0.0,,,24.0,0.0,,,,,lnr
-lnr_12799,12799,jordan-uelese,Jordan Uelese,Montpellier,MHR,FRONT_ROW,1ère ligne,Australie,29.0,189.0,116.0,2025-2026,11,536.0,48.7,0,0,0,10.15,,,0.3,,,,0.15,0.3,,,2.99,0.6,,,,,lnr
-lnr_1438,1438,florian-verhaeghe,Florian Verhaeghe,Montpellier,MHR,LOCK,2ème ligne,France,28.0,,110.0,2025-2026,11,742.0,67.5,1,0,1,8.63,,,0.43,,,,0.32,1.4,,,0.0,0.0,,,,,lnr
-lnr_1434,1434,yacouba-camara,Yacouba Camara,Montpellier,MHR,BACK_ROW,3ème ligne,France,31.0,195.0,112.0,2025-2026,10,684.0,68.4,0,0,0,11.23,,,0.58,,,,0.12,0.35,,,0.0,0.0,,,,,lnr
-lnr_350,350,mael-moustin,Maël Moustin,Montpellier,MHR,CENTRE,Centre,France,22.0,187.0,103.0,2025-2026,10,723.0,72.3,0,0,0,4.87,,,0.0,,,,1.22,1.11,,,1.66,0.33,,,,,lnr
-lnr_1441,1441,marco-tauleigne,Marco Tauleigne,Montpellier,MHR,BACK_ROW,3ème ligne,France,32.0,191.0,115.0,2025-2026,10,345.0,34.5,0,0,0,8.58,,,0.23,,,,0.46,0.46,,,3.48,0.7,,,,,lnr
-lnr_1446,1446,mohamed-haouas,Mohamed Haouas,Montpellier,MHR,FRONT_ROW,1ère ligne,France,32.0,185.0,127.0,2025-2026,9,278.0,30.9,0,0,0,10.65,,,0.0,,,,0.0,0.29,,,0.0,0.0,,,,,lnr
-lnr_2151,2151,donovan-taofifenua,D. Taofifenua,Montpellier,MHR,FULLBACK,Arrière,France,26.0,179.0,84.0,2025-2026,9,462.0,51.3,0,0,0,3.98,,,0.0,,,,0.52,0.0,,,1.73,0.35,,,,,lnr
-lnr_13817,13817,justo-piccardo,Justo Piccardo,Montpellier,MHR,CENTRE,Centre,Argentine,24.0,183.0,105.0,2025-2026,8,434.0,54.2,1,0,0,9.22,,,0.18,,,,0.37,0.18,,,1.84,0.37,,,,,lnr
-lnr_13460,13460,ricky-riccitelli,R. Riccitelli,Montpellier,MHR,FRONT_ROW,1ère ligne,Nouvelle Zélande,31.0,178.0,110.0,2025-2026,8,294.0,36.8,0,0,0,10.88,,,0.27,,,,0.0,0.0,,,4.08,0.82,,,,,lnr
-lnr_2769,2769,alexis-bernadet,Alexis Bernadet,Montpellier,MHR,SCRUM_HALF,Demi de mêlée,France,24.0,180.0,79.0,2025-2026,7,320.0,45.7,0,0,0,5.25,,,0.0,,,,0.25,0.75,,,2.5,0.5,,,,,lnr
-lnr_12541,12541,nika-abuladze-1,Nika Abuladze,Montpellier,MHR,FRONT_ROW,1ère ligne,Géorgie,30.0,187.0,125.0,2025-2026,5,158.0,31.6,0,0,0,10.63,,,0.0,,,,0.0,0.51,,,0.0,0.0,,,,,lnr
-lnr_1445,1445,thomas-darmon,Thomas Darmon,Montpellier,MHR,FLY_HALF,Demi d'ouverture,France,27.0,181.0,88.0,2025-2026,5,114.0,22.8,0,0,0,7.72,,,0.0,,,,0.7,0.0,,,0.0,0.0,,,,,lnr
-lnr_12786,12786,stuart-hogg-1,Stuart Hogg,Montpellier,MHR,FULLBACK,Arrière,Ecosse,33.0,183.0,93.0,2025-2026,5,155.0,31.0,0,0,0,5.16,,,0.0,,,,1.03,2.06,,,5.16,0.52,,,,,lnr
-lnr_299,299,madosha-tambwe,Madosha Tambwe,Montpellier,MHR,WINGER,Ailier,République Démocratique du Congo,28.0,186.0,92.0,2025-2026,5,244.0,48.8,0,0,0,3.61,,,0.0,,,,0.33,0.66,,,1.64,0.33,,,,,lnr
-lnr_88,88,thomas-vincent,Thomas Vincent,Montpellier,MHR,FLY_HALF,Demi d'ouverture,France,26.0,185.0,82.0,2025-2026,5,169.0,33.8,0,0,0,7.57,,,0.0,,,,0.0,0.47,,,6.63,0.0,,,,,lnr
-lnr_1401,1401,lyam-akrab,Lyam Akrab,Montpellier,MHR,FRONT_ROW,1ère ligne,France,20.0,178.0,98.0,2025-2026,2,75.0,37.5,0,0,0,5.33,,,0.0,,,,0.0,1.07,,,0.0,0.0,,,,,lnr
-lnr_1375,1375,karl-anthony-martin,K. Martin,Montpellier,MHR,CENTRE,Centre,Irlande,24.0,189.0,100.0,2025-2026,2,97.0,48.5,0,0,0,8.25,,,0.0,,,,0.0,0.0,,,0.0,0.0,,,,,lnr
-lnr_864,864,melvyn-rates,Melvyn Rates,Montpellier,MHR,FULLBACK,Arrière,France,19.0,180.0,79.0,2025-2026,2,88.0,44.0,0,0,0,5.45,,,0.0,,,,0.91,0.0,,,4.55,0.91,,,,,lnr
-lnr_1378,1378,matthieu-uhila,M. Uhila,Montpellier,MHR,LOCK,2ème ligne,France,23.0,,113.0,2025-2026,2,67.0,33.5,0,0,0,11.94,,,1.19,,,,0.0,1.19,,,0.0,0.0,,,,,lnr
-lnr_2391,2391,komiti-junior-alainuuese,K. Alainuuese,Toulon,TLN,LOCK,2ème ligne,Samoa occidental,32.0,,136.0,2025-2026,18,811.0,45.1,0,0,0,11.15,,,0.1,,,,0.0,0.59,,,1.97,0.39,,,,,lnr
-lnr_2373,2373,teddy-baubigny,Teddy Baubigny,Toulon,TLN,FRONT_ROW,1ère ligne,France,27.0,184.0,118.0,2025-2026,16,811.0,50.7,0,0,0,12.03,,,0.3,,,,0.3,0.3,,,0.99,0.2,,,,,lnr
-lnr_2365,2365,dany-priso-mouangue,D. Priso Mouangue,Toulon,TLN,FRONT_ROW,1ère ligne,France,32.0,182.0,112.0,2025-2026,15,686.0,45.7,1,0,0,10.73,,,0.47,,,,0.0,0.35,,,2.33,0.47,,,,,lnr
-lnr_431,431,esteban-abadie,Esteban Abadie,Toulon,TLN,BACK_ROW,3ème ligne,France,28.0,188.0,100.0,2025-2026,14,768.0,54.9,0,0,0,10.94,,,0.21,,,,0.0,0.62,,,1.04,0.21,,,,,lnr
-lnr_2329,2329,pierre-damond,Pierre Damond,Toulon,TLN,FRONT_ROW,1ère ligne,France,22.0,181.0,103.0,2025-2026,14,452.0,32.3,0,0,0,13.27,,,0.53,,,,0.0,0.0,,,0.0,0.0,,,,,lnr
-lnr_12566,12566,kyle-sinckler-1,Kyle Sinckler,Toulon,TLN,FRONT_ROW,1ère ligne,Grande-Bretagne,32.0,182.0,122.0,2025-2026,14,667.0,47.6,0,0,0,11.39,,,0.12,,,,0.12,0.12,,,0.0,0.0,,,,,lnr
-lnr_1373,1373,zach-yvan-mercer,Z. Mercer,Toulon,TLN,BACK_ROW,3ème ligne,Angleterre,28.0,191.0,108.0,2025-2026,13,734.0,56.5,0,0,0,9.26,,,0.22,,,,0.0,0.76,,,1.63,0.33,,,,,lnr
-lnr_11798,11798,david-george-ribbans,D. Ribbans,Toulon,TLN,LOCK,2ème ligne,Afrique du Sud,30.0,,126.0,2025-2026,13,892.0,68.6,0,0,0,9.51,,,0.45,,,,0.09,0.45,,,0.9,0.18,,,,,lnr
-lnr_2352,2352,baptiste-serin,Baptiste Serin,Toulon,TLN,SCRUM_HALF,Demi de mêlée,France,31.0,182.0,83.0,2025-2026,13,675.0,51.9,0,0,0,7.82,,,0.47,,,,0.47,0.83,,,2.13,0.24,,,,,lnr
-lnr_2353,2353,jeremy-sinzelle,J. Sinzelle,Toulon,TLN,WINGER,Ailier,France,35.0,184.0,98.0,2025-2026,13,828.0,63.7,0,0,0,7.73,,,0.1,,,,0.0,0.39,,,0.0,0.0,,,,,lnr
-lnr_2291,2291,marius-domon,Marius Domon,Toulon,TLN,FLY_HALF,Demi d'ouverture,France,23.0,183.0,85.0,2025-2026,12,567.0,47.2,1,0,0,1.98,,,0.28,,,,0.71,0.28,,,8.75,0.28,,,,,lnr
-lnr_432,432,daniel-brennan,Daniel Brennan,Toulon,TLN,FRONT_ROW,1ère ligne,Irlande,27.0,192.0,124.0,2025-2026,11,358.0,32.5,1,0,0,11.17,,,0.0,,,,0.0,0.0,,,0.0,0.0,,,,,lnr
-lnr_2300,2300,gael-drean,Gaël Drean,Toulon,TLN,WINGER,Ailier,France,25.0,184.0,84.0,2025-2026,11,871.0,79.2,0,0,0,4.04,,,0.0,,,,0.83,0.37,,,3.67,0.73,,,,,lnr
-lnr_2297,2297,leo-ametlla,Léo Ametlla,Toulon,TLN,FRONT_ROW,1ère ligne,France,21.0,186.0,107.0,2025-2026,10,290.0,29.0,0,0,0,11.59,,,1.1,,,,0.0,0.0,,,1.38,0.28,,,,,lnr
-lnr_2290,2290,jules-coulon,Jules Coulon,Toulon,TLN,BACK_ROW,3ème ligne,France,23.0,189.0,104.0,2025-2026,10,486.0,48.6,1,0,0,8.4,,,0.33,,,,0.0,0.33,,,0.0,0.0,,,,,lnr
-lnr_2317,2317,oliver-cowie,Oliver Cowie,Toulon,TLN,WINGER,Ailier,France,20.0,193.0,95.0,2025-2026,10,534.0,53.4,0,0,0,7.64,,,0.3,,,,0.3,0.6,,,0.0,0.0,,,,,lnr
-lnr_2362,2362,beka-gigashvili,B. Gigashvili,Toulon,TLN,FRONT_ROW,1ère ligne,Géorgie,34.0,179.0,116.0,2025-2026,10,401.0,40.1,1,0,0,16.76,,,0.0,,,,0.0,0.2,,,1.0,0.2,,,,,lnr
-lnr_2479,2479,melvyn-jaminet,Melvyn Jaminet,Toulon,TLN,FLY_HALF,Demi d'ouverture,France,26.0,180.0,80.0,2025-2026,10,564.0,56.4,1,0,0,0.85,,,0.0,,,,0.57,1.28,,,10.64,0.43,,,,,lnr
-lnr_2363,2363,swan-rebbadj,Swan Rebbadj,Toulon,TLN,LOCK,2ème ligne,France,31.0,,115.0,2025-2026,10,525.0,52.5,2,0,0,11.12,,,0.15,,,,0.0,0.15,,,0.0,0.0,,,,,lnr
-lnr_429,429,setariki-tuicuvu,S. Tuicuvu,Toulon,TLN,CENTRE,Centre,Fidji,30.0,175.0,94.0,2025-2026,10,603.0,60.3,0,0,0,3.45,,,0.4,,,,0.53,0.0,,,1.33,0.27,,,,,lnr
-lnr_10338,10338,ma-a-allan-nonu,M. Nonu,Toulon,TLN,CENTRE,Centre,Samoa américain,43.0,183.0,108.0,2025-2026,9,274.0,30.4,2,0,0,8.47,,,0.0,,,,0.29,0.58,,,4.38,0.88,,,,,lnr
-lnr_2307,2307,joe-quere-karaba,J. Quere Karaba,Toulon,TLN,BACK_ROW,3ème ligne,France,21.0,183.0,97.0,2025-2026,9,473.0,52.6,1,0,0,10.99,,,0.0,,,,0.34,0.17,,,0.85,0.17,,,,,lnr
-lnr_2361,2361,mathieu-smaili,Mathieu Smaili,Toulon,TLN,CENTRE,Centre,France,26.0,180.0,92.0,2025-2026,9,617.0,68.6,1,0,0,4.54,,,0.0,,,,1.04,0.39,,,2.59,0.52,,,,,lnr
-lnr_11845,11845,benjamin-white,B. White,Toulon,TLN,SCRUM_HALF,Demi de mêlée,Grande-Bretagne,27.0,180.0,87.0,2025-2026,9,333.0,37.0,1,0,0,6.49,,,0.24,,,,0.0,0.24,,,0.0,0.0,,,,,lnr
-lnr_1377,1377,paolo-garbisi,Paolo Garbisi,Toulon,TLN,FLY_HALF,Demi d'ouverture,Italie,25.0,183.0,97.0,2025-2026,8,592.0,74.0,1,0,0,6.22,,,0.0,,,,0.14,0.41,,,0.54,0.0,,,,,lnr
-lnr_11027,11027,mateo-garcia,Mateo Garcia,Toulon,TLN,FLY_HALF,Demi d'ouverture,France,23.0,174.0,83.0,2025-2026,8,451.0,56.4,0,0,0,4.26,,,0.0,,,,0.35,0.35,,,4.43,0.0,,,,,lnr
-lnr_2355,2355,charles-ollivon,Charles Ollivon,Toulon,TLN,BACK_ROW,3ème ligne,France,32.0,199.0,114.0,2025-2026,8,508.0,63.5,0,0,0,12.6,,,0.0,,,,0.31,0.94,,,0.79,0.16,,,,,lnr
-lnr_2358,2358,jean-baptiste-gros,J. Gros,Toulon,TLN,FRONT_ROW,1ère ligne,France,26.0,186.0,112.0,2025-2026,7,308.0,44.0,0,0,0,14.03,,,0.0,,,,0.0,1.04,,,0.0,0.0,,,,,lnr
-lnr_11823,11823,corentin-mezou,C. Mezou,Toulon,TLN,FRONT_ROW,1ère ligne,France,20.0,,107.0,2025-2026,7,274.0,39.1,0,0,0,7.59,,,0.0,,,,0.0,0.29,,,0.0,0.0,,,,,lnr
-lnr_1621,1621,giorgi-javakhia,Giorgi Javakhia,Toulon,TLN,BACK_ROW,3ème ligne,Géorgie,29.0,194.0,124.0,2025-2026,6,221.0,36.8,0,0,0,11.95,,,0.0,,,,0.0,0.0,,,0.0,0.0,,,,,lnr
-lnr_1886,1886,clovis-le-bail,Clovis Le Bail,Toulon,TLN,SCRUM_HALF,Demi de mêlée,France,30.0,173.0,74.0,2025-2026,6,300.0,50.0,0,0,0,4.0,,,0.0,,,,0.0,0.53,,,0.0,0.0,,,,,lnr
-lnr_14078,14078,tomas-albornoz-1,Tomas Albornoz,Toulon,TLN,FLY_HALF,Demi d'ouverture,Italie,28.0,177.0,84.0,2025-2026,5,321.0,64.2,0,0,0,6.23,,,0.0,,,,1.25,0.5,,,1.25,0.25,,,,,lnr
-lnr_2381,2381,rayan-rebbadj,Rayan Rebbadj,Toulon,TLN,CENTRE,Centre,France,26.0,190.0,93.0,2025-2026,4,273.0,68.2,0,0,0,4.69,,,0.0,,,,1.17,1.17,,,1.47,0.29,,,,,lnr
-lnr_2360,2360,gabin-villiere,Gabin Villiere,Toulon,TLN,WINGER,Ailier,France,30.0,180.0,88.0,2025-2026,4,247.0,61.8,0,0,0,3.24,,,0.97,,,,0.65,0.97,,,3.24,0.65,,,,,lnr
-lnr_3060,3060,nikoloz-narmania,Nikoloz Narmania,Toulon,TLN,FRONT_ROW,1ère ligne,Géorgie,25.0,186.0,125.0,2025-2026,3,93.0,31.0,0,0,0,10.32,,,0.0,,,,0.0,0.0,,,0.0,0.0,,,,,lnr
-lnr_12442,12442,jeremy-paul-toevalu,J. Toevalu,Toulon,TLN,FRONT_ROW,1ère ligne,France,21.0,,,2025-2026,3,94.0,31.3,0,0,0,4.26,,,0.0,,,,0.0,0.0,,,0.0,0.0,,,,,lnr
-lnr_8861,8861,antoine-frisch,Antoine Frisch,Toulon,TLN,FLY_HALF,Demi d'ouverture,France,29.0,188.0,99.0,2025-2026,2,107.0,53.5,0,0,0,5.23,,,0.0,,,,1.5,3.74,,,3.74,0.75,,,,,lnr
-lnr_12441,12441,mateo-gracieux,Matéo Gracieux,Toulon,TLN,WINGER,Ailier,France,21.0,,,2025-2026,2,141.0,70.5,0,0,0,1.7,,,0.0,,,,0.57,0.57,,,2.84,0.57,,,,,lnr
-lnr_12577,12577,gianmarco-lucchesi-1,G. Lucchesi,Toulon,TLN,FRONT_ROW,1ère ligne,Italie,25.0,184.0,103.0,2025-2026,2,59.0,29.5,0,0,0,17.63,,,0.0,,,,0.0,0.0,,,0.0,0.0,,,,,lnr
-lnr_11912,11912,barnabe-mechentel,B. Mechentel,Toulon,TLN,FULLBACK,Arrière,France,21.0,,,2025-2026,2,89.0,44.5,0,0,0,3.6,,,0.0,,,,0.0,0.9,,,0.0,0.0,,,,,lnr
-lnr_11811,11811,owen-sorhaindo,Owen Sorhaindo,Toulon,TLN,FRONT_ROW,1ère ligne,France,21.0,190.0,125.0,2025-2026,2,69.0,34.5,0,0,0,6.96,,,0.0,,,,0.0,0.0,,,0.0,0.0,,,,,lnr
-lnr_13641,13641,patrick-lucas-tuifua,P. Tuifua,Toulon,TLN,BACK_ROW,3ème ligne,France,21.0,,,2025-2026,2,52.0,26.0,1,0,0,15.38,,,0.0,,,,0.0,0.0,,,0.0,0.0,,,,,lnr
-lnr_13792,13792,noam-moreau,Noam Moreau,Toulon,TLN,BACK_ROW,3ème ligne,France,18.0,,,2025-2026,1,54.0,54.0,0,0,0,13.33,,,0.0,,,,0.0,0.0,,,0.0,0.0,,,,,lnr
-lnr_12692,12692,mikheili-shioshvili,M. Shioshvili,Toulon,TLN,BACK_ROW,3ème ligne,Géorgie,19.0,193.0,,2025-2026,1,61.0,61.0,0,0,0,6.56,,,0.0,,,,0.0,0.0,,,0.0,0.0,,,,,lnr
-lnr_13790,13790,jovan-sreckovic,Jovan Sreckovic,Toulon,TLN,BACK_ROW,3ème ligne,France,19.0,,,2025-2026,1,65.0,65.0,0,0,0,6.15,,,0.0,,,,0.0,0.0,,,0.0,0.0,,,,,lnr
-lnr_12243,12243,jose-junior-kpoku,J. K'poku,Toulon,TLN,LOCK,2ème ligne,Angleterre,20.0,,119.0,2025-2026,1,228.0,,0,0,0,16.49,,,0.7,,,,0.35,0.0,,,0.0,0.0,,,,,lnr
-lnr_13744,13744,nathan-hughes-1,Nathan Hughes,Racing 92,R92,BACK_ROW,3ème ligne,Fidji,34.0,196.0,126.0,2025-2026,18,815.0,45.3,1,0,0,12.76,,,0.39,,,,0.2,0.59,,,3.44,0.69,,,,,lnr
-lnr_1079,1079,demba-bamba,Demba Bamba,Racing 92,R92,FRONT_ROW,1ère ligne,France,28.0,185.0,125.0,2025-2026,17,723.0,42.5,2,0,0,11.73,,,0.22,,,,0.0,0.89,,,0.0,0.0,,,,,lnr
-lnr_2190,2190,guram-gogichashvili,G. Gogichashvili,Racing 92,R92,FRONT_ROW,1ère ligne,Géorgie,27.0,183.0,118.0,2025-2026,17,720.0,42.4,0,0,0,15.33,,,0.0,,,,0.0,0.44,,,0.56,0.11,,,,,lnr
-lnr_888,888,thomas-lainault,Thomas Lainault,Racing 92,R92,LOCK,2ème ligne,France,32.0,197.0,112.0,2025-2026,15,868.0,57.9,1,0,0,15.85,,,0.28,,,,0.0,0.28,,,0.0,0.0,,,,,lnr
-lnr_1102,1102,josua-tuisova,Josua Tuisova,Racing 92,R92,WINGER,Ailier,Fidji,32.0,180.0,113.0,2025-2026,14,808.0,57.7,1,0,1,7.82,,,0.69,,,,0.59,0.99,,,0.5,0.1,,,,,lnr
-lnr_916,916,wilfried-hulleu,W. Hulleu,Racing 92,R92,CENTRE,Centre,France,23.0,184.0,97.0,2025-2026,13,920.0,70.8,0,0,0,6.7,,,0.09,,,,0.87,0.78,,,3.91,0.78,,,,,lnr
-lnr_2201,2201,gia-kharaishvili,G. Kharaishvili,Racing 92,R92,FRONT_ROW,1ère ligne,Géorgie,27.0,180.0,120.0,2025-2026,13,565.0,43.5,0,0,0,10.9,,,0.14,,,,0.0,0.0,,,0.0,0.0,,,,,lnr
-lnr_2175,2175,hassane-kolingar,Hassane Kolingar,Racing 92,R92,FRONT_ROW,1ère ligne,France,28.0,184.0,115.0,2025-2026,13,531.0,40.8,0,0,0,16.72,,,0.0,,,,0.0,0.45,,,0.0,0.0,,,,,lnr
-lnr_13640,13640,joseph-manu,Joseph Manu,Racing 92,R92,CENTRE,Centre,Nouvelle Zélande,29.0,192.0,102.0,2025-2026,13,749.0,57.6,1,0,0,9.93,,,0.11,,,,0.43,1.39,,,0.53,0.11,,,,,lnr
-lnr_1911,1911,lekima-vuda-tagitagivalu,L. Tagitagivalu,Racing 92,R92,LOCK,2ème ligne,Fidji,30.0,195.0,110.0,2025-2026,13,608.0,46.8,0,0,0,14.61,,,0.79,,,,0.13,0.26,,,0.66,0.13,,,,,lnr
-lnr_2188,2188,janick-tarrit,Janick Tarrit,Racing 92,R92,FRONT_ROW,1ère ligne,France,27.0,183.0,100.0,2025-2026,13,700.0,53.8,0,0,1,13.6,,,0.11,,,,0.23,0.34,,,1.14,0.23,,,,,lnr
-lnr_12570,12570,diego-escobar,Diego Escobar,Racing 92,R92,FRONT_ROW,1ère ligne,Chili,25.0,176.0,103.0,2025-2026,12,529.0,44.1,2,0,0,14.67,,,0.45,,,,0.15,0.45,,,0.0,0.0,,,,,lnr
-lnr_2168,2168,gael-fickou,Gael Fickou,Racing 92,R92,CENTRE,Centre,France,32.0,190.0,99.0,2025-2026,12,761.0,63.4,0,0,0,9.46,,,0.0,,,,0.74,0.63,,,2.1,0.42,,,,,lnr
-lnr_2150,2150,antoine-gibert,Antoine Gibert,Racing 92,R92,CENTRE,Centre,France,28.0,177.0,76.0,2025-2026,12,469.0,39.1,0,0,0,2.9,,,0.0,,,,0.34,0.0,,,9.72,0.0,,,,,lnr
-lnr_2198,2198,max-spring,Max Spring,Racing 92,R92,FULLBACK,Arrière,France,25.0,173.0,75.0,2025-2026,12,736.0,61.3,0,0,0,4.13,,,0.22,,,,1.2,0.33,,,3.59,0.54,,,,,lnr
-lnr_1093,1093,romain-taofifenua,R. Taofifenua,Racing 92,R92,LOCK,2ème ligne,France,35.0,,138.0,2025-2026,12,581.0,48.4,1,1,0,7.3,,,0.69,,,,0.0,0.55,,,2.75,0.55,,,,,lnr
-lnr_12647,12647,samuel-james,Samuel James,Racing 92,R92,CENTRE,Centre,Grande-Bretagne,31.0,195.0,94.0,2025-2026,11,841.0,76.5,2,0,0,2.66,,,0.0,,,,0.48,0.67,,,0.95,0.19,,,,,lnr
-lnr_13447,13447,yanis-basse,Yanis Basse,Racing 92,R92,FRONT_ROW,1ère ligne,France,19.0,175.0,103.0,2025-2026,10,167.0,16.7,0,0,0,15.33,,,0.48,,,,0.0,0.0,,,2.4,0.48,,,,,lnr
-lnr_11803,11803,shingirai-dylan-masimba-manyarara,S. Manyarara,Racing 92,R92,BACK_ROW,3ème ligne,Zimbabwe,22.0,185.0,100.0,2025-2026,10,517.0,51.7,0,0,0,13.46,,,0.0,,,,0.15,0.0,,,0.77,0.15,,,,,lnr
-lnr_1909,1909,jordan-joseph,Jordan Joseph,Racing 92,R92,LOCK,2ème ligne,France,25.0,189.0,115.0,2025-2026,9,385.0,42.8,0,0,0,11.64,,,1.25,,,,0.0,0.62,,,3.12,0.62,,,,,lnr
-lnr_13832,13832,geronimo-prisciantelli,G. Prisciantelli,Racing 92,R92,FLY_HALF,Demi d'ouverture,Italie,26.0,183.0,86.0,2025-2026,9,409.0,45.4,0,0,0,2.93,,,0.0,,,,0.98,0.59,,,1.17,0.0,,,,,lnr
-lnr_13613,13613,selesitino-ravutaumada,S. Ravutaumada,Racing 92,R92,WINGER,Ailier,Fidji,26.0,183.0,93.0,2025-2026,8,499.0,62.4,1,0,0,5.61,,,0.16,,,,0.16,0.8,,,0.8,0.16,,,,,lnr
-lnr_2157,2157,fabien-sanconnie,Fabien Sanconnie,Racing 92,R92,BACK_ROW,3ème ligne,France,31.0,195.0,114.0,2025-2026,7,279.0,39.9,1,0,0,16.92,,,0.29,,,,0.0,0.0,,,1.43,0.29,,,,,lnr
-lnr_2120,2120,noa-zinzen,Noa Zinzen,Racing 92,R92,BACK_ROW,3ème ligne,France,22.0,192.0,103.0,2025-2026,7,154.0,22.0,0,0,0,19.74,,,0.0,,,,0.0,0.0,,,0.0,0.0,,,,,lnr
-lnr_12646,12646,edouard-jabea-njocke,E. Jabea Njocke,Racing 92,R92,FRONT_ROW,1ère ligne,France,19.0,178.0,118.0,2025-2026,6,158.0,26.3,0,0,0,17.72,,,0.0,,,,0.51,0.0,,,0.0,0.0,,,,,lnr
-lnr_12366,12366,kleo-labarbe,Kleo Labarbe,Racing 92,R92,SCRUM_HALF,Demi de mêlée,France,21.0,175.0,65.0,2025-2026,6,236.0,39.3,0,0,0,7.8,,,0.0,,,,0.0,0.34,,,0.0,0.0,,,,,lnr
-lnr_11839,11839,will-rowlands-1,Will Rowlands,Racing 92,R92,LOCK,2ème ligne,Pays de Galles,34.0,,125.0,2025-2026,6,329.0,54.8,1,0,0,13.13,,,0.24,,,,0.0,0.24,,,0.0,0.0,,,,,lnr
-lnr_13764,13764,daniel-tupou,Daniel Tupou,Racing 92,R92,FRONT_ROW,1ère ligne,Tonga,29.0,184.0,148.0,2025-2026,5,133.0,26.6,0,0,0,6.62,,,0.6,,,,0.0,0.0,,,12.03,2.41,,,,,lnr
-lnr_12612,12612,soumaila-camara,S. Camara,Racing 92,R92,BACK_ROW,3ème ligne,France,22.0,187.0,101.0,2025-2026,4,134.0,33.5,0,0,0,11.94,,,0.6,,,,0.0,0.6,,,0.0,0.0,,,,,lnr
-lnr_11673,11673,vladi-ashvetia,Vladi Ashvetia,Racing 92,R92,CENTRE,Centre,France,20.0,185.0,90.0,2025-2026,2,115.0,57.5,0,0,0,6.26,,,0.0,,,,2.09,1.39,,,3.48,0.7,,,,,lnr
-lnr_13419,13419,nolann-donguy,Nolann Donguy,Racing 92,R92,WINGER,Ailier,France,20.0,183.0,85.0,2025-2026,2,138.0,69.0,0,0,0,5.22,,,0.0,,,,0.58,0.0,,,0.0,0.0,,,,,lnr
-lnr_1245,1245,wame-naituvi,Wame Naituvi,Racing 92,R92,WINGER,Ailier,Fidji,29.0,180.0,92.0,2025-2026,2,100.0,50.0,0,0,0,2.4,,,0.0,,,,1.6,1.6,,,0.0,0.0,,,,,lnr
-lnr_2148,2148,ibrahim-diallo,Ibrahim Diallo,Racing 92,R92,BACK_ROW,3ème ligne,France,28.0,192.0,108.0,2025-2026,1,54.0,54.0,0,0,0,19.26,,,0.0,,,,1.48,0.0,,,0.0,0.0,,,,,lnr
-lnr_12565,12565,lehopoame-leota,L. Leota,Racing 92,R92,FRONT_ROW,1ère ligne,Nouvelle Zélande,19.0,175.0,130.0,2025-2026,1,43.0,43.0,0,0,0,9.3,,,0.0,,,,0.0,0.0,,,0.0,0.0,,,,,lnr
-lnr_1678,1678,loic-credoz,Loïc Credoz,Pau,PAU,BACK_ROW,3ème ligne,France,26.0,186.0,108.0,2025-2026,16,779.0,48.7,0,0,0,11.4,,,0.31,,,,0.1,0.0,,,0.0,0.0,,,,,lnr
-lnr_1917,1917,youri-delhommel,Youri Delhommel,Pau,PAU,FRONT_ROW,1ère ligne,France,30.0,181.0,101.0,2025-2026,16,605.0,37.8,1,0,0,8.86,,,0.66,,,,0.0,0.13,,,3.31,0.66,,,,,lnr
-lnr_1940,1940,reece-hewat,Reece Hewat,Pau,PAU,BACK_ROW,3ème ligne,Australie,28.0,191.0,106.0,2025-2026,16,824.0,51.5,1,0,0,11.94,,,0.19,,,,0.39,0.49,,,1.94,0.39,,,,,lnr
-lnr_2335,2335,facundo-isa,Facundo Isa,Pau,PAU,BACK_ROW,3ème ligne,Argentine,32.0,188.0,110.0,2025-2026,16,857.0,53.6,0,0,0,10.46,,,0.75,,,,0.0,0.75,,,1.87,0.37,,,,,lnr
-lnr_2232,2232,jimi-maximin,Jimi Maximin,Pau,PAU,LOCK,2ème ligne,France,26.0,,133.0,2025-2026,16,705.0,44.1,2,0,0,12.71,,,0.57,,,,0.11,0.0,,,2.27,0.45,,,,,lnr
-lnr_1707,1707,thomas-laclayat,Thomas Laclayat,Pau,PAU,FRONT_ROW,1ère ligne,France,28.0,176.0,125.0,2025-2026,15,769.0,51.3,0,0,0,8.43,,,0.31,,,,0.0,0.1,,,1.04,0.21,,,,,lnr
-lnr_1895,1895,thibault-daubagna,T. Daubagna,Pau,PAU,SCRUM_HALF,Demi de mêlée,France,31.0,177.0,83.0,2025-2026,14,722.0,51.6,0,0,0,5.1,,,0.22,,,,0.55,0.89,,,0.55,0.11,,,,,lnr
-lnr_1914,1914,sacha-zegueur,Sacha Zegueur,Pau,PAU,BACK_ROW,3ème ligne,France,26.0,192.0,105.0,2025-2026,14,709.0,50.6,1,0,0,16.36,,,0.0,,,,0.11,0.23,,,0.0,0.0,,,,,lnr
-lnr_1845,1845,hugo-auradou,Hugo Auradou,Pau,PAU,LOCK,2ème ligne,France,22.0,,105.0,2025-2026,13,895.0,68.8,2,0,0,9.39,,,0.36,,,,0.36,0.36,,,0.0,0.0,,,,,lnr
-lnr_1893,1893,beka-gorgadze,Beka Gorgadze,Pau,PAU,BACK_ROW,3ème ligne,Géorgie,30.0,189.0,110.0,2025-2026,12,890.0,74.2,1,0,0,12.58,,,0.81,,,,0.09,0.63,,,0.9,0.18,,,,,lnr
-lnr_1853,1853,jack-maddocks,Jack Maddocks,Pau,PAU,FULLBACK,Arrière,Australie,29.0,194.0,100.0,2025-2026,12,843.0,70.2,0,0,0,2.85,,,0.0,,,,0.38,0.47,,,1.42,0.28,,,,,lnr
-lnr_1877,1877,thomas-souverbie,Thomas Souverbie,Pau,PAU,SCRUM_HALF,Demi de mêlée,France,21.0,175.0,79.0,2025-2026,12,278.0,23.2,0,0,0,8.92,,,0.0,,,,0.29,0.29,,,0.0,0.0,,,,,lnr
-lnr_1901,1901,mickael-capelli,Mickael Capelli,Pau,PAU,LOCK,2ème ligne,France,29.0,198.0,126.0,2025-2026,11,457.0,41.5,0,0,0,12.95,,,0.35,,,,0.35,0.53,,,0.0,0.0,,,,,lnr
-lnr_1927,1927,emilien-gailleton,Emilien Gailleton,Pau,PAU,CENTRE,Centre,France,22.0,185.0,89.0,2025-2026,11,744.0,67.6,0,0,0,6.67,,,0.22,,,,0.75,0.0,,,2.15,0.43,,,,,lnr
-lnr_1896,1896,lucas-rey,Lucas Rey,Pau,PAU,FRONT_ROW,1ère ligne,France,28.0,175.0,92.0,2025-2026,11,426.0,38.7,0,0,0,12.77,,,0.38,,,,0.19,0.38,,,2.82,0.56,,,,,lnr
-lnr_1929,1929,luke-whitelock,Luke Whitelock,Pau,PAU,BACK_ROW,3ème ligne,Nouvelle Zélande,35.0,193.0,112.0,2025-2026,11,549.0,49.9,0,0,0,9.62,,,0.29,,,,0.0,0.0,,,0.0,0.0,,,,,lnr
-lnr_1843,1843,clement-mondinat,Clement Mondinat,Pau,PAU,FLY_HALF,Demi d'ouverture,France,22.0,178.0,80.0,2025-2026,10,329.0,32.9,0,0,0,1.46,,,0.0,,,,0.49,0.49,,,2.43,0.49,,,,,lnr
-lnr_1889,1889,remi-seneca,Rémi Seneca,Pau,PAU,FRONT_ROW,1ère ligne,France,31.0,185.0,113.0,2025-2026,10,321.0,32.1,0,0,0,17.2,,,0.25,,,,0.0,0.5,,,1.25,0.25,,,,,lnr
-lnr_1850,1850,siate-folau-tokolahi,S. Tokolahi,Pau,PAU,FRONT_ROW,1ère ligne,Tonga,34.0,179.0,123.0,2025-2026,10,306.0,30.6,0,0,0,10.98,,,0.0,,,,0.0,0.0,,,0.0,0.0,,,,,lnr
-lnr_1902,1902,nathan-decron,Nathan Decron,Pau,PAU,CENTRE,Centre,France,28.0,184.0,96.0,2025-2026,9,634.0,70.4,0,0,0,8.33,,,0.5,,,,0.25,0.38,,,1.26,0.25,,,,,lnr
-lnr_317,317,lekso-kaulashvili,L. Kaulashvili,Pau,PAU,FRONT_ROW,1ère ligne,Géorgie,33.0,185.0,132.0,2025-2026,9,416.0,46.2,1,0,0,9.42,,,0.0,,,,0.0,0.0,,,0.96,0.19,,,,,lnr
-lnr_2336,2336,aymeric-luc,Aymeric Luc,Pau,PAU,SCRUM_HALF,Demi de mêlée,France,28.0,180.0,80.0,2025-2026,9,444.0,49.3,0,0,0,3.24,,,0.18,,,,0.54,0.36,,,0.9,0.18,,,,,lnr
-lnr_1870,1870,daniel-robson,Daniel Robson,Pau,PAU,SCRUM_HALF,Demi de mêlée,Grande-Bretagne,34.0,173.0,82.0,2025-2026,9,441.0,49.0,0,0,0,4.35,,,0.0,,,,0.36,0.18,,,1.81,0.36,,,,,lnr
-lnr_708,708,daniel-bibi-biziwu,D. Bibi Biziwu,Pau,PAU,FRONT_ROW,1ère ligne,France,24.0,183.0,119.0,2025-2026,8,298.0,37.2,2,0,0,10.47,,,0.0,,,,0.0,0.0,,,0.0,0.0,,,,,lnr
-lnr_13598,13598,julian-sixto-montoya,J. Montoya,Pau,PAU,FRONT_ROW,1ère ligne,Argentine,32.0,183.0,113.0,2025-2026,7,732.0,104.6,0,0,0,9.62,,,0.0,,,,0.22,0.22,,,2.19,0.44,,,,,lnr
-lnr_1887,1887,guram-papidze,Guram Papidze,Pau,PAU,FRONT_ROW,1ère ligne,Géorgie,28.0,187.0,122.0,2025-2026,7,273.0,39.0,0,0,0,14.36,,,0.0,,,,0.0,0.29,,,0.0,0.0,,,,,lnr
-lnr_1849,1849,hugo-parrou,Hugo Parrou,Pau,PAU,FRONT_ROW,1ère ligne,France,23.0,183.0,110.0,2025-2026,7,218.0,31.1,0,0,0,11.38,,,0.0,,,,0.0,0.73,,,0.0,0.0,,,,,lnr
-lnr_320,320,thomas-jolmes,Thomas Jolmes,Pau,PAU,LOCK,2ème ligne,France,30.0,,117.0,2025-2026,6,347.0,57.8,0,0,0,12.22,,,0.23,,,,0.0,0.46,,,0.0,0.0,,,,,lnr
-lnr_994,994,remi-picquette,Rémi Picquette,Pau,PAU,LOCK,2ème ligne,France,31.0,,117.0,2025-2026,6,208.0,34.7,0,0,0,8.08,,,0.0,,,,0.0,0.0,,,0.0,0.0,,,,,lnr
-lnr_4000,4000,joe-simmonds,Joe Simmonds,Pau,PAU,FLY_HALF,Demi d'ouverture,Grande-Bretagne,29.0,182.0,94.0,2025-2026,6,370.0,61.7,0,0,0,2.81,,,0.0,,,,0.43,0.86,,,16.22,0.22,,,,,lnr
-lnr_1944,1944,theo-attissogbe,T. Attissogbe,Pau,PAU,FULLBACK,Arrière,France,21.0,181.0,84.0,2025-2026,4,270.0,67.5,0,0,0,5.93,,,0.3,,,,0.0,1.48,,,1.48,0.3,,,,,lnr
-lnr_1876,1876,alexandre-etchebehere,A. Etchebehere,Pau,PAU,FRONT_ROW,1ère ligne,France,21.0,178.0,108.0,2025-2026,4,163.0,40.8,0,0,0,14.72,,,0.0,,,,0.0,0.0,,,0.0,0.0,,,,,lnr
-lnr_1858,1858,tumua-manu,Tumua Manu,Pau,PAU,CENTRE,Centre,Nouvelle Zélande,32.0,183.0,97.0,2025-2026,4,234.0,58.5,1,0,0,5.47,,,0.34,,,,0.68,0.68,,,1.71,0.34,,,,,lnr
-lnr_133,133,jon-zabala-arrieta,J. Zabala Arrieta,Pau,PAU,FRONT_ROW,1ère ligne,Espagne,29.0,190.0,132.0,2025-2026,4,109.0,27.2,0,0,0,15.41,,,0.73,,,,0.0,0.0,,,0.0,0.0,,,,,lnr
-lnr_1075,1075,joel-kpoku,Joel Kpoku,Pau,PAU,LOCK,2ème ligne,Angleterre,26.0,196.0,114.0,2025-2026,3,90.0,30.0,0,0,0,13.33,,,0.0,,,,0.0,0.0,,,0.0,0.0,,,,,lnr
-lnr_11695,11695,toshi-richard-butlin,T. Butlin,Pau,PAU,WINGER,Ailier,Australie,21.0,,,2025-2026,1,62.0,62.0,0,0,0,6.45,,,0.0,,,,0.0,0.0,,,0.0,0.0,,,,,lnr
-lnr_1814,1814,pierre-henri-azagoh-kouadio,P. Azagoh Kouadio,Paris,SFP,LOCK,2ème ligne,France,27.0,196.0,103.0,2025-2026,17,729.0,42.9,1,0,0,15.91,,,0.11,,,,0.11,0.22,,,0.0,0.0,,,,,lnr
-lnr_1811,1811,giorgi-melikidze,Giorgi Melikidze,Paris,SFP,FRONT_ROW,1ère ligne,Géorgie,29.0,180.0,116.0,2025-2026,17,746.0,43.9,0,0,0,9.01,,,0.64,,,,0.0,0.11,,,3.22,0.64,,,,,lnr
-lnr_1802,1802,paul-alo-emile,Paul Alo Emile,Paris,SFP,FRONT_ROW,1ère ligne,Australie,34.0,180.0,132.0,2025-2026,16,667.0,41.7,0,0,0,13.91,,,0.12,,,,0.0,0.24,,,0.0,0.0,,,,,lnr
-lnr_1831,1831,moses-eneliko-alo-emile,M. Alo Emile,Paris,SFP,FRONT_ROW,1ère ligne,Australie,26.0,187.0,125.0,2025-2026,16,607.0,37.9,1,0,0,10.54,,,0.66,,,,0.0,0.13,,,0.0,0.0,,,,,lnr
-lnr_909,909,tanginoa-palu-halaifonua,T. Halaifonua,Paris,SFP,BACK_ROW,3ème ligne,Tonga,29.0,196.0,115.0,2025-2026,16,879.0,54.9,2,0,0,10.47,,,0.46,,,,0.18,0.36,,,2.28,0.46,,,,,lnr
-lnr_1780,1780,mathieu-hirigoyen,Mathieu Hirigoyen,Paris,SFP,BACK_ROW,3ème ligne,France,27.0,194.0,95.0,2025-2026,16,745.0,46.6,0,0,0,15.03,,,0.0,,,,0.11,0.11,,,1.07,0.21,,,,,lnr
-lnr_981,981,tawera-kerr-barlow,T. Kerr Barlow,Paris,SFP,SCRUM_HALF,Demi de mêlée,Nouvelle Zélande,35.0,187.0,91.0,2025-2026,15,719.0,47.9,0,0,0,5.23,,,0.11,,,,0.0,0.33,,,1.11,0.22,,,,,lnr
-lnr_11736,11736,joseph-marchant,Joseph Marchant,Paris,SFP,CENTRE,Centre,Angleterre,29.0,183.0,89.0,2025-2026,15,913.0,60.9,0,0,0,7.1,,,0.0,,,,0.26,0.18,,,0.44,0.09,,,,,lnr
-lnr_1806,1806,baptiste-pesenti,B. Pesenti,Paris,SFP,BACK_ROW,3ème ligne,France,28.0,195.0,118.0,2025-2026,15,822.0,54.8,1,0,0,11.97,,,0.0,,,,0.0,0.39,,,0.97,0.19,,,,,lnr
-lnr_1779,1779,lucas-peyresblanques,L. Peyresblanques,Paris,SFP,FRONT_ROW,1ère ligne,France,28.0,181.0,96.0,2025-2026,15,454.0,30.3,0,0,0,11.81,,,0.18,,,,0.18,0.35,,,1.76,0.35,,,,,lnr
-lnr_975,975,yoan-tanga-mangene,Y. Tanga Mangene,Paris,SFP,BACK_ROW,3ème ligne,France,29.0,185.0,107.0,2025-2026,15,742.0,49.5,0,0,0,11.11,,,0.43,,,,0.43,1.62,,,1.62,0.32,,,,,lnr
-lnr_1756,1756,jeremy-charles-ward,J. Ward,Paris,SFP,CENTRE,Centre,Afrique du Sud,30.0,187.0,92.0,2025-2026,15,993.0,66.2,1,0,0,9.26,,,0.24,,,,0.73,0.56,,,2.42,0.48,,,,,lnr
-lnr_1790,1790,romain-briatte,Romain Briatte,Paris,SFP,LOCK,2ème ligne,France,33.0,194.0,97.0,2025-2026,14,889.0,63.5,3,0,0,14.31,,,0.0,,,,0.0,0.45,,,0.0,0.0,,,,,lnr
-lnr_660,660,samuel-ezeala,Samuel Ezeala,Paris,SFP,CENTRE,Centre,Espagne,26.0,187.0,99.0,2025-2026,14,849.0,60.6,1,0,0,4.71,,,0.19,,,,0.66,0.09,,,0.0,0.0,,,,,lnr
-lnr_1757,1757,peniasi-dakuwaqa,Peniasi Dakuwaqa,Paris,SFP,FULLBACK,Arrière,Fidji,28.0,186.0,95.0,2025-2026,13,946.0,72.8,2,0,0,4.4,,,0.34,,,,0.93,1.35,,,2.54,0.51,,,,,lnr
-lnr_12539,12539,giacomo-nicotera-1,Giacomo Nicotera,Paris,SFP,FRONT_ROW,1ère ligne,Italie,29.0,183.0,108.0,2025-2026,13,677.0,52.1,1,0,0,13.23,,,0.35,,,,0.0,0.12,,,0.59,0.12,,,,,lnr
-lnr_415,415,paul-abadie,Paul Abadie,Paris,SFP,SCRUM_HALF,Demi de mêlée,France,31.0,176.0,88.0,2025-2026,11,468.0,42.5,0,0,0,9.4,,,0.0,,,,0.34,1.03,,,0.0,0.0,,,,,lnr
-lnr_1794,1794,sekou-macalou,Sekou Macalou,Paris,SFP,BACK_ROW,3ème ligne,France,30.0,198.0,108.0,2025-2026,11,481.0,43.7,0,0,0,11.14,,,0.67,,,,0.17,0.17,,,0.0,0.0,,,,,lnr
-lnr_1769,1769,thibaut-robert-motassi-dibongue,T. Motassi Dibongue,Paris,SFP,SCRUM_HALF,Demi de mêlée,France,21.0,175.0,79.0,2025-2026,10,253.0,25.3,0,0,0,10.75,,,0.0,,,,0.63,1.58,,,3.16,0.63,,,,,lnr
-lnr_1771,1771,noah-tisie-nene,N. Nene,Paris,SFP,CENTRE,Centre,France,21.0,192.0,108.0,2025-2026,10,724.0,72.4,0,0,0,6.74,,,0.11,,,,0.77,0.44,,,3.31,0.66,,,,,lnr
-lnr_984,984,thierry-paiva,Thierry Paiva,Paris,SFP,FRONT_ROW,1ère ligne,France,30.0,184.0,115.0,2025-2026,10,389.0,38.9,0,0,0,10.08,,,0.41,,,,0.21,0.0,,,0.0,0.0,,,,,lnr
-lnr_336,336,tani-vili,Tani Vili,Paris,SFP,CENTRE,Centre,France,25.0,187.0,109.0,2025-2026,9,632.0,70.2,0,0,0,5.7,,,0.13,,,,0.76,0.51,,,1.27,0.25,,,,,lnr
-lnr_11764,11764,alvaro-garcia-albo,A. Garcia Albo,Paris,SFP,FRONT_ROW,1ère ligne,Espagne,22.0,180.0,120.0,2025-2026,7,266.0,38.0,0,0,0,10.53,,,0.0,,,,0.0,0.0,,,1.5,0.3,,,,,lnr
-lnr_1736,1736,sergo-abramishvili,S. Abramishvili,Paris,SFP,FRONT_ROW,1ère ligne,Géorgie,22.0,184.0,105.0,2025-2026,6,277.0,46.2,0,0,0,13.0,,,0.0,,,,0.0,0.0,,,1.44,0.29,,,,,lnr
-lnr_1752,1752,juan-martin-scelzo,J. Scelzo,Paris,SFP,BACK_ROW,3ème ligne,France,24.0,192.0,110.0,2025-2026,6,301.0,50.2,0,0,0,11.16,,,0.0,,,,0.0,0.53,,,1.33,0.27,,,,,lnr
-lnr_1804,1804,ryan-chapuis,Ryan Chapuis,Paris,SFP,BACK_ROW,3ème ligne,France,28.0,190.0,105.0,2025-2026,5,247.0,49.4,0,0,0,13.6,,,0.32,,,,0.0,0.0,,,0.0,0.0,,,,,lnr
-lnr_263,263,joe-jonas,Joe Jonas,Paris,SFP,FULLBACK,Arrière,Afrique du Sud,25.0,180.0,90.0,2025-2026,5,178.0,35.6,0,0,0,5.39,,,0.0,,,,1.35,0.45,,,2.25,0.45,,,,,lnr
-lnr_1773,1773,charles-laloi,Charles Laloi,Paris,SFP,WINGER,Ailier,France,22.0,181.0,80.0,2025-2026,5,257.0,51.4,0,0,0,5.29,,,0.31,,,,0.62,0.31,,,0.0,0.0,,,,,lnr
-lnr_1788,1788,lester-etien,Lester Etien,Paris,SFP,CENTRE,Centre,France,30.0,180.0,93.0,2025-2026,4,254.0,63.5,0,0,0,4.41,,,0.0,,,,0.63,0.94,,,0.0,0.0,,,,,lnr
-lnr_13940,13940,john-iscaro,John Iscaro,Paris,SFP,FRONT_ROW,1ère ligne,Italie,28.0,187.0,122.0,2025-2026,4,166.0,41.5,0,0,0,15.9,,,0.0,,,,0.0,0.0,,,2.41,0.48,,,,,lnr
-lnr_13812,13812,iakopo-petelo-mapu,I. Petelo Mapu,Paris,SFP,BACK_ROW,3ème ligne,Nouvelle Zélande,28.0,182.0,104.0,2025-2026,4,154.0,38.5,0,0,0,9.35,,,0.52,,,,0.52,0.0,,,2.6,0.52,,,,,lnr
-lnr_1148,1148,andy-timo,Andy Timo,Paris,SFP,BACK_ROW,3ème ligne,France,21.0,192.0,95.0,2025-2026,4,130.0,32.5,0,0,0,1.23,,,0.0,,,,0.62,0.0,,,0.0,0.0,,,,,lnr
-lnr_1457,1457,louis-foursans-bourdette,L. Foursans Bourdette,Paris,SFP,FLY_HALF,Demi d'ouverture,France,24.0,170.0,80.0,2025-2026,2,80.0,40.0,0,0,0,9.0,,,0.0,,,,1.0,0.0,,,9.0,0.0,,,,,lnr
-lnr_1939,1939,zack-henry,Zack Henry,Paris,SFP,FLY_HALF,Demi d'ouverture,Angleterre,31.0,182.0,89.0,2025-2026,2,108.0,54.0,0,0,0,4.44,,,0.0,,,,0.0,0.74,,,5.93,0.0,,,,,lnr
-lnr_1741,1741,leo-monin,Léo Monin,Paris,SFP,FULLBACK,Arrière,France,24.0,187.0,86.0,2025-2026,1,42.0,42.0,0,0,0,1.9,,,0.0,,,,0.0,0.0,,,0.0,0.0,,,,,lnr
-lnr_12374,12374,ethan-tia,Ethan Tia,Paris,SFP,FRONT_ROW,1ère ligne,France,20.0,,,2025-2026,1,41.0,41.0,0,0,0,19.51,,,0.0,,,,0.0,1.95,,,0.0,0.0,,,,,lnr
-lnr_935,935,aleksandre-kuntelia,A. Kuntelia,La Rochelle,LRO,FRONT_ROW,1ère ligne,Géorgie,23.0,197.0,135.0,2025-2026,18,745.0,41.4,1,0,0,8.91,,,0.0,,,,0.0,0.21,,,0.54,0.11,,,,,lnr
-lnr_985,985,levani-botia-veivuke,L. Veivuke,La Rochelle,LRO,CENTRE,Centre,Fidji,37.0,182.0,103.0,2025-2026,18,954.0,53.0,2,0,0,9.9,,,1.09,,,,0.42,0.67,,,2.52,0.5,,,,,lnr
-lnr_1004,1004,thomas-berjon,Thomas Berjon,La Rochelle,LRO,SCRUM_HALF,Demi de mêlée,France,27.0,171.0,76.0,2025-2026,14,614.0,43.9,0,0,0,3.91,,,0.13,,,,0.26,0.39,,,0.65,0.13,,,,,lnr
-lnr_1018,1018,jules-favre,Jules Favre,La Rochelle,LRO,WINGER,Ailier,France,27.0,181.0,93.0,2025-2026,14,976.0,69.7,1,0,0,5.98,,,0.25,,,,0.82,0.25,,,2.05,0.41,,,,,lnr
-lnr_997,997,antoine-hastoy,Antoine Hastoy,La Rochelle,LRO,FLY_HALF,Demi d'ouverture,France,28.0,180.0,86.0,2025-2026,14,887.0,63.4,1,0,1,4.06,,,0.0,,,,0.45,0.54,,,8.75,0.18,,,,,lnr
-lnr_954,954,jack-nowell,Jack Nowell,La Rochelle,LRO,WINGER,Ailier,Angleterre,32.0,180.0,98.0,2025-2026,13,865.0,66.5,0,0,0,3.79,,,0.0,,,,1.57,0.92,,,2.77,0.55,,,,,lnr
-lnr_939,939,oscar-jegou,Oscar Jegou,La Rochelle,LRO,BACK_ROW,3ème ligne,France,22.0,190.0,90.0,2025-2026,12,805.0,67.1,1,0,0,8.84,,,0.2,,,,0.1,0.8,,,0.99,0.2,,,,,lnr
-lnr_969,969,charles-kante-samba,C. Kante Samba,La Rochelle,LRO,LOCK,2ème ligne,France,21.0,,115.0,2025-2026,12,565.0,47.1,1,0,0,7.93,,,0.0,,,,0.0,0.28,,,0.0,0.0,,,,,lnr
-lnr_1824,1824,latu-silatolu-latu,L. Latu,La Rochelle,LRO,FRONT_ROW,1ère ligne,Tonga,33.0,178.0,110.0,2025-2026,12,537.0,44.8,0,0,0,6.7,,,0.74,,,,0.15,0.89,,,1.49,0.3,,,,,lnr
-lnr_1014,1014,dillyn-leyds,Dillyn Leyds,La Rochelle,LRO,FULLBACK,Arrière,Afrique du Sud,33.0,183.0,88.0,2025-2026,12,917.0,76.4,0,0,0,1.92,,,0.09,,,,0.7,0.44,,,2.18,0.44,,,,,lnr
-lnr_988,988,ulupano-seuteni,Ulupano Seuteni,La Rochelle,LRO,CENTRE,Centre,Australie,32.0,187.0,103.0,2025-2026,12,705.0,58.8,0,0,0,4.31,,,0.11,,,,0.45,1.25,,,1.13,0.23,,,,,lnr
-lnr_1028,1028,alexandre-kaddouri,A. Kaddouri,La Rochelle,LRO,FRONT_ROW,1ère ligne,France,22.0,189.0,114.0,2025-2026,11,563.0,51.2,2,0,0,8.24,,,0.85,,,,0.0,0.43,,,0.0,0.0,,,,,lnr
-lnr_982,982,thomas-lavault,Thomas Lavault,La Rochelle,LRO,LOCK,2ème ligne,France,26.0,198.0,108.0,2025-2026,11,580.0,52.7,2,0,0,7.45,,,0.0,,,,0.0,0.28,,,0.69,0.14,,,,,lnr
-lnr_2196,2196,nolann-le-garrec,Nolann Le Garrec,La Rochelle,LRO,SCRUM_HALF,Demi de mêlée,France,23.0,175.0,75.0,2025-2026,11,766.0,69.6,0,0,0,4.6,,,0.0,,,,0.73,0.94,,,7.31,0.52,,,,,lnr
-lnr_1000,1000,reda-wardi,Reda Wardi,La Rochelle,LRO,FRONT_ROW,1ère ligne,France,30.0,185.0,110.0,2025-2026,11,514.0,46.7,0,0,0,9.65,,,0.0,,,,0.0,0.62,,,0.78,0.16,,,,,lnr
-lnr_12674,12674,lucas-andjisseramatchi,L. Andjisseramatchi,La Rochelle,LRO,BACK_ROW,3ème ligne,France,19.0,188.0,102.0,2025-2026,10,223.0,22.3,0,0,0,12.91,,,0.36,,,,0.0,0.36,,,0.0,0.0,,,,,lnr
-lnr_1017,1017,paul-boudehent,Paul Boudehent,La Rochelle,LRO,BACK_ROW,3ème ligne,France,26.0,192.0,107.0,2025-2026,10,666.0,66.6,0,0,0,9.49,,,0.24,,,,0.24,0.36,,,2.4,0.48,,,,,lnr
-lnr_1025,1025,matthias-haddad,M. Haddad,La Rochelle,LRO,BACK_ROW,3ème ligne,France,25.0,192.0,99.0,2025-2026,10,490.0,49.0,0,0,0,10.78,,,0.49,,,,0.16,0.33,,,0.0,0.0,,,,,lnr
-lnr_965,965,nikolozi-sutidze,N. Sutidze,La Rochelle,LRO,FRONT_ROW,1ère ligne,Géorgie,22.0,180.0,104.0,2025-2026,10,360.0,36.0,0,0,0,8.22,,,0.22,,,,0.0,0.67,,,1.11,0.22,,,,,lnr
-lnr_2387,2387,ihaia-west,Ihaia West,La Rochelle,LRO,FLY_HALF,Demi d'ouverture,Nouvelle Zélande,34.0,175.0,84.0,2025-2026,10,423.0,42.3,0,0,0,2.08,,,0.0,,,,0.95,0.19,,,8.7,0.38,,,,,lnr
-lnr_360,360,kane-douglas,Kane Douglas,La Rochelle,LRO,LOCK,2ème ligne,Australie,36.0,,119.0,2025-2026,9,423.0,47.0,0,0,0,8.89,,,0.38,,,,0.0,0.19,,,0.0,0.0,,,,,lnr
-lnr_3221,3221,semi-lagivala,Semi Lagivala,La Rochelle,LRO,CENTRE,Centre,Fidji,22.0,190.0,94.0,2025-2026,9,465.0,51.7,0,0,0,5.16,,,0.17,,,,0.52,1.03,,,0.86,0.17,,,,,lnr
-lnr_986,986,quentin-lespiaucq,Quentin Lespiaucq,La Rochelle,LRO,FRONT_ROW,1ère ligne,France,31.0,180.0,102.0,2025-2026,9,352.0,39.1,0,0,0,10.91,,,0.23,,,,0.23,0.45,,,2.27,0.45,,,,,lnr
-lnr_1030,1030,karl-sorin,Karl Sorin,La Rochelle,LRO,FRONT_ROW,1ère ligne,France,22.0,186.0,135.0,2025-2026,9,349.0,38.8,0,0,0,6.65,,,0.0,,,,0.0,0.69,,,0.0,0.0,,,,,lnr
-lnr_1027,1027,louis-keziah-penverne,L. Penverne,La Rochelle,LRO,FRONT_ROW,1ère ligne,France,23.0,187.0,111.0,2025-2026,8,256.0,32.0,0,0,0,8.44,,,0.62,,,,0.31,0.94,,,1.56,0.31,,,,,lnr
-lnr_964,964,hoani-bosmorin,Hoani Bosmorin,La Rochelle,LRO,WINGER,Ailier,France,21.0,184.0,78.0,2025-2026,7,234.0,33.4,0,0,0,2.39,,,0.0,,,,0.68,1.37,,,1.71,0.34,,,,,lnr
-lnr_675,675,judicael-cancoriet,J. Cancoriet,La Rochelle,LRO,BACK_ROW,3ème ligne,France,29.0,194.0,112.0,2025-2026,7,469.0,67.0,1,0,0,7.51,,,0.17,,,,0.0,0.68,,,1.71,0.34,,,,,lnr
-lnr_966,966,simeli-daunivucu,Simeli Daunivucu,La Rochelle,LRO,WINGER,Ailier,Fidji,21.0,180.0,85.0,2025-2026,7,293.0,41.9,0,0,0,10.38,,,0.0,,,,0.27,0.82,,,0.55,0.0,,,,,lnr
-lnr_13500,13500,kirill-fraindt,Kirill Fraindt,La Rochelle,LRO,BACK_ROW,3ème ligne,Russie,19.0,,,2025-2026,7,298.0,42.6,1,0,0,5.37,,,0.27,,,,0.81,0.0,,,1.34,0.27,,,,,lnr
-lnr_11875,11875,ugo-pacome,Ugo Pacome,La Rochelle,LRO,FULLBACK,Arrière,France,20.0,187.0,85.0,2025-2026,7,374.0,53.4,0,0,0,1.71,,,0.0,,,,0.0,0.64,,,0.0,0.0,,,,,lnr
-lnr_999,999,pierre-bourgarit,Pierre Bourgarit,La Rochelle,LRO,FRONT_ROW,1ère ligne,France,28.0,184.0,108.0,2025-2026,6,209.0,34.8,0,0,0,13.01,,,0.77,,,,0.0,0.0,,,1.91,0.38,,,,,lnr
-lnr_950,950,ultan-dillane,Ultan Dillane,La Rochelle,LRO,LOCK,2ème ligne,Irlande,32.0,198.0,115.0,2025-2026,6,296.0,49.3,0,0,0,8.38,,,0.27,,,,0.0,0.27,,,1.35,0.27,,,,,lnr
-lnr_12408,12408,diego-jurd,Diego Jurd,La Rochelle,LRO,FLY_HALF,Demi d'ouverture,France,19.0,184.0,87.0,2025-2026,6,217.0,36.2,0,0,0,3.69,,,0.0,,,,0.37,1.84,,,6.27,0.0,,,,,lnr
-lnr_13550,13550,nolhann-couillaud,Nolhann Couillaud,La Rochelle,LRO,SCRUM_HALF,Demi de mêlée,France,19.0,180.0,,2025-2026,5,213.0,42.6,0,0,0,6.01,,,0.0,,,,0.0,0.0,,,0.0,0.0,,,,,lnr
-lnr_970,970,joel-antonio-sclavi,J. Sclavi,La Rochelle,LRO,FRONT_ROW,1ère ligne,Argentine,31.0,188.0,135.0,2025-2026,5,137.0,27.4,0,0,0,5.26,,,0.0,,,,0.0,0.0,,,0.0,0.0,,,,,lnr
-lnr_12590,12590,christian-luaki,C. Luaki,La Rochelle,LRO,FRONT_ROW,1ère ligne,France,21.0,187.0,124.0,2025-2026,4,51.0,12.8,0,0,0,17.25,,,1.57,,,,0.0,0.0,,,0.0,0.0,,,,,lnr
-lnr_1015,1015,william-skelton,William Skelton,La Rochelle,LRO,LOCK,2ème ligne,Nouvelle Zélande,33.0,,145.0,2025-2026,4,196.0,49.0,0,0,0,4.08,,,0.0,,,,0.0,0.82,,,2.04,0.41,,,,,lnr
-lnr_13364,13364,suliasi-vunivalu,Suliasi Vunivalu,La Rochelle,LRO,WINGER,Ailier,Fidji,30.0,192.0,99.0,2025-2026,4,217.0,54.2,1,0,0,5.9,,,0.0,,,,1.11,0.37,,,3.69,0.74,,,,,lnr
-lnr_983,983,uini-atonio,Uini Atonio,La Rochelle,LRO,FRONT_ROW,1ère ligne,Nouvelle Zélande,36.0,196.0,145.0,2025-2026,3,143.0,47.7,0,0,0,3.92,,,0.0,,,,0.0,0.0,,,0.0,0.0,,,,,lnr
-lnr_938,938,nathan-bollengier,N. Bollengier,La Rochelle,LRO,WINGER,Ailier,France,22.0,179.0,82.0,2025-2026,3,184.0,61.3,0,0,0,2.61,,,0.43,,,,0.0,0.0,,,4.35,0.87,,,,,lnr
-lnr_991,991,jonathan-danty,Jonathan Danty,La Rochelle,LRO,CENTRE,Centre,France,33.0,181.0,110.0,2025-2026,2,141.0,70.5,0,0,0,6.24,,,0.0,,,,0.0,2.27,,,0.0,0.0,,,,,lnr
-lnr_12387,12387,upaleto-feao,Upaleto Feao,La Rochelle,LRO,FRONT_ROW,1ère ligne,France,20.0,,,2025-2026,2,98.0,49.0,0,0,0,8.16,,,0.0,,,,0.0,0.0,,,0.0,0.0,,,,,lnr
-lnr_2463,2463,paul-graou,Paul Graou,Toulouse,TLS,SCRUM_HALF,Demi de mêlée,France,28.0,177.0,88.0,2025-2026,18,988.0,54.9,0,0,0,5.75,,,0.16,,,,0.65,1.54,,,2.19,0.4,,,,,lnr
-lnr_2462,2462,alexandre-roumat,A. Roumat,Toulouse,TLS,BACK_ROW,3ème ligne,France,28.0,198.0,110.0,2025-2026,16,916.0,57.2,0,0,0,7.51,,,0.17,,,,0.09,0.7,,,1.75,0.35,,,,,lnr
-lnr_11251,11251,leo-banos,Léo Banos,Toulouse,TLS,BACK_ROW,3ème ligne,France,23.0,191.0,100.0,2025-2026,15,784.0,52.3,0,0,0,9.18,,,0.1,,,,0.31,0.71,,,0.51,0.1,,,,,lnr
-lnr_2490,2490,clement-verge,Clement Verge,Toulouse,TLS,LOCK,2ème ligne,France,24.0,,123.0,2025-2026,15,772.0,51.5,1,0,0,10.78,,,0.1,,,,0.21,0.83,,,1.04,0.21,,,,,lnr
-lnr_2425,2425,jack-willis,Jack Willis,Toulouse,TLS,BACK_ROW,3ème ligne,Angleterre,29.0,190.0,112.0,2025-2026,14,835.0,59.6,0,0,0,10.35,,,0.67,,,,0.48,1.63,,,1.92,0.38,,,,,lnr
-lnr_12363,12363,efrain-elias,Efrain Elias,Toulouse,TLS,LOCK,2ème ligne,Argentine,21.0,,119.0,2025-2026,13,619.0,47.6,1,0,0,9.43,,,0.39,,,,0.13,0.78,,,1.94,0.39,,,,,lnr
-lnr_2429,2429,thomas-lacombre,Thomas Lacombre,Toulouse,TLS,FRONT_ROW,1ère ligne,France,21.0,174.0,106.0,2025-2026,13,518.0,39.8,0,0,0,10.81,,,0.62,,,,0.31,0.77,,,0.0,0.0,,,,,lnr
-lnr_987,987,teddy-thomas,Teddy Thomas,Toulouse,TLS,WINGER,Ailier,France,32.0,185.0,94.0,2025-2026,13,770.0,59.2,0,0,0,3.32,,,0.0,,,,1.04,1.14,,,4.68,0.94,,,,,lnr
-lnr_2432,2432,kalvin-gourgues,Kalvin Gourgues,Toulouse,TLS,CENTRE,Centre,France,21.0,184.0,93.0,2025-2026,12,779.0,64.9,0,0,0,5.24,,,0.0,,,,1.03,1.23,,,3.8,0.51,,,,,lnr
-lnr_12335,12335,blair-kinghorn-1,Blair Kinghorn,Toulouse,TLS,FULLBACK,Arrière,Ecosse,29.0,193.0,107.0,2025-2026,12,790.0,65.8,0,0,0,1.42,,,0.0,,,,0.41,1.42,,,4.25,0.0,,,,,lnr
-lnr_2437,2437,matthis-lebel,Matthis Lebel,Toulouse,TLS,CENTRE,Centre,France,27.0,184.0,90.0,2025-2026,12,823.0,68.6,0,0,0,2.53,,,0.0,,,,1.17,0.68,,,3.89,0.78,,,,,lnr
-lnr_2448,2448,dorian-aldegheri,Dorian Aldegheri,Toulouse,TLS,FRONT_ROW,1ère ligne,France,32.0,180.0,119.0,2025-2026,11,463.0,42.1,1,0,0,8.29,,,0.0,,,,0.17,0.17,,,0.86,0.17,,,,,lnr
-lnr_2492,2492,joshua-brennan,Joshua Brennan,Toulouse,TLS,LOCK,2ème ligne,France,24.0,199.0,118.0,2025-2026,11,601.0,54.6,0,0,0,10.25,,,0.13,,,,0.13,0.4,,,1.33,0.27,,,,,lnr
-lnr_2484,2484,guillaume-cramont,G. Cramont,Toulouse,TLS,FRONT_ROW,1ère ligne,France,25.0,183.0,107.0,2025-2026,11,443.0,40.3,0,0,0,9.93,,,0.54,,,,0.18,1.26,,,4.51,0.9,,,,,lnr
-lnr_2486,2486,theo-ntamack-muyenga,T. Ntamack Muyenga,Toulouse,TLS,BACK_ROW,3ème ligne,France,23.0,193.0,103.0,2025-2026,11,467.0,42.5,0,0,0,10.45,,,0.34,,,,1.37,1.2,,,2.57,0.51,,,,,lnr
-lnr_12751,12751,naoto-saito,Naoto Saito,Toulouse,TLS,SCRUM_HALF,Demi de mêlée,Japon,28.0,165.0,75.0,2025-2026,11,277.0,25.2,0,0,0,4.04,,,0.0,,,,0.0,0.0,,,1.44,0.29,,,,,lnr
-lnr_2451,2451,cyril-baille,Cyril Baille,Toulouse,TLS,FRONT_ROW,1ère ligne,France,32.0,182.0,118.0,2025-2026,10,343.0,34.3,0,0,0,5.83,,,0.0,,,,0.0,0.47,,,0.0,0.0,,,,,lnr
-lnr_2427,2427,paul-costes,Paul Costes,Toulouse,TLS,CENTRE,Centre,France,22.0,182.0,85.0,2025-2026,10,662.0,66.2,0,0,0,5.08,,,0.0,,,,0.12,1.57,,,1.21,0.24,,,,,lnr
-lnr_2501,2501,dimitri-delibes,Dimitri Delibes,Toulouse,TLS,CENTRE,Centre,France,27.0,190.0,98.0,2025-2026,10,657.0,65.7,0,0,0,4.14,,,0.37,,,,0.85,0.85,,,3.65,0.73,,,,,lnr
-lnr_2399,2399,joel-merkler-perez,J. Merkler Perez,Toulouse,TLS,FRONT_ROW,1ère ligne,Espagne,24.0,194.0,135.0,2025-2026,10,382.0,38.2,0,0,0,11.73,,,0.21,,,,0.0,0.21,,,1.05,0.21,,,,,lnr
-lnr_2443,2443,rodrigue-neti,R. Neti,Toulouse,TLS,FRONT_ROW,1ère ligne,France,30.0,185.0,121.0,2025-2026,10,497.0,49.7,0,0,0,7.4,,,0.0,,,,0.0,0.16,,,0.0,0.0,,,,,lnr
-lnr_2436,2436,romain-ntamack,Romain Ntamack,Toulouse,TLS,FLY_HALF,Demi d'ouverture,France,26.0,186.0,91.0,2025-2026,10,649.0,64.9,0,0,0,6.53,,,0.0,,,,0.49,0.74,,,4.19,0.25,,,,,lnr
-lnr_2450,2450,thomas-ramos,Thomas Ramos,Toulouse,TLS,FULLBACK,Arrière,France,30.0,178.0,87.0,2025-2026,10,663.0,66.3,0,0,0,2.17,,,0.0,,,,0.6,1.45,,,13.27,0.12,,,,,lnr
-lnr_2500,2500,david-ainuu,David Ainuu,Toulouse,TLS,FRONT_ROW,1ère ligne,Etats-Unis,26.0,178.0,122.0,2025-2026,9,374.0,41.6,0,0,0,5.99,,,0.43,,,,0.0,0.0,,,0.0,0.0,,,,,lnr
-lnr_2460,2460,pierre-louis-barassi,P. Barassi,Toulouse,TLS,CENTRE,Centre,France,27.0,187.0,99.0,2025-2026,9,597.0,66.3,0,0,0,5.76,,,0.13,,,,0.67,1.21,,,2.01,0.4,,,,,lnr
-lnr_2401,2401,mathis-castro-ferreira,M. Castro Ferreira,Toulouse,TLS,BACK_ROW,3ème ligne,France,22.0,192.0,105.0,2025-2026,9,382.0,42.4,0,0,0,9.63,,,0.21,,,,0.0,0.42,,,1.05,0.21,,,,,lnr
-lnr_2405,2405,thibaud-flament,Thibaud Flament,Toulouse,TLS,LOCK,2ème ligne,France,28.0,,116.0,2025-2026,9,578.0,64.2,0,0,0,7.47,,,0.14,,,,0.14,0.55,,,1.38,0.28,,,,,lnr
-lnr_2454,2454,anthony-jelonch,Anthony Jelonch,Toulouse,TLS,BACK_ROW,3ème ligne,France,29.0,193.0,108.0,2025-2026,9,586.0,65.1,1,0,0,9.69,,,0.0,,,,0.55,0.82,,,2.05,0.41,,,,,lnr
-lnr_12438,12438,benjamin-bertrand,B. Bertrand,Toulouse,TLS,FRONT_ROW,1ère ligne,France,22.0,180.0,128.0,2025-2026,8,306.0,38.2,0,0,0,8.37,,,0.78,,,,0.52,0.0,,,1.31,0.26,,,,,lnr
-lnr_1009,1009,georges-henri-colombe-reazel,G. Colombe Reazel,Toulouse,TLS,FRONT_ROW,1ère ligne,France,27.0,193.0,142.0,2025-2026,8,284.0,35.5,0,0,0,7.04,,,0.56,,,,0.28,0.56,,,1.41,0.28,,,,,lnr
-lnr_2397,2397,santiago-chocobares,S. Chocobares,Toulouse,TLS,CENTRE,Centre,Argentine,26.0,188.0,100.0,2025-2026,7,509.0,72.7,1,0,0,6.44,,,0.0,,,,0.16,1.26,,,0.0,0.0,,,,,lnr
-lnr_2445,2445,julien-marchand,Julien Marchand,Toulouse,TLS,FRONT_ROW,1ère ligne,France,30.0,181.0,110.0,2025-2026,7,372.0,53.1,0,0,0,11.4,,,0.43,,,,0.0,1.94,,,4.3,0.86,,,,,lnr
-lnr_2498,2498,emmanuel-meafou,E. Meafou,Toulouse,TLS,LOCK,2ème ligne,France,27.0,,145.0,2025-2026,7,407.0,58.1,0,0,0,9.04,,,0.59,,,,0.0,1.18,,,1.97,0.39,,,,,lnr
-lnr_2483,2483,ange-capuozzo,Ange Capuozzo,Toulouse,TLS,SCRUM_HALF,Demi de mêlée,France,26.0,177.0,79.0,2025-2026,6,341.0,56.8,0,0,0,3.52,,,0.0,,,,1.64,0.23,,,7.04,1.41,,,,,lnr
-lnr_2485,2485,paul-mallez,Paul Mallez,Toulouse,TLS,FRONT_ROW,1ère ligne,France,25.0,180.0,116.0,2025-2026,5,195.0,39.0,0,0,0,8.21,,,1.23,,,,0.0,0.0,,,0.0,0.0,,,,,lnr
-lnr_2430,2430,celian-pouzelgues,C. Pouzelgues,Toulouse,TLS,CENTRE,Centre,France,22.0,190.0,93.0,2025-2026,5,228.0,45.6,0,0,0,5.26,,,0.35,,,,0.7,0.7,,,3.51,0.7,,,,,lnr
-lnr_2414,2414,valentin-delpy,V. Delpy,Toulouse,TLS,FLY_HALF,Demi d'ouverture,France,22.0,185.0,89.0,2025-2026,4,286.0,71.5,0,0,0,5.31,,,0.0,,,,0.28,0.56,,,12.59,0.0,,,,,lnr
-lnr_2449,2449,antoine-dupont,Antoine Dupont,Toulouse,TLS,SCRUM_HALF,Demi de mêlée,France,29.0,175.0,85.0,2025-2026,4,186.0,46.5,1,0,0,4.73,,,0.0,,,,1.72,3.01,,,4.3,0.86,,,,,lnr
-lnr_2461,2461,peato-mauvaka,Peato Mauvaka,Toulouse,TLS,FRONT_ROW,1ère ligne,France,29.0,184.0,112.0,2025-2026,3,82.0,27.3,0,0,0,14.63,,,0.0,,,,1.95,2.93,,,0.0,0.0,,,,,lnr
-lnr_2453,2453,francois-cros,Francois Cros,Toulouse,TLS,BACK_ROW,3ème ligne,France,32.0,190.0,111.0,2025-2026,2,145.0,72.5,0,0,0,19.31,,,0.55,,,,0.55,0.0,,,0.0,0.0,,,,,lnr
-lnr_2407,2407,malachi-shea-hawkes-faimanifo,M. Hawkes Faimanifo,Toulouse,TLS,FRONT_ROW,1ère ligne,Australie,23.0,179.0,115.0,2025-2026,2,51.0,25.5,0,0,0,7.84,,,0.0,,,,0.0,0.0,,,0.0,0.0,,,,,lnr
-lnr_2503,2503,juan-cruz-mallia,J. Mallia,Toulouse,TLS,WINGER,Ailier,Argentine,29.0,182.0,89.0,2025-2026,2,155.0,77.5,0,0,0,2.58,,,0.0,,,,2.06,1.55,,,7.74,1.55,,,,,lnr
-lnr_12340,12340,matias-remue,Matias Remue,Toulouse,TLS,FULLBACK,Arrière,Belgique,23.0,184.0,86.0,2025-2026,2,160.0,80.0,0,0,0,0.5,,,0.0,,,,1.0,0.5,,,2.5,0.5,,,,,lnr
-lnr_13461,13461,lucien-richardis,Lucien Richardis,Toulouse,TLS,FLY_HALF,Demi d'ouverture,France,20.0,182.0,88.0,2025-2026,2,109.0,54.5,0,0,0,2.2,,,0.0,,,,0.73,0.0,,,7.34,1.47,,,,,lnr
-lnr_2417,2417,lucas-vigneres,Lucas Vigneres,Toulouse,TLS,CENTRE,Centre,France,20.0,187.0,88.0,2025-2026,2,73.0,36.5,0,0,0,14.25,,,0.0,,,,0.0,0.0,,,5.48,1.1,,,,,lnr
-lnr_2415,2415,thomas-alary,Thomas Alary,Toulouse,TLS,FULLBACK,Arrière,France,19.0,191.0,92.0,2025-2026,1,80.0,80.0,0,0,0,4.0,,,0.0,,,,0.0,2.0,,,0.0,0.0,,,,,lnr
-lnr_354,354,hugo-zabalza,Hugo Zabalza,Montauban,MTB,SCRUM_HALF,Demi de mêlée,France,25.0,176.0,82.0,2025-2026,16,654.0,40.9,0,0,0,4.65,,,0.12,,,,0.24,1.22,,,0.61,0.12,,,,,lnr
-lnr_1749,1749,noa-isaac-kanika-bilonda,N. Kanika-bilonda,Montauban,MTB,LOCK,2ème ligne,France,24.0,194.0,114.0,2025-2026,15,701.0,46.7,0,0,0,7.19,,,0.0,,,,0.0,0.0,,,0.57,0.11,,,,,lnr
-lnr_239,239,nafitalai-owen-maafu,N. Maafu,Montauban,MTB,LOCK,2ème ligne,Etats-Unis,27.0,,110.0,2025-2026,15,747.0,49.8,0,1,0,9.85,,,0.11,,,,0.0,0.54,,,0.0,0.0,,,,,lnr
-lnr_12373,12373,joseph-patrick-powell,J. Powell,Montauban,MTB,SCRUM_HALF,Demi de mêlée,Irlande,31.0,178.0,80.0,2025-2026,15,668.0,44.5,0,0,0,8.5,,,0.12,,,,0.12,0.24,,,0.0,0.0,,,,,lnr
-lnr_2713,2713,thomas-bue,Thomas Bue,Montauban,MTB,FRONT_ROW,1ère ligne,France,23.0,181.0,123.0,2025-2026,14,724.0,51.7,0,0,0,9.61,,,0.0,,,,0.0,0.33,,,0.55,0.11,,,,,lnr
-lnr_2212,2212,john-thomas-jackson,J. Jackson,Montauban,MTB,CENTRE,Centre,Afrique du Sud,29.0,190.0,105.0,2025-2026,14,893.0,63.8,0,0,0,5.29,,,0.0,,,,0.63,0.45,,,1.34,0.27,,,,,lnr
-lnr_1284,1284,kyllian-ringuet,Kyllian Ringuet,Montauban,MTB,BACK_ROW,3ème ligne,France,22.0,196.0,104.0,2025-2026,14,916.0,65.4,0,0,0,14.93,,,0.17,,,,0.26,0.87,,,1.75,0.35,,,,,lnr
-lnr_1318,1318,tjiuee-uanivi,Tjiuee Uanivi,Montauban,MTB,LOCK,2ème ligne,Namibie,35.0,,99.0,2025-2026,14,801.0,57.2,0,0,0,6.49,,,0.2,,,,0.0,0.1,,,0.0,0.0,,,,,lnr
-lnr_10998,10998,facundo-pomponio,Facundo Pomponio,Montauban,MTB,FRONT_ROW,1ère ligne,Argentine,33.0,186.0,119.0,2025-2026,13,488.0,37.5,3,0,0,8.2,,,0.0,,,,0.0,0.0,,,0.0,0.0,,,,,lnr
-lnr_10149,10149,karl-wilkins,Karl Wilkins,Montauban,MTB,LOCK,2ème ligne,Angleterre,30.0,196.0,114.0,2025-2026,13,633.0,48.7,1,0,0,10.74,,,0.63,,,,0.0,0.0,,,0.63,0.13,,,,,lnr
-lnr_1334,1334,jerome-bosviel,J. Bosviel,Montauban,MTB,FLY_HALF,Demi d'ouverture,France,35.0,183.0,96.0,2025-2026,12,721.0,60.1,0,0,0,3.66,,,0.0,,,,0.22,1.0,,,9.65,0.11,,,,,lnr
-lnr_1322,1322,kevin-firmin,Kevin Firmin,Montauban,MTB,FRONT_ROW,1ère ligne,France,33.0,181.0,108.0,2025-2026,12,482.0,40.2,0,0,0,10.62,,,0.0,,,,0.17,0.0,,,0.83,0.17,,,,,lnr
-lnr_2266,2266,ru-hann-greyling,Ru-hann Greyling,Montauban,MTB,FRONT_ROW,1ère ligne,Afrique du Sud,26.0,181.0,108.0,2025-2026,12,568.0,47.3,1,0,0,8.73,,,0.0,,,,0.0,0.14,,,0.0,0.0,,,,,lnr
-lnr_1433,1433,jeremie-maurouard,Jeremie Maurouard,Montauban,MTB,FRONT_ROW,1ère ligne,France,33.0,180.0,95.0,2025-2026,12,385.0,32.1,0,0,0,12.68,,,0.83,,,,0.21,1.66,,,3.12,0.62,,,,,lnr
-lnr_12704,12704,sikumbuzo-notshe,S. Notshe,Montauban,MTB,BACK_ROW,3ème ligne,Afrique du Sud,32.0,186.0,105.0,2025-2026,12,617.0,51.4,0,0,0,8.3,,,0.39,,,,0.13,0.13,,,0.65,0.13,,,,,lnr
-lnr_1244,1244,simon-renda,Simon Renda,Montauban,MTB,CENTRE,Centre,France,25.0,186.0,97.0,2025-2026,11,681.0,61.9,0,0,0,6.11,,,0.12,,,,0.23,0.47,,,0.0,0.0,,,,,lnr
-lnr_1341,1341,lucas-seyrolle,Lucas Seyrolle,Montauban,MTB,FRONT_ROW,1ère ligne,France,30.0,183.0,131.0,2025-2026,11,341.0,31.0,0,0,0,7.27,,,0.47,,,,0.0,0.0,,,1.17,0.23,,,,,lnr
-lnr_10999,10999,valentin-simutoga,V. Simutoga,Montauban,MTB,FRONT_ROW,1ère ligne,France,23.0,184.0,125.0,2025-2026,11,459.0,41.7,0,0,0,9.76,,,0.35,,,,0.0,0.35,,,0.0,0.0,,,,,lnr
-lnr_1385,1385,paul-vallee,Paul Vallee,Montauban,MTB,CENTRE,Centre,France,23.0,186.0,83.0,2025-2026,11,710.0,64.5,0,0,0,2.14,,,0.0,,,,0.56,0.68,,,1.69,0.34,,,,,lnr
-lnr_169,169,clement-bitz,C. Bitz,Montauban,MTB,BACK_ROW,3ème ligne,France,31.0,195.0,113.0,2025-2026,10,448.0,44.8,0,0,0,8.93,,,0.0,,,,0.36,0.18,,,0.0,0.0,,,,,lnr
-lnr_891,891,thomas-fortunel,Thomas Fortunel,Montauban,MTB,FLY_HALF,Demi d'ouverture,France,30.0,178.0,83.0,2025-2026,10,480.0,48.0,0,0,0,4.83,,,0.0,,,,0.0,0.33,,,5.83,0.0,,,,,lnr
-lnr_1330,1330,maxime-mathy,Maxime Mathy,Montauban,MTB,CENTRE,Centre,France,33.0,178.0,88.0,2025-2026,10,409.0,40.9,0,0,0,8.22,,,0.2,,,,0.59,0.2,,,0.98,0.2,,,,,lnr
-lnr_1329,1329,fred-quercy,Fred Quercy,Montauban,MTB,BACK_ROW,3ème ligne,France,34.0,188.0,103.0,2025-2026,9,529.0,58.8,3,0,1,8.32,,,0.6,,,,0.0,0.3,,,0.0,0.0,,,,,lnr
-lnr_1312,1312,tyrone-viiga,Tyrone Viiga,Montauban,MTB,BACK_ROW,3ème ligne,Nouvelle Zélande,33.0,192.0,114.0,2025-2026,9,495.0,55.0,0,0,1,10.51,,,0.0,,,,0.16,0.16,,,0.0,0.0,,,,,lnr
-lnr_1001,1001,leo-aouf,Leo Aouf,Montauban,MTB,FRONT_ROW,1ère ligne,France,29.0,182.0,120.0,2025-2026,8,273.0,34.1,0,0,0,8.79,,,0.0,,,,0.0,0.0,,,0.0,0.0,,,,,lnr
-lnr_3505,3505,lucio-sordoni,Lucio Sordoni,Montauban,MTB,FRONT_ROW,1ère ligne,Italie,27.0,190.0,130.0,2025-2026,8,330.0,41.2,0,0,0,6.79,,,0.24,,,,0.0,0.24,,,0.0,0.0,,,,,lnr
-lnr_1342,1342,juan-segundo-tuculet,J. Tuculet,Montauban,MTB,CENTRE,Centre,Italie,32.0,180.0,86.0,2025-2026,8,556.0,69.5,1,0,0,2.59,,,0.0,,,,0.43,1.15,,,0.72,0.14,,,,,lnr
-lnr_1747,1747,stephane-ahmed,S. Ahmed,Montauban,MTB,WINGER,Ailier,France,27.0,182.0,83.0,2025-2026,6,439.0,73.2,0,0,0,3.83,,,0.18,,,,1.46,1.28,,,1.82,0.36,,,,,lnr
-lnr_11742,11742,mael-castel,Mael Castel,Montauban,MTB,SCRUM_HALF,Demi de mêlée,France,21.0,,,2025-2026,5,139.0,27.8,0,0,0,2.88,,,0.0,,,,0.58,0.0,,,2.88,0.58,,,,,lnr
-lnr_4957,4957,lewis-bean,Lewis Bean,Montauban,MTB,LOCK,2ème ligne,Angleterre,34.0,,129.0,2025-2026,4,96.0,24.0,1,0,0,10.0,,,0.0,,,,0.0,0.0,,,0.0,0.0,,,,,lnr
-lnr_14049,14049,sione-tulimaiau-mafileo,S. Mafile'o,Montauban,MTB,FRONT_ROW,1ère ligne,Nouvelle Zélande,32.0,180.0,135.0,2025-2026,4,154.0,38.5,0,0,0,11.43,,,0.0,,,,0.0,0.0,,,0.0,0.0,,,,,lnr
-lnr_626,626,thomas-larregain,Thomas Larregain,Montauban,MTB,FULLBACK,Arrière,France,28.0,184.0,93.0,2025-2026,3,197.0,65.7,0,0,0,3.25,,,0.41,,,,0.0,0.41,,,0.0,0.0,,,,,lnr
-lnr_479,479,nugzari-somkhisvhili,N. Somkhisvhili,Montauban,MTB,FRONT_ROW,1ère ligne,Géorgie,24.0,182.0,110.0,2025-2026,3,102.0,34.0,1,0,0,14.12,,,0.78,,,,0.0,0.0,,,0.0,0.0,,,,,lnr
-lnr_286,286,corentin-coularis,C. Coularis,Montauban,MTB,BACK_ROW,3ème ligne,France,23.0,191.0,107.0,2025-2026,2,89.0,44.5,0,0,0,12.58,,,0.0,,,,0.0,0.9,,,0.0,0.0,,,,,lnr
-lnr_1873,1873,romain-fonnicola,Romain Fonnicola,Montauban,MTB,WINGER,Ailier,France,23.0,186.0,96.0,2025-2026,2,91.0,45.5,0,0,0,6.15,,,0.0,,,,0.0,1.76,,,4.4,0.88,,,,,lnr
-lnr_1991,1991,victor-moreaux,Victor Moreaux,Montauban,MTB,LOCK,2ème ligne,France,32.0,198.0,127.0,2025-2026,2,54.0,27.0,0,0,0,7.41,,,0.0,,,,0.0,2.96,,,0.0,0.0,,,,,lnr
-lnr_1897,1897,yvan-reilhac,Yvan Reilhac,Montauban,MTB,CENTRE,Centre,France,30.0,181.0,98.0,2025-2026,2,144.0,72.0,0,0,0,3.33,,,0.0,,,,1.11,1.67,,,5.56,1.11,,,,,lnr
-lnr_2342,2342,mathieu-tanguy,Mathieu Tanguy,Perpignan,PER,LOCK,2ème ligne,France,29.0,195.0,107.0,2025-2026,17,775.0,45.6,2,0,0,8.57,,,0.1,,,,0.1,0.31,,,0.0,0.0,,,,,lnr
-lnr_2282,2282,kieran-brookes,Kieran Brookes,Perpignan,PER,FRONT_ROW,1ère ligne,Grande-Bretagne,35.0,187.0,120.0,2025-2026,15,705.0,47.0,1,0,0,7.83,,,0.0,,,,0.0,0.11,,,0.0,0.0,,,,,lnr
-lnr_2389,2389,bruce-devaux,Bruce Devaux,Perpignan,PER,FRONT_ROW,1ère ligne,France,29.0,183.0,108.0,2025-2026,15,600.0,40.0,1,0,0,7.87,,,0.13,,,,0.0,0.0,,,0.0,0.0,,,,,lnr
-lnr_1987,1987,tom-ecochard,Tom Ecochard,Perpignan,PER,SCRUM_HALF,Demi de mêlée,France,33.0,173.0,85.0,2025-2026,15,735.0,49.0,1,0,0,7.4,,,0.0,,,,0.11,0.44,,,0.54,0.11,,,,,lnr
-lnr_2001,2001,alivereti-uqueqe-duguivalu,A. Duguivalu,Perpignan,PER,CENTRE,Centre,Fidji,28.0,180.0,85.0,2025-2026,14,955.0,68.2,0,0,0,6.53,,,0.17,,,,0.5,0.92,,,0.84,0.17,,,,,lnr
-lnr_12733,12733,maxwell-hicks,Maxwell Hicks,Perpignan,PER,LOCK,2ème ligne,Nouvelle Zélande,26.0,199.0,112.0,2025-2026,14,912.0,65.1,1,0,0,8.6,,,0.61,,,,0.09,0.0,,,0.44,0.09,,,,,lnr
-lnr_2383,2383,matteo-le-corvec,Mattéo Le Corvec,Perpignan,PER,BACK_ROW,3ème ligne,France,25.0,192.0,111.0,2025-2026,13,576.0,44.3,1,0,0,11.81,,,0.14,,,,0.14,0.14,,,1.39,0.28,,,,,lnr
-lnr_679,679,peceli-yato,Peceli Yato,Perpignan,PER,BACK_ROW,3ème ligne,Fidji,33.0,196.0,105.0,2025-2026,13,628.0,48.3,0,0,0,8.03,,,0.76,,,,0.51,0.89,,,1.91,0.38,,,,,lnr
-lnr_1782,1782,james-robert-hall,J. Hall,Perpignan,PER,SCRUM_HALF,Demi de mêlée,Afrique du Sud,30.0,173.0,82.0,2025-2026,12,460.0,38.3,0,0,0,9.74,,,0.17,,,,0.52,0.87,,,0.0,0.0,,,,,lnr
-lnr_662,662,giorgi-beria,Giorgi Beria,Perpignan,PER,FRONT_ROW,1ère ligne,France,26.0,175.0,108.0,2025-2026,11,418.0,38.0,2,0,0,14.55,,,0.77,,,,0.0,0.77,,,0.0,0.0,,,,,lnr
-lnr_398,398,pietro-ceccarelli,P. Ceccarelli,Perpignan,PER,FRONT_ROW,1ère ligne,France,34.0,184.0,115.0,2025-2026,11,421.0,38.3,0,0,0,10.45,,,0.19,,,,0.0,0.0,,,0.0,0.0,,,,,lnr
-lnr_1971,1971,theo-forner,Theo Forner,Perpignan,PER,FULLBACK,Arrière,France,24.0,180.0,80.0,2025-2026,11,847.0,77.0,0,0,0,4.16,,,0.28,,,,1.13,0.94,,,0.0,0.0,,,,,lnr
-lnr_92,92,jefferson-lee-joseph,J. Joseph,Perpignan,PER,FULLBACK,Arrière,France,23.0,192.0,88.0,2025-2026,11,797.0,72.5,0,0,1,5.02,,,0.1,,,,0.6,0.7,,,3.01,0.6,,,,,lnr
-lnr_1967,1967,mathys-lotrian,Mathys Lotrian,Perpignan,PER,FRONT_ROW,1ère ligne,France,22.0,177.0,110.0,2025-2026,11,420.0,38.2,1,0,0,13.33,,,0.19,,,,0.19,0.0,,,0.95,0.19,,,,,lnr
-lnr_13558,13558,james-thomas-ritchie,J. Ritchie,Perpignan,PER,LOCK,2ème ligne,Grande-Bretagne,29.0,193.0,109.0,2025-2026,11,811.0,73.7,0,0,0,22.89,,,0.79,,,,0.39,0.39,,,0.0,0.0,,,,,lnr
-lnr_693,693,jacobus-van-tonder,J. Van Tonder,Perpignan,PER,LOCK,2ème ligne,Afrique du Sud,28.0,197.0,118.0,2025-2026,11,644.0,58.5,0,0,0,13.66,,,0.5,,,,0.37,0.37,,,0.0,0.0,,,,,lnr
-lnr_2388,2388,adrien-warion,Adrien Warion,Perpignan,PER,LOCK,2ème ligne,France,25.0,,107.0,2025-2026,11,639.0,58.1,0,0,0,13.9,,,0.25,,,,0.0,0.5,,,0.0,0.0,,,,,lnr
-lnr_2632,2632,eneriko-buliruarua,E. Buliruarua,Perpignan,PER,CENTRE,Centre,Fidji,29.0,186.0,106.0,2025-2026,10,613.0,61.3,0,0,0,7.05,,,0.26,,,,0.52,0.52,,,1.96,0.39,,,,,lnr
-lnr_323,323,mahamadou-diaby,M. Diaby,Perpignan,PER,BACK_ROW,3ème ligne,France,35.0,192.0,104.0,2025-2026,10,366.0,36.6,1,0,0,12.24,,,0.44,,,,0.0,0.22,,,0.0,0.0,,,,,lnr
-lnr_13637,13637,sama-leonardo-malolo,S. Malolo,Perpignan,PER,FRONT_ROW,1ère ligne,Samoa occidental,28.0,184.0,109.0,2025-2026,10,427.0,42.7,0,0,0,11.43,,,0.56,,,,0.94,0.56,,,0.94,0.19,,,,,lnr
-lnr_1990,1990,giorgi-tetrashvili,G. Tetrashvili,Perpignan,PER,FRONT_ROW,1ère ligne,Géorgie,32.0,177.0,114.0,2025-2026,10,416.0,41.6,1,0,0,10.19,,,0.0,,,,0.0,0.0,,,0.0,0.0,,,,,lnr
-lnr_1970,1970,bastien-chinarro,Bastien Chinarro,Perpignan,PER,LOCK,2ème ligne,France,22.0,196.0,95.0,2025-2026,9,471.0,52.3,0,0,0,10.02,,,0.17,,,,0.34,0.34,,,1.7,0.34,,,,,lnr
-lnr_11982,11982,job-poulet-1,Job Poulet,Perpignan,PER,CENTRE,Centre,France,22.0,180.0,79.0,2025-2026,9,323.0,35.9,0,0,0,6.69,,,0.5,,,,0.25,0.74,,,0.0,0.0,,,,,lnr
-lnr_1784,1784,nemo-gunther-roelofse,N. Roelofse,Perpignan,PER,FRONT_ROW,1ère ligne,Afrique du Sud,30.0,182.0,120.0,2025-2026,9,281.0,31.2,0,0,0,6.26,,,0.28,,,,0.28,0.0,,,0.0,0.0,,,,,lnr
-lnr_9603,9603,tommaso-allan,Tommaso Allan,Perpignan,PER,FLY_HALF,Demi d'ouverture,Italie,32.0,183.0,90.0,2025-2026,8,477.0,59.6,1,0,0,1.84,,,0.0,,,,0.34,0.34,,,10.06,0.17,,,,,lnr
-lnr_1961,1961,maxim-granell,Maxim Granell,Perpignan,PER,CENTRE,Centre,France,20.0,182.0,80.0,2025-2026,8,596.0,74.5,0,0,0,8.05,,,0.13,,,,0.54,0.4,,,2.01,0.4,,,,,lnr
-lnr_1955,1955,joaquin-oviedo,Joaquin Oviedo,Perpignan,PER,BACK_ROW,3ème ligne,Argentine,24.0,191.0,113.0,2025-2026,8,508.0,63.5,0,0,0,10.71,,,0.16,,,,0.47,0.63,,,1.57,0.31,,,,,lnr
-lnr_11989,11989,ignacio-ruiz,Ignacio Ruiz,Perpignan,PER,FRONT_ROW,1ère ligne,Italie,25.0,185.0,109.0,2025-2026,8,400.0,50.0,1,0,0,10.2,,,0.0,,,,0.2,0.2,,,2.0,0.4,,,,,lnr
-lnr_1447,1447,gela-aprasidze,Gela Aprasidze,Perpignan,PER,SCRUM_HALF,Demi de mêlée,Géorgie,28.0,175.0,70.0,2025-2026,7,209.0,29.9,1,0,0,6.12,,,0.0,,,,0.0,0.38,,,1.15,0.0,,,,,lnr
-lnr_2010,2010,lucas-dubois,Lucas Dubois,Perpignan,PER,WINGER,Ailier,France,27.0,182.0,88.0,2025-2026,7,503.0,71.9,1,0,0,2.39,,,0.0,,,,0.64,0.32,,,0.8,0.16,,,,,lnr
-lnr_1976,1976,tristan-james-tedder,T. Tedder,Perpignan,PER,FLY_HALF,Demi d'ouverture,Autriche,29.0,180.0,78.0,2025-2026,7,450.0,64.3,0,0,0,2.49,,,0.0,,,,0.36,1.24,,,2.31,0.0,,,,,lnr
-lnr_594,594,benjamin-urdapilleta,B. Urdapilleta,Perpignan,PER,FLY_HALF,Demi d'ouverture,Italie,40.0,176.0,76.0,2025-2026,7,416.0,59.4,0,0,0,8.46,,,0.19,,,,0.0,0.77,,,8.65,0.0,,,,,lnr
-lnr_2025,2025,lucas-velarte,Lucas Velarte,Perpignan,PER,FRONT_ROW,1ère ligne,France,27.0,185.0,108.0,2025-2026,7,383.0,54.7,0,0,0,14.2,,,0.63,,,,0.0,0.84,,,3.13,0.63,,,,,lnr
-lnr_1047,1047,tavite-veredamu,Tavite Veredamu,Perpignan,PER,BACK_ROW,3ème ligne,France,36.0,188.0,108.0,2025-2026,7,531.0,75.9,1,0,0,6.18,,,0.15,,,,1.05,1.05,,,0.75,0.15,,,,,lnr
-lnr_1952,1952,posolo-tuilagi,Posolo Tuilagi,Perpignan,PER,BACK_ROW,3ème ligne,Samoa,21.0,192.0,145.0,2025-2026,6,223.0,37.2,1,0,0,12.56,,,0.72,,,,0.0,1.08,,,1.79,0.36,,,,,lnr
-lnr_2009,2009,victor-montgaillard,V. Montgaillard,Perpignan,PER,FRONT_ROW,1ère ligne,France,23.0,181.0,108.0,2025-2026,5,153.0,30.6,0,0,0,17.25,,,0.52,,,,0.0,0.0,,,0.0,0.0,,,,,lnr
-lnr_13878,13878,jordan-washington-petaia,J. Petaia,Perpignan,PER,CENTRE,Centre,Australie,26.0,190.0,98.0,2025-2026,5,282.0,56.4,0,0,0,5.39,,,0.0,,,,0.0,0.0,,,0.0,0.0,,,,,lnr
-lnr_1013,1013,noe-della-schiava,N. Della Schiava,Perpignan,PER,BACK_ROW,3ème ligne,France,24.0,193.0,95.0,2025-2026,4,152.0,38.0,1,0,0,7.89,,,0.0,,,,0.0,1.05,,,0.0,0.0,,,,,lnr
-lnr_2385,2385,duncan-paiaaua,Duncan Paia'aua,Perpignan,PER,CENTRE,Centre,Australie,31.0,183.0,92.0,2025-2026,4,276.0,69.0,0,0,0,4.93,,,0.0,,,,0.29,0.29,,,1.45,0.29,,,,,lnr
-lnr_1646,1646,antoine-aucagne,Antoine Aucagne,Perpignan,PER,FLY_HALF,Demi d'ouverture,France,25.0,184.0,80.0,2025-2026,3,135.0,45.0,0,0,0,2.96,,,0.0,,,,0.59,0.0,,,4.15,0.0,,,,,lnr
-lnr_1962,1962,gabin-kretchmann,G. Kretchmann,Perpignan,PER,FULLBACK,Arrière,France,20.0,183.0,84.0,2025-2026,3,48.0,16.0,0,0,0,8.33,,,0.0,,,,0.0,0.0,,,0.0,0.0,,,,,lnr
-lnr_12480,12480,andro-dvali,Andro Dvali,Perpignan,PER,BACK_ROW,3ème ligne,Géorgie,20.0,188.0,95.0,2025-2026,2,48.0,24.0,0,0,0,10.0,,,0.0,,,,0.0,0.0,,,0.0,0.0,,,,,lnr
-lnr_2671,2671,matis-perchaud,Matis Perchaud,Bordeaux,BOR,FRONT_ROW,1ère ligne,France,23.0,187.0,112.0,2025-2026,18,657.0,36.5,1,0,0,12.54,,,0.49,,,,0.12,0.61,,,0.0,0.0,,,,,lnr
-lnr_11240,11240,carlu-johann-sadie,C. Sadie,Bordeaux,BOR,FRONT_ROW,1ère ligne,Afrique du Sud,28.0,182.0,138.0,2025-2026,18,838.0,46.6,0,0,0,8.31,,,0.1,,,,0.1,0.0,,,0.95,0.19,,,,,lnr
-lnr_335,335,bastien-vergnes-taillefer,B. Vergnes Taillefer,Bordeaux,BOR,BACK_ROW,3ème ligne,France,28.0,194.0,111.0,2025-2026,16,727.0,45.4,0,0,0,12.87,,,0.0,,,,0.33,0.55,,,1.65,0.33,,,,,lnr
-lnr_329,329,jefferson-poirot,J. Poirot,Bordeaux,BOR,FRONT_ROW,1ère ligne,France,33.0,181.0,117.0,2025-2026,15,660.0,44.0,1,0,0,11.76,,,0.24,,,,0.12,0.36,,,1.21,0.24,,,,,lnr
-lnr_349,349,maxime-lamothe,Maxime Lamothe,Bordeaux,BOR,FRONT_ROW,1ère ligne,France,27.0,183.0,109.0,2025-2026,14,691.0,49.4,0,0,0,12.62,,,0.58,,,,0.35,0.12,,,1.74,0.35,,,,,lnr
-lnr_205,205,temo-matiu,Temo Matiu,Bordeaux,BOR,BACK_ROW,3ème ligne,France,24.0,191.0,100.0,2025-2026,14,862.0,61.6,0,0,0,10.67,,,0.28,,,,0.56,0.65,,,0.93,0.19,,,,,lnr
-lnr_12774,12774,salesi-rayasi,Salesi Rayasi,Bordeaux,BOR,WINGER,Ailier,Nouvelle Zélande,29.0,193.0,105.0,2025-2026,14,800.0,57.1,1,0,0,3.3,,,0.2,,,,1.4,0.6,,,4.0,0.8,,,,,lnr
-lnr_324,324,cyril-cazeaux,Cyril Cazeaux,Bordeaux,BOR,LOCK,2ème ligne,France,31.0,198.0,117.0,2025-2026,13,682.0,52.5,1,0,0,10.44,,,0.0,,,,0.0,0.47,,,0.59,0.12,,,,,lnr
-lnr_203,203,tiaan-jacobs,Tiaan Jacobs,Bordeaux,BOR,LOCK,2ème ligne,Afrique du Sud,21.0,193.0,107.0,2025-2026,13,498.0,38.3,0,0,0,12.21,,,0.48,,,,0.0,0.16,,,0.0,0.0,,,,,lnr
-lnr_313,313,pablo-uberti,Pablo Uberti,Bordeaux,BOR,CENTRE,Centre,France,28.0,185.0,85.0,2025-2026,13,935.0,71.9,1,0,0,7.36,,,0.09,,,,0.34,0.43,,,0.43,0.09,,,,,lnr
-lnr_304,304,nicolas-depoortere,N. Depoortere,Bordeaux,BOR,CENTRE,Centre,France,23.0,193.0,87.0,2025-2026,12,868.0,72.3,0,0,0,6.91,,,0.0,,,,0.92,0.83,,,4.15,0.83,,,,,lnr
-lnr_12571,12571,rohan-janse-van-rensburg-2,R. Janse Van Rensburg,Bordeaux,BOR,CENTRE,Centre,Afrique du Sud,31.0,185.0,109.0,2025-2026,12,735.0,61.2,0,0,0,8.27,,,0.65,,,,0.33,0.44,,,0.0,0.0,,,,,lnr
-lnr_3607,3607,marko-gazzotti,Marko Gazzotti,Bordeaux,BOR,BACK_ROW,3ème ligne,France,21.0,192.0,110.0,2025-2026,11,571.0,51.9,1,0,0,11.63,,,0.28,,,,0.0,0.56,,,2.1,0.42,,,,,lnr
-lnr_339,339,matthieu-jalibert,Matthieu Jalibert,Bordeaux,BOR,FLY_HALF,Demi d'ouverture,France,27.0,184.0,84.0,2025-2026,11,798.0,72.5,1,0,0,5.31,,,0.1,,,,1.4,2.11,,,8.22,0.5,,,,,lnr
-lnr_638,638,gaetan-barlot,Gaëtan Barlot,Bordeaux,BOR,FRONT_ROW,1ère ligne,France,28.0,184.0,107.0,2025-2026,10,389.0,38.9,0,0,0,15.42,,,0.41,,,,0.21,1.23,,,3.08,0.62,,,,,lnr
-lnr_277,277,louis-bielle-biarrey,L. Bielle-biarrey,Bordeaux,BOR,FULLBACK,Arrière,France,22.0,184.0,79.0,2025-2026,10,713.0,71.3,1,0,0,2.58,,,0.0,,,,1.91,0.9,,,5.61,1.12,,,,,lnr
-lnr_318,318,romain-buros,Romain Buros,Bordeaux,BOR,FULLBACK,Arrière,France,28.0,187.0,90.0,2025-2026,10,667.0,66.7,0,0,0,2.4,,,0.0,,,,0.48,0.6,,,3.0,0.6,,,,,lnr
-lnr_12498,12498,jonathan-gray,J. Gray,Bordeaux,BOR,LOCK,2ème ligne,Grande-Bretagne,32.0,198.0,122.0,2025-2026,10,457.0,45.7,0,0,0,15.75,,,0.0,,,,0.0,0.7,,,0.0,0.0,,,,,lnr
-lnr_13482,13482,valentin-hutteau,V. Hutteau,Bordeaux,BOR,SCRUM_HALF,Demi de mêlée,France,18.0,167.0,75.0,2025-2026,10,334.0,33.4,0,0,0,3.35,,,0.48,,,,0.48,2.16,,,1.2,0.24,,,,,lnr
-lnr_3536,3536,xan-mousques,Xan Mousques,Bordeaux,BOR,FULLBACK,Arrière,France,20.0,178.0,89.0,2025-2026,10,508.0,50.8,2,0,0,3.62,,,0.0,,,,0.63,1.1,,,0.79,0.16,,,,,lnr
-lnr_2495,2495,martin-page-relo,Martin Page Relo,Bordeaux,BOR,SCRUM_HALF,Demi de mêlée,France,27.0,173.0,77.0,2025-2026,10,459.0,45.9,0,0,0,3.66,,,0.0,,,,0.52,0.52,,,6.62,0.52,,,,,lnr
-lnr_11744,11744,joseph-laharrague,J. Laharrague,Bordeaux,BOR,FLY_HALF,Demi d'ouverture,France,19.0,183.0,80.0,2025-2026,9,230.0,25.6,0,0,0,6.61,,,0.0,,,,0.7,1.04,,,3.48,0.35,,,,,lnr
-lnr_2441,2441,arthur-retiere,Arthur Retiere,Bordeaux,BOR,SCRUM_HALF,Demi de mêlée,France,28.0,173.0,80.0,2025-2026,9,294.0,32.7,0,0,0,4.9,,,0.27,,,,1.09,2.18,,,2.72,0.54,,,,,lnr
-lnr_531,531,connor-sa,Connor Sa,Bordeaux,BOR,FRONT_ROW,1ère ligne,Nouvelle Zélande,24.0,183.0,101.0,2025-2026,9,359.0,39.9,0,0,0,11.36,,,0.22,,,,0.22,0.22,,,2.23,0.45,,,,,lnr
-lnr_279,279,pierre-bochaton,Pierre Bochaton,Bordeaux,BOR,LOCK,2ème ligne,France,24.0,197.0,103.0,2025-2026,8,545.0,68.1,0,0,0,8.81,,,0.29,,,,0.29,0.59,,,0.0,0.0,,,,,lnr
-lnr_12425,12425,joseph-carbery,Joseph Carbery,Bordeaux,BOR,FLY_HALF,Demi d'ouverture,Irlande,30.0,183.0,86.0,2025-2026,8,379.0,47.4,0,0,0,4.64,,,0.0,,,,0.21,0.84,,,5.28,0.0,,,,,lnr
-lnr_9642,9642,adam-coleman,Adam Coleman,Bordeaux,BOR,LOCK,2ème ligne,Australie,34.0,,122.0,2025-2026,7,372.0,53.1,0,0,0,11.18,,,0.22,,,,0.22,0.86,,,0.0,0.0,,,,,lnr
-lnr_311,311,sipili-falatea,Sipili Falatea,Bordeaux,BOR,FRONT_ROW,1ère ligne,France,28.0,183.0,115.0,2025-2026,7,230.0,32.9,0,0,0,10.09,,,0.0,,,,0.0,0.7,,,1.74,0.35,,,,,lnr
-lnr_331,331,maxime-lucu,Maxime Lucu,Bordeaux,BOR,SCRUM_HALF,Demi de mêlée,France,33.0,177.0,83.0,2025-2026,7,557.0,79.6,0,0,0,7.76,,,0.0,,,,0.57,0.43,,,7.9,0.0,,,,,lnr
-lnr_340,340,benjamin-tameifuna,B. Tameifuna,Bordeaux,BOR,FRONT_ROW,1ère ligne,Nouvelle Zélande,34.0,188.0,151.0,2025-2026,7,266.0,38.0,0,0,0,5.71,,,0.9,,,,0.3,1.2,,,1.5,0.3,,,,,lnr
-lnr_338,338,yoram-falatea-moefana,Y. Falatea Moefana,Bordeaux,BOR,CENTRE,Centre,France,25.0,182.0,97.0,2025-2026,5,285.0,57.0,0,0,0,6.74,,,0.0,,,,0.28,2.25,,,0.0,0.0,,,,,lnr
-lnr_309,309,ugo-boniface,Ugo Boniface,Bordeaux,BOR,FRONT_ROW,1ère ligne,France,27.0,190.0,125.0,2025-2026,4,117.0,29.2,1,0,0,10.26,,,0.0,,,,0.0,2.05,,,3.42,0.68,,,,,lnr
-lnr_12202,12202,adrien-drault,Adrien Drault,Bordeaux,BOR,CENTRE,Centre,France,19.0,182.0,85.0,2025-2026,4,174.0,43.5,0,0,0,7.36,,,0.0,,,,0.46,0.0,,,2.3,0.46,,,,,lnr
-lnr_11712,11712,jon-echegaray,Jon Echegaray,Bordeaux,BOR,WINGER,Ailier,France,20.0,180.0,85.0,2025-2026,4,238.0,59.5,0,0,0,1.34,,,0.0,,,,0.34,2.02,,,1.34,0.0,,,,,lnr
-lnr_903,903,tomaakino-taufa,T. Taufa,Bordeaux,BOR,FRONT_ROW,1ère ligne,Tonga,31.0,180.0,145.0,2025-2026,4,106.0,26.5,0,0,0,6.79,,,0.75,,,,0.75,0.0,,,0.0,0.0,,,,,lnr
+player_id,lnr_id,lnr_slug,name,team,team_code,position_group,position_raw,nationality,age,height_cm,weight_kg,season,matches_played,minutes_total,minutes_avg,yellow_cards,orange_cards,red_cards,tackles_per80,turnovers_won_per80,line_breaks_per80,offloads_per80,points_scored_per80,tries_per80,_source
+lnr_862,862,barnabe-massa,B. Massa,Clermont,CLR,FRONT_ROW,1ère ligne,France,21.0,180.0,101.0,2025-2026,16,801.0,50.1,1,0,0,10.49,0.6,0.2,0.4,3.0,0.6,lnr
+lnr_694,694,cristian-ojovan,C. Ojovan,Clermont,CLR,FRONT_ROW,1ère ligne,Moldavie,29.0,183.0,120.0,2025-2026,16,681.0,42.6,1,0,0,10.34,0.12,0.0,0.12,0.0,0.0,lnr
+lnr_11554,11554,killian-tixeront,Killian Tixeront,Clermont,CLR,BACK_ROW,3ème ligne,France,24.0,196.0,107.0,2025-2026,16,931.0,58.2,0,0,0,9.71,0.0,0.34,0.09,0.86,0.17,lnr
+lnr_184,184,giorgi-akhaladze,Giorgi Akhaladze,Clermont,CLR,FRONT_ROW,1ère ligne,Géorgie,26.0,186.0,128.0,2025-2026,15,736.0,49.1,1,0,0,9.13,0.0,0.0,0.22,2.17,0.43,lnr
+lnr_2446,2446,selevasio-tolofua,S. Tolofua,Clermont,CLR,CENTRE,Centre,France,28.0,186.0,116.0,2025-2026,15,865.0,57.7,0,0,0,11.47,0.09,0.09,1.57,0.92,0.18,lnr
+lnr_2655,2655,thomas-ceyte,Thomas Ceyte,Clermont,CLR,LOCK,2ème ligne,France,35.0,196.0,117.0,2025-2026,14,886.0,63.3,2,0,0,9.3,0.18,0.18,1.72,0.0,0.0,lnr
+lnr_657,657,etienne-fourcade,Etienne Fourcade,Clermont,CLR,FRONT_ROW,1ère ligne,France,28.0,180.0,103.0,2025-2026,14,443.0,31.6,1,0,0,8.49,0.36,0.18,0.18,1.81,0.36,lnr
+lnr_11297,11297,baptiste-jauneau,B. Jauneau,Clermont,CLR,SCRUM_HALF,Demi de mêlée,France,22.0,178.0,81.0,2025-2026,14,790.0,56.4,0,0,0,7.7,0.3,0.71,1.01,3.04,0.61,lnr
+lnr_5847,5847,robert-simmons-1,Robert Simmons,Clermont,CLR,LOCK,2ème ligne,Australie,36.0,,115.0,2025-2026,14,738.0,52.7,0,1,0,9.11,0.33,0.11,0.54,0.0,0.0,lnr
+lnr_2195,2195,anthime-hemery,Anthime Hemery,Clermont,CLR,BACK_ROW,3ème ligne,France,25.0,189.0,110.0,2025-2026,13,522.0,40.2,1,0,0,12.41,0.61,0.31,0.61,0.0,0.0,lnr
+lnr_921,921,regis-montagne,Régis Montagne,Clermont,CLR,FRONT_ROW,1ère ligne,France,25.0,186.0,132.0,2025-2026,13,600.0,46.2,1,0,0,9.73,0.4,0.0,0.27,0.0,0.0,lnr
+lnr_1793,1793,kylan-hamdaoui,Kylan Hamdaoui,Clermont,CLR,FULLBACK,Arrière,France,31.0,182.0,91.0,2025-2026,12,754.0,62.8,0,0,0,2.33,0.11,1.27,0.74,2.65,0.53,lnr
+lnr_646,646,alex-newsome,Alex Newsome,Clermont,CLR,FULLBACK,Arrière,Australie,31.0,189.0,93.0,2025-2026,12,808.0,67.3,0,0,0,2.87,0.1,0.4,0.79,2.48,0.5,lnr
+lnr_12302,12302,pita-gus-sowakula,P. Sowakula,Clermont,CLR,BACK_ROW,3ème ligne,Fidji,31.0,196.0,117.0,2025-2026,12,784.0,65.3,1,0,0,8.98,0.0,0.2,1.53,0.51,0.1,lnr
+lnr_937,937,lucas-zamora,Lucas Zamora,Clermont,CLR,SCRUM_HALF,Demi de mêlée,France,21.0,170.0,80.0,2025-2026,12,407.0,33.9,0,0,0,5.7,0.0,0.79,1.38,2.95,0.59,lnr
+lnr_712,712,bautista-delguy,B. Delguy,Clermont,CLR,WINGER,Ailier,Argentine,28.0,183.0,84.0,2025-2026,11,827.0,75.2,0,0,0,3.1,0.0,0.58,0.39,0.97,0.19,lnr
+lnr_402,402,joris-jurand,Joris Jurand,Clermont,CLR,CENTRE,Centre,France,30.0,188.0,106.0,2025-2026,11,811.0,73.7,1,0,0,3.26,0.0,0.79,0.89,2.96,0.59,lnr
+lnr_1544,1544,alivereti-loaloa,A. Loaloa,Clermont,CLR,CENTRE,Centre,Fidji,25.0,182.0,101.0,2025-2026,11,821.0,74.6,0,0,0,8.77,0.68,0.39,1.17,0.49,0.1,lnr
+lnr_906,906,pio-muarua,Pio Muarua,Clermont,CLR,BACK_ROW,3ème ligne,Fidji,29.0,191.0,120.0,2025-2026,11,345.0,31.4,0,0,0,8.35,0.23,0.23,0.7,1.16,0.23,lnr
+lnr_2709,2709,leon-darricarrere,L. Darricarrere,Clermont,CLR,CENTRE,Centre,France,21.0,187.0,98.0,2025-2026,10,730.0,73.0,0,0,0,4.6,0.0,0.33,0.44,0.55,0.11,lnr
+lnr_711,711,thibaud-lanen,Thibaud Lanen,Clermont,CLR,LOCK,2ème ligne,France,27.0,198.0,109.0,2025-2026,10,453.0,45.3,0,0,0,13.77,0.35,0.0,0.71,0.0,0.0,lnr
+lnr_2023,2023,sacha-lotrian,Sacha Lotrian,Clermont,CLR,FRONT_ROW,1ère ligne,France,25.0,180.0,100.0,2025-2026,10,290.0,29.0,0,0,0,16.28,0.0,0.0,0.55,2.76,0.55,lnr
+lnr_382,382,tom-raffy,Tom Raffy,Clermont,CLR,FLY_HALF,Demi d'ouverture,France,21.0,179.0,76.0,2025-2026,10,180.0,18.0,0,0,0,4.0,0.0,0.0,0.0,9.78,0.0,lnr
+lnr_661,661,lucas-dessaigne,Lucas Dessaigne,Clermont,CLR,BACK_ROW,3ème ligne,France,27.0,188.0,96.0,2025-2026,9,360.0,40.0,1,0,0,16.67,0.0,0.0,0.0,1.11,0.22,lnr
+lnr_667,667,etienne-falgoux,Etienne Falgoux,Clermont,CLR,FRONT_ROW,1ère ligne,France,33.0,183.0,105.0,2025-2026,9,316.0,35.1,0,0,0,9.11,0.0,0.0,0.0,1.27,0.25,lnr
+lnr_647,647,irae-vincynt-simone,I. Simone,Clermont,CLR,CENTRE,Centre,Nouvelle Zélande,30.0,193.0,105.0,2025-2026,9,398.0,44.2,0,0,0,6.83,0.0,1.01,0.2,0.0,0.0,lnr
+lnr_2444,2444,lucas-tauzin,Lucas Tauzin,Clermont,CLR,WINGER,Ailier,France,27.0,187.0,94.0,2025-2026,9,518.0,57.6,0,0,0,3.4,0.15,0.62,0.31,1.54,0.31,lnr
+lnr_669,669,sebastien-bezy,S. Bezy,Clermont,CLR,SCRUM_HALF,Demi de mêlée,France,34.0,174.0,76.0,2025-2026,8,265.0,33.1,0,0,0,6.04,0.0,0.91,1.81,1.51,0.3,lnr
+lnr_460,460,tevita-kasikasi-ratuva,T. Ratuva,Clermont,CLR,LOCK,2ème ligne,Fidji,30.0,198.0,122.0,2025-2026,8,550.0,68.8,0,0,0,7.71,0.44,0.44,1.45,1.45,0.29,lnr
+lnr_3233,3233,giorgi-dzmanashvili,G. Dzmanashvili,Clermont,CLR,FRONT_ROW,1ère ligne,Géorgie,23.0,186.0,122.0,2025-2026,7,151.0,21.6,0,0,0,8.48,0.0,0.0,0.0,5.3,1.06,lnr
+lnr_1745,1745,marcos-kremer,Marcos Kremer,Clermont,CLR,BACK_ROW,3ème ligne,Argentine,28.0,195.0,110.0,2025-2026,7,514.0,73.4,0,0,0,12.61,0.16,0.0,0.31,0.0,0.0,lnr
+lnr_696,696,alivereti-raka,A. Raka,Clermont,CLR,WINGER,Ailier,Fidji,31.0,189.0,94.0,2025-2026,5,304.0,60.8,0,0,0,1.58,0.26,1.05,0.79,5.26,1.05,lnr
+lnr_11002,11002,yerim-fall,Yerim Fall,Clermont,CLR,CENTRE,Centre,France,22.0,178.0,90.0,2025-2026,4,320.0,80.0,0,0,0,4.25,0.25,0.0,0.25,2.5,0.5,lnr
+lnr_2456,2456,pierre-fouyssac,Pierre Fouyssac,Clermont,CLR,WINGER,Ailier,France,31.0,189.0,101.0,2025-2026,4,211.0,52.8,0,0,0,7.96,0.0,0.38,1.14,0.0,0.0,lnr
+lnr_12492,12492,axel-guillaud,Axel Guillaud,Clermont,CLR,FULLBACK,Arrière,France,19.0,189.0,86.0,2025-2026,4,231.0,57.8,0,0,0,0.69,0.0,1.04,0.0,1.73,0.35,lnr
+lnr_12343,12343,leo-michaux-vargas,L. Michaux Vargas,Clermont,CLR,LOCK,2ème ligne,France,18.0,,125.0,2025-2026,4,183.0,45.8,0,0,0,8.31,0.44,0.0,0.87,0.0,0.0,lnr
+lnr_709,709,george-moala,George Moala,Clermont,CLR,CENTRE,Centre,Nouvelle Zélande,35.0,188.0,99.0,2025-2026,3,181.0,60.3,0,0,0,3.54,0.0,0.44,0.88,4.42,0.88,lnr
+lnr_648,648,mathys-belaubre,Mathys Belaubre,Clermont,CLR,CENTRE,Centre,France,21.0,186.0,107.0,2025-2026,2,158.0,79.0,0,0,0,5.57,0.0,0.0,0.51,0.0,0.0,lnr
+lnr_13540,13540,timeo-frier,Timéo Frier,Clermont,CLR,CENTRE,Centre,France,,,,2025-2026,2,40.0,20.0,0,0,0,2.0,2.0,0.0,0.0,0.0,0.0,lnr
+lnr_655,655,matheo-frisach,Mathéo Frisach,Clermont,CLR,FRONT_ROW,1ère ligne,France,20.0,188.0,127.0,2025-2026,2,88.0,44.0,0,0,0,10.91,0.0,0.0,0.0,0.0,0.0,lnr
+lnr_2008,2008,leon-seilala-lam,L. Lam,Clermont,CLR,FRONT_ROW,1ère ligne,Samoa américain,37.0,183.0,102.0,2025-2026,1,68.0,,0,0,0,5.88,0.0,0.0,0.0,0.0,0.0,lnr
+lnr_2569,2569,ewan-johnson,Ewan Johnson,Bayonne,BAY,LOCK,2ème ligne,Grande-Bretagne,26.0,,120.0,2025-2026,17,857.0,50.4,0,0,0,9.52,0.19,0.09,0.19,0.0,0.0,lnr
+lnr_2102,2102,lucas-martin,Lucas Martin,Bayonne,BAY,FRONT_ROW,1ère ligne,France,23.0,185.0,96.0,2025-2026,16,603.0,37.7,0,0,0,11.54,0.27,0.4,0.53,3.32,0.66,lnr
+lnr_707,707,cheikh-saliou-tiberghien,C. Tiberghien,Bayonne,BAY,FULLBACK,Arrière,France,26.0,186.0,96.0,2025-2026,16,947.0,59.2,1,0,0,1.77,0.08,0.42,0.34,1.52,0.25,lnr
+lnr_2658,2658,facundo-bosch,Facundo Bosch,Bayonne,BAY,FRONT_ROW,1ère ligne,Argentine,34.0,180.0,100.0,2025-2026,15,677.0,45.1,2,0,0,12.76,0.47,0.0,0.95,0.59,0.12,lnr
+lnr_2612,2612,sireli-maqala,Sireli Maqala,Bayonne,BAY,CENTRE,Centre,Fidji,26.0,172.0,88.0,2025-2026,14,893.0,63.8,2,0,0,5.38,0.36,0.72,0.9,2.24,0.45,lnr
+lnr_2349,2349,emerick-setiano,Emerick Setiano,Bayonne,BAY,FRONT_ROW,1ère ligne,France,29.0,183.0,115.0,2025-2026,14,616.0,44.0,2,0,0,6.75,0.0,0.13,0.13,0.0,0.0,lnr
+lnr_2565,2565,andy-bordelai,Andy Bordelai,Bayonne,BAY,FRONT_ROW,1ère ligne,France,25.0,186.0,115.0,2025-2026,13,711.0,54.7,2,0,0,9.68,0.0,0.11,0.0,0.0,0.0,lnr
+lnr_2645,2645,pascal-cotet,Pascal Cotet,Bayonne,BAY,FRONT_ROW,1ère ligne,France,32.0,184.0,123.0,2025-2026,13,429.0,33.0,2,0,0,8.21,0.0,0.0,0.19,0.0,0.0,lnr
+lnr_663,663,alexandre-fischer,A. Fischer,Bayonne,BAY,BACK_ROW,3ème ligne,France,28.0,188.0,107.0,2025-2026,13,721.0,55.5,0,0,0,9.65,0.33,0.44,0.55,1.66,0.33,lnr
+lnr_2633,2633,baptiste-heguy,B. Heguy,Bayonne,BAY,BACK_ROW,3ème ligne,France,27.0,196.0,104.0,2025-2026,13,656.0,50.5,0,0,0,10.12,0.12,0.12,0.24,0.0,0.0,lnr
+lnr_690,690,arthur-iturria,Arthur Iturria,Bayonne,BAY,LOCK,2ème ligne,France,31.0,198.0,112.0,2025-2026,13,763.0,58.7,0,0,0,9.65,0.21,0.0,0.52,1.05,0.21,lnr
+lnr_2628,2628,yohan-orabe,Yohan Orabe,Bayonne,BAY,FULLBACK,Arrière,France,23.0,182.0,83.0,2025-2026,13,695.0,53.5,0,0,0,5.06,0.0,0.69,0.23,0.58,0.12,lnr
+lnr_462,462,rodrigo-bruni,Rodrigo Bruni,Bayonne,BAY,BACK_ROW,3ème ligne,Argentine,32.0,187.0,109.0,2025-2026,12,790.0,65.8,1,0,0,9.92,0.41,0.41,0.91,1.01,0.2,lnr
+lnr_241,241,baptiste-germain,B. Germain,Bayonne,BAY,SCRUM_HALF,Demi de mêlée,France,25.0,174.0,82.0,2025-2026,12,641.0,53.4,0,0,0,6.61,0.12,0.12,0.62,4.12,0.5,lnr
+lnr_416,416,lucas-martin-paulos-adler,L. Paulos Adler,Bayonne,BAY,LOCK,2ème ligne,Espagne,28.0,199.0,123.0,2025-2026,12,682.0,56.8,0,0,0,8.68,0.23,0.0,0.12,1.17,0.23,lnr
+lnr_2607,2607,esteban-capilla,Esteban Capilla,Bayonne,BAY,BACK_ROW,3ème ligne,France,23.0,197.0,99.0,2025-2026,11,679.0,61.7,1,0,0,10.01,0.35,0.82,0.59,4.12,0.82,lnr
+lnr_2609,2609,arnaud-erbinartegaray,A. Erbinartegaray,Bayonne,BAY,FULLBACK,Arrière,France,25.0,185.0,88.0,2025-2026,11,846.0,76.9,1,0,0,4.63,0.0,0.66,0.57,0.47,0.09,lnr
+lnr_2657,2657,guillaume-martocq,G. Martocq,Bayonne,BAY,CENTRE,Centre,France,26.0,183.0,94.0,2025-2026,11,652.0,59.3,2,0,0,6.99,0.0,0.0,0.12,0.0,0.0,lnr
+lnr_13647,13647,robert-leota,Robert Leota,Bayonne,BAY,BACK_ROW,3ème ligne,Australie,29.0,190.0,110.0,2025-2026,10,676.0,67.6,0,0,0,9.94,0.12,0.24,0.0,0.59,0.12,lnr
+lnr_12628,12628,etuale-manusamoa-tuilagi,E. Tuilagi,Bayonne,BAY,CENTRE,Centre,Grande-Bretagne,34.0,185.0,108.0,2025-2026,10,676.0,67.6,1,0,0,5.44,0.12,0.47,0.36,0.59,0.12,lnr
+lnr_12629,12629,alexander-james-moon,A. Moon,Bayonne,BAY,LOCK,2ème ligne,Grande-Bretagne,29.0,,127.0,2025-2026,9,441.0,49.0,0,0,0,9.8,0.0,0.0,0.18,0.0,0.0,lnr
+lnr_11937,11937,baptiste-jules-tilloles,B. Tilloles,Bayonne,BAY,SCRUM_HALF,Demi de mêlée,France,19.0,178.0,81.0,2025-2026,8,216.0,27.0,0,0,0,2.22,0.0,0.0,0.37,0.0,0.0,lnr
+lnr_3252,3252,manex-ariceta-maestro,M. Ariceta Maestro,Bayonne,BAY,BACK_ROW,3ème ligne,Espagne,22.0,192.0,115.0,2025-2026,7,151.0,21.6,0,0,0,13.25,0.0,1.06,0.0,0.0,0.0,lnr
+lnr_1885,1885,ignacio-calles,Ignacio Calles,Bayonne,BAY,FRONT_ROW,1ère ligne,Argentine,30.0,187.0,116.0,2025-2026,7,324.0,46.3,0,0,0,7.9,0.49,0.0,0.25,0.0,0.0,lnr
+lnr_12404,12404,mateo-carreras-1,Mateo Carreras,Bayonne,BAY,WINGER,Ailier,Espagne,26.0,173.0,84.0,2025-2026,7,470.0,67.1,0,0,0,4.09,0.0,1.36,0.68,3.4,0.68,lnr
+lnr_2669,2669,swan-cormenier,Swan Cormenier,Bayonne,BAY,FRONT_ROW,1ère ligne,France,30.0,175.0,118.0,2025-2026,7,199.0,28.4,0,0,0,7.24,0.4,0.0,0.0,0.0,0.0,lnr
+lnr_1424,1424,vincent-giudicelli,V. Giudicelli,Bayonne,BAY,FRONT_ROW,1ère ligne,France,28.0,184.0,102.0,2025-2026,7,218.0,31.1,0,1,0,13.94,0.37,0.37,0.0,1.83,0.37,lnr
+lnr_1812,1812,giovanni-habel-kuffner,G. Habel Kuffner,Bayonne,BAY,BACK_ROW,3ème ligne,Allemagne,31.0,196.0,105.0,2025-2026,7,373.0,53.3,0,0,0,8.15,0.0,0.21,0.43,0.0,0.0,lnr
+lnr_280,280,federico-mori,F. Mori,Bayonne,BAY,CENTRE,Centre,Italie,25.0,188.0,108.0,2025-2026,7,391.0,55.9,0,0,0,3.89,0.0,0.2,0.82,0.0,0.0,lnr
+lnr_13654,13654,gareth-william-anscombe,G. Anscombe,Bayonne,BAY,FLY_HALF,Demi d'ouverture,Angleterre,34.0,183.0,96.0,2025-2026,6,164.0,27.3,0,0,0,7.8,0.0,0.0,0.0,3.41,0.0,lnr
+lnr_2171,2171,baptiste-chouzenoux,B. Chouzenoux,Bayonne,BAY,BACK_ROW,3ème ligne,France,32.0,,107.0,2025-2026,5,211.0,42.2,0,0,0,7.58,0.0,0.0,0.76,0.0,0.0,lnr
+lnr_2100,2100,luke-tagi,Luke Tagi,Bayonne,BAY,FRONT_ROW,1ère ligne,Fidji,28.0,187.0,130.0,2025-2026,5,200.0,40.0,0,0,0,8.0,0.0,0.0,1.2,0.0,0.0,lnr
+lnr_13711,13711,hugo-gonzalez-hernandez,H. González Hernández,Bayonne,BAY,FRONT_ROW,1ère ligne,Espagne,20.0,183.0,119.0,2025-2026,4,100.0,25.0,0,0,0,12.8,0.8,0.0,0.0,0.0,0.0,lnr
+lnr_2640,2640,maxime-machenaud,Maxime Machenaud,Bayonne,BAY,SCRUM_HALF,Demi de mêlée,France,37.0,174.0,87.0,2025-2026,4,143.0,35.8,0,0,0,6.15,0.0,0.0,1.68,0.0,0.0,lnr
+lnr_11813,11813,pierre-castillon,Pierre Castillon,Bayonne,BAY,FRONT_ROW,1ère ligne,France,22.0,185.0,104.0,2025-2026,3,83.0,27.7,0,0,0,14.46,0.0,0.0,0.0,0.0,0.0,lnr
+lnr_724,724,marco-lorenzo-fepuleai,M. Fepulea'i,Bayonne,BAY,FRONT_ROW,1ère ligne,Nouvelle Zélande,30.0,183.0,128.0,2025-2026,3,110.0,36.7,0,0,0,5.82,0.0,0.0,0.0,0.0,0.0,lnr
+lnr_3063,3063,victor-hannoun,Victor Hannoun,Bayonne,BAY,WINGER,Ailier,France,22.0,182.0,85.0,2025-2026,3,218.0,72.7,0,0,0,4.04,0.37,0.0,0.0,0.0,0.0,lnr
+lnr_2674,2674,tevita-tatafu,Tevita Tatafu,Bayonne,BAY,FRONT_ROW,1ère ligne,Tonga,23.0,183.0,133.0,2025-2026,3,100.0,33.3,0,0,0,8.0,0.0,0.0,0.0,4.0,0.8,lnr
+lnr_13648,13648,alvaro-garcia-iandolino,A. Garcia Iandolino,Bayonne,BAY,LOCK,2ème ligne,Italie,20.0,198.0,116.0,2025-2026,2,40.0,20.0,0,0,0,10.0,0.0,0.0,0.0,0.0,0.0,lnr
+lnr_11728,11728,gabriel-lapegue-lafaye,G. Lapegue Lafaye,Bayonne,BAY,CENTRE,Centre,France,21.0,,,2025-2026,2,74.0,37.0,0,0,0,0.0,0.0,0.0,0.0,0.0,0.0,lnr
+lnr_14057,14057,raphael-marchesin,Raphael Marchesin,Bayonne,BAY,BACK_ROW,3ème ligne,France,20.0,188.0,94.0,2025-2026,2,62.0,31.0,0,0,0,15.48,0.0,0.0,0.0,0.0,0.0,lnr
+lnr_1805,1805,nadir-megdoud,Nadir Megdoud,Bayonne,BAY,WINGER,Ailier,France,29.0,181.0,96.0,2025-2026,1,80.0,80.0,0,0,0,6.0,0.0,1.0,0.0,0.0,0.0,lnr
+lnr_11435,11435,teddy-durand,Teddy Durand,Castres,CAS,FRONT_ROW,1ère ligne,France,26.0,180.0,102.0,2025-2026,17,914.0,53.8,1,0,0,11.47,0.09,0.09,0.35,1.31,0.26,lnr
+lnr_560,560,lois-guerois-galisson,L. Guerois Galisson,Castres,CAS,FRONT_ROW,1ère ligne,France,24.0,192.0,122.0,2025-2026,17,696.0,40.9,0,0,0,11.95,0.0,0.0,0.0,0.57,0.11,lnr
+lnr_624,624,florent-vanverberghe,F. Vanverberghe,Castres,CAS,LOCK,2ème ligne,France,25.0,198.0,120.0,2025-2026,15,908.0,60.5,0,0,0,13.66,0.0,0.0,0.09,0.0,0.0,lnr
+lnr_11820,11820,elias-jack-goodhue,E. Goodhue,Castres,CAS,CENTRE,Centre,Nouvelle Zélande,30.0,188.0,100.0,2025-2026,14,921.0,65.8,1,0,0,10.77,0.17,0.35,0.78,1.3,0.26,lnr
+lnr_640,640,thomas-staniforth,T. Staniforth,Castres,CAS,LOCK,2ème ligne,Australie,31.0,198.0,124.0,2025-2026,14,666.0,47.6,1,1,0,16.1,0.12,0.0,0.12,0.0,0.0,lnr
+lnr_549,549,vilimoni-botitu,V. Botitu,Castres,CAS,CENTRE,Centre,Fidji,27.0,183.0,98.0,2025-2026,13,829.0,63.8,0,0,0,7.04,0.0,0.68,0.87,1.93,0.39,lnr
+lnr_1892,1892,guillaume-ducat,G. Ducat,Castres,CAS,LOCK,2ème ligne,France,29.0,,115.0,2025-2026,13,846.0,65.1,1,0,0,7.47,0.0,0.0,0.09,0.0,0.0,lnr
+lnr_611,611,jeremy-fernandez,J. Fernandez,Castres,CAS,SCRUM_HALF,Demi de mêlée,France,28.0,176.0,90.0,2025-2026,13,536.0,41.2,0,0,0,5.97,0.45,0.45,0.45,8.96,0.45,lnr
+lnr_990,990,pierre-popelin,Pierre Popelin,Castres,CAS,FULLBACK,Arrière,France,30.0,181.0,87.0,2025-2026,13,691.0,53.2,2,0,0,3.01,0.0,0.12,0.69,9.96,0.12,lnr
+lnr_555,555,santiago-arata-perrone,S. Arata Perrone,Castres,CAS,SCRUM_HALF,Demi de mêlée,Italie,29.0,174.0,75.0,2025-2026,12,717.0,59.8,0,0,0,7.7,0.0,0.45,1.34,1.12,0.22,lnr
+lnr_550,550,tyler-ardron,Tyler Ardron,Castres,CAS,LOCK,2ème ligne,Canada,34.0,197.0,108.0,2025-2026,12,822.0,68.5,1,0,0,9.64,0.29,0.19,0.68,0.97,0.19,lnr
+lnr_599,599,mathieu-babillot,Mathieu Babillot,Castres,CAS,BACK_ROW,3ème ligne,France,32.0,190.0,110.0,2025-2026,12,735.0,61.2,0,0,0,10.56,0.33,0.0,0.54,0.0,0.0,lnr
+lnr_1888,1888,nicolas-corato,Nicolas Corato,Castres,CAS,FRONT_ROW,1ère ligne,France,28.0,184.0,123.0,2025-2026,12,419.0,34.9,0,0,0,9.16,0.0,0.0,0.0,0.0,0.0,lnr
+lnr_580,580,gauthier-maravat,G. Maravat,Castres,CAS,BACK_ROW,3ème ligne,France,25.0,198.0,112.0,2025-2026,12,451.0,37.6,0,0,0,9.93,0.0,0.0,0.0,0.0,0.0,lnr
+lnr_633,633,baptiste-cope,B. Cope,Castres,CAS,BACK_ROW,3ème ligne,France,24.0,186.0,102.0,2025-2026,11,378.0,34.4,0,0,0,18.2,0.42,0.21,0.21,0.0,0.0,lnr
+lnr_606,606,baptiste-delaporte,B. Delaporte,Castres,CAS,BACK_ROW,3ème ligne,France,29.0,190.0,110.0,2025-2026,11,776.0,70.5,1,0,0,12.99,0.31,0.0,0.21,0.0,0.0,lnr
+lnr_596,596,adrien-seguret,Adrien Seguret,Castres,CAS,CENTRE,Centre,France,27.0,182.0,95.0,2025-2026,11,269.0,24.5,0,0,0,5.65,0.0,0.0,0.3,0.0,0.0,lnr
+lnr_612,612,gauthier-doubrere,G. Doubrere,Castres,CAS,SCRUM_HALF,Demi de mêlée,France,30.0,176.0,82.0,2025-2026,10,182.0,18.2,0,0,0,7.91,0.44,0.0,0.44,0.0,0.0,lnr
+lnr_1562,1562,christian-guetang-ambadiang,C. Guetang Ambadiang,Castres,CAS,WINGER,Ailier,Cameroun,27.0,189.0,107.0,2025-2026,10,778.0,77.8,1,0,0,5.45,0.31,0.82,1.03,2.57,0.51,lnr
+lnr_13511,13511,vuate-karawalevu,V. Karawalevu,Castres,CAS,WINGER,Ailier,Fidji,25.0,193.0,104.0,2025-2026,10,619.0,61.9,0,0,0,3.36,0.0,1.29,0.9,0.65,0.13,lnr
+lnr_384,384,abraham-papalii,Abraham Papalii,Castres,CAS,LOCK,2ème ligne,Nouvelle Zélande,32.0,194.0,126.0,2025-2026,10,487.0,48.7,1,0,0,8.21,0.0,0.16,1.15,1.64,0.33,lnr
+lnr_593,593,antoine-tichit,Antoine Tichit,Castres,CAS,FRONT_ROW,1ère ligne,France,36.0,187.0,115.0,2025-2026,10,303.0,30.3,0,0,0,8.18,0.0,0.0,0.0,0.0,0.0,lnr
+lnr_68,68,loris-zarantonello,L. Zarantonello,Castres,CAS,FRONT_ROW,1ère ligne,France,25.0,183.0,102.0,2025-2026,10,303.0,30.3,0,0,0,15.31,0.0,0.0,0.0,2.64,0.53,lnr
+lnr_12516,12516,william-collier,William Collier,Castres,CAS,FRONT_ROW,1ère ligne,Angleterre,34.0,183.0,120.0,2025-2026,9,391.0,43.4,0,0,0,7.57,0.2,0.0,0.0,1.02,0.2,lnr
+lnr_603,603,geoffrey-palis,G. Palis,Castres,CAS,FULLBACK,Arrière,France,34.0,188.0,96.0,2025-2026,9,455.0,50.6,1,0,0,3.87,0.0,0.35,0.18,1.41,0.18,lnr
+lnr_2989,2989,adam-vargas,Adam Vargas,Castres,CAS,WINGER,Ailier,France,25.0,180.0,80.0,2025-2026,9,703.0,78.1,0,0,0,5.01,0.11,0.8,0.57,1.14,0.23,lnr
+lnr_595,595,aurelien-azar,A. Azar,Castres,CAS,FRONT_ROW,1ère ligne,France,31.0,188.0,126.0,2025-2026,8,452.0,56.5,0,0,0,7.79,0.53,0.18,0.0,0.0,0.0,lnr
+lnr_591,591,adrea-cocagi,Adrea Cocagi,Castres,CAS,CENTRE,Centre,Fidji,32.0,185.0,109.0,2025-2026,8,510.0,63.8,0,0,0,9.88,0.31,0.0,0.47,0.0,0.0,lnr
+lnr_427,427,enzo-herve,Enzo Herve,Castres,CAS,FLY_HALF,Demi d'ouverture,France,27.0,176.0,90.0,2025-2026,8,417.0,52.1,0,0,0,4.41,0.0,0.19,0.19,5.76,0.0,lnr
+lnr_592,592,quentin-walcker,Quentin Walcker,Castres,CAS,FRONT_ROW,1ère ligne,France,30.0,181.0,109.0,2025-2026,8,421.0,52.6,1,0,0,9.31,0.0,0.19,0.0,0.0,0.0,lnr
+lnr_585,585,levan-chilachava,L. Chilachava,Castres,CAS,FRONT_ROW,1ère ligne,Géorgie,34.0,188.0,133.0,2025-2026,7,177.0,25.3,2,0,0,6.33,0.0,0.0,0.45,0.0,0.0,lnr
+lnr_2596,2596,nathanael-hulleu,N. Hulleu,Castres,CAS,WINGER,Ailier,France,25.0,178.0,86.0,2025-2026,7,466.0,66.6,0,0,0,3.78,0.0,0.86,0.34,3.43,0.69,lnr
+lnr_2677,2677,remy-baget,Remy Baget,Castres,CAS,WINGER,Ailier,France,28.0,182.0,89.0,2025-2026,6,387.0,64.5,0,0,0,3.72,0.62,0.21,1.24,1.03,0.21,lnr
+lnr_637,637,pierre-colonna,Pierre Colonna,Castres,CAS,FRONT_ROW,1ère ligne,France,24.0,188.0,113.0,2025-2026,6,197.0,32.8,0,0,0,11.37,0.0,0.0,0.0,2.03,0.41,lnr
+lnr_11838,11838,louka-guilhot,Louka Guilhot,Castres,CAS,FLY_HALF,Demi d'ouverture,France,20.0,183.0,80.0,2025-2026,6,163.0,27.2,0,0,0,5.4,0.0,0.0,0.49,3.93,0.0,lnr
+lnr_1264,1264,veresa-tuqovu-ramototabua,V. Ramototabua,Castres,CAS,WINGER,Ailier,Fidji,25.0,195.0,107.0,2025-2026,6,244.0,40.7,0,0,0,13.77,0.33,0.0,0.0,3.28,0.66,lnr
+lnr_556,556,feibyan-cornell-tukino,F. Tukino,Castres,CAS,BACK_ROW,3ème ligne,Nouvelle Zélande,24.0,190.0,111.0,2025-2026,6,287.0,47.8,0,0,0,8.64,0.28,0.0,0.28,0.0,0.0,lnr
+lnr_687,687,paul-jedrasiak,Paul Jedrasiak,Castres,CAS,LOCK,2ème ligne,France,33.0,,121.0,2025-2026,5,242.0,48.4,0,0,0,9.59,0.0,0.0,0.0,0.0,0.0,lnr
+lnr_553,553,louis-le-brun,Louis Le Brun,Castres,CAS,FLY_HALF,Demi d'ouverture,France,24.0,188.0,100.0,2025-2026,3,177.0,59.0,0,0,0,2.71,0.45,0.0,0.45,6.78,0.0,lnr
+lnr_533,533,simon-meka,Simon Meka,Castres,CAS,LOCK,2ème ligne,France,26.0,193.0,110.0,2025-2026,3,153.0,51.0,0,0,0,13.07,0.0,0.0,0.0,2.61,0.52,lnr
+lnr_575,575,leone-nakarawa,Leone Nakarawa,Castres,CAS,LOCK,2ème ligne,Fidji,37.0,,115.0,2025-2026,3,95.0,31.7,0,0,0,4.21,0.0,0.0,4.21,0.0,0.0,lnr
+lnr_1084,1084,guillaume-marchand,G. Marchand,Lyon,LOU,FRONT_ROW,1ère ligne,France,27.0,183.0,105.0,2025-2026,15,666.0,44.4,1,0,0,15.74,0.36,0.12,0.24,0.0,0.0,lnr
+lnr_857,857,irakli-aptsiauri,Irakli Aptsiauri,Lyon,LOU,FRONT_ROW,1ère ligne,Géorgie,23.0,185.0,122.0,2025-2026,14,590.0,42.1,1,0,0,14.24,0.27,0.0,0.14,0.68,0.14,lnr
+lnr_1081,1081,leo-berdeu,Léo Berdeu,Lyon,LOU,FLY_HALF,Demi d'ouverture,France,27.0,195.0,99.0,2025-2026,14,743.0,53.1,1,0,0,5.81,0.0,0.43,1.08,9.48,0.11,lnr
+lnr_1068,1068,esteban-gonzalez,Esteban Gonzalez,Lyon,LOU,SCRUM_HALF,Demi de mêlée,France,20.0,177.0,80.0,2025-2026,14,365.0,26.1,0,0,0,7.23,0.0,1.32,0.22,4.38,0.88,lnr
+lnr_12591,12591,jermaine-ainsley,J. Ainsley,Lyon,LOU,FRONT_ROW,1ère ligne,Nouvelle Zélande,30.0,181.0,127.0,2025-2026,13,671.0,51.6,0,0,0,11.92,0.12,0.12,0.12,0.0,0.0,lnr
+lnr_1700,1700,charlie-cassang,Charlie Cassang,Lyon,LOU,SCRUM_HALF,Demi de mêlée,France,31.0,173.0,92.0,2025-2026,13,638.0,49.1,0,0,0,5.14,0.0,0.38,0.75,1.88,0.38,lnr
+lnr_2200,2200,thomas-moukoro-abouem,T. Moukoro Abouem,Lyon,LOU,FRONT_ROW,1ère ligne,France,24.0,185.0,121.0,2025-2026,13,471.0,36.2,1,0,0,17.49,0.34,0.34,0.0,5.1,1.02,lnr
+lnr_1083,1083,jerome-rey,J. Rey,Lyon,LOU,FRONT_ROW,1ère ligne,France,30.0,181.0,133.0,2025-2026,13,570.0,43.8,0,0,0,14.6,0.0,0.14,0.0,0.0,0.0,lnr
+lnr_838,838,janse-roux,Janse Roux,Lyon,LOU,LOCK,2ème ligne,Afrique du Sud,28.0,,122.0,2025-2026,13,519.0,39.9,0,0,0,14.34,0.31,0.0,0.0,0.0,0.0,lnr
+lnr_2277,2277,jiuta-naqoli-wainiqolo,J. Wainiqolo,Lyon,LOU,WINGER,Ailier,Fidji,27.0,187.0,97.0,2025-2026,13,970.0,74.6,3,0,0,5.11,0.0,1.73,1.4,6.19,1.24,lnr
+lnr_1125,1125,ethan-dumortier,Ethan Dumortier,Lyon,LOU,CENTRE,Centre,France,25.0,191.0,93.0,2025-2026,12,819.0,68.2,1,0,0,5.57,0.0,1.56,0.39,2.44,0.49,lnr
+lnr_2122,2122,martin-meliande,Martin Meliande,Lyon,LOU,FLY_HALF,Demi d'ouverture,France,24.0,187.0,82.0,2025-2026,12,651.0,54.2,1,0,0,2.95,0.12,0.49,0.61,8.73,0.12,lnr
+lnr_2165,2165,camille-chat,Camille Chat,Lyon,LOU,FRONT_ROW,1ère ligne,France,30.0,178.0,101.0,2025-2026,11,499.0,45.4,0,0,0,11.7,0.16,0.16,0.8,0.8,0.16,lnr
+lnr_179,179,gabin-lorre,Gabin Lorre,Lyon,LOU,FULLBACK,Arrière,France,24.0,180.0,81.0,2025-2026,11,828.0,75.3,0,0,0,3.57,0.0,0.58,0.48,1.74,0.19,lnr
+lnr_1077,1077,arno-botha,Arno Botha,Lyon,LOU,BACK_ROW,3ème ligne,Afrique du Sud,34.0,190.0,108.0,2025-2026,10,498.0,49.8,0,0,0,12.85,0.0,0.0,0.16,0.0,0.0,lnr
+lnr_1105,1105,killian-geraci,Killian Geraci,Lyon,LOU,LOCK,2ème ligne,France,27.0,,115.0,2025-2026,10,457.0,45.7,0,0,0,13.48,0.18,0.0,0.0,1.75,0.35,lnr
+lnr_1052,1052,liam-robson-allen,L. Allen,Lyon,LOU,BACK_ROW,3ème ligne,Nouvelle Zélande,26.0,191.0,105.0,2025-2026,9,451.0,50.1,0,0,0,17.92,1.42,0.0,0.0,0.89,0.18,lnr
+lnr_13410,13410,iosefo-masi-baleiwairiki,I. Baleiwairiki,Lyon,LOU,CENTRE,Centre,Fidji,27.0,190.0,97.0,2025-2026,9,528.0,58.7,0,0,0,8.64,0.15,1.06,0.91,3.03,0.61,lnr
+lnr_2162,2162,cedate-gomes-sa,Cedate Gomes Sa,Lyon,LOU,FRONT_ROW,1ère ligne,France,32.0,185.0,113.0,2025-2026,9,163.0,18.1,0,0,0,13.74,0.0,0.0,0.49,0.0,0.0,lnr
+lnr_1123,1123,mickael-guillard,M. Guillard,Lyon,LOU,LOCK,2ème ligne,France,25.0,197.0,113.0,2025-2026,9,571.0,63.4,0,0,0,15.13,0.28,0.28,0.0,0.0,0.0,lnr
+lnr_11734,11734,monty-ioane,Monty Ioane,Lyon,LOU,WINGER,Ailier,Australie,31.0,180.0,91.0,2025-2026,9,621.0,69.0,0,0,0,3.48,0.0,0.77,1.16,3.22,0.64,lnr
+lnr_1095,1095,felix-lambey,Félix Lambey,Lyon,LOU,LOCK,2ème ligne,France,32.0,196.0,107.0,2025-2026,9,411.0,45.7,0,0,0,14.21,0.19,0.0,0.19,0.0,0.0,lnr
+lnr_1126,1126,alfred-parisien,Alfred Parisien,Lyon,LOU,CENTRE,Centre,France,25.0,182.0,91.0,2025-2026,9,401.0,44.6,0,0,0,5.19,0.0,0.0,0.2,0.0,0.0,lnr
+lnr_1106,1106,baptiste-couilloud,B. Couilloud,Lyon,LOU,SCRUM_HALF,Demi de mêlée,France,28.0,176.0,82.0,2025-2026,8,450.0,56.2,0,0,0,4.98,0.18,1.42,1.07,2.67,0.53,lnr
+lnr_11474,11474,david-patrick-jackson,D. Jackson,Lyon,LOU,FLY_HALF,Demi d'ouverture,Irlande,34.0,180.0,89.0,2025-2026,8,313.0,39.1,0,0,0,6.13,0.26,0.0,0.26,9.97,0.0,lnr
+lnr_1107,1107,hamza-kaabeche,Hamza Kaabeche,Lyon,LOU,FRONT_ROW,1ère ligne,France,29.0,189.0,114.0,2025-2026,8,364.0,45.5,0,0,0,9.23,0.44,0.0,0.22,0.0,0.0,lnr
+lnr_1074,1074,josiah-meihana-maraku,J. Maraku,Lyon,LOU,CENTRE,Centre,Nouvelle Zélande,25.0,180.0,97.0,2025-2026,8,531.0,66.4,0,0,0,9.34,0.0,0.3,0.0,0.75,0.15,lnr
+lnr_1127,1127,beka-saginadze,Beka Saginadze,Lyon,LOU,LOCK,2ème ligne,Géorgie,27.0,191.0,110.0,2025-2026,8,355.0,44.4,1,0,0,9.46,0.45,0.0,0.23,0.0,0.0,lnr
+lnr_929,929,mathis-sarragallet,M. Sarragallet,Lyon,LOU,FRONT_ROW,1ère ligne,France,25.0,178.0,109.0,2025-2026,8,212.0,26.5,2,0,0,19.25,0.38,0.0,1.13,0.0,0.0,lnr
+lnr_1584,1584,beka-shvangiradze,B. Shvangiradze,Lyon,LOU,BACK_ROW,3ème ligne,Géorgie,23.0,191.0,104.0,2025-2026,7,300.0,42.9,0,0,0,13.6,0.8,0.27,0.27,0.0,0.0,lnr
+lnr_1124,1124,alexandre-tchaptchet-noutcha,A. Tchaptchet Noutcha,Lyon,LOU,FULLBACK,Arrière,France,24.0,171.0,79.0,2025-2026,7,399.0,57.0,0,0,0,3.41,0.0,0.2,0.6,0.0,0.0,lnr
+lnr_1117,1117,marvin-saint-gys-okuya,M. Okuya,Lyon,LOU,BACK_ROW,3ème ligne,France,22.0,190.0,110.0,2025-2026,6,284.0,47.3,0,0,0,16.06,0.28,0.0,0.28,0.0,0.0,lnr
+lnr_1101,1101,thibaut-regard,Thibaut Regard,Lyon,LOU,CENTRE,Centre,France,32.0,180.0,95.0,2025-2026,4,231.0,57.8,0,0,0,7.27,0.0,0.0,0.0,0.0,0.0,lnr
+lnr_1128,1128,maxime-gouzou,Maxime Gouzou,Lyon,LOU,BACK_ROW,3ème ligne,France,27.0,189.0,106.0,2025-2026,3,54.0,18.0,0,0,0,5.93,0.0,0.0,0.0,0.0,0.0,lnr
+lnr_1037,1037,arthur-mathiron,Arthur Mathiron,Lyon,LOU,CENTRE,Centre,France,22.0,182.0,92.0,2025-2026,3,91.0,30.3,0,0,0,7.91,0.0,0.0,0.0,0.0,0.0,lnr
+lnr_1437,1437,vincent-rattez,Vincent Rattez,Lyon,LOU,CENTRE,Centre,France,34.0,181.0,89.0,2025-2026,3,175.0,58.3,0,0,0,6.4,0.46,0.0,1.37,2.29,0.46,lnr
+lnr_12477,12477,antoine-deliance,Antoine Deliance,Lyon,LOU,BACK_ROW,3ème ligne,France,20.0,192.0,99.0,2025-2026,2,160.0,80.0,0,0,0,12.5,0.0,0.0,0.0,0.0,0.0,lnr
+lnr_11791,11791,ave-jonathan-maalo,A. Maalo,Lyon,LOU,FRONT_ROW,1ère ligne,Nouvelle Zélande,22.0,189.0,132.0,2025-2026,2,45.0,22.5,0,0,0,8.89,0.0,0.0,0.0,0.0,0.0,lnr
+lnr_1060,1060,thomas-marceline,Thomas Marceline,Lyon,LOU,FRONT_ROW,1ère ligne,France,20.0,179.0,112.0,2025-2026,2,53.0,26.5,0,0,0,13.58,0.0,1.51,0.0,7.55,1.51,lnr
+lnr_267,267,baptiste-erdocio,B. Erdocio,Montpellier,MHR,FRONT_ROW,1ère ligne,France,26.0,175.0,115.0,2025-2026,16,616.0,38.5,0,0,0,12.99,0.26,0.0,0.26,0.65,0.13,lnr
+lnr_1416,1416,arthur-vincent,Arthur Vincent,Montpellier,MHR,CENTRE,Centre,France,26.0,182.0,92.0,2025-2026,16,990.0,61.9,0,0,0,5.74,0.0,0.24,0.24,1.21,0.24,lnr
+lnr_1427,1427,alexandre-becognee,A. Becognee,Montpellier,MHR,BACK_ROW,3ème ligne,France,29.0,188.0,105.0,2025-2026,15,868.0,57.9,1,0,0,13.09,0.46,0.0,0.09,1.38,0.28,lnr
+lnr_1440,1440,enzo-forletta,Enzo Forletta,Montpellier,MHR,FRONT_ROW,1ère ligne,France,31.0,175.0,118.0,2025-2026,15,668.0,44.5,0,0,0,9.46,0.0,0.0,0.12,0.0,0.0,lnr
+lnr_574,574,wilfrid-hounkpatin,W. Hounkpatin,Montpellier,MHR,FRONT_ROW,1ère ligne,France,34.0,192.0,124.0,2025-2026,15,690.0,46.0,1,0,0,8.23,0.7,0.0,0.12,2.9,0.58,lnr
+lnr_2354,2354,christopher-tolofua,C. Tolofua,Montpellier,MHR,FRONT_ROW,1ère ligne,France,32.0,182.0,120.0,2025-2026,15,541.0,36.1,0,0,0,5.91,0.44,0.0,0.15,5.91,1.18,lnr
+lnr_12461,12461,viliami-vunipola,Viliami Vunipola,Montpellier,MHR,BACK_ROW,3ème ligne,Angleterre,33.0,191.0,134.0,2025-2026,15,937.0,62.5,1,0,0,10.16,0.34,0.17,0.85,0.43,0.09,lnr
+lnr_1432,1432,bastien-chalureau,Bastien Chalureau,Montpellier,MHR,LOCK,2ème ligne,France,34.0,,118.0,2025-2026,14,627.0,44.8,0,0,0,8.93,0.0,0.0,1.02,0.0,0.0,lnr
+lnr_1400,1400,alexander-masibaka,A. Masibaka,Montpellier,MHR,BACK_ROW,3ème ligne,Australie,24.0,186.0,115.0,2025-2026,14,377.0,26.9,0,0,0,15.49,0.42,0.64,0.42,3.18,0.64,lnr
+lnr_1460,1460,leo-coly,Léo Coly,Montpellier,MHR,SCRUM_HALF,Demi de mêlée,France,26.0,175.0,76.0,2025-2026,13,310.0,23.8,0,0,0,2.58,0.0,0.26,1.03,3.1,0.26,lnr
+lnr_1376,1376,lenni-nouchi,Lenni Nouchi,Montpellier,MHR,BACK_ROW,3ème ligne,France,22.0,192.0,106.0,2025-2026,13,912.0,70.2,0,0,0,10.44,0.0,0.88,0.53,2.63,0.53,lnr
+lnr_250,250,auguste-cadot,Auguste Cadot,Montpellier,MHR,FLY_HALF,Demi d'ouverture,France,24.0,181.0,91.0,2025-2026,11,798.0,72.5,0,0,0,4.41,0.4,0.6,0.6,0.5,0.1,lnr
+lnr_454,454,luka-japaridze,Luka Japaridze,Montpellier,MHR,FRONT_ROW,1ère ligne,Géorgie,27.0,181.0,125.0,2025-2026,11,434.0,39.5,1,0,0,11.8,0.0,0.0,0.0,0.0,0.0,lnr
+lnr_949,949,hugo-reus,Hugo Reus,Montpellier,MHR,FLY_HALF,Demi d'ouverture,France,22.0,183.0,83.0,2025-2026,11,110.0,10.0,0,0,0,0.0,0.0,0.0,0.0,24.0,0.0,lnr
+lnr_12799,12799,jordan-uelese,Jordan Uelese,Montpellier,MHR,FRONT_ROW,1ère ligne,Australie,29.0,189.0,116.0,2025-2026,11,536.0,48.7,0,0,0,10.15,0.3,0.15,0.3,2.99,0.6,lnr
+lnr_1438,1438,florian-verhaeghe,Florian Verhaeghe,Montpellier,MHR,LOCK,2ème ligne,France,28.0,,110.0,2025-2026,11,742.0,67.5,1,0,1,8.63,0.43,0.32,1.4,0.0,0.0,lnr
+lnr_1434,1434,yacouba-camara,Yacouba Camara,Montpellier,MHR,BACK_ROW,3ème ligne,France,31.0,195.0,112.0,2025-2026,10,684.0,68.4,0,0,0,11.23,0.58,0.12,0.35,0.0,0.0,lnr
+lnr_350,350,mael-moustin,Maël Moustin,Montpellier,MHR,CENTRE,Centre,France,22.0,187.0,103.0,2025-2026,10,723.0,72.3,0,0,0,4.87,0.0,1.22,1.11,1.66,0.33,lnr
+lnr_1441,1441,marco-tauleigne,Marco Tauleigne,Montpellier,MHR,BACK_ROW,3ème ligne,France,32.0,191.0,115.0,2025-2026,10,345.0,34.5,0,0,0,8.58,0.23,0.46,0.46,3.48,0.7,lnr
+lnr_1446,1446,mohamed-haouas,Mohamed Haouas,Montpellier,MHR,FRONT_ROW,1ère ligne,France,32.0,185.0,127.0,2025-2026,9,278.0,30.9,0,0,0,10.65,0.0,0.0,0.29,0.0,0.0,lnr
+lnr_2151,2151,donovan-taofifenua,D. Taofifenua,Montpellier,MHR,FULLBACK,Arrière,France,26.0,179.0,84.0,2025-2026,9,462.0,51.3,0,0,0,3.98,0.0,0.52,0.0,1.73,0.35,lnr
+lnr_13817,13817,justo-piccardo,Justo Piccardo,Montpellier,MHR,CENTRE,Centre,Argentine,24.0,183.0,105.0,2025-2026,8,434.0,54.2,1,0,0,9.22,0.18,0.37,0.18,1.84,0.37,lnr
+lnr_13460,13460,ricky-riccitelli,R. Riccitelli,Montpellier,MHR,FRONT_ROW,1ère ligne,Nouvelle Zélande,31.0,178.0,110.0,2025-2026,8,294.0,36.8,0,0,0,10.88,0.27,0.0,0.0,4.08,0.82,lnr
+lnr_2769,2769,alexis-bernadet,Alexis Bernadet,Montpellier,MHR,SCRUM_HALF,Demi de mêlée,France,24.0,180.0,79.0,2025-2026,7,320.0,45.7,0,0,0,5.25,0.0,0.25,0.75,2.5,0.5,lnr
+lnr_12541,12541,nika-abuladze-1,Nika Abuladze,Montpellier,MHR,FRONT_ROW,1ère ligne,Géorgie,30.0,187.0,125.0,2025-2026,5,158.0,31.6,0,0,0,10.63,0.0,0.0,0.51,0.0,0.0,lnr
+lnr_1445,1445,thomas-darmon,Thomas Darmon,Montpellier,MHR,FLY_HALF,Demi d'ouverture,France,27.0,181.0,88.0,2025-2026,5,114.0,22.8,0,0,0,7.72,0.0,0.7,0.0,0.0,0.0,lnr
+lnr_12786,12786,stuart-hogg-1,Stuart Hogg,Montpellier,MHR,FULLBACK,Arrière,Ecosse,33.0,183.0,93.0,2025-2026,5,155.0,31.0,0,0,0,5.16,0.0,1.03,2.06,5.16,0.52,lnr
+lnr_299,299,madosha-tambwe,Madosha Tambwe,Montpellier,MHR,WINGER,Ailier,République Démocratique du Congo,28.0,186.0,92.0,2025-2026,5,244.0,48.8,0,0,0,3.61,0.0,0.33,0.66,1.64,0.33,lnr
+lnr_88,88,thomas-vincent,Thomas Vincent,Montpellier,MHR,FLY_HALF,Demi d'ouverture,France,26.0,185.0,82.0,2025-2026,5,169.0,33.8,0,0,0,7.57,0.0,0.0,0.47,6.63,0.0,lnr
+lnr_1401,1401,lyam-akrab,Lyam Akrab,Montpellier,MHR,FRONT_ROW,1ère ligne,France,20.0,178.0,98.0,2025-2026,2,75.0,37.5,0,0,0,5.33,0.0,0.0,1.07,0.0,0.0,lnr
+lnr_1375,1375,karl-anthony-martin,K. Martin,Montpellier,MHR,CENTRE,Centre,Irlande,24.0,189.0,100.0,2025-2026,2,97.0,48.5,0,0,0,8.25,0.0,0.0,0.0,0.0,0.0,lnr
+lnr_864,864,melvyn-rates,Melvyn Rates,Montpellier,MHR,FULLBACK,Arrière,France,19.0,180.0,79.0,2025-2026,2,88.0,44.0,0,0,0,5.45,0.0,0.91,0.0,4.55,0.91,lnr
+lnr_1378,1378,matthieu-uhila,M. Uhila,Montpellier,MHR,LOCK,2ème ligne,France,23.0,,113.0,2025-2026,2,67.0,33.5,0,0,0,11.94,1.19,0.0,1.19,0.0,0.0,lnr
+lnr_2391,2391,komiti-junior-alainuuese,K. Alainuuese,Toulon,TLN,LOCK,2ème ligne,Samoa occidental,32.0,,136.0,2025-2026,18,811.0,45.1,0,0,0,11.15,0.1,0.0,0.59,1.97,0.39,lnr
+lnr_2373,2373,teddy-baubigny,Teddy Baubigny,Toulon,TLN,FRONT_ROW,1ère ligne,France,27.0,184.0,118.0,2025-2026,16,811.0,50.7,0,0,0,12.03,0.3,0.3,0.3,0.99,0.2,lnr
+lnr_2365,2365,dany-priso-mouangue,D. Priso Mouangue,Toulon,TLN,FRONT_ROW,1ère ligne,France,32.0,182.0,112.0,2025-2026,15,686.0,45.7,1,0,0,10.73,0.47,0.0,0.35,2.33,0.47,lnr
+lnr_431,431,esteban-abadie,Esteban Abadie,Toulon,TLN,BACK_ROW,3ème ligne,France,28.0,188.0,100.0,2025-2026,14,768.0,54.9,0,0,0,10.94,0.21,0.0,0.62,1.04,0.21,lnr
+lnr_2329,2329,pierre-damond,Pierre Damond,Toulon,TLN,FRONT_ROW,1ère ligne,France,22.0,181.0,103.0,2025-2026,14,452.0,32.3,0,0,0,13.27,0.53,0.0,0.0,0.0,0.0,lnr
+lnr_12566,12566,kyle-sinckler-1,Kyle Sinckler,Toulon,TLN,FRONT_ROW,1ère ligne,Grande-Bretagne,32.0,182.0,122.0,2025-2026,14,667.0,47.6,0,0,0,11.39,0.12,0.12,0.12,0.0,0.0,lnr
+lnr_1373,1373,zach-yvan-mercer,Z. Mercer,Toulon,TLN,BACK_ROW,3ème ligne,Angleterre,28.0,191.0,108.0,2025-2026,13,734.0,56.5,0,0,0,9.26,0.22,0.0,0.76,1.63,0.33,lnr
+lnr_11798,11798,david-george-ribbans,D. Ribbans,Toulon,TLN,LOCK,2ème ligne,Afrique du Sud,30.0,,126.0,2025-2026,13,892.0,68.6,0,0,0,9.51,0.45,0.09,0.45,0.9,0.18,lnr
+lnr_2352,2352,baptiste-serin,Baptiste Serin,Toulon,TLN,SCRUM_HALF,Demi de mêlée,France,31.0,182.0,83.0,2025-2026,13,675.0,51.9,0,0,0,7.82,0.47,0.47,0.83,2.13,0.24,lnr
+lnr_2353,2353,jeremy-sinzelle,J. Sinzelle,Toulon,TLN,WINGER,Ailier,France,35.0,184.0,98.0,2025-2026,13,828.0,63.7,0,0,0,7.73,0.1,0.0,0.39,0.0,0.0,lnr
+lnr_2291,2291,marius-domon,Marius Domon,Toulon,TLN,FLY_HALF,Demi d'ouverture,France,23.0,183.0,85.0,2025-2026,12,567.0,47.2,1,0,0,1.98,0.28,0.71,0.28,8.75,0.28,lnr
+lnr_432,432,daniel-brennan,Daniel Brennan,Toulon,TLN,FRONT_ROW,1ère ligne,Irlande,27.0,192.0,124.0,2025-2026,11,358.0,32.5,1,0,0,11.17,0.0,0.0,0.0,0.0,0.0,lnr
+lnr_2300,2300,gael-drean,Gaël Drean,Toulon,TLN,WINGER,Ailier,France,25.0,184.0,84.0,2025-2026,11,871.0,79.2,0,0,0,4.04,0.0,0.83,0.37,3.67,0.73,lnr
+lnr_2297,2297,leo-ametlla,Léo Ametlla,Toulon,TLN,FRONT_ROW,1ère ligne,France,21.0,186.0,107.0,2025-2026,10,290.0,29.0,0,0,0,11.59,1.1,0.0,0.0,1.38,0.28,lnr
+lnr_2290,2290,jules-coulon,Jules Coulon,Toulon,TLN,BACK_ROW,3ème ligne,France,23.0,189.0,104.0,2025-2026,10,486.0,48.6,1,0,0,8.4,0.33,0.0,0.33,0.0,0.0,lnr
+lnr_2317,2317,oliver-cowie,Oliver Cowie,Toulon,TLN,WINGER,Ailier,France,20.0,193.0,95.0,2025-2026,10,534.0,53.4,0,0,0,7.64,0.3,0.3,0.6,0.0,0.0,lnr
+lnr_2362,2362,beka-gigashvili,B. Gigashvili,Toulon,TLN,FRONT_ROW,1ère ligne,Géorgie,34.0,179.0,116.0,2025-2026,10,401.0,40.1,1,0,0,16.76,0.0,0.0,0.2,1.0,0.2,lnr
+lnr_2479,2479,melvyn-jaminet,Melvyn Jaminet,Toulon,TLN,FLY_HALF,Demi d'ouverture,France,26.0,180.0,80.0,2025-2026,10,564.0,56.4,1,0,0,0.85,0.0,0.57,1.28,10.64,0.43,lnr
+lnr_2363,2363,swan-rebbadj,Swan Rebbadj,Toulon,TLN,LOCK,2ème ligne,France,31.0,,115.0,2025-2026,10,525.0,52.5,2,0,0,11.12,0.15,0.0,0.15,0.0,0.0,lnr
+lnr_429,429,setariki-tuicuvu,S. Tuicuvu,Toulon,TLN,CENTRE,Centre,Fidji,30.0,175.0,94.0,2025-2026,10,603.0,60.3,0,0,0,3.45,0.4,0.53,0.0,1.33,0.27,lnr
+lnr_10338,10338,ma-a-allan-nonu,M. Nonu,Toulon,TLN,CENTRE,Centre,Samoa américain,43.0,183.0,108.0,2025-2026,9,274.0,30.4,2,0,0,8.47,0.0,0.29,0.58,4.38,0.88,lnr
+lnr_2307,2307,joe-quere-karaba,J. Quere Karaba,Toulon,TLN,BACK_ROW,3ème ligne,France,21.0,183.0,97.0,2025-2026,9,473.0,52.6,1,0,0,10.99,0.0,0.34,0.17,0.85,0.17,lnr
+lnr_2361,2361,mathieu-smaili,Mathieu Smaili,Toulon,TLN,CENTRE,Centre,France,26.0,180.0,92.0,2025-2026,9,617.0,68.6,1,0,0,4.54,0.0,1.04,0.39,2.59,0.52,lnr
+lnr_11845,11845,benjamin-white,B. White,Toulon,TLN,SCRUM_HALF,Demi de mêlée,Grande-Bretagne,27.0,180.0,87.0,2025-2026,9,333.0,37.0,1,0,0,6.49,0.24,0.0,0.24,0.0,0.0,lnr
+lnr_1377,1377,paolo-garbisi,Paolo Garbisi,Toulon,TLN,FLY_HALF,Demi d'ouverture,Italie,25.0,183.0,97.0,2025-2026,8,592.0,74.0,1,0,0,6.22,0.0,0.14,0.41,0.54,0.0,lnr
+lnr_11027,11027,mateo-garcia,Mateo Garcia,Toulon,TLN,FLY_HALF,Demi d'ouverture,France,23.0,174.0,83.0,2025-2026,8,451.0,56.4,0,0,0,4.26,0.0,0.35,0.35,4.43,0.0,lnr
+lnr_2355,2355,charles-ollivon,Charles Ollivon,Toulon,TLN,BACK_ROW,3ème ligne,France,32.0,199.0,114.0,2025-2026,8,508.0,63.5,0,0,0,12.6,0.0,0.31,0.94,0.79,0.16,lnr
+lnr_2358,2358,jean-baptiste-gros,J. Gros,Toulon,TLN,FRONT_ROW,1ère ligne,France,26.0,186.0,112.0,2025-2026,7,308.0,44.0,0,0,0,14.03,0.0,0.0,1.04,0.0,0.0,lnr
+lnr_11823,11823,corentin-mezou,C. Mezou,Toulon,TLN,FRONT_ROW,1ère ligne,France,20.0,,107.0,2025-2026,7,274.0,39.1,0,0,0,7.59,0.0,0.0,0.29,0.0,0.0,lnr
+lnr_1621,1621,giorgi-javakhia,Giorgi Javakhia,Toulon,TLN,BACK_ROW,3ème ligne,Géorgie,29.0,194.0,124.0,2025-2026,6,221.0,36.8,0,0,0,11.95,0.0,0.0,0.0,0.0,0.0,lnr
+lnr_1886,1886,clovis-le-bail,Clovis Le Bail,Toulon,TLN,SCRUM_HALF,Demi de mêlée,France,30.0,173.0,74.0,2025-2026,6,300.0,50.0,0,0,0,4.0,0.0,0.0,0.53,0.0,0.0,lnr
+lnr_14078,14078,tomas-albornoz-1,Tomas Albornoz,Toulon,TLN,FLY_HALF,Demi d'ouverture,Italie,28.0,177.0,84.0,2025-2026,5,321.0,64.2,0,0,0,6.23,0.0,1.25,0.5,1.25,0.25,lnr
+lnr_2381,2381,rayan-rebbadj,Rayan Rebbadj,Toulon,TLN,CENTRE,Centre,France,26.0,190.0,93.0,2025-2026,4,273.0,68.2,0,0,0,4.69,0.0,1.17,1.17,1.47,0.29,lnr
+lnr_2360,2360,gabin-villiere,Gabin Villiere,Toulon,TLN,WINGER,Ailier,France,30.0,180.0,88.0,2025-2026,4,247.0,61.8,0,0,0,3.24,0.97,0.65,0.97,3.24,0.65,lnr
+lnr_3060,3060,nikoloz-narmania,Nikoloz Narmania,Toulon,TLN,FRONT_ROW,1ère ligne,Géorgie,25.0,186.0,125.0,2025-2026,3,93.0,31.0,0,0,0,10.32,0.0,0.0,0.0,0.0,0.0,lnr
+lnr_12442,12442,jeremy-paul-toevalu,J. Toevalu,Toulon,TLN,FRONT_ROW,1ère ligne,France,21.0,,,2025-2026,3,94.0,31.3,0,0,0,4.26,0.0,0.0,0.0,0.0,0.0,lnr
+lnr_8861,8861,antoine-frisch,Antoine Frisch,Toulon,TLN,FLY_HALF,Demi d'ouverture,France,29.0,188.0,99.0,2025-2026,2,107.0,53.5,0,0,0,5.23,0.0,1.5,3.74,3.74,0.75,lnr
+lnr_12441,12441,mateo-gracieux,Matéo Gracieux,Toulon,TLN,WINGER,Ailier,France,21.0,,,2025-2026,2,141.0,70.5,0,0,0,1.7,0.0,0.57,0.57,2.84,0.57,lnr
+lnr_12577,12577,gianmarco-lucchesi-1,G. Lucchesi,Toulon,TLN,FRONT_ROW,1ère ligne,Italie,25.0,184.0,103.0,2025-2026,2,59.0,29.5,0,0,0,17.63,0.0,0.0,0.0,0.0,0.0,lnr
+lnr_11912,11912,barnabe-mechentel,B. Mechentel,Toulon,TLN,FULLBACK,Arrière,France,21.0,,,2025-2026,2,89.0,44.5,0,0,0,3.6,0.0,0.0,0.9,0.0,0.0,lnr
+lnr_11811,11811,owen-sorhaindo,Owen Sorhaindo,Toulon,TLN,FRONT_ROW,1ère ligne,France,21.0,190.0,125.0,2025-2026,2,69.0,34.5,0,0,0,6.96,0.0,0.0,0.0,0.0,0.0,lnr
+lnr_13641,13641,patrick-lucas-tuifua,P. Tuifua,Toulon,TLN,BACK_ROW,3ème ligne,France,21.0,,,2025-2026,2,52.0,26.0,1,0,0,15.38,0.0,0.0,0.0,0.0,0.0,lnr
+lnr_13792,13792,noam-moreau,Noam Moreau,Toulon,TLN,BACK_ROW,3ème ligne,France,18.0,,,2025-2026,1,54.0,54.0,0,0,0,13.33,0.0,0.0,0.0,0.0,0.0,lnr
+lnr_12692,12692,mikheili-shioshvili,M. Shioshvili,Toulon,TLN,BACK_ROW,3ème ligne,Géorgie,19.0,193.0,,2025-2026,1,61.0,61.0,0,0,0,6.56,0.0,0.0,0.0,0.0,0.0,lnr
+lnr_13790,13790,jovan-sreckovic,Jovan Sreckovic,Toulon,TLN,BACK_ROW,3ème ligne,France,19.0,,,2025-2026,1,65.0,65.0,0,0,0,6.15,0.0,0.0,0.0,0.0,0.0,lnr
+lnr_12243,12243,jose-junior-kpoku,J. K'poku,Toulon,TLN,LOCK,2ème ligne,Angleterre,20.0,,119.0,2025-2026,1,228.0,,0,0,0,16.49,0.7,0.35,0.0,0.0,0.0,lnr
+lnr_13744,13744,nathan-hughes-1,Nathan Hughes,Racing 92,R92,BACK_ROW,3ème ligne,Fidji,34.0,196.0,126.0,2025-2026,18,815.0,45.3,1,0,0,12.76,0.39,0.2,0.59,3.44,0.69,lnr
+lnr_1079,1079,demba-bamba,Demba Bamba,Racing 92,R92,FRONT_ROW,1ère ligne,France,28.0,185.0,125.0,2025-2026,17,723.0,42.5,2,0,0,11.73,0.22,0.0,0.89,0.0,0.0,lnr
+lnr_2190,2190,guram-gogichashvili,G. Gogichashvili,Racing 92,R92,FRONT_ROW,1ère ligne,Géorgie,27.0,183.0,118.0,2025-2026,17,720.0,42.4,0,0,0,15.33,0.0,0.0,0.44,0.56,0.11,lnr
+lnr_888,888,thomas-lainault,Thomas Lainault,Racing 92,R92,LOCK,2ème ligne,France,32.0,197.0,112.0,2025-2026,15,868.0,57.9,1,0,0,15.85,0.28,0.0,0.28,0.0,0.0,lnr
+lnr_1102,1102,josua-tuisova,Josua Tuisova,Racing 92,R92,WINGER,Ailier,Fidji,32.0,180.0,113.0,2025-2026,14,808.0,57.7,1,0,1,7.82,0.69,0.59,0.99,0.5,0.1,lnr
+lnr_916,916,wilfried-hulleu,W. Hulleu,Racing 92,R92,CENTRE,Centre,France,23.0,184.0,97.0,2025-2026,13,920.0,70.8,0,0,0,6.7,0.09,0.87,0.78,3.91,0.78,lnr
+lnr_2201,2201,gia-kharaishvili,G. Kharaishvili,Racing 92,R92,FRONT_ROW,1ère ligne,Géorgie,27.0,180.0,120.0,2025-2026,13,565.0,43.5,0,0,0,10.9,0.14,0.0,0.0,0.0,0.0,lnr
+lnr_2175,2175,hassane-kolingar,Hassane Kolingar,Racing 92,R92,FRONT_ROW,1ère ligne,France,28.0,184.0,115.0,2025-2026,13,531.0,40.8,0,0,0,16.72,0.0,0.0,0.45,0.0,0.0,lnr
+lnr_13640,13640,joseph-manu,Joseph Manu,Racing 92,R92,CENTRE,Centre,Nouvelle Zélande,29.0,192.0,102.0,2025-2026,13,749.0,57.6,1,0,0,9.93,0.11,0.43,1.39,0.53,0.11,lnr
+lnr_1911,1911,lekima-vuda-tagitagivalu,L. Tagitagivalu,Racing 92,R92,LOCK,2ème ligne,Fidji,30.0,195.0,110.0,2025-2026,13,608.0,46.8,0,0,0,14.61,0.79,0.13,0.26,0.66,0.13,lnr
+lnr_2188,2188,janick-tarrit,Janick Tarrit,Racing 92,R92,FRONT_ROW,1ère ligne,France,27.0,183.0,100.0,2025-2026,13,700.0,53.8,0,0,1,13.6,0.11,0.23,0.34,1.14,0.23,lnr
+lnr_12570,12570,diego-escobar,Diego Escobar,Racing 92,R92,FRONT_ROW,1ère ligne,Chili,25.0,176.0,103.0,2025-2026,12,529.0,44.1,2,0,0,14.67,0.45,0.15,0.45,0.0,0.0,lnr
+lnr_2168,2168,gael-fickou,Gael Fickou,Racing 92,R92,CENTRE,Centre,France,32.0,190.0,99.0,2025-2026,12,761.0,63.4,0,0,0,9.46,0.0,0.74,0.63,2.1,0.42,lnr
+lnr_2150,2150,antoine-gibert,Antoine Gibert,Racing 92,R92,CENTRE,Centre,France,28.0,177.0,76.0,2025-2026,12,469.0,39.1,0,0,0,2.9,0.0,0.34,0.0,9.72,0.0,lnr
+lnr_2198,2198,max-spring,Max Spring,Racing 92,R92,FULLBACK,Arrière,France,25.0,173.0,75.0,2025-2026,12,736.0,61.3,0,0,0,4.13,0.22,1.2,0.33,3.59,0.54,lnr
+lnr_1093,1093,romain-taofifenua,R. Taofifenua,Racing 92,R92,LOCK,2ème ligne,France,35.0,,138.0,2025-2026,12,581.0,48.4,1,1,0,7.3,0.69,0.0,0.55,2.75,0.55,lnr
+lnr_12647,12647,samuel-james,Samuel James,Racing 92,R92,CENTRE,Centre,Grande-Bretagne,31.0,195.0,94.0,2025-2026,11,841.0,76.5,2,0,0,2.66,0.0,0.48,0.67,0.95,0.19,lnr
+lnr_13447,13447,yanis-basse,Yanis Basse,Racing 92,R92,FRONT_ROW,1ère ligne,France,19.0,175.0,103.0,2025-2026,10,167.0,16.7,0,0,0,15.33,0.48,0.0,0.0,2.4,0.48,lnr
+lnr_11803,11803,shingirai-dylan-masimba-manyarara,S. Manyarara,Racing 92,R92,BACK_ROW,3ème ligne,Zimbabwe,22.0,185.0,100.0,2025-2026,10,517.0,51.7,0,0,0,13.46,0.0,0.15,0.0,0.77,0.15,lnr
+lnr_1909,1909,jordan-joseph,Jordan Joseph,Racing 92,R92,LOCK,2ème ligne,France,25.0,189.0,115.0,2025-2026,9,385.0,42.8,0,0,0,11.64,1.25,0.0,0.62,3.12,0.62,lnr
+lnr_13832,13832,geronimo-prisciantelli,G. Prisciantelli,Racing 92,R92,FLY_HALF,Demi d'ouverture,Italie,26.0,183.0,86.0,2025-2026,9,409.0,45.4,0,0,0,2.93,0.0,0.98,0.59,1.17,0.0,lnr
+lnr_13613,13613,selesitino-ravutaumada,S. Ravutaumada,Racing 92,R92,WINGER,Ailier,Fidji,26.0,183.0,93.0,2025-2026,8,499.0,62.4,1,0,0,5.61,0.16,0.16,0.8,0.8,0.16,lnr
+lnr_2157,2157,fabien-sanconnie,Fabien Sanconnie,Racing 92,R92,BACK_ROW,3ème ligne,France,31.0,195.0,114.0,2025-2026,7,279.0,39.9,1,0,0,16.92,0.29,0.0,0.0,1.43,0.29,lnr
+lnr_2120,2120,noa-zinzen,Noa Zinzen,Racing 92,R92,BACK_ROW,3ème ligne,France,22.0,192.0,103.0,2025-2026,7,154.0,22.0,0,0,0,19.74,0.0,0.0,0.0,0.0,0.0,lnr
+lnr_12646,12646,edouard-jabea-njocke,E. Jabea Njocke,Racing 92,R92,FRONT_ROW,1ère ligne,France,19.0,178.0,118.0,2025-2026,6,158.0,26.3,0,0,0,17.72,0.0,0.51,0.0,0.0,0.0,lnr
+lnr_12366,12366,kleo-labarbe,Kleo Labarbe,Racing 92,R92,SCRUM_HALF,Demi de mêlée,France,21.0,175.0,65.0,2025-2026,6,236.0,39.3,0,0,0,7.8,0.0,0.0,0.34,0.0,0.0,lnr
+lnr_11839,11839,will-rowlands-1,Will Rowlands,Racing 92,R92,LOCK,2ème ligne,Pays de Galles,34.0,,125.0,2025-2026,6,329.0,54.8,1,0,0,13.13,0.24,0.0,0.24,0.0,0.0,lnr
+lnr_13764,13764,daniel-tupou,Daniel Tupou,Racing 92,R92,FRONT_ROW,1ère ligne,Tonga,29.0,184.0,148.0,2025-2026,5,133.0,26.6,0,0,0,6.62,0.6,0.0,0.0,12.03,2.41,lnr
+lnr_12612,12612,soumaila-camara,S. Camara,Racing 92,R92,BACK_ROW,3ème ligne,France,22.0,187.0,101.0,2025-2026,4,134.0,33.5,0,0,0,11.94,0.6,0.0,0.6,0.0,0.0,lnr
+lnr_11673,11673,vladi-ashvetia,Vladi Ashvetia,Racing 92,R92,CENTRE,Centre,France,20.0,185.0,90.0,2025-2026,2,115.0,57.5,0,0,0,6.26,0.0,2.09,1.39,3.48,0.7,lnr
+lnr_13419,13419,nolann-donguy,Nolann Donguy,Racing 92,R92,WINGER,Ailier,France,20.0,183.0,85.0,2025-2026,2,138.0,69.0,0,0,0,5.22,0.0,0.58,0.0,0.0,0.0,lnr
+lnr_1245,1245,wame-naituvi,Wame Naituvi,Racing 92,R92,WINGER,Ailier,Fidji,29.0,180.0,92.0,2025-2026,2,100.0,50.0,0,0,0,2.4,0.0,1.6,1.6,0.0,0.0,lnr
+lnr_2148,2148,ibrahim-diallo,Ibrahim Diallo,Racing 92,R92,BACK_ROW,3ème ligne,France,28.0,192.0,108.0,2025-2026,1,54.0,54.0,0,0,0,19.26,0.0,1.48,0.0,0.0,0.0,lnr
+lnr_12565,12565,lehopoame-leota,L. Leota,Racing 92,R92,FRONT_ROW,1ère ligne,Nouvelle Zélande,19.0,175.0,130.0,2025-2026,1,43.0,43.0,0,0,0,9.3,0.0,0.0,0.0,0.0,0.0,lnr
+lnr_1678,1678,loic-credoz,Loïc Credoz,Pau,PAU,BACK_ROW,3ème ligne,France,26.0,186.0,108.0,2025-2026,16,779.0,48.7,0,0,0,11.4,0.31,0.1,0.0,0.0,0.0,lnr
+lnr_1917,1917,youri-delhommel,Youri Delhommel,Pau,PAU,FRONT_ROW,1ère ligne,France,30.0,181.0,101.0,2025-2026,16,605.0,37.8,1,0,0,8.86,0.66,0.0,0.13,3.31,0.66,lnr
+lnr_1940,1940,reece-hewat,Reece Hewat,Pau,PAU,BACK_ROW,3ème ligne,Australie,28.0,191.0,106.0,2025-2026,16,824.0,51.5,1,0,0,11.94,0.19,0.39,0.49,1.94,0.39,lnr
+lnr_2335,2335,facundo-isa,Facundo Isa,Pau,PAU,BACK_ROW,3ème ligne,Argentine,32.0,188.0,110.0,2025-2026,16,857.0,53.6,0,0,0,10.46,0.75,0.0,0.75,1.87,0.37,lnr
+lnr_2232,2232,jimi-maximin,Jimi Maximin,Pau,PAU,LOCK,2ème ligne,France,26.0,,133.0,2025-2026,16,705.0,44.1,2,0,0,12.71,0.57,0.11,0.0,2.27,0.45,lnr
+lnr_1707,1707,thomas-laclayat,Thomas Laclayat,Pau,PAU,FRONT_ROW,1ère ligne,France,28.0,176.0,125.0,2025-2026,15,769.0,51.3,0,0,0,8.43,0.31,0.0,0.1,1.04,0.21,lnr
+lnr_1895,1895,thibault-daubagna,T. Daubagna,Pau,PAU,SCRUM_HALF,Demi de mêlée,France,31.0,177.0,83.0,2025-2026,14,722.0,51.6,0,0,0,5.1,0.22,0.55,0.89,0.55,0.11,lnr
+lnr_1914,1914,sacha-zegueur,Sacha Zegueur,Pau,PAU,BACK_ROW,3ème ligne,France,26.0,192.0,105.0,2025-2026,14,709.0,50.6,1,0,0,16.36,0.0,0.11,0.23,0.0,0.0,lnr
+lnr_1845,1845,hugo-auradou,Hugo Auradou,Pau,PAU,LOCK,2ème ligne,France,22.0,,105.0,2025-2026,13,895.0,68.8,2,0,0,9.39,0.36,0.36,0.36,0.0,0.0,lnr
+lnr_1893,1893,beka-gorgadze,Beka Gorgadze,Pau,PAU,BACK_ROW,3ème ligne,Géorgie,30.0,189.0,110.0,2025-2026,12,890.0,74.2,1,0,0,12.58,0.81,0.09,0.63,0.9,0.18,lnr
+lnr_1853,1853,jack-maddocks,Jack Maddocks,Pau,PAU,FULLBACK,Arrière,Australie,29.0,194.0,100.0,2025-2026,12,843.0,70.2,0,0,0,2.85,0.0,0.38,0.47,1.42,0.28,lnr
+lnr_1877,1877,thomas-souverbie,Thomas Souverbie,Pau,PAU,SCRUM_HALF,Demi de mêlée,France,21.0,175.0,79.0,2025-2026,12,278.0,23.2,0,0,0,8.92,0.0,0.29,0.29,0.0,0.0,lnr
+lnr_1901,1901,mickael-capelli,Mickael Capelli,Pau,PAU,LOCK,2ème ligne,France,29.0,198.0,126.0,2025-2026,11,457.0,41.5,0,0,0,12.95,0.35,0.35,0.53,0.0,0.0,lnr
+lnr_1927,1927,emilien-gailleton,Emilien Gailleton,Pau,PAU,CENTRE,Centre,France,22.0,185.0,89.0,2025-2026,11,744.0,67.6,0,0,0,6.67,0.22,0.75,0.0,2.15,0.43,lnr
+lnr_1896,1896,lucas-rey,Lucas Rey,Pau,PAU,FRONT_ROW,1ère ligne,France,28.0,175.0,92.0,2025-2026,11,426.0,38.7,0,0,0,12.77,0.38,0.19,0.38,2.82,0.56,lnr
+lnr_1929,1929,luke-whitelock,Luke Whitelock,Pau,PAU,BACK_ROW,3ème ligne,Nouvelle Zélande,35.0,193.0,112.0,2025-2026,11,549.0,49.9,0,0,0,9.62,0.29,0.0,0.0,0.0,0.0,lnr
+lnr_1843,1843,clement-mondinat,Clement Mondinat,Pau,PAU,FLY_HALF,Demi d'ouverture,France,22.0,178.0,80.0,2025-2026,10,329.0,32.9,0,0,0,1.46,0.0,0.49,0.49,2.43,0.49,lnr
+lnr_1889,1889,remi-seneca,Rémi Seneca,Pau,PAU,FRONT_ROW,1ère ligne,France,31.0,185.0,113.0,2025-2026,10,321.0,32.1,0,0,0,17.2,0.25,0.0,0.5,1.25,0.25,lnr
+lnr_1850,1850,siate-folau-tokolahi,S. Tokolahi,Pau,PAU,FRONT_ROW,1ère ligne,Tonga,34.0,179.0,123.0,2025-2026,10,306.0,30.6,0,0,0,10.98,0.0,0.0,0.0,0.0,0.0,lnr
+lnr_1902,1902,nathan-decron,Nathan Decron,Pau,PAU,CENTRE,Centre,France,28.0,184.0,96.0,2025-2026,9,634.0,70.4,0,0,0,8.33,0.5,0.25,0.38,1.26,0.25,lnr
+lnr_317,317,lekso-kaulashvili,L. Kaulashvili,Pau,PAU,FRONT_ROW,1ère ligne,Géorgie,33.0,185.0,132.0,2025-2026,9,416.0,46.2,1,0,0,9.42,0.0,0.0,0.0,0.96,0.19,lnr
+lnr_2336,2336,aymeric-luc,Aymeric Luc,Pau,PAU,SCRUM_HALF,Demi de mêlée,France,28.0,180.0,80.0,2025-2026,9,444.0,49.3,0,0,0,3.24,0.18,0.54,0.36,0.9,0.18,lnr
+lnr_1870,1870,daniel-robson,Daniel Robson,Pau,PAU,SCRUM_HALF,Demi de mêlée,Grande-Bretagne,34.0,173.0,82.0,2025-2026,9,441.0,49.0,0,0,0,4.35,0.0,0.36,0.18,1.81,0.36,lnr
+lnr_708,708,daniel-bibi-biziwu,D. Bibi Biziwu,Pau,PAU,FRONT_ROW,1ère ligne,France,24.0,183.0,119.0,2025-2026,8,298.0,37.2,2,0,0,10.47,0.0,0.0,0.0,0.0,0.0,lnr
+lnr_13598,13598,julian-sixto-montoya,J. Montoya,Pau,PAU,FRONT_ROW,1ère ligne,Argentine,32.0,183.0,113.0,2025-2026,7,732.0,104.6,0,0,0,9.62,0.0,0.22,0.22,2.19,0.44,lnr
+lnr_1887,1887,guram-papidze,Guram Papidze,Pau,PAU,FRONT_ROW,1ère ligne,Géorgie,28.0,187.0,122.0,2025-2026,7,273.0,39.0,0,0,0,14.36,0.0,0.0,0.29,0.0,0.0,lnr
+lnr_1849,1849,hugo-parrou,Hugo Parrou,Pau,PAU,FRONT_ROW,1ère ligne,France,23.0,183.0,110.0,2025-2026,7,218.0,31.1,0,0,0,11.38,0.0,0.0,0.73,0.0,0.0,lnr
+lnr_320,320,thomas-jolmes,Thomas Jolmes,Pau,PAU,LOCK,2ème ligne,France,30.0,,117.0,2025-2026,6,347.0,57.8,0,0,0,12.22,0.23,0.0,0.46,0.0,0.0,lnr
+lnr_994,994,remi-picquette,Rémi Picquette,Pau,PAU,LOCK,2ème ligne,France,31.0,,117.0,2025-2026,6,208.0,34.7,0,0,0,8.08,0.0,0.0,0.0,0.0,0.0,lnr
+lnr_4000,4000,joe-simmonds,Joe Simmonds,Pau,PAU,FLY_HALF,Demi d'ouverture,Grande-Bretagne,29.0,182.0,94.0,2025-2026,6,370.0,61.7,0,0,0,2.81,0.0,0.43,0.86,16.22,0.22,lnr
+lnr_1944,1944,theo-attissogbe,T. Attissogbe,Pau,PAU,FULLBACK,Arrière,France,21.0,181.0,84.0,2025-2026,4,270.0,67.5,0,0,0,5.93,0.3,0.0,1.48,1.48,0.3,lnr
+lnr_1876,1876,alexandre-etchebehere,A. Etchebehere,Pau,PAU,FRONT_ROW,1ère ligne,France,21.0,178.0,108.0,2025-2026,4,163.0,40.8,0,0,0,14.72,0.0,0.0,0.0,0.0,0.0,lnr
+lnr_1858,1858,tumua-manu,Tumua Manu,Pau,PAU,CENTRE,Centre,Nouvelle Zélande,32.0,183.0,97.0,2025-2026,4,234.0,58.5,1,0,0,5.47,0.34,0.68,0.68,1.71,0.34,lnr
+lnr_133,133,jon-zabala-arrieta,J. Zabala Arrieta,Pau,PAU,FRONT_ROW,1ère ligne,Espagne,29.0,190.0,132.0,2025-2026,4,109.0,27.2,0,0,0,15.41,0.73,0.0,0.0,0.0,0.0,lnr
+lnr_1075,1075,joel-kpoku,Joel Kpoku,Pau,PAU,LOCK,2ème ligne,Angleterre,26.0,196.0,114.0,2025-2026,3,90.0,30.0,0,0,0,13.33,0.0,0.0,0.0,0.0,0.0,lnr
+lnr_11695,11695,toshi-richard-butlin,T. Butlin,Pau,PAU,WINGER,Ailier,Australie,21.0,,,2025-2026,1,62.0,62.0,0,0,0,6.45,0.0,0.0,0.0,0.0,0.0,lnr
+lnr_1814,1814,pierre-henri-azagoh-kouadio,P. Azagoh Kouadio,Paris,SFP,LOCK,2ème ligne,France,27.0,196.0,103.0,2025-2026,17,729.0,42.9,1,0,0,15.91,0.11,0.11,0.22,0.0,0.0,lnr
+lnr_1811,1811,giorgi-melikidze,Giorgi Melikidze,Paris,SFP,FRONT_ROW,1ère ligne,Géorgie,29.0,180.0,116.0,2025-2026,17,746.0,43.9,0,0,0,9.01,0.64,0.0,0.11,3.22,0.64,lnr
+lnr_1802,1802,paul-alo-emile,Paul Alo Emile,Paris,SFP,FRONT_ROW,1ère ligne,Australie,34.0,180.0,132.0,2025-2026,16,667.0,41.7,0,0,0,13.91,0.12,0.0,0.24,0.0,0.0,lnr
+lnr_1831,1831,moses-eneliko-alo-emile,M. Alo Emile,Paris,SFP,FRONT_ROW,1ère ligne,Australie,26.0,187.0,125.0,2025-2026,16,607.0,37.9,1,0,0,10.54,0.66,0.0,0.13,0.0,0.0,lnr
+lnr_909,909,tanginoa-palu-halaifonua,T. Halaifonua,Paris,SFP,BACK_ROW,3ème ligne,Tonga,29.0,196.0,115.0,2025-2026,16,879.0,54.9,2,0,0,10.47,0.46,0.18,0.36,2.28,0.46,lnr
+lnr_1780,1780,mathieu-hirigoyen,Mathieu Hirigoyen,Paris,SFP,BACK_ROW,3ème ligne,France,27.0,194.0,95.0,2025-2026,16,745.0,46.6,0,0,0,15.03,0.0,0.11,0.11,1.07,0.21,lnr
+lnr_981,981,tawera-kerr-barlow,T. Kerr Barlow,Paris,SFP,SCRUM_HALF,Demi de mêlée,Nouvelle Zélande,35.0,187.0,91.0,2025-2026,15,719.0,47.9,0,0,0,5.23,0.11,0.0,0.33,1.11,0.22,lnr
+lnr_11736,11736,joseph-marchant,Joseph Marchant,Paris,SFP,CENTRE,Centre,Angleterre,29.0,183.0,89.0,2025-2026,15,913.0,60.9,0,0,0,7.1,0.0,0.26,0.18,0.44,0.09,lnr
+lnr_1806,1806,baptiste-pesenti,B. Pesenti,Paris,SFP,BACK_ROW,3ème ligne,France,28.0,195.0,118.0,2025-2026,15,822.0,54.8,1,0,0,11.97,0.0,0.0,0.39,0.97,0.19,lnr
+lnr_1779,1779,lucas-peyresblanques,L. Peyresblanques,Paris,SFP,FRONT_ROW,1ère ligne,France,28.0,181.0,96.0,2025-2026,15,454.0,30.3,0,0,0,11.81,0.18,0.18,0.35,1.76,0.35,lnr
+lnr_975,975,yoan-tanga-mangene,Y. Tanga Mangene,Paris,SFP,BACK_ROW,3ème ligne,France,29.0,185.0,107.0,2025-2026,15,742.0,49.5,0,0,0,11.11,0.43,0.43,1.62,1.62,0.32,lnr
+lnr_1756,1756,jeremy-charles-ward,J. Ward,Paris,SFP,CENTRE,Centre,Afrique du Sud,30.0,187.0,92.0,2025-2026,15,993.0,66.2,1,0,0,9.26,0.24,0.73,0.56,2.42,0.48,lnr
+lnr_1790,1790,romain-briatte,Romain Briatte,Paris,SFP,LOCK,2ème ligne,France,33.0,194.0,97.0,2025-2026,14,889.0,63.5,3,0,0,14.31,0.0,0.0,0.45,0.0,0.0,lnr
+lnr_660,660,samuel-ezeala,Samuel Ezeala,Paris,SFP,CENTRE,Centre,Espagne,26.0,187.0,99.0,2025-2026,14,849.0,60.6,1,0,0,4.71,0.19,0.66,0.09,0.0,0.0,lnr
+lnr_1757,1757,peniasi-dakuwaqa,Peniasi Dakuwaqa,Paris,SFP,FULLBACK,Arrière,Fidji,28.0,186.0,95.0,2025-2026,13,946.0,72.8,2,0,0,4.4,0.34,0.93,1.35,2.54,0.51,lnr
+lnr_12539,12539,giacomo-nicotera-1,Giacomo Nicotera,Paris,SFP,FRONT_ROW,1ère ligne,Italie,29.0,183.0,108.0,2025-2026,13,677.0,52.1,1,0,0,13.23,0.35,0.0,0.12,0.59,0.12,lnr
+lnr_415,415,paul-abadie,Paul Abadie,Paris,SFP,SCRUM_HALF,Demi de mêlée,France,31.0,176.0,88.0,2025-2026,11,468.0,42.5,0,0,0,9.4,0.0,0.34,1.03,0.0,0.0,lnr
+lnr_1794,1794,sekou-macalou,Sekou Macalou,Paris,SFP,BACK_ROW,3ème ligne,France,30.0,198.0,108.0,2025-2026,11,481.0,43.7,0,0,0,11.14,0.67,0.17,0.17,0.0,0.0,lnr
+lnr_1769,1769,thibaut-robert-motassi-dibongue,T. Motassi Dibongue,Paris,SFP,SCRUM_HALF,Demi de mêlée,France,21.0,175.0,79.0,2025-2026,10,253.0,25.3,0,0,0,10.75,0.0,0.63,1.58,3.16,0.63,lnr
+lnr_1771,1771,noah-tisie-nene,N. Nene,Paris,SFP,CENTRE,Centre,France,21.0,192.0,108.0,2025-2026,10,724.0,72.4,0,0,0,6.74,0.11,0.77,0.44,3.31,0.66,lnr
+lnr_984,984,thierry-paiva,Thierry Paiva,Paris,SFP,FRONT_ROW,1ère ligne,France,30.0,184.0,115.0,2025-2026,10,389.0,38.9,0,0,0,10.08,0.41,0.21,0.0,0.0,0.0,lnr
+lnr_336,336,tani-vili,Tani Vili,Paris,SFP,CENTRE,Centre,France,25.0,187.0,109.0,2025-2026,9,632.0,70.2,0,0,0,5.7,0.13,0.76,0.51,1.27,0.25,lnr
+lnr_11764,11764,alvaro-garcia-albo,A. Garcia Albo,Paris,SFP,FRONT_ROW,1ère ligne,Espagne,22.0,180.0,120.0,2025-2026,7,266.0,38.0,0,0,0,10.53,0.0,0.0,0.0,1.5,0.3,lnr
+lnr_1736,1736,sergo-abramishvili,S. Abramishvili,Paris,SFP,FRONT_ROW,1ère ligne,Géorgie,22.0,184.0,105.0,2025-2026,6,277.0,46.2,0,0,0,13.0,0.0,0.0,0.0,1.44,0.29,lnr
+lnr_1752,1752,juan-martin-scelzo,J. Scelzo,Paris,SFP,BACK_ROW,3ème ligne,France,24.0,192.0,110.0,2025-2026,6,301.0,50.2,0,0,0,11.16,0.0,0.0,0.53,1.33,0.27,lnr
+lnr_1804,1804,ryan-chapuis,Ryan Chapuis,Paris,SFP,BACK_ROW,3ème ligne,France,28.0,190.0,105.0,2025-2026,5,247.0,49.4,0,0,0,13.6,0.32,0.0,0.0,0.0,0.0,lnr
+lnr_263,263,joe-jonas,Joe Jonas,Paris,SFP,FULLBACK,Arrière,Afrique du Sud,25.0,180.0,90.0,2025-2026,5,178.0,35.6,0,0,0,5.39,0.0,1.35,0.45,2.25,0.45,lnr
+lnr_1773,1773,charles-laloi,Charles Laloi,Paris,SFP,WINGER,Ailier,France,22.0,181.0,80.0,2025-2026,5,257.0,51.4,0,0,0,5.29,0.31,0.62,0.31,0.0,0.0,lnr
+lnr_1788,1788,lester-etien,Lester Etien,Paris,SFP,CENTRE,Centre,France,30.0,180.0,93.0,2025-2026,4,254.0,63.5,0,0,0,4.41,0.0,0.63,0.94,0.0,0.0,lnr
+lnr_13940,13940,john-iscaro,John Iscaro,Paris,SFP,FRONT_ROW,1ère ligne,Italie,28.0,187.0,122.0,2025-2026,4,166.0,41.5,0,0,0,15.9,0.0,0.0,0.0,2.41,0.48,lnr
+lnr_13812,13812,iakopo-petelo-mapu,I. Petelo Mapu,Paris,SFP,BACK_ROW,3ème ligne,Nouvelle Zélande,28.0,182.0,104.0,2025-2026,4,154.0,38.5,0,0,0,9.35,0.52,0.52,0.0,2.6,0.52,lnr
+lnr_1148,1148,andy-timo,Andy Timo,Paris,SFP,BACK_ROW,3ème ligne,France,21.0,192.0,95.0,2025-2026,4,130.0,32.5,0,0,0,1.23,0.0,0.62,0.0,0.0,0.0,lnr
+lnr_1457,1457,louis-foursans-bourdette,L. Foursans Bourdette,Paris,SFP,FLY_HALF,Demi d'ouverture,France,24.0,170.0,80.0,2025-2026,2,80.0,40.0,0,0,0,9.0,0.0,1.0,0.0,9.0,0.0,lnr
+lnr_1939,1939,zack-henry,Zack Henry,Paris,SFP,FLY_HALF,Demi d'ouverture,Angleterre,31.0,182.0,89.0,2025-2026,2,108.0,54.0,0,0,0,4.44,0.0,0.0,0.74,5.93,0.0,lnr
+lnr_1741,1741,leo-monin,Léo Monin,Paris,SFP,FULLBACK,Arrière,France,24.0,187.0,86.0,2025-2026,1,42.0,42.0,0,0,0,1.9,0.0,0.0,0.0,0.0,0.0,lnr
+lnr_12374,12374,ethan-tia,Ethan Tia,Paris,SFP,FRONT_ROW,1ère ligne,France,20.0,,,2025-2026,1,41.0,41.0,0,0,0,19.51,0.0,0.0,1.95,0.0,0.0,lnr
+lnr_935,935,aleksandre-kuntelia,A. Kuntelia,La Rochelle,LRO,FRONT_ROW,1ère ligne,Géorgie,23.0,197.0,135.0,2025-2026,18,745.0,41.4,1,0,0,8.91,0.0,0.0,0.21,0.54,0.11,lnr
+lnr_985,985,levani-botia-veivuke,L. Veivuke,La Rochelle,LRO,CENTRE,Centre,Fidji,37.0,182.0,103.0,2025-2026,18,954.0,53.0,2,0,0,9.9,1.09,0.42,0.67,2.52,0.5,lnr
+lnr_1004,1004,thomas-berjon,Thomas Berjon,La Rochelle,LRO,SCRUM_HALF,Demi de mêlée,France,27.0,171.0,76.0,2025-2026,14,614.0,43.9,0,0,0,3.91,0.13,0.26,0.39,0.65,0.13,lnr
+lnr_1018,1018,jules-favre,Jules Favre,La Rochelle,LRO,WINGER,Ailier,France,27.0,181.0,93.0,2025-2026,14,976.0,69.7,1,0,0,5.98,0.25,0.82,0.25,2.05,0.41,lnr
+lnr_997,997,antoine-hastoy,Antoine Hastoy,La Rochelle,LRO,FLY_HALF,Demi d'ouverture,France,28.0,180.0,86.0,2025-2026,14,887.0,63.4,1,0,1,4.06,0.0,0.45,0.54,8.75,0.18,lnr
+lnr_954,954,jack-nowell,Jack Nowell,La Rochelle,LRO,WINGER,Ailier,Angleterre,32.0,180.0,98.0,2025-2026,13,865.0,66.5,0,0,0,3.79,0.0,1.57,0.92,2.77,0.55,lnr
+lnr_939,939,oscar-jegou,Oscar Jegou,La Rochelle,LRO,BACK_ROW,3ème ligne,France,22.0,190.0,90.0,2025-2026,12,805.0,67.1,1,0,0,8.84,0.2,0.1,0.8,0.99,0.2,lnr
+lnr_969,969,charles-kante-samba,C. Kante Samba,La Rochelle,LRO,LOCK,2ème ligne,France,21.0,,115.0,2025-2026,12,565.0,47.1,1,0,0,7.93,0.0,0.0,0.28,0.0,0.0,lnr
+lnr_1824,1824,latu-silatolu-latu,L. Latu,La Rochelle,LRO,FRONT_ROW,1ère ligne,Tonga,33.0,178.0,110.0,2025-2026,12,537.0,44.8,0,0,0,6.7,0.74,0.15,0.89,1.49,0.3,lnr
+lnr_1014,1014,dillyn-leyds,Dillyn Leyds,La Rochelle,LRO,FULLBACK,Arrière,Afrique du Sud,33.0,183.0,88.0,2025-2026,12,917.0,76.4,0,0,0,1.92,0.09,0.7,0.44,2.18,0.44,lnr
+lnr_988,988,ulupano-seuteni,Ulupano Seuteni,La Rochelle,LRO,CENTRE,Centre,Australie,32.0,187.0,103.0,2025-2026,12,705.0,58.8,0,0,0,4.31,0.11,0.45,1.25,1.13,0.23,lnr
+lnr_1028,1028,alexandre-kaddouri,A. Kaddouri,La Rochelle,LRO,FRONT_ROW,1ère ligne,France,22.0,189.0,114.0,2025-2026,11,563.0,51.2,2,0,0,8.24,0.85,0.0,0.43,0.0,0.0,lnr
+lnr_982,982,thomas-lavault,Thomas Lavault,La Rochelle,LRO,LOCK,2ème ligne,France,26.0,198.0,108.0,2025-2026,11,580.0,52.7,2,0,0,7.45,0.0,0.0,0.28,0.69,0.14,lnr
+lnr_2196,2196,nolann-le-garrec,Nolann Le Garrec,La Rochelle,LRO,SCRUM_HALF,Demi de mêlée,France,23.0,175.0,75.0,2025-2026,11,766.0,69.6,0,0,0,4.6,0.0,0.73,0.94,7.31,0.52,lnr
+lnr_1000,1000,reda-wardi,Reda Wardi,La Rochelle,LRO,FRONT_ROW,1ère ligne,France,30.0,185.0,110.0,2025-2026,11,514.0,46.7,0,0,0,9.65,0.0,0.0,0.62,0.78,0.16,lnr
+lnr_12674,12674,lucas-andjisseramatchi,L. Andjisseramatchi,La Rochelle,LRO,BACK_ROW,3ème ligne,France,19.0,188.0,102.0,2025-2026,10,223.0,22.3,0,0,0,12.91,0.36,0.0,0.36,0.0,0.0,lnr
+lnr_1017,1017,paul-boudehent,Paul Boudehent,La Rochelle,LRO,BACK_ROW,3ème ligne,France,26.0,192.0,107.0,2025-2026,10,666.0,66.6,0,0,0,9.49,0.24,0.24,0.36,2.4,0.48,lnr
+lnr_1025,1025,matthias-haddad,M. Haddad,La Rochelle,LRO,BACK_ROW,3ème ligne,France,25.0,192.0,99.0,2025-2026,10,490.0,49.0,0,0,0,10.78,0.49,0.16,0.33,0.0,0.0,lnr
+lnr_965,965,nikolozi-sutidze,N. Sutidze,La Rochelle,LRO,FRONT_ROW,1ère ligne,Géorgie,22.0,180.0,104.0,2025-2026,10,360.0,36.0,0,0,0,8.22,0.22,0.0,0.67,1.11,0.22,lnr
+lnr_2387,2387,ihaia-west,Ihaia West,La Rochelle,LRO,FLY_HALF,Demi d'ouverture,Nouvelle Zélande,34.0,175.0,84.0,2025-2026,10,423.0,42.3,0,0,0,2.08,0.0,0.95,0.19,8.7,0.38,lnr
+lnr_360,360,kane-douglas,Kane Douglas,La Rochelle,LRO,LOCK,2ème ligne,Australie,36.0,,119.0,2025-2026,9,423.0,47.0,0,0,0,8.89,0.38,0.0,0.19,0.0,0.0,lnr
+lnr_3221,3221,semi-lagivala,Semi Lagivala,La Rochelle,LRO,CENTRE,Centre,Fidji,22.0,190.0,94.0,2025-2026,9,465.0,51.7,0,0,0,5.16,0.17,0.52,1.03,0.86,0.17,lnr
+lnr_986,986,quentin-lespiaucq,Quentin Lespiaucq,La Rochelle,LRO,FRONT_ROW,1ère ligne,France,31.0,180.0,102.0,2025-2026,9,352.0,39.1,0,0,0,10.91,0.23,0.23,0.45,2.27,0.45,lnr
+lnr_1030,1030,karl-sorin,Karl Sorin,La Rochelle,LRO,FRONT_ROW,1ère ligne,France,22.0,186.0,135.0,2025-2026,9,349.0,38.8,0,0,0,6.65,0.0,0.0,0.69,0.0,0.0,lnr
+lnr_1027,1027,louis-keziah-penverne,L. Penverne,La Rochelle,LRO,FRONT_ROW,1ère ligne,France,23.0,187.0,111.0,2025-2026,8,256.0,32.0,0,0,0,8.44,0.62,0.31,0.94,1.56,0.31,lnr
+lnr_964,964,hoani-bosmorin,Hoani Bosmorin,La Rochelle,LRO,WINGER,Ailier,France,21.0,184.0,78.0,2025-2026,7,234.0,33.4,0,0,0,2.39,0.0,0.68,1.37,1.71,0.34,lnr
+lnr_675,675,judicael-cancoriet,J. Cancoriet,La Rochelle,LRO,BACK_ROW,3ème ligne,France,29.0,194.0,112.0,2025-2026,7,469.0,67.0,1,0,0,7.51,0.17,0.0,0.68,1.71,0.34,lnr
+lnr_966,966,simeli-daunivucu,Simeli Daunivucu,La Rochelle,LRO,WINGER,Ailier,Fidji,21.0,180.0,85.0,2025-2026,7,293.0,41.9,0,0,0,10.38,0.0,0.27,0.82,0.55,0.0,lnr
+lnr_13500,13500,kirill-fraindt,Kirill Fraindt,La Rochelle,LRO,BACK_ROW,3ème ligne,Russie,19.0,,,2025-2026,7,298.0,42.6,1,0,0,5.37,0.27,0.81,0.0,1.34,0.27,lnr
+lnr_11875,11875,ugo-pacome,Ugo Pacome,La Rochelle,LRO,FULLBACK,Arrière,France,20.0,187.0,85.0,2025-2026,7,374.0,53.4,0,0,0,1.71,0.0,0.0,0.64,0.0,0.0,lnr
+lnr_999,999,pierre-bourgarit,Pierre Bourgarit,La Rochelle,LRO,FRONT_ROW,1ère ligne,France,28.0,184.0,108.0,2025-2026,6,209.0,34.8,0,0,0,13.01,0.77,0.0,0.0,1.91,0.38,lnr
+lnr_950,950,ultan-dillane,Ultan Dillane,La Rochelle,LRO,LOCK,2ème ligne,Irlande,32.0,198.0,115.0,2025-2026,6,296.0,49.3,0,0,0,8.38,0.27,0.0,0.27,1.35,0.27,lnr
+lnr_12408,12408,diego-jurd,Diego Jurd,La Rochelle,LRO,FLY_HALF,Demi d'ouverture,France,19.0,184.0,87.0,2025-2026,6,217.0,36.2,0,0,0,3.69,0.0,0.37,1.84,6.27,0.0,lnr
+lnr_13550,13550,nolhann-couillaud,Nolhann Couillaud,La Rochelle,LRO,SCRUM_HALF,Demi de mêlée,France,19.0,180.0,,2025-2026,5,213.0,42.6,0,0,0,6.01,0.0,0.0,0.0,0.0,0.0,lnr
+lnr_970,970,joel-antonio-sclavi,J. Sclavi,La Rochelle,LRO,FRONT_ROW,1ère ligne,Argentine,31.0,188.0,135.0,2025-2026,5,137.0,27.4,0,0,0,5.26,0.0,0.0,0.0,0.0,0.0,lnr
+lnr_12590,12590,christian-luaki,C. Luaki,La Rochelle,LRO,FRONT_ROW,1ère ligne,France,21.0,187.0,124.0,2025-2026,4,51.0,12.8,0,0,0,17.25,1.57,0.0,0.0,0.0,0.0,lnr
+lnr_1015,1015,william-skelton,William Skelton,La Rochelle,LRO,LOCK,2ème ligne,Nouvelle Zélande,33.0,,145.0,2025-2026,4,196.0,49.0,0,0,0,4.08,0.0,0.0,0.82,2.04,0.41,lnr
+lnr_13364,13364,suliasi-vunivalu,Suliasi Vunivalu,La Rochelle,LRO,WINGER,Ailier,Fidji,30.0,192.0,99.0,2025-2026,4,217.0,54.2,1,0,0,5.9,0.0,1.11,0.37,3.69,0.74,lnr
+lnr_983,983,uini-atonio,Uini Atonio,La Rochelle,LRO,FRONT_ROW,1ère ligne,Nouvelle Zélande,36.0,196.0,145.0,2025-2026,3,143.0,47.7,0,0,0,3.92,0.0,0.0,0.0,0.0,0.0,lnr
+lnr_938,938,nathan-bollengier,N. Bollengier,La Rochelle,LRO,WINGER,Ailier,France,22.0,179.0,82.0,2025-2026,3,184.0,61.3,0,0,0,2.61,0.43,0.0,0.0,4.35,0.87,lnr
+lnr_991,991,jonathan-danty,Jonathan Danty,La Rochelle,LRO,CENTRE,Centre,France,33.0,181.0,110.0,2025-2026,2,141.0,70.5,0,0,0,6.24,0.0,0.0,2.27,0.0,0.0,lnr
+lnr_12387,12387,upaleto-feao,Upaleto Feao,La Rochelle,LRO,FRONT_ROW,1ère ligne,France,20.0,,,2025-2026,2,98.0,49.0,0,0,0,8.16,0.0,0.0,0.0,0.0,0.0,lnr
+lnr_2463,2463,paul-graou,Paul Graou,Toulouse,TLS,SCRUM_HALF,Demi de mêlée,France,28.0,177.0,88.0,2025-2026,18,988.0,54.9,0,0,0,5.75,0.16,0.65,1.54,2.19,0.4,lnr
+lnr_2462,2462,alexandre-roumat,A. Roumat,Toulouse,TLS,BACK_ROW,3ème ligne,France,28.0,198.0,110.0,2025-2026,16,916.0,57.2,0,0,0,7.51,0.17,0.09,0.7,1.75,0.35,lnr
+lnr_11251,11251,leo-banos,Léo Banos,Toulouse,TLS,BACK_ROW,3ème ligne,France,23.0,191.0,100.0,2025-2026,15,784.0,52.3,0,0,0,9.18,0.1,0.31,0.71,0.51,0.1,lnr
+lnr_2490,2490,clement-verge,Clement Verge,Toulouse,TLS,LOCK,2ème ligne,France,24.0,,123.0,2025-2026,15,772.0,51.5,1,0,0,10.78,0.1,0.21,0.83,1.04,0.21,lnr
+lnr_2425,2425,jack-willis,Jack Willis,Toulouse,TLS,BACK_ROW,3ème ligne,Angleterre,29.0,190.0,112.0,2025-2026,14,835.0,59.6,0,0,0,10.35,0.67,0.48,1.63,1.92,0.38,lnr
+lnr_12363,12363,efrain-elias,Efrain Elias,Toulouse,TLS,LOCK,2ème ligne,Argentine,21.0,,119.0,2025-2026,13,619.0,47.6,1,0,0,9.43,0.39,0.13,0.78,1.94,0.39,lnr
+lnr_2429,2429,thomas-lacombre,Thomas Lacombre,Toulouse,TLS,FRONT_ROW,1ère ligne,France,21.0,174.0,106.0,2025-2026,13,518.0,39.8,0,0,0,10.81,0.62,0.31,0.77,0.0,0.0,lnr
+lnr_987,987,teddy-thomas,Teddy Thomas,Toulouse,TLS,WINGER,Ailier,France,32.0,185.0,94.0,2025-2026,13,770.0,59.2,0,0,0,3.32,0.0,1.04,1.14,4.68,0.94,lnr
+lnr_2432,2432,kalvin-gourgues,Kalvin Gourgues,Toulouse,TLS,CENTRE,Centre,France,21.0,184.0,93.0,2025-2026,12,779.0,64.9,0,0,0,5.24,0.0,1.03,1.23,3.8,0.51,lnr
+lnr_12335,12335,blair-kinghorn-1,Blair Kinghorn,Toulouse,TLS,FULLBACK,Arrière,Ecosse,29.0,193.0,107.0,2025-2026,12,790.0,65.8,0,0,0,1.42,0.0,0.41,1.42,4.25,0.0,lnr
+lnr_2437,2437,matthis-lebel,Matthis Lebel,Toulouse,TLS,CENTRE,Centre,France,27.0,184.0,90.0,2025-2026,12,823.0,68.6,0,0,0,2.53,0.0,1.17,0.68,3.89,0.78,lnr
+lnr_2448,2448,dorian-aldegheri,Dorian Aldegheri,Toulouse,TLS,FRONT_ROW,1ère ligne,France,32.0,180.0,119.0,2025-2026,11,463.0,42.1,1,0,0,8.29,0.0,0.17,0.17,0.86,0.17,lnr
+lnr_2492,2492,joshua-brennan,Joshua Brennan,Toulouse,TLS,LOCK,2ème ligne,France,24.0,199.0,118.0,2025-2026,11,601.0,54.6,0,0,0,10.25,0.13,0.13,0.4,1.33,0.27,lnr
+lnr_2484,2484,guillaume-cramont,G. Cramont,Toulouse,TLS,FRONT_ROW,1ère ligne,France,25.0,183.0,107.0,2025-2026,11,443.0,40.3,0,0,0,9.93,0.54,0.18,1.26,4.51,0.9,lnr
+lnr_2486,2486,theo-ntamack-muyenga,T. Ntamack Muyenga,Toulouse,TLS,BACK_ROW,3ème ligne,France,23.0,193.0,103.0,2025-2026,11,467.0,42.5,0,0,0,10.45,0.34,1.37,1.2,2.57,0.51,lnr
+lnr_12751,12751,naoto-saito,Naoto Saito,Toulouse,TLS,SCRUM_HALF,Demi de mêlée,Japon,28.0,165.0,75.0,2025-2026,11,277.0,25.2,0,0,0,4.04,0.0,0.0,0.0,1.44,0.29,lnr
+lnr_2451,2451,cyril-baille,Cyril Baille,Toulouse,TLS,FRONT_ROW,1ère ligne,France,32.0,182.0,118.0,2025-2026,10,343.0,34.3,0,0,0,5.83,0.0,0.0,0.47,0.0,0.0,lnr
+lnr_2427,2427,paul-costes,Paul Costes,Toulouse,TLS,CENTRE,Centre,France,22.0,182.0,85.0,2025-2026,10,662.0,66.2,0,0,0,5.08,0.0,0.12,1.57,1.21,0.24,lnr
+lnr_2501,2501,dimitri-delibes,Dimitri Delibes,Toulouse,TLS,CENTRE,Centre,France,27.0,190.0,98.0,2025-2026,10,657.0,65.7,0,0,0,4.14,0.37,0.85,0.85,3.65,0.73,lnr
+lnr_2399,2399,joel-merkler-perez,J. Merkler Perez,Toulouse,TLS,FRONT_ROW,1ère ligne,Espagne,24.0,194.0,135.0,2025-2026,10,382.0,38.2,0,0,0,11.73,0.21,0.0,0.21,1.05,0.21,lnr
+lnr_2443,2443,rodrigue-neti,R. Neti,Toulouse,TLS,FRONT_ROW,1ère ligne,France,30.0,185.0,121.0,2025-2026,10,497.0,49.7,0,0,0,7.4,0.0,0.0,0.16,0.0,0.0,lnr
+lnr_2436,2436,romain-ntamack,Romain Ntamack,Toulouse,TLS,FLY_HALF,Demi d'ouverture,France,26.0,186.0,91.0,2025-2026,10,649.0,64.9,0,0,0,6.53,0.0,0.49,0.74,4.19,0.25,lnr
+lnr_2450,2450,thomas-ramos,Thomas Ramos,Toulouse,TLS,FULLBACK,Arrière,France,30.0,178.0,87.0,2025-2026,10,663.0,66.3,0,0,0,2.17,0.0,0.6,1.45,13.27,0.12,lnr
+lnr_2500,2500,david-ainuu,David Ainuu,Toulouse,TLS,FRONT_ROW,1ère ligne,Etats-Unis,26.0,178.0,122.0,2025-2026,9,374.0,41.6,0,0,0,5.99,0.43,0.0,0.0,0.0,0.0,lnr
+lnr_2460,2460,pierre-louis-barassi,P. Barassi,Toulouse,TLS,CENTRE,Centre,France,27.0,187.0,99.0,2025-2026,9,597.0,66.3,0,0,0,5.76,0.13,0.67,1.21,2.01,0.4,lnr
+lnr_2401,2401,mathis-castro-ferreira,M. Castro Ferreira,Toulouse,TLS,BACK_ROW,3ème ligne,France,22.0,192.0,105.0,2025-2026,9,382.0,42.4,0,0,0,9.63,0.21,0.0,0.42,1.05,0.21,lnr
+lnr_2405,2405,thibaud-flament,Thibaud Flament,Toulouse,TLS,LOCK,2ème ligne,France,28.0,,116.0,2025-2026,9,578.0,64.2,0,0,0,7.47,0.14,0.14,0.55,1.38,0.28,lnr
+lnr_2454,2454,anthony-jelonch,Anthony Jelonch,Toulouse,TLS,BACK_ROW,3ème ligne,France,29.0,193.0,108.0,2025-2026,9,586.0,65.1,1,0,0,9.69,0.0,0.55,0.82,2.05,0.41,lnr
+lnr_12438,12438,benjamin-bertrand,B. Bertrand,Toulouse,TLS,FRONT_ROW,1ère ligne,France,22.0,180.0,128.0,2025-2026,8,306.0,38.2,0,0,0,8.37,0.78,0.52,0.0,1.31,0.26,lnr
+lnr_1009,1009,georges-henri-colombe-reazel,G. Colombe Reazel,Toulouse,TLS,FRONT_ROW,1ère ligne,France,27.0,193.0,142.0,2025-2026,8,284.0,35.5,0,0,0,7.04,0.56,0.28,0.56,1.41,0.28,lnr
+lnr_2397,2397,santiago-chocobares,S. Chocobares,Toulouse,TLS,CENTRE,Centre,Argentine,26.0,188.0,100.0,2025-2026,7,509.0,72.7,1,0,0,6.44,0.0,0.16,1.26,0.0,0.0,lnr
+lnr_2445,2445,julien-marchand,Julien Marchand,Toulouse,TLS,FRONT_ROW,1ère ligne,France,30.0,181.0,110.0,2025-2026,7,372.0,53.1,0,0,0,11.4,0.43,0.0,1.94,4.3,0.86,lnr
+lnr_2498,2498,emmanuel-meafou,E. Meafou,Toulouse,TLS,LOCK,2ème ligne,France,27.0,,145.0,2025-2026,7,407.0,58.1,0,0,0,9.04,0.59,0.0,1.18,1.97,0.39,lnr
+lnr_2483,2483,ange-capuozzo,Ange Capuozzo,Toulouse,TLS,SCRUM_HALF,Demi de mêlée,France,26.0,177.0,79.0,2025-2026,6,341.0,56.8,0,0,0,3.52,0.0,1.64,0.23,7.04,1.41,lnr
+lnr_2485,2485,paul-mallez,Paul Mallez,Toulouse,TLS,FRONT_ROW,1ère ligne,France,25.0,180.0,116.0,2025-2026,5,195.0,39.0,0,0,0,8.21,1.23,0.0,0.0,0.0,0.0,lnr
+lnr_2430,2430,celian-pouzelgues,C. Pouzelgues,Toulouse,TLS,CENTRE,Centre,France,22.0,190.0,93.0,2025-2026,5,228.0,45.6,0,0,0,5.26,0.35,0.7,0.7,3.51,0.7,lnr
+lnr_2414,2414,valentin-delpy,V. Delpy,Toulouse,TLS,FLY_HALF,Demi d'ouverture,France,22.0,185.0,89.0,2025-2026,4,286.0,71.5,0,0,0,5.31,0.0,0.28,0.56,12.59,0.0,lnr
+lnr_2449,2449,antoine-dupont,Antoine Dupont,Toulouse,TLS,SCRUM_HALF,Demi de mêlée,France,29.0,175.0,85.0,2025-2026,4,186.0,46.5,1,0,0,4.73,0.0,1.72,3.01,4.3,0.86,lnr
+lnr_2461,2461,peato-mauvaka,Peato Mauvaka,Toulouse,TLS,FRONT_ROW,1ère ligne,France,29.0,184.0,112.0,2025-2026,3,82.0,27.3,0,0,0,14.63,0.0,1.95,2.93,0.0,0.0,lnr
+lnr_2453,2453,francois-cros,Francois Cros,Toulouse,TLS,BACK_ROW,3ème ligne,France,32.0,190.0,111.0,2025-2026,2,145.0,72.5,0,0,0,19.31,0.55,0.55,0.0,0.0,0.0,lnr
+lnr_2407,2407,malachi-shea-hawkes-faimanifo,M. Hawkes Faimanifo,Toulouse,TLS,FRONT_ROW,1ère ligne,Australie,23.0,179.0,115.0,2025-2026,2,51.0,25.5,0,0,0,7.84,0.0,0.0,0.0,0.0,0.0,lnr
+lnr_2503,2503,juan-cruz-mallia,J. Mallia,Toulouse,TLS,WINGER,Ailier,Argentine,29.0,182.0,89.0,2025-2026,2,155.0,77.5,0,0,0,2.58,0.0,2.06,1.55,7.74,1.55,lnr
+lnr_12340,12340,matias-remue,Matias Remue,Toulouse,TLS,FULLBACK,Arrière,Belgique,23.0,184.0,86.0,2025-2026,2,160.0,80.0,0,0,0,0.5,0.0,1.0,0.5,2.5,0.5,lnr
+lnr_13461,13461,lucien-richardis,Lucien Richardis,Toulouse,TLS,FLY_HALF,Demi d'ouverture,France,20.0,182.0,88.0,2025-2026,2,109.0,54.5,0,0,0,2.2,0.0,0.73,0.0,7.34,1.47,lnr
+lnr_2417,2417,lucas-vigneres,Lucas Vigneres,Toulouse,TLS,CENTRE,Centre,France,20.0,187.0,88.0,2025-2026,2,73.0,36.5,0,0,0,14.25,0.0,0.0,0.0,5.48,1.1,lnr
+lnr_2415,2415,thomas-alary,Thomas Alary,Toulouse,TLS,FULLBACK,Arrière,France,19.0,191.0,92.0,2025-2026,1,80.0,80.0,0,0,0,4.0,0.0,0.0,2.0,0.0,0.0,lnr
+lnr_354,354,hugo-zabalza,Hugo Zabalza,Montauban,MTB,SCRUM_HALF,Demi de mêlée,France,25.0,176.0,82.0,2025-2026,16,654.0,40.9,0,0,0,4.65,0.12,0.24,1.22,0.61,0.12,lnr
+lnr_1749,1749,noa-isaac-kanika-bilonda,N. Kanika-bilonda,Montauban,MTB,LOCK,2ème ligne,France,24.0,194.0,114.0,2025-2026,15,701.0,46.7,0,0,0,7.19,0.0,0.0,0.0,0.57,0.11,lnr
+lnr_239,239,nafitalai-owen-maafu,N. Maafu,Montauban,MTB,LOCK,2ème ligne,Etats-Unis,27.0,,110.0,2025-2026,15,747.0,49.8,0,1,0,9.85,0.11,0.0,0.54,0.0,0.0,lnr
+lnr_12373,12373,joseph-patrick-powell,J. Powell,Montauban,MTB,SCRUM_HALF,Demi de mêlée,Irlande,31.0,178.0,80.0,2025-2026,15,668.0,44.5,0,0,0,8.5,0.12,0.12,0.24,0.0,0.0,lnr
+lnr_2713,2713,thomas-bue,Thomas Bue,Montauban,MTB,FRONT_ROW,1ère ligne,France,23.0,181.0,123.0,2025-2026,14,724.0,51.7,0,0,0,9.61,0.0,0.0,0.33,0.55,0.11,lnr
+lnr_2212,2212,john-thomas-jackson,J. Jackson,Montauban,MTB,CENTRE,Centre,Afrique du Sud,29.0,190.0,105.0,2025-2026,14,893.0,63.8,0,0,0,5.29,0.0,0.63,0.45,1.34,0.27,lnr
+lnr_1284,1284,kyllian-ringuet,Kyllian Ringuet,Montauban,MTB,BACK_ROW,3ème ligne,France,22.0,196.0,104.0,2025-2026,14,916.0,65.4,0,0,0,14.93,0.17,0.26,0.87,1.75,0.35,lnr
+lnr_1318,1318,tjiuee-uanivi,Tjiuee Uanivi,Montauban,MTB,LOCK,2ème ligne,Namibie,35.0,,99.0,2025-2026,14,801.0,57.2,0,0,0,6.49,0.2,0.0,0.1,0.0,0.0,lnr
+lnr_10998,10998,facundo-pomponio,Facundo Pomponio,Montauban,MTB,FRONT_ROW,1ère ligne,Argentine,33.0,186.0,119.0,2025-2026,13,488.0,37.5,3,0,0,8.2,0.0,0.0,0.0,0.0,0.0,lnr
+lnr_10149,10149,karl-wilkins,Karl Wilkins,Montauban,MTB,LOCK,2ème ligne,Angleterre,30.0,196.0,114.0,2025-2026,13,633.0,48.7,1,0,0,10.74,0.63,0.0,0.0,0.63,0.13,lnr
+lnr_1334,1334,jerome-bosviel,J. Bosviel,Montauban,MTB,FLY_HALF,Demi d'ouverture,France,35.0,183.0,96.0,2025-2026,12,721.0,60.1,0,0,0,3.66,0.0,0.22,1.0,9.65,0.11,lnr
+lnr_1322,1322,kevin-firmin,Kevin Firmin,Montauban,MTB,FRONT_ROW,1ère ligne,France,33.0,181.0,108.0,2025-2026,12,482.0,40.2,0,0,0,10.62,0.0,0.17,0.0,0.83,0.17,lnr
+lnr_2266,2266,ru-hann-greyling,Ru-hann Greyling,Montauban,MTB,FRONT_ROW,1ère ligne,Afrique du Sud,26.0,181.0,108.0,2025-2026,12,568.0,47.3,1,0,0,8.73,0.0,0.0,0.14,0.0,0.0,lnr
+lnr_1433,1433,jeremie-maurouard,Jeremie Maurouard,Montauban,MTB,FRONT_ROW,1ère ligne,France,33.0,180.0,95.0,2025-2026,12,385.0,32.1,0,0,0,12.68,0.83,0.21,1.66,3.12,0.62,lnr
+lnr_12704,12704,sikumbuzo-notshe,S. Notshe,Montauban,MTB,BACK_ROW,3ème ligne,Afrique du Sud,32.0,186.0,105.0,2025-2026,12,617.0,51.4,0,0,0,8.3,0.39,0.13,0.13,0.65,0.13,lnr
+lnr_1244,1244,simon-renda,Simon Renda,Montauban,MTB,CENTRE,Centre,France,25.0,186.0,97.0,2025-2026,11,681.0,61.9,0,0,0,6.11,0.12,0.23,0.47,0.0,0.0,lnr
+lnr_1341,1341,lucas-seyrolle,Lucas Seyrolle,Montauban,MTB,FRONT_ROW,1ère ligne,France,30.0,183.0,131.0,2025-2026,11,341.0,31.0,0,0,0,7.27,0.47,0.0,0.0,1.17,0.23,lnr
+lnr_10999,10999,valentin-simutoga,V. Simutoga,Montauban,MTB,FRONT_ROW,1ère ligne,France,23.0,184.0,125.0,2025-2026,11,459.0,41.7,0,0,0,9.76,0.35,0.0,0.35,0.0,0.0,lnr
+lnr_1385,1385,paul-vallee,Paul Vallee,Montauban,MTB,CENTRE,Centre,France,23.0,186.0,83.0,2025-2026,11,710.0,64.5,0,0,0,2.14,0.0,0.56,0.68,1.69,0.34,lnr
+lnr_169,169,clement-bitz,C. Bitz,Montauban,MTB,BACK_ROW,3ème ligne,France,31.0,195.0,113.0,2025-2026,10,448.0,44.8,0,0,0,8.93,0.0,0.36,0.18,0.0,0.0,lnr
+lnr_891,891,thomas-fortunel,Thomas Fortunel,Montauban,MTB,FLY_HALF,Demi d'ouverture,France,30.0,178.0,83.0,2025-2026,10,480.0,48.0,0,0,0,4.83,0.0,0.0,0.33,5.83,0.0,lnr
+lnr_1330,1330,maxime-mathy,Maxime Mathy,Montauban,MTB,CENTRE,Centre,France,33.0,178.0,88.0,2025-2026,10,409.0,40.9,0,0,0,8.22,0.2,0.59,0.2,0.98,0.2,lnr
+lnr_1329,1329,fred-quercy,Fred Quercy,Montauban,MTB,BACK_ROW,3ème ligne,France,34.0,188.0,103.0,2025-2026,9,529.0,58.8,3,0,1,8.32,0.6,0.0,0.3,0.0,0.0,lnr
+lnr_1312,1312,tyrone-viiga,Tyrone Viiga,Montauban,MTB,BACK_ROW,3ème ligne,Nouvelle Zélande,33.0,192.0,114.0,2025-2026,9,495.0,55.0,0,0,1,10.51,0.0,0.16,0.16,0.0,0.0,lnr
+lnr_1001,1001,leo-aouf,Leo Aouf,Montauban,MTB,FRONT_ROW,1ère ligne,France,29.0,182.0,120.0,2025-2026,8,273.0,34.1,0,0,0,8.79,0.0,0.0,0.0,0.0,0.0,lnr
+lnr_3505,3505,lucio-sordoni,Lucio Sordoni,Montauban,MTB,FRONT_ROW,1ère ligne,Italie,27.0,190.0,130.0,2025-2026,8,330.0,41.2,0,0,0,6.79,0.24,0.0,0.24,0.0,0.0,lnr
+lnr_1342,1342,juan-segundo-tuculet,J. Tuculet,Montauban,MTB,CENTRE,Centre,Italie,32.0,180.0,86.0,2025-2026,8,556.0,69.5,1,0,0,2.59,0.0,0.43,1.15,0.72,0.14,lnr
+lnr_1747,1747,stephane-ahmed,S. Ahmed,Montauban,MTB,WINGER,Ailier,France,27.0,182.0,83.0,2025-2026,6,439.0,73.2,0,0,0,3.83,0.18,1.46,1.28,1.82,0.36,lnr
+lnr_11742,11742,mael-castel,Mael Castel,Montauban,MTB,SCRUM_HALF,Demi de mêlée,France,21.0,,,2025-2026,5,139.0,27.8,0,0,0,2.88,0.0,0.58,0.0,2.88,0.58,lnr
+lnr_4957,4957,lewis-bean,Lewis Bean,Montauban,MTB,LOCK,2ème ligne,Angleterre,34.0,,129.0,2025-2026,4,96.0,24.0,1,0,0,10.0,0.0,0.0,0.0,0.0,0.0,lnr
+lnr_14049,14049,sione-tulimaiau-mafileo,S. Mafile'o,Montauban,MTB,FRONT_ROW,1ère ligne,Nouvelle Zélande,32.0,180.0,135.0,2025-2026,4,154.0,38.5,0,0,0,11.43,0.0,0.0,0.0,0.0,0.0,lnr
+lnr_626,626,thomas-larregain,Thomas Larregain,Montauban,MTB,FULLBACK,Arrière,France,28.0,184.0,93.0,2025-2026,3,197.0,65.7,0,0,0,3.25,0.41,0.0,0.41,0.0,0.0,lnr
+lnr_479,479,nugzari-somkhisvhili,N. Somkhisvhili,Montauban,MTB,FRONT_ROW,1ère ligne,Géorgie,24.0,182.0,110.0,2025-2026,3,102.0,34.0,1,0,0,14.12,0.78,0.0,0.0,0.0,0.0,lnr
+lnr_286,286,corentin-coularis,C. Coularis,Montauban,MTB,BACK_ROW,3ème ligne,France,23.0,191.0,107.0,2025-2026,2,89.0,44.5,0,0,0,12.58,0.0,0.0,0.9,0.0,0.0,lnr
+lnr_1873,1873,romain-fonnicola,Romain Fonnicola,Montauban,MTB,WINGER,Ailier,France,23.0,186.0,96.0,2025-2026,2,91.0,45.5,0,0,0,6.15,0.0,0.0,1.76,4.4,0.88,lnr
+lnr_1991,1991,victor-moreaux,Victor Moreaux,Montauban,MTB,LOCK,2ème ligne,France,32.0,198.0,127.0,2025-2026,2,54.0,27.0,0,0,0,7.41,0.0,0.0,2.96,0.0,0.0,lnr
+lnr_1897,1897,yvan-reilhac,Yvan Reilhac,Montauban,MTB,CENTRE,Centre,France,30.0,181.0,98.0,2025-2026,2,144.0,72.0,0,0,0,3.33,0.0,1.11,1.67,5.56,1.11,lnr
+lnr_2342,2342,mathieu-tanguy,Mathieu Tanguy,Perpignan,PER,LOCK,2ème ligne,France,29.0,195.0,107.0,2025-2026,17,775.0,45.6,2,0,0,8.57,0.1,0.1,0.31,0.0,0.0,lnr
+lnr_2282,2282,kieran-brookes,Kieran Brookes,Perpignan,PER,FRONT_ROW,1ère ligne,Grande-Bretagne,35.0,187.0,120.0,2025-2026,15,705.0,47.0,1,0,0,7.83,0.0,0.0,0.11,0.0,0.0,lnr
+lnr_2389,2389,bruce-devaux,Bruce Devaux,Perpignan,PER,FRONT_ROW,1ère ligne,France,29.0,183.0,108.0,2025-2026,15,600.0,40.0,1,0,0,7.87,0.13,0.0,0.0,0.0,0.0,lnr
+lnr_1987,1987,tom-ecochard,Tom Ecochard,Perpignan,PER,SCRUM_HALF,Demi de mêlée,France,33.0,173.0,85.0,2025-2026,15,735.0,49.0,1,0,0,7.4,0.0,0.11,0.44,0.54,0.11,lnr
+lnr_2001,2001,alivereti-uqueqe-duguivalu,A. Duguivalu,Perpignan,PER,CENTRE,Centre,Fidji,28.0,180.0,85.0,2025-2026,14,955.0,68.2,0,0,0,6.53,0.17,0.5,0.92,0.84,0.17,lnr
+lnr_12733,12733,maxwell-hicks,Maxwell Hicks,Perpignan,PER,LOCK,2ème ligne,Nouvelle Zélande,26.0,199.0,112.0,2025-2026,14,912.0,65.1,1,0,0,8.6,0.61,0.09,0.0,0.44,0.09,lnr
+lnr_2383,2383,matteo-le-corvec,Mattéo Le Corvec,Perpignan,PER,BACK_ROW,3ème ligne,France,25.0,192.0,111.0,2025-2026,13,576.0,44.3,1,0,0,11.81,0.14,0.14,0.14,1.39,0.28,lnr
+lnr_679,679,peceli-yato,Peceli Yato,Perpignan,PER,BACK_ROW,3ème ligne,Fidji,33.0,196.0,105.0,2025-2026,13,628.0,48.3,0,0,0,8.03,0.76,0.51,0.89,1.91,0.38,lnr
+lnr_1782,1782,james-robert-hall,J. Hall,Perpignan,PER,SCRUM_HALF,Demi de mêlée,Afrique du Sud,30.0,173.0,82.0,2025-2026,12,460.0,38.3,0,0,0,9.74,0.17,0.52,0.87,0.0,0.0,lnr
+lnr_662,662,giorgi-beria,Giorgi Beria,Perpignan,PER,FRONT_ROW,1ère ligne,France,26.0,175.0,108.0,2025-2026,11,418.0,38.0,2,0,0,14.55,0.77,0.0,0.77,0.0,0.0,lnr
+lnr_398,398,pietro-ceccarelli,P. Ceccarelli,Perpignan,PER,FRONT_ROW,1ère ligne,France,34.0,184.0,115.0,2025-2026,11,421.0,38.3,0,0,0,10.45,0.19,0.0,0.0,0.0,0.0,lnr
+lnr_1971,1971,theo-forner,Theo Forner,Perpignan,PER,FULLBACK,Arrière,France,24.0,180.0,80.0,2025-2026,11,847.0,77.0,0,0,0,4.16,0.28,1.13,0.94,0.0,0.0,lnr
+lnr_92,92,jefferson-lee-joseph,J. Joseph,Perpignan,PER,FULLBACK,Arrière,France,23.0,192.0,88.0,2025-2026,11,797.0,72.5,0,0,1,5.02,0.1,0.6,0.7,3.01,0.6,lnr
+lnr_1967,1967,mathys-lotrian,Mathys Lotrian,Perpignan,PER,FRONT_ROW,1ère ligne,France,22.0,177.0,110.0,2025-2026,11,420.0,38.2,1,0,0,13.33,0.19,0.19,0.0,0.95,0.19,lnr
+lnr_13558,13558,james-thomas-ritchie,J. Ritchie,Perpignan,PER,LOCK,2ème ligne,Grande-Bretagne,29.0,193.0,109.0,2025-2026,11,811.0,73.7,0,0,0,22.89,0.79,0.39,0.39,0.0,0.0,lnr
+lnr_693,693,jacobus-van-tonder,J. Van Tonder,Perpignan,PER,LOCK,2ème ligne,Afrique du Sud,28.0,197.0,118.0,2025-2026,11,644.0,58.5,0,0,0,13.66,0.5,0.37,0.37,0.0,0.0,lnr
+lnr_2388,2388,adrien-warion,Adrien Warion,Perpignan,PER,LOCK,2ème ligne,France,25.0,,107.0,2025-2026,11,639.0,58.1,0,0,0,13.9,0.25,0.0,0.5,0.0,0.0,lnr
+lnr_2632,2632,eneriko-buliruarua,E. Buliruarua,Perpignan,PER,CENTRE,Centre,Fidji,29.0,186.0,106.0,2025-2026,10,613.0,61.3,0,0,0,7.05,0.26,0.52,0.52,1.96,0.39,lnr
+lnr_323,323,mahamadou-diaby,M. Diaby,Perpignan,PER,BACK_ROW,3ème ligne,France,35.0,192.0,104.0,2025-2026,10,366.0,36.6,1,0,0,12.24,0.44,0.0,0.22,0.0,0.0,lnr
+lnr_13637,13637,sama-leonardo-malolo,S. Malolo,Perpignan,PER,FRONT_ROW,1ère ligne,Samoa occidental,28.0,184.0,109.0,2025-2026,10,427.0,42.7,0,0,0,11.43,0.56,0.94,0.56,0.94,0.19,lnr
+lnr_1990,1990,giorgi-tetrashvili,G. Tetrashvili,Perpignan,PER,FRONT_ROW,1ère ligne,Géorgie,32.0,177.0,114.0,2025-2026,10,416.0,41.6,1,0,0,10.19,0.0,0.0,0.0,0.0,0.0,lnr
+lnr_1970,1970,bastien-chinarro,Bastien Chinarro,Perpignan,PER,LOCK,2ème ligne,France,22.0,196.0,95.0,2025-2026,9,471.0,52.3,0,0,0,10.02,0.17,0.34,0.34,1.7,0.34,lnr
+lnr_11982,11982,job-poulet-1,Job Poulet,Perpignan,PER,CENTRE,Centre,France,22.0,180.0,79.0,2025-2026,9,323.0,35.9,0,0,0,6.69,0.5,0.25,0.74,0.0,0.0,lnr
+lnr_1784,1784,nemo-gunther-roelofse,N. Roelofse,Perpignan,PER,FRONT_ROW,1ère ligne,Afrique du Sud,30.0,182.0,120.0,2025-2026,9,281.0,31.2,0,0,0,6.26,0.28,0.28,0.0,0.0,0.0,lnr
+lnr_9603,9603,tommaso-allan,Tommaso Allan,Perpignan,PER,FLY_HALF,Demi d'ouverture,Italie,32.0,183.0,90.0,2025-2026,8,477.0,59.6,1,0,0,1.84,0.0,0.34,0.34,10.06,0.17,lnr
+lnr_1961,1961,maxim-granell,Maxim Granell,Perpignan,PER,CENTRE,Centre,France,20.0,182.0,80.0,2025-2026,8,596.0,74.5,0,0,0,8.05,0.13,0.54,0.4,2.01,0.4,lnr
+lnr_1955,1955,joaquin-oviedo,Joaquin Oviedo,Perpignan,PER,BACK_ROW,3ème ligne,Argentine,24.0,191.0,113.0,2025-2026,8,508.0,63.5,0,0,0,10.71,0.16,0.47,0.63,1.57,0.31,lnr
+lnr_11989,11989,ignacio-ruiz,Ignacio Ruiz,Perpignan,PER,FRONT_ROW,1ère ligne,Italie,25.0,185.0,109.0,2025-2026,8,400.0,50.0,1,0,0,10.2,0.0,0.2,0.2,2.0,0.4,lnr
+lnr_1447,1447,gela-aprasidze,Gela Aprasidze,Perpignan,PER,SCRUM_HALF,Demi de mêlée,Géorgie,28.0,175.0,70.0,2025-2026,7,209.0,29.9,1,0,0,6.12,0.0,0.0,0.38,1.15,0.0,lnr
+lnr_2010,2010,lucas-dubois,Lucas Dubois,Perpignan,PER,WINGER,Ailier,France,27.0,182.0,88.0,2025-2026,7,503.0,71.9,1,0,0,2.39,0.0,0.64,0.32,0.8,0.16,lnr
+lnr_1976,1976,tristan-james-tedder,T. Tedder,Perpignan,PER,FLY_HALF,Demi d'ouverture,Autriche,29.0,180.0,78.0,2025-2026,7,450.0,64.3,0,0,0,2.49,0.0,0.36,1.24,2.31,0.0,lnr
+lnr_594,594,benjamin-urdapilleta,B. Urdapilleta,Perpignan,PER,FLY_HALF,Demi d'ouverture,Italie,40.0,176.0,76.0,2025-2026,7,416.0,59.4,0,0,0,8.46,0.19,0.0,0.77,8.65,0.0,lnr
+lnr_2025,2025,lucas-velarte,Lucas Velarte,Perpignan,PER,FRONT_ROW,1ère ligne,France,27.0,185.0,108.0,2025-2026,7,383.0,54.7,0,0,0,14.2,0.63,0.0,0.84,3.13,0.63,lnr
+lnr_1047,1047,tavite-veredamu,Tavite Veredamu,Perpignan,PER,BACK_ROW,3ème ligne,France,36.0,188.0,108.0,2025-2026,7,531.0,75.9,1,0,0,6.18,0.15,1.05,1.05,0.75,0.15,lnr
+lnr_1952,1952,posolo-tuilagi,Posolo Tuilagi,Perpignan,PER,BACK_ROW,3ème ligne,Samoa,21.0,192.0,145.0,2025-2026,6,223.0,37.2,1,0,0,12.56,0.72,0.0,1.08,1.79,0.36,lnr
+lnr_2009,2009,victor-montgaillard,V. Montgaillard,Perpignan,PER,FRONT_ROW,1ère ligne,France,23.0,181.0,108.0,2025-2026,5,153.0,30.6,0,0,0,17.25,0.52,0.0,0.0,0.0,0.0,lnr
+lnr_13878,13878,jordan-washington-petaia,J. Petaia,Perpignan,PER,CENTRE,Centre,Australie,26.0,190.0,98.0,2025-2026,5,282.0,56.4,0,0,0,5.39,0.0,0.0,0.0,0.0,0.0,lnr
+lnr_1013,1013,noe-della-schiava,N. Della Schiava,Perpignan,PER,BACK_ROW,3ème ligne,France,24.0,193.0,95.0,2025-2026,4,152.0,38.0,1,0,0,7.89,0.0,0.0,1.05,0.0,0.0,lnr
+lnr_2385,2385,duncan-paiaaua,Duncan Paia'aua,Perpignan,PER,CENTRE,Centre,Australie,31.0,183.0,92.0,2025-2026,4,276.0,69.0,0,0,0,4.93,0.0,0.29,0.29,1.45,0.29,lnr
+lnr_1646,1646,antoine-aucagne,Antoine Aucagne,Perpignan,PER,FLY_HALF,Demi d'ouverture,France,25.0,184.0,80.0,2025-2026,3,135.0,45.0,0,0,0,2.96,0.0,0.59,0.0,4.15,0.0,lnr
+lnr_1962,1962,gabin-kretchmann,G. Kretchmann,Perpignan,PER,FULLBACK,Arrière,France,20.0,183.0,84.0,2025-2026,3,48.0,16.0,0,0,0,8.33,0.0,0.0,0.0,0.0,0.0,lnr
+lnr_12480,12480,andro-dvali,Andro Dvali,Perpignan,PER,BACK_ROW,3ème ligne,Géorgie,20.0,188.0,95.0,2025-2026,2,48.0,24.0,0,0,0,10.0,0.0,0.0,0.0,0.0,0.0,lnr
+lnr_2671,2671,matis-perchaud,Matis Perchaud,Bordeaux,BOR,FRONT_ROW,1ère ligne,France,23.0,187.0,112.0,2025-2026,18,657.0,36.5,1,0,0,12.54,0.49,0.12,0.61,0.0,0.0,lnr
+lnr_11240,11240,carlu-johann-sadie,C. Sadie,Bordeaux,BOR,FRONT_ROW,1ère ligne,Afrique du Sud,28.0,182.0,138.0,2025-2026,18,838.0,46.6,0,0,0,8.31,0.1,0.1,0.0,0.95,0.19,lnr
+lnr_335,335,bastien-vergnes-taillefer,B. Vergnes Taillefer,Bordeaux,BOR,BACK_ROW,3ème ligne,France,28.0,194.0,111.0,2025-2026,16,727.0,45.4,0,0,0,12.87,0.0,0.33,0.55,1.65,0.33,lnr
+lnr_329,329,jefferson-poirot,J. Poirot,Bordeaux,BOR,FRONT_ROW,1ère ligne,France,33.0,181.0,117.0,2025-2026,15,660.0,44.0,1,0,0,11.76,0.24,0.12,0.36,1.21,0.24,lnr
+lnr_349,349,maxime-lamothe,Maxime Lamothe,Bordeaux,BOR,FRONT_ROW,1ère ligne,France,27.0,183.0,109.0,2025-2026,14,691.0,49.4,0,0,0,12.62,0.58,0.35,0.12,1.74,0.35,lnr
+lnr_205,205,temo-matiu,Temo Matiu,Bordeaux,BOR,BACK_ROW,3ème ligne,France,24.0,191.0,100.0,2025-2026,14,862.0,61.6,0,0,0,10.67,0.28,0.56,0.65,0.93,0.19,lnr
+lnr_12774,12774,salesi-rayasi,Salesi Rayasi,Bordeaux,BOR,WINGER,Ailier,Nouvelle Zélande,29.0,193.0,105.0,2025-2026,14,800.0,57.1,1,0,0,3.3,0.2,1.4,0.6,4.0,0.8,lnr
+lnr_324,324,cyril-cazeaux,Cyril Cazeaux,Bordeaux,BOR,LOCK,2ème ligne,France,31.0,198.0,117.0,2025-2026,13,682.0,52.5,1,0,0,10.44,0.0,0.0,0.47,0.59,0.12,lnr
+lnr_203,203,tiaan-jacobs,Tiaan Jacobs,Bordeaux,BOR,LOCK,2ème ligne,Afrique du Sud,21.0,193.0,107.0,2025-2026,13,498.0,38.3,0,0,0,12.21,0.48,0.0,0.16,0.0,0.0,lnr
+lnr_313,313,pablo-uberti,Pablo Uberti,Bordeaux,BOR,CENTRE,Centre,France,28.0,185.0,85.0,2025-2026,13,935.0,71.9,1,0,0,7.36,0.09,0.34,0.43,0.43,0.09,lnr
+lnr_304,304,nicolas-depoortere,N. Depoortere,Bordeaux,BOR,CENTRE,Centre,France,23.0,193.0,87.0,2025-2026,12,868.0,72.3,0,0,0,6.91,0.0,0.92,0.83,4.15,0.83,lnr
+lnr_12571,12571,rohan-janse-van-rensburg-2,R. Janse Van Rensburg,Bordeaux,BOR,CENTRE,Centre,Afrique du Sud,31.0,185.0,109.0,2025-2026,12,735.0,61.2,0,0,0,8.27,0.65,0.33,0.44,0.0,0.0,lnr
+lnr_3607,3607,marko-gazzotti,Marko Gazzotti,Bordeaux,BOR,BACK_ROW,3ème ligne,France,21.0,192.0,110.0,2025-2026,11,571.0,51.9,1,0,0,11.63,0.28,0.0,0.56,2.1,0.42,lnr
+lnr_339,339,matthieu-jalibert,Matthieu Jalibert,Bordeaux,BOR,FLY_HALF,Demi d'ouverture,France,27.0,184.0,84.0,2025-2026,11,798.0,72.5,1,0,0,5.31,0.1,1.4,2.11,8.22,0.5,lnr
+lnr_638,638,gaetan-barlot,Gaëtan Barlot,Bordeaux,BOR,FRONT_ROW,1ère ligne,France,28.0,184.0,107.0,2025-2026,10,389.0,38.9,0,0,0,15.42,0.41,0.21,1.23,3.08,0.62,lnr
+lnr_277,277,louis-bielle-biarrey,L. Bielle-biarrey,Bordeaux,BOR,FULLBACK,Arrière,France,22.0,184.0,79.0,2025-2026,10,713.0,71.3,1,0,0,2.58,0.0,1.91,0.9,5.61,1.12,lnr
+lnr_318,318,romain-buros,Romain Buros,Bordeaux,BOR,FULLBACK,Arrière,France,28.0,187.0,90.0,2025-2026,10,667.0,66.7,0,0,0,2.4,0.0,0.48,0.6,3.0,0.6,lnr
+lnr_12498,12498,jonathan-gray,J. Gray,Bordeaux,BOR,LOCK,2ème ligne,Grande-Bretagne,32.0,198.0,122.0,2025-2026,10,457.0,45.7,0,0,0,15.75,0.0,0.0,0.7,0.0,0.0,lnr
+lnr_13482,13482,valentin-hutteau,V. Hutteau,Bordeaux,BOR,SCRUM_HALF,Demi de mêlée,France,18.0,167.0,75.0,2025-2026,10,334.0,33.4,0,0,0,3.35,0.48,0.48,2.16,1.2,0.24,lnr
+lnr_3536,3536,xan-mousques,Xan Mousques,Bordeaux,BOR,FULLBACK,Arrière,France,20.0,178.0,89.0,2025-2026,10,508.0,50.8,2,0,0,3.62,0.0,0.63,1.1,0.79,0.16,lnr
+lnr_2495,2495,martin-page-relo,Martin Page Relo,Bordeaux,BOR,SCRUM_HALF,Demi de mêlée,France,27.0,173.0,77.0,2025-2026,10,459.0,45.9,0,0,0,3.66,0.0,0.52,0.52,6.62,0.52,lnr
+lnr_11744,11744,joseph-laharrague,J. Laharrague,Bordeaux,BOR,FLY_HALF,Demi d'ouverture,France,19.0,183.0,80.0,2025-2026,9,230.0,25.6,0,0,0,6.61,0.0,0.7,1.04,3.48,0.35,lnr
+lnr_2441,2441,arthur-retiere,Arthur Retiere,Bordeaux,BOR,SCRUM_HALF,Demi de mêlée,France,28.0,173.0,80.0,2025-2026,9,294.0,32.7,0,0,0,4.9,0.27,1.09,2.18,2.72,0.54,lnr
+lnr_531,531,connor-sa,Connor Sa,Bordeaux,BOR,FRONT_ROW,1ère ligne,Nouvelle Zélande,24.0,183.0,101.0,2025-2026,9,359.0,39.9,0,0,0,11.36,0.22,0.22,0.22,2.23,0.45,lnr
+lnr_279,279,pierre-bochaton,Pierre Bochaton,Bordeaux,BOR,LOCK,2ème ligne,France,24.0,197.0,103.0,2025-2026,8,545.0,68.1,0,0,0,8.81,0.29,0.29,0.59,0.0,0.0,lnr
+lnr_12425,12425,joseph-carbery,Joseph Carbery,Bordeaux,BOR,FLY_HALF,Demi d'ouverture,Irlande,30.0,183.0,86.0,2025-2026,8,379.0,47.4,0,0,0,4.64,0.0,0.21,0.84,5.28,0.0,lnr
+lnr_9642,9642,adam-coleman,Adam Coleman,Bordeaux,BOR,LOCK,2ème ligne,Australie,34.0,,122.0,2025-2026,7,372.0,53.1,0,0,0,11.18,0.22,0.22,0.86,0.0,0.0,lnr
+lnr_311,311,sipili-falatea,Sipili Falatea,Bordeaux,BOR,FRONT_ROW,1ère ligne,France,28.0,183.0,115.0,2025-2026,7,230.0,32.9,0,0,0,10.09,0.0,0.0,0.7,1.74,0.35,lnr
+lnr_331,331,maxime-lucu,Maxime Lucu,Bordeaux,BOR,SCRUM_HALF,Demi de mêlée,France,33.0,177.0,83.0,2025-2026,7,557.0,79.6,0,0,0,7.76,0.0,0.57,0.43,7.9,0.0,lnr
+lnr_340,340,benjamin-tameifuna,B. Tameifuna,Bordeaux,BOR,FRONT_ROW,1ère ligne,Nouvelle Zélande,34.0,188.0,151.0,2025-2026,7,266.0,38.0,0,0,0,5.71,0.9,0.3,1.2,1.5,0.3,lnr
+lnr_338,338,yoram-falatea-moefana,Y. Falatea Moefana,Bordeaux,BOR,CENTRE,Centre,France,25.0,182.0,97.0,2025-2026,5,285.0,57.0,0,0,0,6.74,0.0,0.28,2.25,0.0,0.0,lnr
+lnr_309,309,ugo-boniface,Ugo Boniface,Bordeaux,BOR,FRONT_ROW,1ère ligne,France,27.0,190.0,125.0,2025-2026,4,117.0,29.2,1,0,0,10.26,0.0,0.0,2.05,3.42,0.68,lnr
+lnr_12202,12202,adrien-drault,Adrien Drault,Bordeaux,BOR,CENTRE,Centre,France,19.0,182.0,85.0,2025-2026,4,174.0,43.5,0,0,0,7.36,0.0,0.46,0.0,2.3,0.46,lnr
+lnr_11712,11712,jon-echegaray,Jon Echegaray,Bordeaux,BOR,WINGER,Ailier,France,20.0,180.0,85.0,2025-2026,4,238.0,59.5,0,0,0,1.34,0.0,0.34,2.02,1.34,0.0,lnr
+lnr_903,903,tomaakino-taufa,T. Taufa,Bordeaux,BOR,FRONT_ROW,1ère ligne,Tonga,31.0,180.0,145.0,2025-2026,4,106.0,26.5,0,0,0,6.79,0.75,0.75,0.0,0.0,0.0,lnr
