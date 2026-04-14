@@ -118,9 +118,9 @@ st.plotly_chart(fig_cov, use_container_width=True)
 
 # Couverture par poste (heatmap métriques × postes)
 with st.expander("Couverture des métriques par groupe de poste"):
-    from engine.ratings import load_weights
+    from engine.ratings import NAIM_POS_WEIGHTS
     try:
-        _weights = load_weights()
+        _weights = NAIM_POS_WEIGHTS
         _core_all = sorted({m for pg_cfg in _weights.values() for m in pg_cfg})
         _core_avail = [m for m in _core_all if m in df.columns]
         if _core_avail:

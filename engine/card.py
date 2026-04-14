@@ -78,7 +78,8 @@ def _get_tier(rating: int):
 
 def render_card(player: dict, dpi: int = 180) -> bytes:
     """Retourne les bytes PNG de la carte joueur."""
-    rating = int(player.get("rating", 70))
+    _raw_rating = player.get("rating", 70)
+    rating = int(_raw_rating) if _raw_rating == _raw_rating else 70  # guard NaN
     bg, accent, stat_col, tier = _get_tier(rating)
 
     fig, ax = plt.subplots(figsize=(2.5, 3.5), dpi=dpi)
@@ -181,7 +182,12 @@ def render_card(player: dict, dpi: int = 180) -> bytes:
     ax.plot([5, 95], [59, 59], color=accent, linewidth=0.8, alpha=0.5, zorder=2)
 
     # --- BAS : 6 stats (étiquettes rugby) ---
-    stats = list(zip(CARD_AXIS_LABELS, [int(player.get(k, 50)) for k in CARD_AXIS_KEYS]))
+    def _safe_int(v) -> int:
+        try:
+            return int(v) if v == v else 50  # v != v → NaN
+        except (TypeError, ValueError):
+            return 50
+    stats = list(zip(CARD_AXIS_LABELS, [_safe_int(player.get(k, 50)) for k in CARD_AXIS_KEYS]))
 
     y_rows = [47, 33, 19]
     for i, (label, val) in enumerate(stats):
