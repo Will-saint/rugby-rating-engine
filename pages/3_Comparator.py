@@ -1,5 +1,5 @@
 """
-Page 3 — Comparateur 2 joueurs (radar + stats côte à côte)
+Page 3 — Comparateur jusqu'à 3 joueurs (radar + stats + sparkline forme)
 """
 
 import sys, os
@@ -8,95 +8,127 @@ sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 import streamlit as st
 import plotly.graph_objects as go
 import plotly.express as px
+import pandas as pd
+import numpy as np
 from utils import load_data, page_config, AXIS_LABELS, AXIS_COLORS, get_available_positions, season_selector
 from engine.card import render_card
 
 page_config("Comparateur")
 st.title("Comparateur de joueurs")
-st.markdown("Compare deux joueurs sur tous leurs axes — **idéalement même poste**.")
+st.markdown(
+    "Compare **jusqu'à 3 joueurs** sur tous leurs axes. "
+    "La sparkline montre la forme des 5 derniers matchs."
+)
 
 season = season_selector("_cmp")
 df = load_data(season)
 
 same_pos_mode = st.toggle("Même poste uniquement (recommandé)", value=True)
+three_players  = st.toggle("Ajouter un 3ème joueur", value=False)
 
 positions_list = get_available_positions(df)
 
-col_a, col_b = st.columns(2)
-with col_a:
-    st.markdown("### Joueur A")
-    teams_a = ["Toutes"] + sorted(df["team"].unique().tolist())
-    team_a = st.selectbox("Equipe A", teams_a, key="ta")
-    pos_a = st.selectbox("Poste A", positions_list, key="pa")
+PLAYER_COLORS = ["#EF4444", "#3B82F6", "#10B981"]
+PLAYER_LABELS = ["Joueur A", "Joueur B", "Joueur C"]
 
-    filt_a = df.copy()
-    if team_a != "Toutes": filt_a = filt_a[filt_a["team"] == team_a]
-    filt_a = filt_a[filt_a["position_group"] == pos_a]
-    filt_a = filt_a.sort_values("rating", ascending=False)
 
-    player_a_name = st.selectbox("Joueur A", filt_a["name"].tolist(), key="pna")
-    player_a = filt_a[filt_a["name"] == player_a_name].iloc[0].to_dict()
+def player_selector(col_key: str, color: str, label: str, pos_constraint: str | None = None) -> dict | None:
+    st.markdown(f'<span style="color:{color}; font-weight:700; font-size:1.05em">● {label}</span>',
+                unsafe_allow_html=True)
+    teams = ["Toutes"] + sorted(df["team"].unique().tolist())
+    team  = st.selectbox("Équipe", teams, key=f"team_{col_key}")
+    pos_options = [pos_constraint] if (same_pos_mode and pos_constraint) else positions_list
+    pos   = st.selectbox("Poste", pos_options, key=f"pos_{col_key}")
+    filt  = df.copy()
+    if team != "Toutes":
+        filt = filt[filt["team"] == team]
+    filt = filt[filt["position_group"] == pos].sort_values("display_rating", ascending=False)
+    if filt.empty:
+        st.caption("Aucun joueur trouvé.")
+        return None
+    name = st.selectbox("Joueur", filt["name"].tolist(), key=f"name_{col_key}")
+    return filt[filt["name"] == name].iloc[0].to_dict()
 
-with col_b:
-    st.markdown("### Joueur B")
-    teams_b = ["Toutes"] + sorted(df["team"].unique().tolist())
-    team_b = st.selectbox("Equipe B", teams_b, key="tb")
 
-    if same_pos_mode:
-        pos_b_options = [pos_a]
-    else:
-        pos_b_options = positions_list
-    pos_b = st.selectbox("Poste B", pos_b_options, key="pb")
+n_cols = 3 if three_players else 2
+cols = st.columns(n_cols)
 
-    filt_b = df.copy()
-    if team_b != "Toutes": filt_b = filt_b[filt_b["team"] == team_b]
-    filt_b = filt_b[filt_b["position_group"] == pos_b]
-    filt_b = filt_b.sort_values("rating", ascending=False)
+players: list[dict | None] = []
+pos_a = None
+with cols[0]:
+    p = player_selector("a", PLAYER_COLORS[0], PLAYER_LABELS[0])
+    players.append(p)
+    if p:
+        pos_a = p.get("position_group")
 
-    player_b_name = st.selectbox("Joueur B", filt_b["name"].tolist(), key="pnb")
-    player_b = filt_b[filt_b["name"] == player_b_name].iloc[0].to_dict()
+with cols[1]:
+    p = player_selector("b", PLAYER_COLORS[1], PLAYER_LABELS[1], pos_constraint=pos_a)
+    players.append(p)
 
-if player_a["position_group"] != player_b["position_group"]:
+if three_players:
+    with cols[2]:
+        p = player_selector("c", PLAYER_COLORS[2], PLAYER_LABELS[2], pos_constraint=pos_a)
+        players.append(p)
+
+active = [(pl, PLAYER_COLORS[i], PLAYER_LABELS[i]) for i, pl in enumerate(players) if pl is not None]
+if len(active) < 2:
+    st.info("Sélectionne au moins 2 joueurs pour comparer.")
+    st.stop()
+
+# Cross-poste warning
+pos_groups = {pl["position_group"] for pl, _, _ in active}
+if len(pos_groups) > 1:
     st.warning(
-        f"Comparaison cross-postes : {player_a['position_group']} vs {player_b['position_group']}. "
-        "Les axes sont calculés dans le poste — la comparaison directe des valeurs est indicative uniquement."
+        "Comparaison cross-postes : " + " vs ".join(pos_groups) +
+        ". Les axes sont calculés dans le poste — les valeurs sont indicatives."
     )
 
 st.divider()
 
-# --- Cartes côte à côte ---
-cc1, cc2, cc_mid = st.columns([1, 1, 2])
-with cc1:
-    st.image(render_card(player_a), width=280)
-with cc2:
-    st.image(render_card(player_b), width=280)
+# ============================================================
+# Cartes + Radar principal
+# ============================================================
+card_cols = st.columns([1] * len(active) + [2])
 
-with cc_mid:
-    # Radar superposé
-    axes = ["axis_att", "axis_def", "axis_disc", "axis_ctrl", "axis_kick", "axis_pow"]
+for i, (pl, color, label) in enumerate(active):
+    with card_cols[i]:
+        st.image(render_card(pl), use_container_width=True)
+        # Form trend badge
+        trend  = pl.get("form_trend", "→")
+        fmatches = int(pl.get("form_matches", 0) or 0)
+        fscore = pl.get("form_score", 50)
+        try:
+            fscore = float(fscore)
+        except (TypeError, ValueError):
+            fscore = 50.0
+        trend_color = {"↗": "#10B981", "↘": "#EF4444", "→": "#9CA3AF"}.get(trend, "#9CA3AF")
+        st.markdown(
+            f'<div style="text-align:center; margin-top:-8px">'
+            f'<span style="color:{trend_color}; font-size:1.3em; font-weight:700">{trend}</span>'
+            f'<span style="color:#9CA3AF; font-size:0.8em"> forme {fmatches}M · {fscore:.0f}/100</span>'
+            f'</div>',
+            unsafe_allow_html=True,
+        )
+
+with card_cols[-1]:
+    axes   = ["axis_att", "axis_def", "axis_disc", "axis_ctrl", "axis_kick", "axis_pow"]
     labels = [AXIS_LABELS[a] for a in axes]
-
-    vals_a = [player_a.get(a, 50) for a in axes]
-    vals_b = [player_b.get(a, 50) for a in axes]
 
     def hex_rgba(h: str, a: float = 0.2) -> str:
         r, g, b = int(h[1:3], 16), int(h[3:5], 16), int(h[5:7], 16)
         return f"rgba({r},{g},{b},{a})"
 
     fig_radar = go.Figure()
-    for vals, name, color in [
-        (vals_a, player_a_name, "#EF4444"),
-        (vals_b, player_b_name, "#3B82F6"),
-    ]:
-        closed_vals = vals + [vals[0]]
-        closed_labels = labels + [labels[0]]
+    for pl, color, label in active:
+        vals   = [float(pl.get(a, 50) or 50) for a in axes]
+        closed = vals + [vals[0]]
         fig_radar.add_trace(go.Scatterpolar(
-            r=closed_vals,
-            theta=closed_labels,
+            r=closed,
+            theta=labels + [labels[0]],
             fill="toself",
-            fillcolor=hex_rgba(color, 0.2),
+            fillcolor=hex_rgba(color, 0.18),
             line=dict(color=color, width=2.5),
-            name=name,
+            name=pl["name"],
         ))
 
     fig_radar.update_layout(
@@ -113,132 +145,162 @@ with cc_mid:
 
 st.divider()
 
-# --- Section Internationale (si données disponibles) ---
-intl_axes = ["axis_course_intl","axis_distrib_intl","axis_kicking_intl",
-             "axis_physique_intl","axis_rigueur_intl","axis_danger_intl","axis_melee_intl"]
-intl_labels = ["Course","Distrib","Kicking","Physique","Rigueur","Danger","Mêlée"]
+# ============================================================
+# Sparklines de forme (5 derniers matchs)
+# ============================================================
+st.subheader("Forme récente — 5 derniers matchs")
 
-has_intl_a = any(player_a.get(a) not in (None, float("nan"), "") and str(player_a.get(a)) != "nan"
-                 for a in intl_axes)
-has_intl_b = any(player_b.get(a) not in (None, float("nan"), "") and str(player_b.get(a)) != "nan"
-                 for a in intl_axes)
-
-if has_intl_a or has_intl_b:
-    st.subheader("Profil International (données Naim — ESPN Tests 2016–2024)")
-    intl_col1, intl_col2 = st.columns(2)
-
-    def safe_intl_val(p, col):
-        v = p.get(col)
-        try:
-            return float(v) if v is not None and str(v) != "nan" else None
-        except (ValueError, TypeError):
-            return None
-
-    with intl_col1:
-        ri_a = safe_intl_val(player_a, "rating_intl")
-        if ri_a:
-            st.metric("Note Intl", f"{ri_a:.1f}",
-                      delta=f"{ri_a - player_a.get('rating', 0):.1f} vs T14",
-                      help="Note internationale Naim")
-            st.caption(f"🌍 {player_a.get('team_intl','')} · {int(player_a.get('matches_intl',0))} caps")
-        else:
-            st.caption(f"_{player_a_name} : pas de données intl_")
-
-    with intl_col2:
-        ri_b = safe_intl_val(player_b, "rating_intl")
-        if ri_b:
-            st.metric("Note Intl", f"{ri_b:.1f}",
-                      delta=f"{ri_b - player_b.get('rating', 0):.1f} vs T14",
-                      help="Note internationale Naim")
-            st.caption(f"🌍 {player_b.get('team_intl','')} · {int(player_b.get('matches_intl',0))} caps")
-        else:
-            st.caption(f"_{player_b_name} : pas de données intl_")
-
-    # Radar intl superposé (uniquement joueurs avec données)
-    if has_intl_a or has_intl_b:
-        fig_intl = go.Figure()
-        for player, name, color, has_data in [
-            (player_a, player_a_name, "#EF4444", has_intl_a),
-            (player_b, player_b_name, "#3B82F6", has_intl_b),
-        ]:
-            if not has_data:
+any_spark = any(pl.get("form_scores_list") for pl, _, _ in active)
+if not any_spark:
+    st.caption("Données de forme non disponibles (match history absent ou joueur < 5 matchs).")
+else:
+    spark_cols = st.columns(len(active))
+    for i, (pl, color, label) in enumerate(active):
+        with spark_cols[i]:
+            scores = pl.get("form_scores_list")
+            if isinstance(scores, str):
+                import ast
+                try:
+                    scores = ast.literal_eval(scores)
+                except Exception:
+                    scores = []
+            if not scores:
+                st.caption(f"{pl['name']} — pas de données de forme.")
                 continue
-            vals = [safe_intl_val(player, a) or 50 for a in intl_axes]
-            closed = vals + [vals[0]]
-            fig_intl.add_trace(go.Scatterpolar(
-                r=closed, theta=intl_labels + [intl_labels[0]],
-                fill="toself",
-                fillcolor=hex_rgba(color, 0.15),
-                line=dict(color=color, width=2),
-                name=f"{name} (Intl)",
+            fig_spark = go.Figure()
+            x_labels = [f"M-{len(scores)-j}" for j in range(len(scores))]
+            fig_spark.add_trace(go.Bar(
+                x=x_labels,
+                y=scores,
+                marker_color=[
+                    color if s >= np.mean(scores) else "#374151"
+                    for s in scores
+                ],
+                text=[f"{s:.0f}" for s in scores],
+                textposition="outside",
             ))
-        fig_intl.update_layout(
-            polar=dict(radialaxis=dict(visible=True, range=[0, 100])),
-            legend=dict(x=0.5, y=-0.1, xanchor="center", orientation="h"),
-            margin=dict(l=20, r=20, t=20, b=40),
-            height=350,
-            paper_bgcolor="rgba(0,0,0,0)",
-        )
-        st.plotly_chart(fig_intl, use_container_width=True)
-    st.divider()
-
-# --- Comparaison barre horizontale par axe ---
-st.subheader("Duel axe par axe")
-
-import pandas as pd
-comp_data = []
-for ax, label in AXIS_LABELS.items():
-    va = player_a.get(ax, 50)
-    vb = player_b.get(ax, 50)
-    comp_data.append({
-        "Axe": label,
-        player_a_name: va,
-        player_b_name: vb,
-        "Gagnant": player_a_name if va > vb else (player_b_name if vb > va else "Egal"),
-    })
-
-comp_df = pd.DataFrame(comp_data)
-
-# Afficher en tuiles
-for _, row in comp_df.iterrows():
-    va = row[player_a_name]
-    vb = row[player_b_name]
-    label = row["Axe"]
-    winner = row["Gagnant"]
-
-    col_l, col_mid2, col_r = st.columns([2, 3, 2])
-    with col_l:
-        color_a = "#EF4444" if va >= vb else "#666"
-        st.markdown(
-            f'<div style="text-align:right;font-weight:bold;color:{color_a}">'
-            f'{int(va)} <span style="font-size:0.8em;color:#aaa">{player_a_name.split()[0]}</span></div>',
-            unsafe_allow_html=True,
-        )
-    with col_mid2:
-        pct_a = int(va / (va + vb) * 100) if (va + vb) > 0 else 50
-        st.markdown(
-            f'<div style="background:#333;border-radius:6px;overflow:hidden;height:22px;margin-top:4px">'
-            f'<div style="width:{pct_a}%;background:#EF4444;height:100%;display:inline-block;'
-            f'border-radius:6px 0 0 6px"></div>'
-            f'<div style="width:{100-pct_a}%;background:#3B82F6;height:100%;display:inline-block;'
-            f'border-radius:0 6px 6px 0"></div>'
-            f'</div>'
-            f'<div style="text-align:center;font-size:0.8em;color:#aaa;margin-top:2px">{label}</div>',
-            unsafe_allow_html=True,
-        )
-    with col_r:
-        color_b = "#3B82F6" if vb >= va else "#666"
-        st.markdown(
-            f'<div style="font-weight:bold;color:{color_b}">'
-            f'<span style="font-size:0.8em;color:#aaa">{player_b_name.split()[0]}</span> {int(vb)}</div>',
-            unsafe_allow_html=True,
-        )
+            fig_spark.add_hline(
+                y=float(np.mean(scores)),
+                line_dash="dot",
+                line_color="#9CA3AF",
+                annotation_text="moy",
+                annotation_position="bottom right",
+            )
+            trend = pl.get("form_trend", "→")
+            trend_color = {"↗": "#10B981", "↘": "#EF4444", "→": "#9CA3AF"}.get(trend, "#9CA3AF")
+            fig_spark.update_layout(
+                title=dict(
+                    text=f'<span style="color:{trend_color}">{trend}</span> {pl["name"]}',
+                    x=0, font=dict(size=13),
+                ),
+                height=200,
+                margin=dict(l=5, r=5, t=30, b=5),
+                yaxis=dict(range=[0, 110], showticklabels=False),
+                xaxis=dict(showticklabels=True),
+                showlegend=False,
+                paper_bgcolor="rgba(0,0,0,0)",
+                plot_bgcolor="rgba(0,0,0,0)",
+            )
+            st.plotly_chart(fig_spark, use_container_width=True)
 
 st.divider()
 
-# --- Stats numériques brutes ---
+# ============================================================
+# Section Internationale
+# ============================================================
+intl_axes   = ["axis_course_intl","axis_distrib_intl","axis_kicking_intl",
+               "axis_physique_intl","axis_rigueur_intl","axis_danger_intl","axis_melee_intl"]
+intl_labels = ["Course","Distrib","Kicking","Physique","Rigueur","Danger","Mêlée"]
+
+def safe_float(v):
+    try:
+        f = float(v)
+        return None if np.isnan(f) else f
+    except (TypeError, ValueError):
+        return None
+
+has_any_intl = any(
+    any(safe_float(pl.get(a)) is not None for a in intl_axes)
+    for pl, _, _ in active
+)
+
+if has_any_intl:
+    st.subheader("Profil International (données Naim — ESPN Tests 2016–2024)")
+    intl_metric_cols = st.columns(len(active))
+    for i, (pl, color, label) in enumerate(active):
+        with intl_metric_cols[i]:
+            ri = safe_float(pl.get("rating_intl"))
+            if ri:
+                mi = int(pl.get("matches_intl") or 0)
+                delta_val = ri - float(pl.get("rating", ri))
+                st.metric(
+                    f"{pl['name']} — Intl",
+                    f"{ri:.1f}",
+                    delta=f"{delta_val:+.1f} vs T14",
+                )
+                st.caption(f"🌍 {pl.get('team_intl','')} · {mi} caps")
+            else:
+                st.caption(f"_{pl['name']} : pas de données intl_")
+
+    fig_intl = go.Figure()
+    for pl, color, label in active:
+        if not any(safe_float(pl.get(a)) is not None for a in intl_axes):
+            continue
+        vals   = [safe_float(pl.get(a)) or 50 for a in intl_axes]
+        closed = vals + [vals[0]]
+        fig_intl.add_trace(go.Scatterpolar(
+            r=closed, theta=intl_labels + [intl_labels[0]],
+            fill="toself",
+            fillcolor=hex_rgba(color, 0.15),
+            line=dict(color=color, width=2),
+            name=f"{pl['name']} (Intl)",
+        ))
+    fig_intl.update_layout(
+        polar=dict(radialaxis=dict(visible=True, range=[0, 100])),
+        legend=dict(x=0.5, y=-0.1, xanchor="center", orientation="h"),
+        margin=dict(l=20, r=20, t=20, b=40),
+        height=350,
+        paper_bgcolor="rgba(0,0,0,0)",
+    )
+    st.plotly_chart(fig_intl, use_container_width=True)
+    st.divider()
+
+# ============================================================
+# Duel axe par axe
+# ============================================================
+st.subheader("Duel axe par axe")
+
+for ax, ax_label in AXIS_LABELS.items():
+    vals = [float(pl.get(ax, 50) or 50) for pl, _, _ in active]
+    max_v = max(vals)
+    row_cols = st.columns([1.5] + [2] * len(active))
+    with row_cols[0]:
+        st.markdown(
+            f'<div style="margin-top:6px; color:#9CA3AF; font-size:0.85em">{ax_label}</div>',
+            unsafe_allow_html=True,
+        )
+    for j, ((pl, color, _), v) in enumerate(zip(active, vals)):
+        with row_cols[j + 1]:
+            is_best = v == max_v and len(set(vals)) > 1
+            bar_color = color if is_best else "#374151"
+            pct = int(v)
+            st.markdown(
+                f'<div style="background:#1F2937; border-radius:6px; overflow:hidden; height:20px; margin-top:4px">'
+                f'<div style="width:{pct}%; background:{bar_color}; height:100%; border-radius:6px"></div>'
+                f'</div>'
+                f'<div style="font-size:0.78em; color:{"#fff" if is_best else "#9CA3AF"}; '
+                f'font-weight:{"700" if is_best else "400"}; margin-top:1px">'
+                f'{pl["name"].split()[0]} {int(v)}'
+                f'</div>',
+                unsafe_allow_html=True,
+            )
+
+st.divider()
+
+# ============================================================
+# Stats brutes comparées
+# ============================================================
 st.subheader("Stats brutes comparées")
-# Uniquement les stats disponibles à 100% (LNR public sans paywall)
 stat_keys = [
     "tackles_per80", "line_breaks_per80", "offloads_per80",
     "turnovers_won_per80", "points_scored_per80", "tries_per80",
@@ -246,46 +308,47 @@ stat_keys = [
     "minutes_total", "matches_played",
 ]
 labels_map = {
-    "tackles_per80": "Plaquages /80",
-    "line_breaks_per80": "Franchissements /80",
-    "offloads_per80": "Offloads /80",
+    "tackles_per80":       "Plaquages /80",
+    "line_breaks_per80":   "Franchissements /80",
+    "offloads_per80":      "Offloads /80",
     "turnovers_won_per80": "Ballons grattés /80",
     "points_scored_per80": "Points /80",
-    "tries_per80": "Essais /80",
-    "yellow_cards": "Cartons jaunes",
-    "orange_cards": "Cartons oranges",
-    "red_cards": "Cartons rouges",
-    "minutes_total": "Minutes totales",
-    "matches_played": "Matchs joués",
+    "tries_per80":         "Essais /80",
+    "yellow_cards":        "Cartons jaunes",
+    "orange_cards":        "Cartons oranges",
+    "red_cards":           "Cartons rouges",
+    "minutes_total":       "Minutes totales",
+    "matches_played":      "Matchs joués",
 }
 negative_stats = {"yellow_cards", "orange_cards", "red_cards"}
 
 raw_rows = []
 for k in stat_keys:
-    if k not in player_a or k not in player_b:
-        continue
-    va, vb = round(float(player_a[k]), 1), round(float(player_b[k]), 1)
+    vals_k = []
+    for pl, _, _ in active:
+        try:
+            vals_k.append(round(float(pl.get(k, 0) or 0), 1))
+        except (TypeError, ValueError):
+            vals_k.append(0.0)
     if k in negative_stats:
-        winner = player_a_name if va < vb else (player_b_name if vb < va else "Egal")
+        winner_idx = int(np.argmin(vals_k))
     else:
-        winner = player_a_name if va > vb else (player_b_name if vb > va else "Egal")
-    raw_rows.append({
-        "Stat": labels_map.get(k, k),
-        player_a_name: va,
-        player_b_name: vb,
-        "Avantage": winner,
-    })
+        winner_idx = int(np.argmax(vals_k))
+    row = {"Stat": labels_map.get(k, k)}
+    for j, (pl, _, _) in enumerate(active):
+        row[pl["name"]] = vals_k[j]
+    row["Avantage"] = active[winner_idx][0]["name"]
+    raw_rows.append(row)
 
 raw_df = pd.DataFrame(raw_rows)
 
 def highlight_winner(row):
     styles = [""] * len(row)
-    col_a_idx = raw_df.columns.get_loc(player_a_name)
-    col_b_idx = raw_df.columns.get_loc(player_b_name)
-    if row["Avantage"] == player_a_name:
-        styles[col_a_idx] = "background-color: rgba(239,68,68,0.2); font-weight:bold"
-    elif row["Avantage"] == player_b_name:
-        styles[col_b_idx] = "background-color: rgba(59,130,246,0.2); font-weight:bold"
+    for j, (pl, color, _) in enumerate(active):
+        col_idx = raw_df.columns.get_loc(pl["name"])
+        if row["Avantage"] == pl["name"]:
+            r, g, b = int(color[1:3], 16), int(color[3:5], 16), int(color[5:7], 16)
+            styles[col_idx] = f"background-color: rgba({r},{g},{b},0.2); font-weight:bold"
     return styles
 
 st.dataframe(

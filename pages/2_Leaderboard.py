@@ -140,6 +140,10 @@ with tab_pos:
     extra_cols = []
     if "rank_position" in view.columns:
         extra_cols.append("rank_position")
+    if "form_trend" in view.columns:
+        extra_cols.append("form_trend")
+    if "form_score" in view.columns:
+        extra_cols.append("form_score")
     if "confidence_badge" in view.columns:
         extra_cols.append("confidence_badge")
     if "confidence_score" in view.columns:
@@ -171,6 +175,7 @@ with tab_pos:
         "confidence_badge": "Confiance", "confidence_score": "Confiance %",
         "matches_played": "Matchs", "minutes_bucket": "Temps jeu",
         "data_insufficient": "DATA?", "rank_position": "Rang",
+        "form_trend": "Forme", "form_score": "Score Forme",
         "rating_intl": "🌍 Note Intl", "team_intl": "Sélection",
         "Drapeau": "🏳️", "Tier": "Tier",
         "axis_att": "Course", "axis_def": "Physique", "axis_disc": "Rigueur",
@@ -190,12 +195,31 @@ with tab_pos:
         use_container_width=True,
         height=min(600, show_n * 36 + 40),
     )
-    st.download_button(
-        "Exporter CSV",
-        data=display_df.to_csv(index=False).encode("utf-8"),
-        file_name=f"ratings_{sel_pos}.csv",
-        mime="text/csv",
-    )
+    dl1, dl2 = st.columns(2)
+    with dl1:
+        st.download_button(
+            "Exporter CSV (vue actuelle)",
+            data=display_df.to_csv(index=False).encode("utf-8"),
+            file_name=f"ratings_{sel_pos}.csv",
+            mime="text/csv",
+        )
+    with dl2:
+        # Export App 4 (scouting) — tous les joueurs, format normalisé
+        try:
+            from engine.scouting_export import generate_export
+            import io as _io
+            _scout_buf = _io.StringIO()
+            _scout_df = generate_export(df, season=season, output_path=None)
+            _scout_df.to_csv(_scout_buf, index=False, encoding="utf-8")
+            st.download_button(
+                "Export App 4 (Scouting)",
+                data=_scout_buf.getvalue().encode("utf-8"),
+                file_name=f"scouting_export_{season}.csv",
+                mime="text/csv",
+                help="Export normalisé — tous les joueurs, toutes métriques",
+            )
+        except Exception as _e:
+            st.caption(f"Export App 4 indisponible : {_e}")
 
 # ================================================================
 # Onglet 2 — Top global normalisé par poste

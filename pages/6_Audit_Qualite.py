@@ -550,3 +550,42 @@ else:
                 cols_show = [c for c in ["name", "team", "_drop_reason", "player_id", "lnr_url"] if c in drop_df.columns]
                 st.dataframe(drop_df[cols_show].head(50),
                              hide_index=True, use_container_width=True)
+
+
+# ================================================================
+# Section — Détection automatique des anomalies de poste
+# ================================================================
+st.divider()
+st.subheader("Détection automatique — Joueurs potentiellement mal classifiés")
+st.markdown(
+    "Compare le score de chaque joueur dans **tous les postes** et signale les cas "
+    "où un autre poste produirait un score significativement supérieur (> +5 pts). "
+    "⚠️ Indicatif uniquement — vérifier manuellement avant d'ajouter un override."
+)
+
+with st.expander("Lancer la détection (peut prendre quelques secondes)", expanded=False):
+    try:
+        from engine.position_audit import detect_position_mismatches, format_audit_table
+        delta_threshold = st.slider("Seuil de gain minimum (pts)", 3.0, 15.0, 5.0, 0.5,
+                                     key="audit_delta")
+        df_mismatch = detect_position_mismatches(df, delta_threshold=delta_threshold)
+        if df_mismatch.empty:
+            st.success("Aucun cas suspect détecté avec ce seuil.")
+        else:
+            already_fixed = df_mismatch[df_mismatch["already_overridden"]].shape[0]
+            to_check = df_mismatch[~df_mismatch["already_overridden"]].shape[0]
+            st.info(
+                f"**{len(df_mismatch)} cas détectés** — "
+                f"{already_fixed} déjà corrigés dans POSITION_OVERRIDES, "
+                f"{to_check} à vérifier."
+            )
+            st.dataframe(
+                format_audit_table(df_mismatch),
+                hide_index=True,
+                use_container_width=True,
+            )
+            st.caption(
+                "Pour corriger un cas : ajouter le slug dans `engine/ratings.py > POSITION_OVERRIDES`."
+            )
+    except Exception as _e:
+        st.error(f"Erreur lors de la détection : {_e}")

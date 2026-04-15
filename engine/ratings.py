@@ -320,6 +320,46 @@ def calculate_ratings(df: pd.DataFrame) -> pd.DataFrame:
     combined = pd.concat(result_parts).sort_index()
 
     # ----------------------------------------------------------------
+    # 7b. Form weighting — blend score_saison × score_forme récente
+    #     Poids : 80% saison + 20% forme (5 derniers matchs, decay 0.7)
+    # ----------------------------------------------------------------
+    try:
+        from engine.form import get_form_df
+        form_df = get_form_df()
+        if not form_df.empty and "lnr_slug" in combined.columns:
+            combined = combined.merge(
+                form_df[["lnr_slug", "form_score", "form_trend", "form_matches", "form_scores_list"]],
+                on="lnr_slug", how="left",
+            )
+            has_form = combined["form_score"].notna()
+            # Blend uniquement pour les joueurs avec données de forme
+            combined.loc[has_form, "rating"] = (
+                0.80 * combined.loc[has_form, "rating"] +
+                0.20 * combined.loc[has_form, "form_score"]
+                        .map(lambda fs: 40.0 + 0.6 * fs)  # convertir [0,100] → échelle FIFA
+            ).clip(40, 99).round(1)
+            # Remplir les joueurs sans forme (pas de matchs récents)
+            combined["form_score"]       = combined["form_score"].fillna(50.0)
+            combined["form_trend"]       = combined["form_trend"].fillna("→")
+            combined["form_matches"]     = combined["form_matches"].fillna(0).astype(int)
+            combined["form_scores_list"] = combined["form_scores_list"].apply(
+                lambda x: x if isinstance(x, list) else []
+            )
+            n_form = int(has_form.sum())
+            print(f"[FORM] Blend forme appliqué sur {n_form} joueurs")
+        else:
+            combined["form_score"]       = 50.0
+            combined["form_trend"]       = "→"
+            combined["form_matches"]     = 0
+            combined["form_scores_list"] = [[] for _ in range(len(combined))]
+    except Exception as e:
+        print(f"[FORM] Ignoré : {e}")
+        combined["form_score"]       = 50.0
+        combined["form_trend"]       = "→"
+        combined["form_matches"]     = 0
+        combined["form_scores_list"] = [[] for _ in range(len(combined))]
+
+    # ----------------------------------------------------------------
     # 8. Discipline malus (appliqué sur le rating final)
     # ----------------------------------------------------------------
     malus = combined.apply(_discipline_malus, axis=1)

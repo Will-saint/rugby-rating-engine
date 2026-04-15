@@ -539,3 +539,150 @@ with tab_compare:
             st.dataframe(merged.head(15).rename(columns={
                 "name":"Joueur","team":"Équipe",f"rating_{season_a}":season_a,f"rating_{season_b}":season_b,"delta":"Δ"
             }), hide_index=True, use_container_width=True)
+
+# ================================================================
+# Section — Prédiction de performance (courbe de carrière)
+# ================================================================
+st.divider()
+st.subheader("Prédiction de performance — Courbe de carrière")
+st.markdown(
+    "Modèle de régression linéaire sur l'historique du joueur. "
+    "Projection sur **2 saisons futures** — indicatif uniquement (basé uniquement sur la tendance passée)."
+)
+
+df_all_pred = load_all_seasons()
+if df_all_pred is None or df_all_pred.empty:
+    st.caption("Données historiques multi-saisons requises.")
+else:
+    # Sélection du joueur
+    all_names_pred = sorted(df_all_pred["name"].dropna().unique().tolist())
+    pred_search = st.text_input("Rechercher un joueur (prédiction)", placeholder="Ex: Dupont...", key="pred_search")
+    names_filtered = [n for n in all_names_pred if pred_search.lower() in n.lower()] if pred_search else all_names_pred
+    if not names_filtered:
+        st.caption("Aucun joueur trouvé.")
+    else:
+        pred_player = st.selectbox("Joueur", names_filtered, key="pred_player")
+        hist_player = df_all_pred[df_all_pred["name"] == pred_player].copy()
+        if "season" not in hist_player.columns or "rating" not in hist_player.columns:
+            st.caption("Données insuffisantes pour ce joueur.")
+        else:
+            hist_player = hist_player.dropna(subset=["rating"]).sort_values("season")
+            n_seasons = len(hist_player)
+
+            if n_seasons < 2:
+                st.caption(f"{pred_player} : seulement {n_seasons} saison(s) — prédiction impossible (min 2).")
+            else:
+                # Régression linéaire simple sur le numéro de saison
+                seasons_ordered = hist_player["season"].tolist()
+                x = np.arange(len(seasons_ordered))
+                y = hist_player["rating"].values.astype(float)
+
+                # Régression linéaire via numpy
+                coeffs = np.polyfit(x, y, 1)  # degré 1 = linéaire
+                slope, intercept = coeffs
+                x_future = np.array([len(x), len(x) + 1])
+                y_future = slope * x_future + intercept
+                y_future = np.clip(y_future, 40, 99)
+
+                # Construire les saisons futures (incrémentales)
+                last_season = seasons_ordered[-1]
+                try:
+                    last_year_start = int(last_season.split("-")[0])
+                    future_seasons = [
+                        f"{last_year_start+1}-{last_year_start+2}",
+                        f"{last_year_start+2}-{last_year_start+3}",
+                    ]
+                except Exception:
+                    future_seasons = ["Saison N+1", "Saison N+2"]
+
+                all_x_labels = seasons_ordered + future_seasons
+                all_y_hist   = y.tolist() + [None, None]
+                all_y_pred   = [None] * len(x) + y_future.tolist()
+
+                # Intervalle de confiance ±σ résidus
+                y_fit = slope * x + intercept
+                residuals = y - y_fit
+                sigma = float(np.std(residuals))
+                conf_upper = [v + sigma if v is not None else None for v in all_y_pred]
+                conf_lower = [v - sigma if v is not None else None for v in all_y_pred]
+
+                fig_pred = go.Figure()
+
+                # Ligne historique
+                fig_pred.add_trace(go.Scatter(
+                    x=seasons_ordered, y=y,
+                    mode="lines+markers",
+                    name="Historique",
+                    line=dict(color="#3B82F6", width=2.5),
+                    marker=dict(size=7),
+                ))
+
+                # Ligne tendance (sur tout l'historique)
+                y_trend_line = (slope * np.arange(len(all_x_labels)) + intercept).clip(40, 99)
+                fig_pred.add_trace(go.Scatter(
+                    x=all_x_labels, y=y_trend_line,
+                    mode="lines",
+                    name="Tendance",
+                    line=dict(color="#9CA3AF", width=1.5, dash="dot"),
+                ))
+
+                # Projection future
+                fig_pred.add_trace(go.Scatter(
+                    x=future_seasons, y=y_future,
+                    mode="lines+markers",
+                    name="Projection",
+                    line=dict(color="#F59E0B", width=2.5, dash="dash"),
+                    marker=dict(size=9, symbol="star"),
+                ))
+
+                # Intervalle de confiance
+                if sigma > 0:
+                    fig_pred.add_trace(go.Scatter(
+                        x=future_seasons + future_seasons[::-1],
+                        y=y_future + sigma_arr if (sigma_arr := np.clip(y_future + sigma, 40, 99)).any() else [],
+                        fill=None, mode="lines", line_color="rgba(245,158,11,0)",
+                        showlegend=False,
+                    ))
+                    y_upper = np.clip(y_future + sigma, 40, 99).tolist()
+                    y_lower = np.clip(y_future - sigma, 40, 99).tolist()
+                    fig_pred.add_trace(go.Scatter(
+                        x=future_seasons + future_seasons[::-1],
+                        y=y_upper + y_lower[::-1],
+                        fill="toself",
+                        fillcolor="rgba(245,158,11,0.15)",
+                        line=dict(color="rgba(0,0,0,0)"),
+                        name=f"±σ ({sigma:.1f} pts)",
+                    ))
+
+                fig_pred.add_hline(y=77, line_dash="dash", line_color="#10B981",
+                                   annotation_text="Seuil ARGENT")
+                fig_pred.add_hline(y=70, line_dash="dash", line_color="#9CA3AF",
+                                   annotation_text="Seuil BRONZE")
+
+                trend_str = f"{'↗' if slope > 0.3 else '↘' if slope < -0.3 else '→'} {slope:+.1f} pts/saison"
+                fig_pred.update_layout(
+                    title=dict(
+                        text=f"{pred_player} — Tendance {trend_str}",
+                        font=dict(size=14), x=0,
+                    ),
+                    height=380,
+                    margin=dict(l=10, r=10, t=50, b=10),
+                    yaxis=dict(range=[35, 105], title="Note"),
+                    xaxis=dict(title="Saison"),
+                    legend=dict(x=0, y=1, bgcolor="rgba(0,0,0,0)"),
+                    paper_bgcolor="rgba(0,0,0,0)",
+                )
+                st.plotly_chart(fig_pred, use_container_width=True)
+
+                # Métriques résumé
+                mc1, mc2, mc3 = st.columns(3)
+                mc1.metric("Tendance", trend_str, help="Régression linéaire sur toutes les saisons disponibles")
+                mc2.metric(f"Projection {future_seasons[0]}", f"{y_future[0]:.1f}",
+                           delta=f"{y_future[0] - y[-1]:+.1f} vs actuel")
+                mc3.metric("Incertitude (±σ)", f"±{sigma:.1f} pts",
+                           help="Écart-type des résidus de la régression")
+
+                st.caption(
+                    f"Basé sur {n_seasons} saisons ({seasons_ordered[0]} → {seasons_ordered[-1]}). "
+                    "Régression linéaire simple — ne tient pas compte des blessures, changements de club, ou vieillissement non-linéaire."
+                )

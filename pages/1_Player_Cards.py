@@ -386,7 +386,6 @@ if form_window and not pd.isna(form_window):
         form_val = player.get(form_col)
         season_val = player.get(season_col)
         if form_val is not None and not pd.isna(form_val):
-            delta = None
             delta_str = None
             if season_val is not None and not pd.isna(season_val) and float(season_val) > 0:
                 delta_val = float(form_val) - float(season_val)
@@ -398,6 +397,46 @@ if form_window and not pd.isna(form_window):
             )
         else:
             col_ui.metric(label, "N/A")
+
+    # Sparkline — évolution match par match (5 derniers)
+    spark_raw = player.get("form_scores_list")
+    if isinstance(spark_raw, str):
+        import ast
+        try:
+            spark_raw = ast.literal_eval(spark_raw)
+        except Exception:
+            spark_raw = []
+    if isinstance(spark_raw, list) and len(spark_raw) >= 2:
+        import numpy as _np_form
+        n_sp = len(spark_raw)
+        x_sp = [f"M-{n_sp - j}" for j in range(n_sp)]
+        avg_sp = float(_np_form.mean(spark_raw))
+        trend = player.get("form_trend", "→")
+        trend_color = {"↗": "#10B981", "↘": "#EF4444", "→": "#9CA3AF"}.get(trend, "#9CA3AF")
+        bar_colors = ["#10B981" if s >= avg_sp else "#374151" for s in spark_raw]
+        import plotly.graph_objects as _go_spark
+        fig_sp = _go_spark.Figure()
+        fig_sp.add_trace(_go_spark.Bar(
+            x=x_sp, y=spark_raw,
+            marker_color=bar_colors,
+            text=[f"{s:.0f}" for s in spark_raw],
+            textposition="outside",
+        ))
+        fig_sp.add_hline(y=avg_sp, line_dash="dot", line_color="#9CA3AF",
+                          annotation_text="moy", annotation_position="bottom right")
+        fig_sp.update_layout(
+            title=dict(
+                text=f'<b style="color:{trend_color}">{trend}</b> Sparkline forme (score /100)',
+                font=dict(size=13), x=0,
+            ),
+            height=200,
+            margin=dict(l=5, r=5, t=35, b=5),
+            yaxis=dict(range=[0, 115], showticklabels=False),
+            showlegend=False,
+            paper_bgcolor="rgba(0,0,0,0)",
+            plot_bgcolor="rgba(0,0,0,0)",
+        )
+        st.plotly_chart(fig_sp, use_container_width=True)
 
 # ================================================================
 # Historique par saison
