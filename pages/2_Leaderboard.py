@@ -182,8 +182,11 @@ with tab_pos:
         grad_cols.append("🌍 Note Intl")
     if "Confiance %" in display_df.columns:
         grad_cols.append("Confiance %")
+    # Format float columns to 1 decimal place (fixes "85.700000" display bug)
+    fmt_cols = {c: "{:.1f}" for c in display_df.columns
+                if c in grad_cols and display_df[c].dtype in (float, "float64", "float32")}
     st.dataframe(
-        display_df.style.background_gradient(subset=grad_cols, cmap="YlOrRd"),
+        display_df.style.background_gradient(subset=grad_cols, cmap="YlOrRd").format(fmt_cols),
         use_container_width=True,
         height=min(600, show_n * 36 + 40),
     )
@@ -252,8 +255,10 @@ with tab_global:
         "axis_ctrl": "Distrib", "axis_kick": "Kicking", "axis_pow": "Danger",
     })
     g_grad = [c for c in ["Note Saison", "Note Valeur", "🌍 Note Intl", "Course", "Physique", "Rigueur", "Distrib", "Kicking", "Danger"] if c in display_g.columns]
+    g_fmt = {c: "{:.1f}" for c in display_g.columns
+             if c in g_grad and display_g[c].dtype in (float, "float64", "float32")}
     st.dataframe(
-        display_g.style.background_gradient(subset=g_grad, cmap="YlOrRd"),
+        display_g.style.background_gradient(subset=g_grad, cmap="YlOrRd").format(g_fmt),
         use_container_width=True,
         height=min(600, show_n_g * 36 + 40),
     )

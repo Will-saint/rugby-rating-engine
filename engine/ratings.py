@@ -127,6 +127,7 @@ POSITION_ABBR = {
 POSITION_OVERRIDES: dict[str, str] = {
     "louis-bielle-biarrey": "WINGER",   # classifié FULLBACK par LNR, joue ailier
     "james-thomas-ritchie": "BACK_ROW", # classifié LOCK par LNR, flanker de métier
+    "arthur-retiere":        "WINGER",  # classifié SCRUM_HALF par LNR, joue ailier/arrière
 }
 
 # Pour get_rating_breakdown (rétrocompatibilité)
@@ -493,6 +494,33 @@ def apply_historical_prior(
         lambda r: r["rating_value"] if mt_col.loc[r.name] < 300 and r.get("has_prior", False) else r["rating"],
         axis=1,
     ).round(1)
+
+    # ----------------------------------------------------------------
+    # Bonus international : blend display_rating × rating_intl
+    # Pour les joueurs avec >= 5 sélections et rating_intl disponible.
+    # intl_weight = min(matches_intl / 50, 0.25) → max 25% d'influence intl.
+    # La performance en club reste dominante (min 75%).
+    # ----------------------------------------------------------------
+    if "rating_intl" in df.columns and "matches_intl" in df.columns:
+        def _apply_intl_bonus(row) -> float:
+            ri = row.get("rating_intl")
+            mi = row.get("matches_intl")
+            if ri is None or pd.isna(ri):
+                return row["display_rating"]
+            try:
+                mi = float(mi)
+            except (TypeError, ValueError):
+                return row["display_rating"]
+            if mi < 5:
+                return row["display_rating"]
+            intl_w = min(mi / 50.0, 0.25)
+            blended = (1.0 - intl_w) * row["display_rating"] + intl_w * float(ri)
+            # Bonus only — never penalize a player for having lower intl rating
+            return round(max(row["display_rating"], blended), 1)
+
+        df["display_rating"] = df.apply(_apply_intl_bonus, axis=1)
+        n_bonus = (df["matches_intl"].fillna(0) >= 5).sum()
+        print(f"[INTL_BONUS] Appliqué sur {n_bonus} joueurs (>= 5 sélections)")
 
     return df
 
