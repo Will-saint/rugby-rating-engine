@@ -312,8 +312,38 @@ with tab_rank:
 with tab_form:
     has_form = "form_tackles_per80" in team_df.columns and team_df["form_tackles_per80"].notna().any()
 
+    # ---- Score de forme global (engine/form.py) ----
+    if "form_score" in team_df.columns and team_df["form_score"].notna().any():
+        avg_fs = float(team_df["form_score"].mean())
+        # Rang vs ligue
+        league_avg_fs = float(df.groupby("team")["form_score"].mean().mean()) if "form_score" in df.columns else 50.0
+        delta_fs = avg_fs - league_avg_fs
+        trend_team = "↗" if delta_fs > 2 else ("↘" if delta_fs < -2 else "→")
+        trend_color_fs = {"↗": "#10B981", "↘": "#EF4444", "→": "#9CA3AF"}.get(trend_team, "#9CA3AF")
+
+        fs_c1, fs_c2, fs_c3 = st.columns(3)
+        fs_c1.metric("Score forme équipe (moy)", f"{avg_fs:.1f}/100",
+                      delta=f"{delta_fs:+.1f} vs ligue", delta_color="normal" if delta_fs >= 0 else "inverse")
+        fs_c2.markdown(
+            f'<div style="padding:12px;border-radius:8px;background:#1a1a2e;text-align:center">'
+            f'<div style="color:{trend_color_fs};font-size:2em;font-weight:700">{trend_team}</div>'
+            f'<div style="color:#9CA3AF;font-size:0.8em">Tendance équipe</div></div>',
+            unsafe_allow_html=True,
+        )
+        # Top 3 en forme
+        top_fs = team_df.nlargest(3, "form_score")[["name","form_score","form_trend"]].values
+        fs_html = "".join(
+            f'<div style="padding:4px 0;font-size:0.85em">'
+            f'<span style="font-weight:700">{n}</span> '
+            f'<span style="color:#10B981">{fs:.0f}</span></div>'
+            for n, fs, _ in top_fs
+        )
+        fs_c3.markdown(f"<div style='padding:8px'>**Top forme :** {fs_html}</div>",
+                       unsafe_allow_html=True)
+        st.divider()
+
     if not has_form:
-        st.warning("Données de forme non disponibles — relancer `compute_form.py`.")
+        st.warning("Données de forme détaillées non disponibles — relancer `compute_form.py`.")
     else:
         st.caption("Rolling **5 derniers matchs** — feuilles de match LNR")
 

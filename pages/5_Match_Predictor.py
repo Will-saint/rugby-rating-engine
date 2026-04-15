@@ -25,18 +25,61 @@ ts = load_team_strength(season)
 
 teams = sorted(df["team"].unique().tolist())
 
+
+def _team_form_score(team_name: str) -> float:
+    """
+    Calcule le score de forme moyen de l'équipe (top 15 joueurs par display_rating).
+    Normalise de [0,100] vers [-1,+1] pour le prédicteur.
+    form_score=50 → 0.0 (forme neutre)
+    form_score=100 → +1.0 (excellente forme)
+    form_score=0   → -1.0 (mauvaise forme)
+    """
+    if "form_score" not in df.columns:
+        return 0.0
+    team_players = df[df["team"] == team_name].nlargest(15, "display_rating")
+    if team_players.empty:
+        return 0.0
+    avg_fs = float(team_players["form_score"].mean())
+    return round((avg_fs - 50.0) / 50.0, 2)
+
+
+def _form_badge(score: float) -> str:
+    if score > 0.2:   return "↗ En forme"
+    if score < -0.2:  return "↘ En difficulté"
+    return "→ Neutre"
+
+
+# Pré-calculer la forme par équipe
+home_auto_form = _team_form_score(teams[0]) if teams else 0.0
+auto_form_mode = st.toggle(
+    "Forme automatique (basée sur form_score joueurs)",
+    value=True,
+    help="Désactiver pour ajuster manuellement la forme de chaque équipe",
+)
+
 # --- Sélection des équipes ---
 col_h, col_sep, col_a = st.columns([2, 1, 2])
 
 with col_h:
     st.markdown("### Domicile")
     home_team = st.selectbox("Equipe domicile", teams, key="home")
-    home_form = st.slider(
-        "Forme récente (domicile)",
-        -1.0, 1.0, 0.0, 0.1,
-        help="-1 = très mauvaise forme, +1 = excellente forme",
-        key="hf",
-    )
+    home_auto = _team_form_score(home_team)
+    if auto_form_mode:
+        home_form = home_auto
+        badge_h = _form_badge(home_form)
+        trend_color_h = {"↗": "#10B981", "↘": "#EF4444", "→": "#9CA3AF"}.get(badge_h[0], "#9CA3AF")
+        st.markdown(
+            f'<div style="color:{trend_color_h};font-weight:700">{badge_h} '
+            f'<span style="color:#9CA3AF;font-weight:400">({home_form:+.2f})</span></div>',
+            unsafe_allow_html=True,
+        )
+    else:
+        home_form = st.slider(
+            "Forme récente (domicile)",
+            -1.0, 1.0, float(home_auto), 0.1,
+            help=f"Auto-calculé : {home_auto:+.2f}. Ajuster si besoin.",
+            key="hf",
+        )
 
 with col_sep:
     st.markdown("<br><br><br><div style='text-align:center;font-size:2em;font-weight:bold'>VS</div>",
@@ -45,11 +88,23 @@ with col_sep:
 with col_a:
     st.markdown("### Extérieur")
     away_team = st.selectbox("Equipe extérieur", [t for t in teams if t != home_team], key="away")
-    away_form = st.slider(
-        "Forme récente (extérieur)",
-        -1.0, 1.0, 0.0, 0.1,
-        key="af",
-    )
+    away_auto = _team_form_score(away_team)
+    if auto_form_mode:
+        away_form = away_auto
+        badge_a = _form_badge(away_form)
+        trend_color_a = {"↗": "#10B981", "↘": "#EF4444", "→": "#9CA3AF"}.get(badge_a[0], "#9CA3AF")
+        st.markdown(
+            f'<div style="color:{trend_color_a};font-weight:700">{badge_a} '
+            f'<span style="color:#9CA3AF;font-weight:400">({away_form:+.2f})</span></div>',
+            unsafe_allow_html=True,
+        )
+    else:
+        away_form = st.slider(
+            "Forme récente (extérieur)",
+            -1.0, 1.0, float(away_auto), 0.1,
+            help=f"Auto-calculé : {away_auto:+.2f}. Ajuster si besoin.",
+            key="af",
+        )
 
 neutral_venue = st.checkbox("Terrain neutre (ex : demi-finale / finale)", value=False)
 

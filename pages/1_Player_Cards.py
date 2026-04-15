@@ -106,6 +106,22 @@ with col_card:
         mime="image/png",
         use_container_width=True,
     )
+    # Fiche scouting complète (PDF/PNG haute résolution)
+    try:
+        from engine.scouting_card import generate_scouting_card
+        if st.button("Générer fiche scouting", use_container_width=True,
+                     help="Fiche complète : radar, forme, stats, données intl"):
+            with st.spinner("Génération..."):
+                scout_bytes = generate_scouting_card(player, df)
+            st.download_button(
+                "Télécharger la fiche scouting (PNG)",
+                data=scout_bytes,
+                file_name=f"scouting_{selected_name.replace(' ', '_')}.png",
+                mime="image/png",
+                use_container_width=True,
+            )
+    except Exception as _e:
+        st.caption(f"Fiche scouting indisponible : {_e}")
 
 with col_details:
     if not photo_bytes:

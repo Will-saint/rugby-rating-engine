@@ -323,3 +323,88 @@ st.caption(
     f"Rugby Rating Engine · Dataset : players.csv · "
     f"Saison : {SEASON} · Mode : {DATA_MODE}"
 )
+
+# ================================================================
+# Section — Top formes du moment + Alertes discipline
+# ================================================================
+st.divider()
+_tab_hot, _tab_cold, _tab_disc = st.tabs(["🔥 En grande forme", "❄️ En difficulté", "🟡 Alertes discipline"])
+
+with _tab_hot:
+    st.markdown("**Joueurs avec la meilleure forme récente (5 derniers matchs)**")
+    if "form_score" in df.columns and "form_trend" in df.columns:
+        _hot = (
+            df[df["form_score"].notna() & (df["confidence"] >= 0.60)]
+            .nlargest(12, "form_score")
+            [["name","team","position_group","display_rating","form_score","form_trend","matches_played"]]
+        )
+        _hot_cols = st.columns(3)
+        for i, (_, row) in enumerate(_hot.iterrows()):
+            with _hot_cols[i % 3]:
+                fs = float(row["form_score"])
+                bar_pct = int(fs)
+                st.markdown(
+                    f'<div style="padding:8px;border-radius:8px;background:#1a1a2e;margin:4px 0;'
+                    f'border-left:3px solid #10B981">'
+                    f'<div style="font-weight:700;font-size:0.9em">{row["name"]}</div>'
+                    f'<div style="color:#9CA3AF;font-size:0.75em">{row["position_group"]} · {row["team"]}</div>'
+                    f'<div style="margin:4px 0;background:#374151;border-radius:4px;height:6px">'
+                    f'<div style="width:{bar_pct}%;background:#10B981;height:6px;border-radius:4px"></div></div>'
+                    f'<div style="color:#10B981;font-weight:700">{fs:.0f}/100</div>'
+                    f'</div>',
+                    unsafe_allow_html=True,
+                )
+    else:
+        st.caption("Données de forme non disponibles.")
+
+with _tab_cold:
+    st.markdown("**Joueurs en baisse de forme (écart form_score vs note saison)**")
+    if "form_score" in df.columns:
+        _cold = (
+            df[df["form_score"].notna() & (df["confidence"] >= 0.75)]
+            .nsmallest(12, "form_score")
+            [["name","team","position_group","display_rating","form_score","form_trend","matches_played"]]
+        )
+        _cold_cols = st.columns(3)
+        for i, (_, row) in enumerate(_cold.iterrows()):
+            with _cold_cols[i % 3]:
+                fs = float(row["form_score"])
+                bar_pct = int(fs)
+                st.markdown(
+                    f'<div style="padding:8px;border-radius:8px;background:#1a1a2e;margin:4px 0;'
+                    f'border-left:3px solid #EF4444">'
+                    f'<div style="font-weight:700;font-size:0.9em">{row["name"]}</div>'
+                    f'<div style="color:#9CA3AF;font-size:0.75em">{row["position_group"]} · {row["team"]}</div>'
+                    f'<div style="margin:4px 0;background:#374151;border-radius:4px;height:6px">'
+                    f'<div style="width:{bar_pct}%;background:#EF4444;height:6px;border-radius:4px"></div></div>'
+                    f'<div style="color:#EF4444;font-weight:700">{fs:.0f}/100</div>'
+                    f'</div>',
+                    unsafe_allow_html=True,
+                )
+    else:
+        st.caption("Données de forme non disponibles.")
+
+with _tab_disc:
+    st.markdown("**Joueurs avec cartons cette saison (rouge / orange)**")
+    _disc_mask = False
+    if "red_cards" in df.columns:
+        _disc_mask = _disc_mask | (df["red_cards"].fillna(0) > 0)
+    if "orange_cards" in df.columns:
+        _disc_mask = _disc_mask | (df["orange_cards"].fillna(0) > 0)
+    if isinstance(_disc_mask, bool):
+        st.caption("Données disciplinaires non disponibles.")
+    else:
+        _disc_df = df[_disc_mask][["name","team","position_group","display_rating",
+                                    "yellow_cards","orange_cards","red_cards","matches_played"]]
+        _disc_df = _disc_df.sort_values("red_cards", ascending=False)
+        if _disc_df.empty:
+            st.success("Aucun carton rouge ou orange cette saison !")
+        else:
+            import pandas as _pd_disc
+            _disc_rename = {"name":"Joueur","team":"Équipe","position_group":"Poste",
+                            "display_rating":"Note","yellow_cards":"CJ","orange_cards":"CO",
+                            "red_cards":"CR","matches_played":"Matchs"}
+            st.dataframe(
+                _disc_df.rename(columns=_disc_rename).reset_index(drop=True),
+                hide_index=True, use_container_width=True,
+            )
