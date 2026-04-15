@@ -119,6 +119,16 @@ POSITION_ABBR = {
     "WINGER":     "AIL", "CENTRE":    "CTR", "FULLBACK":  "ARR",
 }
 
+# ---------------------------------------------------------------------------
+# Corrections de poste — joueurs mal classifiés par LNR (groupe trop large).
+# Clé : sous-chaîne du lnr_slug (insensible à la casse).
+# Valeur : position_group corrigée.
+# ---------------------------------------------------------------------------
+POSITION_OVERRIDES: dict[str, str] = {
+    "louis-bielle-biarrey": "WINGER",   # classifié FULLBACK par LNR, joue ailier
+    "james-thomas-ritchie": "BACK_ROW", # classifié LOCK par LNR, flanker de métier
+}
+
 # Pour get_rating_breakdown (rétrocompatibilité)
 POS_WEIGHTS = {pg: {"metrics": {}, "w_disc": 0.0} for pg in NAIM_POS_WEIGHTS}
 
@@ -209,6 +219,16 @@ def calculate_ratings(df: pd.DataFrame) -> pd.DataFrame:
     Discipline = malus post-calcul.
     Confiance = step function (floor 0.50).
     """
+    df = df.copy()
+
+    # Appliquer les corrections de poste (POSITION_OVERRIDES)
+    if "lnr_slug" in df.columns:
+        for slug_key, corrected_pos in POSITION_OVERRIDES.items():
+            mask = df["lnr_slug"].str.lower() == slug_key
+            if mask.any():
+                df.loc[mask, "position_group"] = corrected_pos
+                print(f"[OVERRIDE] {slug_key} -> {corrected_pos} ({mask.sum()} joueur(s))")
+
     result_parts: list[pd.DataFrame] = []
 
     for pg, pos_w in NAIM_POS_WEIGHTS.items():
@@ -461,6 +481,19 @@ def apply_historical_prior(
     df["rating_value"] = rv
     df["has_prior"]    = hp
     df.drop(columns=["_key"], inplace=True)
+
+    # display_rating : pour les joueurs avec peu de minutes (<300),
+    # utiliser rating_value (blend historique) plutôt que rating saison pure.
+    if "minutes_total" in df.columns:
+        mt_col = df["minutes_total"].fillna(0)
+    else:
+        mt_col = (df["matches_played"].fillna(0) * df["minutes_avg"].fillna(0))
+
+    df["display_rating"] = df.apply(
+        lambda r: r["rating_value"] if mt_col.loc[r.name] < 300 and r.get("has_prior", False) else r["rating"],
+        axis=1,
+    ).round(1)
+
     return df
 
 

@@ -77,9 +77,12 @@ ALL_SEASONS_PATH = os.path.join(ROOT, "data", "players_all_seasons.csv")
 
 
 def _enrich_with_prior(df: pd.DataFrame, season: str) -> pd.DataFrame:
-    """Ajoute rating_value via prior historique si players_all_seasons.csv existe."""
+    """Ajoute rating_value + display_rating via prior historique."""
     if "rating_value" not in df.columns:
         df = apply_historical_prior(df, ALL_SEASONS_PATH, current_season=season)
+    # Fallback : display_rating = rating si la colonne est absente (CSV ancien format)
+    if "display_rating" not in df.columns:
+        df["display_rating"] = df["rating"]
     return df
 
 
@@ -167,12 +170,12 @@ def rating_mode_selector(key_suffix: str = "") -> str:
         ),
     )
     st.session_state["rating_mode"] = mode
-    return "rating_value" if mode == "valeur" else "rating"
+    return "rating_value" if mode == "valeur" else "display_rating"
 
 
 def get_rating_col() -> str:
     """Retourne la colonne de rating active selon le mode sélectionné."""
-    return "rating_value" if st.session_state.get("rating_mode") == "valeur" else "rating"
+    return "rating_value" if st.session_state.get("rating_mode") == "valeur" else "display_rating"
 
 
 def page_config(title: str):

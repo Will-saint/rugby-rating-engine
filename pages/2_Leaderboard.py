@@ -78,20 +78,21 @@ with tab_pos:
     # Priorité : mode sidebar (saison/valeur) puis toggle brut
     active_col = (
         "rating_raw" if (show_raw and "rating_raw" in view.columns)
-        else (sort_col if sort_col in view.columns else "rating")
+        else (sort_col if sort_col in view.columns else "display_rating")
     )
     view = view.nlargest(show_n, active_col).reset_index(drop=True)
     view.index = view.index + 1
     # Enrichir : drapeau + tier badge
     view["_flag"] = view["nationality"].apply(nat_flag)
     view["_label"] = view["_flag"] + " " + view["name"]
-    view["_tier"] = view["rating"].apply(rating_to_tier)
+    _tier_src = "display_rating" if "display_rating" in view.columns else "rating"
+    view["_tier"] = view[_tier_src].apply(rating_to_tier)
 
-    mode_label = {"rating": "Saison", "rating_value": "Valeur", "rating_raw": "Brute"}.get(active_col, "")
+    mode_label = {"display_rating": "Saison", "rating": "Saison", "rating_value": "Valeur", "rating_raw": "Brute"}.get(active_col, "")
     st.subheader(f"Top {show_n} — {sel_pos}  ·  Note {mode_label}")
 
     chart_col = active_col
-    chart_label = {"rating": "Note Saison", "rating_value": "Note Valeur", "rating_raw": "Note brute"}.get(active_col, "Note")
+    chart_label = {"display_rating": "Note Saison", "rating": "Note Saison", "rating_value": "Note Valeur", "rating_raw": "Note brute"}.get(active_col, "Note")
     intl_note = view.get("rating_intl") if "rating_intl" in view.columns else None
     fig = px.bar(
         view,
@@ -160,12 +161,12 @@ with tab_pos:
     # Construire colonne drapeau + tier pour le tableau
     view["Drapeau"] = view["_flag"]
     view["Tier"] = view["_tier"]
-    display_cols = ["Drapeau", "name", "team", "nationality", "Tier", "rating"] + extra_cols + intl_extra + [
+    display_cols = ["Drapeau", "name", "team", "nationality", "Tier", "display_rating"] + extra_cols + intl_extra + [
         "axis_att", "axis_def", "axis_disc", "axis_ctrl", "axis_kick", "axis_pow"
     ]
     col_labels = {
         "name": "Joueur", "team": "Equipe", "nationality": "Nationalité",
-        "rating": "Note Saison", "rating_raw": "Note brute",
+        "display_rating": "Note Saison", "rating": "Note Brute Saison", "rating_raw": "Note brute",
         "rating_value": "Note Valeur", "has_prior": "Prior ?",
         "confidence_badge": "Confiance", "confidence_score": "Confiance %",
         "matches_played": "Matchs", "minutes_bucket": "Temps jeu",
@@ -176,7 +177,7 @@ with tab_pos:
         "axis_ctrl": "Distrib", "axis_kick": "Kicking", "axis_pow": "Danger",
     }
     display_df = view[[c for c in display_cols if c in view.columns]].rename(columns=col_labels)
-    grad_cols = ["Note Saison", "Course", "Physique", "Rigueur", "Distrib", "Kicking", "Danger"]
+    grad_cols = ["Note Saison", "Note Valeur", "Course", "Physique", "Rigueur", "Distrib", "Kicking", "Danger"]
     if "🌍 Note Intl" in display_df.columns:
         grad_cols.append("🌍 Note Intl")
     if "Confiance %" in display_df.columns:
@@ -197,7 +198,7 @@ with tab_pos:
 # Onglet 2 — Top global normalisé par poste
 # ================================================================
 with tab_global:
-    g_col = sort_col if sort_col in df.columns else "rating"
+    g_col = sort_col if sort_col in df.columns else "display_rating"
     g_label = "Note Valeur" if g_col == "rating_value" else "Note Saison"
     st.markdown(
         f"**Mode actif : {g_label}** — le classement global compare des joueurs de postes différents "
@@ -237,15 +238,15 @@ with tab_global:
     )
     st.plotly_chart(fig_g, use_container_width=True)
 
-    g_extra = [g_col] if g_col != "rating" and g_col in view_g.columns else []
+    g_extra = [g_col] if g_col not in ("rating", "display_rating") and g_col in view_g.columns else []
     has_intl_g = "rating_intl" in view_g.columns and view_g["rating_intl"].notna().any()
     intl_g_cols = ["rating_intl", "team_intl"] if has_intl_g else []
-    g_base_cols = ["name", "position_group", "team", "nationality", "rating"] + g_extra + intl_g_cols + [
+    g_base_cols = ["name", "position_group", "team", "nationality", "display_rating"] + g_extra + intl_g_cols + [
         "axis_att", "axis_def", "axis_disc", "axis_ctrl", "axis_kick", "axis_pow"
     ]
     display_g = view_g[[c for c in g_base_cols if c in view_g.columns]].rename(columns={
         "name": "Joueur", "position_group": "Poste", "team": "Equipe",
-        "nationality": "Nationalité", "rating": "Note Saison", "rating_value": "Note Valeur",
+        "nationality": "Nationalité", "display_rating": "Note Saison", "rating": "Note Brute Saison", "rating_value": "Note Valeur",
         "rating_intl": "🌍 Note Intl", "team_intl": "Sélection",
         "axis_att": "Course", "axis_def": "Physique", "axis_disc": "Rigueur",
         "axis_ctrl": "Distrib", "axis_kick": "Kicking", "axis_pow": "Danger",
