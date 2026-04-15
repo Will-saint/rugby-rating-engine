@@ -1,9 +1,17 @@
 [
   {
+    "name": "M. Halagahu",
+    "team": "Toulon",
+    "field": "tackles_per80",
+    "value": 31.43,
+    "expected": "[0, 30]",
+    "severity": "MEDIUM"
+  },
+  {
     "name": "J. Montoya",
     "team": "Pau",
     "field": "minutes_avg",
-    "value": 104.6,
+    "value": 99.8,
     "expected": "[0, 80]",
     "severity": "MEDIUM"
   }

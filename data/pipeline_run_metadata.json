@@ -1,10 +1,22 @@
 {
-  "generated_at": "2026-03-12T17:16:11.549579",
+  "generated_at": "2026-04-15T17:17:47.517758",
   "season": "2025-2026",
-  "duration_seconds": 6.1,
+  "duration_seconds": 904.0,
   "steps": [
     {
+      "name": "LNR",
+      "status": "OK"
+    },
+    {
+      "name": "Statbunker",
+      "status": "OK"
+    },
+    {
       "name": "Normalisation",
+      "status": "OK"
+    },
+    {
+      "name": "Forme",
       "status": "OK"
     },
     {
@@ -16,23 +28,36 @@
       "status": "OK"
     }
   ],
-  "source_mode": "LNR_ONLY",
-  "sources_used": [],
+  "source_mode": "LNR_SB_MIXED",
+  "sources_used": [
+    "LNR",
+    "Statbunker"
+  ],
   "files": {
     "players.csv": {
-      "md5": "9db1bd43fa3d",
-      "size_kb": 65,
-      "modified": "2026-03-12T17:16:06.693250"
+      "md5": "396bea320b71",
+      "size_kb": 145,
+      "modified": "2026-04-15T17:17:46.960741"
     },
     "players_scored.csv": {
-      "md5": "bde55bd5e77f",
-      "size_kb": 294,
-      "modified": "2026-03-12T17:16:11.432025"
+      "md5": "23feb13183c4",
+      "size_kb": 202,
+      "modified": "2026-04-15T17:17:47.305204"
     },
     "lnr_raw.json": {
-      "md5": "5f084dc875a2",
-      "size_kb": 766,
-      "modified": "2026-03-08T21:32:34.066516"
+      "md5": "7c4977b0cd89",
+      "size_kb": 835,
+      "modified": "2026-04-15T17:02:44.868675"
+    },
+    "statbunker_raw.json": {
+      "md5": "d75171398898",
+      "size_kb": 0,
+      "modified": "2026-04-15T17:17:43.523111"
+    },
+    "players_merged.json": {
+      "md5": "7c4977b0cd89",
+      "size_kb": 835,
+      "modified": "2026-04-15T17:17:43.583636"
     },
     "weights.yaml": {
       "md5": "c976a5cad72d",
@@ -41,15 +66,15 @@
     }
   },
   "quality": {
-    "n_players": 550,
+    "n_players": 534,
     "n_teams": 14,
     "n_positions": 8,
     "core_cols_total": 16,
-    "core_cols_found": 16,
-    "coverage_core": 0.312,
-    "coverage_core_pct": 31.2,
-    "coverage_extended_pct": 31.2,
-    "coverage_target_pct": 20.0,
+    "core_cols_found": 5,
+    "coverage_core": 1.0,
+    "coverage_core_pct": 100.0,
+    "coverage_extended_pct": 100.0,
+    "coverage_target_pct": 35.0,
     "unknown_pos_pct": 0.0,
     "high_anomalies": 0
   },
@@ -73,7 +98,7 @@
     ],
     "teams_not_in_league": [],
     "n_teams_active": 14,
-    "n_players_raw": 554,
+    "n_players_raw": 540,
     "http_stats": "Requêtes: 16 total | 16 en cache | 0 OK | 0 404 | 0 erreurs"
   }
 }
