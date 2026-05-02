@@ -32,12 +32,32 @@ TEAM_COLORS = {
 # ─────────────────────────────────────────────
 # Chargement données multi-saisons
 # ─────────────────────────────────────────────
+def _seasons_mtime() -> float:
+    """Retourne le max mtime des players_scored.csv de toutes les saisons."""
+    t = 0.0
+    for s in POST_COVID_SEASONS:
+        p = os.path.join(SEASONS_DIR, s, "players_scored.csv")
+        try:
+            t = max(t, os.path.getmtime(p))
+        except OSError:
+            pass
+    return t
+
+
 @st.cache_data(show_spinner="Chargement historique saisons...", ttl=3600)
-def load_all_seasons() -> pd.DataFrame | None:
-    if not os.path.exists(ALL_SEASONS_PATH):
+def load_all_seasons(_mtime: float = 0.0) -> pd.DataFrame | None:
+    frames = []
+    for s in POST_COVID_SEASONS:
+        p = os.path.join(SEASONS_DIR, s, "players_scored.csv")
+        if os.path.exists(p):
+            d = pd.read_csv(p)
+            if "display_rating" not in d.columns:
+                d["display_rating"] = d["rating"]
+            d["season"] = s
+            frames.append(d)
+    if not frames:
         return None
-    df = pd.read_csv(ALL_SEASONS_PATH)
-    # S'assurer que les saisons sont ordonnées
+    df = pd.concat(frames, ignore_index=True)
     season_order = {s: i for i, s in enumerate(POST_COVID_SEASONS)}
     df["season_order"] = df["season"].map(season_order).fillna(99)
     df = df.sort_values(["season_order","name"]).drop(columns=["season_order"])
@@ -45,17 +65,21 @@ def load_all_seasons() -> pd.DataFrame | None:
 
 
 @st.cache_data(show_spinner=False, ttl=3600)
-def load_season(season: str) -> pd.DataFrame | None:
+def load_season(season: str, _mtime: float = 0.0) -> pd.DataFrame | None:
     path = os.path.join(SEASONS_DIR, season, "players_scored.csv")
     if not os.path.exists(path):
         return None
-    return pd.read_csv(path)
+    df = pd.read_csv(path)
+    if "display_rating" not in df.columns:
+        df["display_rating"] = df["rating"]
+    return df
 
 
 # ─────────────────────────────────────────────
 # Vérifier données disponibles
 # ─────────────────────────────────────────────
-df_all = load_all_seasons()
+_mt = _seasons_mtime()
+df_all = load_all_seasons(_mtime=_mt)
 available_seasons = []
 for s in POST_COVID_SEASONS:
     if os.path.exists(os.path.join(SEASONS_DIR, s, "players_scored.csv")):
@@ -78,10 +102,9 @@ if not available_seasons:
 st.caption(f"Saisons disponibles : {', '.join(available_seasons)}")
 
 if df_all is None and len(available_seasons) > 0:
-    # Construire à la volée
     frames = []
     for s in available_seasons:
-        d = load_season(s)
+        d = load_season(s, _mtime=_mt)
         if d is not None:
             d["season"] = s
             frames.append(d)
@@ -198,7 +221,10 @@ with tab_player:
                 xaxis=dict(gridcolor="#1F2937"),
                 showlegend=False,
             )
-            st.plotly_chart(fig_rating, use_container_width=True)
+            try:
+                st.plotly_chart(fig_rating, use_container_width=True)
+            except Exception as _e:
+                st.warning(f"Impossible d'afficher ce graphique : {type(_e).__name__}")
 
             # Évolution stats clés
             stat_cols_avail = [c for c in
@@ -235,7 +261,10 @@ with tab_player:
                     xaxis=dict(gridcolor="#1F2937"),
                     legend=dict(x=0.5, y=-0.15, xanchor="center", orientation="h", font=dict(size=10)),
                 )
-                st.plotly_chart(fig_stats, use_container_width=True)
+                try:
+                    st.plotly_chart(fig_stats, use_container_width=True)
+                except Exception as _e:
+                    st.warning(f"Impossible d'afficher ce graphique : {type(_e).__name__}")
 
             # Tableau récap
             st.markdown("**Tableau complet par saison**")
@@ -298,7 +327,10 @@ with tab_team:
             xaxis=dict(gridcolor="#1F2937"),
             showlegend=False,
         )
-        st.plotly_chart(fig_team, use_container_width=True)
+        try:
+            st.plotly_chart(fig_team, use_container_width=True)
+        except Exception as _e:
+            st.warning(f"Impossible d'afficher ce graphique : {type(_e).__name__}")
 
         # Évolution stats défense/attaque
         fig_stats_team = go.Figure()
@@ -319,14 +351,18 @@ with tab_team:
             yaxis=dict(gridcolor="#1F2937"), xaxis=dict(gridcolor="#1F2937"),
             legend=dict(x=0.5,y=-0.25,xanchor="center",orientation="h",font=dict(size=10)),
         )
-        st.plotly_chart(fig_stats_team, use_container_width=True)
+        try:
+            st.plotly_chart(fig_stats_team, use_container_width=True)
+        except Exception as _e:
+            st.warning(f"Impossible d'afficher ce graphique : {type(_e).__name__}")
 
         # Meilleurs joueurs de l'équipe saison par saison (note max)
         st.markdown("**Meilleur joueur par saison**")
+        _bps_cols = [c for c in ["season","name","position_label","rating","tackles_per80"] if c in team_hist.columns]
         best_per_season = (
             team_hist.sort_values("rating", ascending=False)
             .groupby("season").first()
-            .reset_index()[["season","name","position_label","rating","tackles_per80"]]
+            .reset_index()[_bps_cols]
         )
         st.dataframe(best_per_season.rename(columns={
             "season":"Saison","name":"Joueur","position_label":"Poste",
@@ -500,7 +536,10 @@ with tab_compare:
                 height=350, margin=dict(l=10,r=10,t=20,b=60),
                 paper_bgcolor="rgba(0,0,0,0)",
             )
-            st.plotly_chart(fig_cmp, use_container_width=True)
+            try:
+                st.plotly_chart(fig_cmp, use_container_width=True)
+            except Exception as _e:
+                st.warning(f"Impossible d'afficher ce graphique : {type(_e).__name__}")
 
         st.divider()
 
@@ -521,16 +560,28 @@ with tab_compare:
                 st.markdown(f"**▲ Plus progressé ({season_b} → {season_a})**")
                 top_up = merged.head(10)[["name","team",f"rating_{season_b}",f"rating_{season_a}","delta"]]
                 top_up.columns = ["Joueur","Équipe",season_b,season_a,"Δ"]
-                st.dataframe(top_up.style.applymap(
-                    lambda v: "color:#10B981;font-weight:bold" if isinstance(v,float) and v > 0 else "", subset=["Δ"]
-                ), hide_index=True, use_container_width=True)
+                try:
+                    styled_up = top_up.style.map(
+                        lambda v: "color:#10B981;font-weight:bold" if isinstance(v,float) and v > 0 else "", subset=["Δ"]
+                    )
+                except AttributeError:
+                    styled_up = top_up.style.applymap(
+                        lambda v: "color:#10B981;font-weight:bold" if isinstance(v,float) and v > 0 else "", subset=["Δ"]
+                    )
+                st.dataframe(styled_up, hide_index=True, use_container_width=True)
             with col_dn2:
                 st.markdown(f"**▼ Plus régressé ({season_b} → {season_a})**")
                 top_dn = merged.tail(10)[["name","team",f"rating_{season_b}",f"rating_{season_a}","delta"]]
                 top_dn.columns = ["Joueur","Équipe",season_b,season_a,"Δ"]
-                st.dataframe(top_dn.style.applymap(
-                    lambda v: "color:#EF4444;font-weight:bold" if isinstance(v,float) and v < 0 else "", subset=["Δ"]
-                ), hide_index=True, use_container_width=True)
+                try:
+                    styled_dn = top_dn.style.map(
+                        lambda v: "color:#EF4444;font-weight:bold" if isinstance(v,float) and v < 0 else "", subset=["Δ"]
+                    )
+                except AttributeError:
+                    styled_dn = top_dn.style.applymap(
+                        lambda v: "color:#EF4444;font-weight:bold" if isinstance(v,float) and v < 0 else "", subset=["Δ"]
+                    )
+                st.dataframe(styled_dn, hide_index=True, use_container_width=True)
         else:
             # fallback sur le nom
             merged = df_a[["name","team","rating"]].merge(df_b[["name","rating"]], on="name", suffixes=(f"_{season_a}",f"_{season_b}"))
@@ -635,14 +686,8 @@ else:
                     marker=dict(size=9, symbol="star"),
                 ))
 
-                # Intervalle de confiance
+                # Intervalle de confiance ±σ
                 if sigma > 0:
-                    fig_pred.add_trace(go.Scatter(
-                        x=future_seasons + future_seasons[::-1],
-                        y=y_future + sigma_arr if (sigma_arr := np.clip(y_future + sigma, 40, 99)).any() else [],
-                        fill=None, mode="lines", line_color="rgba(245,158,11,0)",
-                        showlegend=False,
-                    ))
                     y_upper = np.clip(y_future + sigma, 40, 99).tolist()
                     y_lower = np.clip(y_future - sigma, 40, 99).tolist()
                     fig_pred.add_trace(go.Scatter(
@@ -672,7 +717,10 @@ else:
                     legend=dict(x=0, y=1, bgcolor="rgba(0,0,0,0)"),
                     paper_bgcolor="rgba(0,0,0,0)",
                 )
-                st.plotly_chart(fig_pred, use_container_width=True)
+                try:
+                    st.plotly_chart(fig_pred, use_container_width=True)
+                except Exception as _e:
+                    st.warning(f"Impossible d'afficher ce graphique : {type(_e).__name__}")
 
                 # Métriques résumé
                 mc1, mc2, mc3 = st.columns(3)

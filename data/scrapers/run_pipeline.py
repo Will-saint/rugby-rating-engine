@@ -539,20 +539,33 @@ def step_compute_form() -> bool:
         return False
 
 
-def step_score() -> bool:
+def step_score(season: str = "2025-2026") -> bool:
     """
     Calcule les ratings (engine/ratings.py) sur players.csv et produit players_scored.csv.
     Recommandation 9 : ratings calculés dans le pipeline, pas au runtime Streamlit.
     players.csv = données brutes normalisées (sans rating)
     players_scored.csv = players.csv + colonnes rating, axis_*, confidence_score
+
+    Priorité de lecture :
+      1. data/seasons/<season>/players.csv  (données propres à la saison)
+      2. data/players.csv                   (fallback pipeline courant)
     """
     log_step("ÉTAPE 4 — Calcul des ratings")
-    csv_path = DATA_DIR / "players.csv"
-    scored_path = DATA_DIR / "players_scored.csv"
 
-    if not csv_path.exists():
+    season_dir  = DATA_DIR / "seasons" / season
+    season_csv  = season_dir / "players.csv"
+    global_csv  = DATA_DIR / "players.csv"
+
+    # Choisir la source selon la saison
+    if season_csv.exists():
+        csv_path = season_csv
+    elif global_csv.exists():
+        csv_path = global_csv
+    else:
         log("players.csv introuvable — skip calcul ratings", "WARN")
         return False
+
+    scored_path = DATA_DIR / "players_scored.csv"
 
     try:
         import sys as _sys
@@ -561,14 +574,93 @@ def step_score() -> bool:
         from engine.ratings import calculate_ratings, get_team_strength
 
         df = pd.read_csv(csv_path)
+
+        # ── Enrichissement profil physique ──────────────────────────────
+        # Les players.csv par saison ne contiennent pas les profils
+        # (age, height_cm, weight_kg, nationality) — ils sont dans
+        # players_merged.json (enrichi par enrich_profiles.py).
+        # On les injecte par lnr_slug avant le scoring.
+        PROFILE_COLS = ["age", "height_cm", "weight_kg", "nationality"]
+        needs_profiles = (
+            "lnr_slug" in df.columns and
+            any(df.get(c, pd.Series()).isna().all() for c in PROFILE_COLS)
+        )
+        if needs_profiles:
+            merged_json = RAW_DIR / "players_merged.json"
+            if merged_json.exists():
+                import json as _json
+                with open(merged_json, encoding="utf-8") as _f:
+                    _raw = _json.load(_f)
+                _players = _raw if isinstance(_raw, list) else _raw.get("players", [])
+                _prof = pd.DataFrame([
+                    {
+                        "lnr_slug":   p.get("lnr_slug", ""),
+                        "age":        p.get("age"),
+                        "height_cm":  p.get("height_cm"),
+                        "weight_kg":  p.get("weight_kg"),
+                        "nationality": p.get("nationality"),
+                    }
+                    for p in _players if p.get("lnr_slug")
+                ])
+                # Dédupliquer : garder un seul profil par lnr_slug (le premier non-null)
+                _prof = _prof.sort_values("age", na_position="last").drop_duplicates("lnr_slug", keep="first")
+                for col in PROFILE_COLS:
+                    if col in df.columns:
+                        df = df.drop(columns=[col])
+                df = df.merge(_prof, on="lnr_slug", how="left")
+                loaded = df["age"].notna().sum()
+                log(f"Profils injectés depuis players_merged.json : {loaded}/{len(df)} joueurs avec âge")
+
+        # ── Ajustement d'âge par saison ─────────────────────────────────
+        # Les profils contiennent l'âge ACTUEL (saison 2025-2026).
+        # Pour les saisons passées, on recule l'âge proportionnellement.
+        # Ex : Dupont (29 en 2025-2026) → 27 en 2023-2024, 28 en 2024-2025.
+        if "age" in df.columns and df["age"].notna().any():
+            try:
+                current_season_start = 2025          # année de début de la saison courante
+                season_start = int(season.split("-")[0])
+                age_offset = current_season_start - season_start
+                if age_offset != 0:
+                    df["age"] = df["age"].apply(
+                        lambda a: (a - age_offset) if pd.notna(a) else a
+                    )
+                    log(f"Ajustement âge : -{age_offset} ans pour saison {season}")
+            except Exception:
+                pass
+
+        # ── Injection consistance ───────────────────────────────────────
+        consistency_path = DATA_DIR / "player_consistency.csv"
+        if consistency_path.exists():
+            try:
+                _cons = pd.read_csv(consistency_path)[["lnr_slug", "axis_consistency", "n_matches_consistency"]]
+                if "axis_consistency" in df.columns:
+                    df = df.drop(columns=["axis_consistency"], errors="ignore")
+                if "n_matches_consistency" in df.columns:
+                    df = df.drop(columns=["n_matches_consistency"], errors="ignore")
+                df = df.merge(_cons, on="lnr_slug", how="left")
+                n_cons = df["axis_consistency"].notna().sum()
+                log(f"Consistance injectée : {n_cons}/{len(df)} joueurs")
+            except Exception as _e:
+                log(f"Erreur injection consistance : {_e}", "WARN")
+
         df = calculate_ratings(df)
+
+        # Toujours écrire dans data/seasons/<season>/players_scored.csv
+        import shutil as _shutil
+        season_dir.mkdir(parents=True, exist_ok=True)
+        season_scored = season_dir / "players_scored.csv"
+        df.to_csv(season_scored, index=False)
+        log(f"Scoring saison -> {season_scored}")
+
+        # Sync vers le fichier global uniquement si c'est la saison courante
         df.to_csv(scored_path, index=False)
+        log(f"players_scored.csv -> {scored_path}")
 
         ts = get_team_strength(df)
         ts.to_csv(DATA_DIR / "team_strength.csv", index=False)
+        ts.to_csv(season_dir / "team_strength.csv", index=False)
 
         log(f"Scoring : {len(df)} joueurs, ratings {df['rating'].min():.1f}–{df['rating'].max():.1f} (moy {df['rating'].mean():.1f})")
-        log(f"players_scored.csv -> {scored_path}")
         return True
     except Exception as e:
         log(f"Erreur calcul ratings : {e}", "ERROR")
@@ -682,7 +774,7 @@ Exemples :
             if ok_form:
                 steps.append(("Forme", ok_form))
 
-            ok_score = step_score()
+            ok_score = step_score(season=args.season)
             steps.append(("Scoring", ok_score))
 
     # Rapport qualité

@@ -171,9 +171,9 @@ def compute_form(n_recent: int = 5, decay: float = 0.7) -> pd.DataFrame:
     if form_df.empty:
         return form_df
 
-    # Normaliser form_raw en [0, 100] (p5/p95 globaux)
-    lo = float(np.percentile(form_df["form_raw"], 5))
-    hi = float(np.percentile(form_df["form_raw"], 95))
+    # Normaliser form_raw en [0, 100] (p1/p99 globaux — plus large pour éviter la saturation)
+    lo = float(np.percentile(form_df["form_raw"], 1))
+    hi = float(np.percentile(form_df["form_raw"], 99))
     if hi - lo < 1e-9:
         form_df["form_score"] = 50.0
     else:

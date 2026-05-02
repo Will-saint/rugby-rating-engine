@@ -43,12 +43,14 @@ TIER_CONFIG = [
 ]
 
 AXIS_LABELS = {
-    "axis_att":  "CARRY",
-    "axis_def":  "DEF",
-    "axis_disc": "DISC",
-    "axis_ctrl": "CTRL",
-    "axis_kick": "KICK",
-    "axis_pow":  "DANGER",
+    "axis_att":         "CARRY",
+    "axis_def":         "DEF",
+    "axis_disc":        "DISC",
+    "axis_ctrl":        "CTRL",
+    "axis_kick":        "KICK",
+    "axis_pow":         "DANGER",
+    "axis_gabarit":     "GABARIT",
+    "axis_consistency": "CONSIST",
 }
 
 STAT_LABELS = {
@@ -123,23 +125,34 @@ def _sparkline(ax, scores: list[float], trend: str, color: str = "#3B82F6"):
         spine.set_color("#333")
 
 
-def _position_percentiles(ax, player: dict, df_pos: "import pandas as pd; pd.DataFrame"):
+def _position_percentiles(ax, player: dict, df_pos: "import pandas as pd; pd.DataFrame",
+                          cons_val: float | None = None):
     """Barres horizontales : valeur du joueur vs médiane de poste."""
-    stats = [k for k in STAT_LABELS if k in df_pos.columns and player.get(k) is not None][:6]
-    if not stats:
+    stats = [k for k in STAT_LABELS if k in df_pos.columns and player.get(k) is not None][:5]
+    if not stats and cons_val is None:
         ax.axis("off")
         return
 
     import pandas as _pd
-    y = list(range(len(stats)))
-    labels = [STAT_LABELS[s] for s in stats]
-    player_vals = [float(player.get(s, 0) or 0) for s in stats]
+    # Ajoute consistance comme barre supplémentaire (déjà en [0,100])
+    extra_labels = []
+    extra_pcts   = []
+    extra_raws   = []
+    if cons_val is not None:
+        extra_labels.append("Consistance")
+        extra_pcts.append(min(100.0, cons_val))
+        extra_raws.append(cons_val)
+
+    y = list(range(len(stats) + len(extra_labels)))
+    labels = [STAT_LABELS[s] for s in stats] + extra_labels
+    player_vals = [float(player.get(s, 0) or 0) for s in stats] + extra_raws
     pos_max = [float(df_pos[s].quantile(0.95)) if s in df_pos.columns else 1.0 for s in stats]
 
-    # Barres en % du p95 du poste
-    pcts = [min(100.0, (v / mx * 100) if mx > 0 else 0.0) for v, mx in zip(player_vals, pos_max)]
+    pcts = [min(100.0, (v / mx * 100) if mx > 0 else 0.0) for v, mx in zip(player_vals[:len(stats)], pos_max)]
+    pcts += extra_pcts
 
-    bars = ax.barh(y, pcts, color="#3B82F6", height=0.6, zorder=3, alpha=0.8)
+    bar_colors = ["#3B82F6"] * len(stats) + (["#A78BFA"] if extra_labels else [])
+    bars = ax.barh(y, pcts, color=bar_colors, height=0.6, zorder=3, alpha=0.8)
     ax.set_yticks(y)
     ax.set_yticklabels(labels, fontsize=7, color="#CCCCCC")
     ax.set_xlim(0, 115)
@@ -238,18 +251,25 @@ def generate_scouting_card(
     conf  = player.get("confidence", 0.75)
     fscore = player.get("form_score", 50)
     trend  = player.get("form_trend", "→")
+    consistency = player.get("axis_consistency")
     try:
         conf   = float(conf)
         fscore = float(fscore)
     except (TypeError, ValueError):
         conf, fscore = 0.75, 50.0
+    try:
+        cons_val = float(consistency) if consistency not in (None, "", "nan") else None
+    except (TypeError, ValueError):
+        cons_val = None
 
     trend_color = {"↗": "#10B981", "↘": "#EF4444", "→": "#9CA3AF"}.get(trend, "#9CA3AF")
+    cons_str = f"  ·  Consistance {cons_val:.0f}/100" if cons_val is not None else ""
     info_str = (
         f"Confiance {conf*100:.0f}%  ·  "
         f"Forme {trend} {fscore:.0f}/100  ·  "
         f"{int(player.get('matches_played', 0) or 0)} matchs  ·  "
         f"{int(player.get('minutes_total', player.get('minutes_avg', 0) or 0) or 0)} min"
+        f"{cons_str}"
     )
     ax_header.text(0.5, 0.08, info_str, transform=ax_header.transAxes,
                    ha="center", va="center", fontsize=8, color="#9CA3AF")
@@ -308,7 +328,7 @@ def generate_scouting_card(
         df_pos = None
 
     if df_pos is not None and not df_pos.empty:
-        _position_percentiles(ax_stats, player, df_pos)
+        _position_percentiles(ax_stats, player, df_pos, cons_val)
         ax_stats.set_title("Stats vs poste (% du p95)", color="#CCC", fontsize=10)
     else:
         ax_stats.axis("off")

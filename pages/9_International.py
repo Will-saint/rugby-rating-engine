@@ -313,10 +313,14 @@ with tab_cross:
         df["_key"] = df["name"].apply(_norm)
         df_t14["_key"] = df_t14["name"].apply(_norm)
 
-        # Merge sur clé normalisée
+        # Merge sur clé normalisée — filtre les colonnes réellement présentes dans df
+        _intl_cols = ["_key","name","rating_intl","team","matches_intl"]
+        for _c in ["axis_course","axis_distrib","axis_kicking","axis_physique",
+                   "axis_rigueur","axis_danger","axis_melee","position_label"]:
+            if _c in df.columns:
+                _intl_cols.append(_c)
         merged = df_t14.merge(
-            df[["_key","name","rating_intl","axis_course","axis_distrib","axis_kicking",
-                "axis_physique","axis_rigueur","axis_danger","axis_melee","team","position_label","matches_intl"]],
+            df[_intl_cols],
             on="_key", suffixes=("_t14", "_intl"),
         )
         merged = merged.drop(columns=["_key"])
@@ -330,7 +334,7 @@ with tab_cross:
             sort_by = st.selectbox("Trier par", ["rating_intl", "rating", "rating_value"], index=0)
             if sort_by not in merged.columns:
                 sort_by = "rating_intl"
-            disp_m = merged.nlargest(50, sort_by)[[
+            _disp_m_cols = [c for c in [
                 "name_t14", "team_t14", "position_group",
                 "rating", "rating_intl",
                 "axis_att", "axis_course",
@@ -338,7 +342,8 @@ with tab_cross:
                 "axis_disc", "axis_rigueur",
                 "axis_pow", "axis_danger",
                 "matches_played", "matches_intl",
-            ]].rename(columns={
+            ] if c in merged.columns]
+            disp_m = merged.nlargest(50, sort_by)[_disp_m_cols].rename(columns={
                 "name_t14": "Joueur", "team_t14": "Club", "position_group": "Poste",
                 "rating": "Note Top14", "rating_intl": "Note Intl",
                 "axis_att": "Course T14", "axis_course": "Course Intl",
@@ -358,13 +363,27 @@ with tab_cross:
             # Scatter Top14 vs International
             if len(merged) > 3:
                 r_col = "rating_value" if "rating_value" in merged.columns else "rating"
-                fig_sc = px.scatter(
-                    merged,
-                    x=r_col, y="rating_intl",
-                    color="position_group",
-                    hover_data=["name_t14", "team_t14", "matches_played", "matches_intl"],
-                    labels={r_col: "Note Top14", "rating_intl": "Note Intl", "position_group": "Poste"},
-                    title="Corrélation Note Top14 ↔ Note Internationale",
-                    trendline="ols",
-                )
-                st.plotly_chart(fig_sc, use_container_width=True)
+                try:
+                    fig_sc = px.scatter(
+                        merged,
+                        x=r_col, y="rating_intl",
+                        color="position_group",
+                        hover_data=["name_t14", "team_t14", "matches_played", "matches_intl"],
+                        labels={r_col: "Note Top14", "rating_intl": "Note Intl", "position_group": "Poste"},
+                        title="Corrélation Note Top14 ↔ Note Internationale",
+                        trendline="ols",
+                    )
+                    st.plotly_chart(fig_sc, use_container_width=True)
+                except Exception:
+                    try:
+                        fig_sc = px.scatter(
+                            merged,
+                            x=r_col, y="rating_intl",
+                            color="position_group",
+                            hover_data=["name_t14", "team_t14", "matches_played", "matches_intl"],
+                            labels={r_col: "Note Top14", "rating_intl": "Note Intl", "position_group": "Poste"},
+                            title="Corrélation Note Top14 ↔ Note Internationale",
+                        )
+                        st.plotly_chart(fig_sc, use_container_width=True)
+                    except Exception as _e:
+                        st.warning(f"Impossible d'afficher ce graphique : {type(_e).__name__}")

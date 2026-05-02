@@ -86,12 +86,21 @@ def _enrich_with_prior(df: pd.DataFrame, season: str) -> pd.DataFrame:
     return df
 
 
+def _file_mtime(path: str) -> float:
+    """Retourne le timestamp de modification du fichier, ou 0 s'il n'existe pas."""
+    try:
+        return os.path.getmtime(path)
+    except OSError:
+        return 0.0
+
+
 @st.cache_data(show_spinner="Chargement des données...", ttl=3600)
-def load_data(season: str = "2025-2026") -> pd.DataFrame:
+def _load_data_cached(season: str = "2025-2026", _mtime: float = 0.0) -> pd.DataFrame:
     """
     Charge les données joueurs + ratings pour une saison donnée.
     Cherche d'abord dans data/seasons/{season}/, sinon fallback sur data/ (saison courante).
     Injecte rating_value (blend saison + prior historique).
+    _mtime est ignoré mais force l'invalidation du cache si le fichier change.
     """
     # Priorité : seasons/{season}/players_scored.csv
     season_scored = os.path.join(SEASONS_DIR, season, "players_scored.csv")
@@ -123,6 +132,14 @@ def load_data(season: str = "2025-2026") -> pd.DataFrame:
 
     st.error(f"Données manquantes pour la saison {season}.\nLancer : `python data/scrapers/scrape_all_seasons.py --seasons {season}`")
     st.stop()
+
+
+def load_data(season: str = "2025-2026") -> pd.DataFrame:
+    """Wrapper public — passe le mtime pour invalider le cache dès que le CSV change."""
+    season_scored = os.path.join(SEASONS_DIR, season, "players_scored.csv")
+    fallback      = DATA_SCORED_PATH
+    path = season_scored if os.path.exists(season_scored) else fallback
+    return _load_data_cached(season, _mtime=_file_mtime(path))
 
 
 @st.cache_data(show_spinner=False)
@@ -178,12 +195,350 @@ def get_rating_col() -> str:
     return "rating_value" if st.session_state.get("rating_mode") == "valeur" else "display_rating"
 
 
+_GLOBAL_CSS = """
+<style>
+/* ═══════════════════════════════════════════════════════════
+   RUGBY RATING ENGINE — Design System v2
+   Palette : navy #080D1A · slate #0F172A · orange #F97316
+             amber #FBBF24 · emerald #10B981 · sky #38BDF8
+   ═══════════════════════════════════════════════════════════ */
+
+/* Google Font — Inter */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Rajdhani:wght@500;600;700&display=swap');
+
+/* ── Base ───────────────────────────────────────────────── */
+html, body, [class*="css"] {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif !important;
+}
+
+/* ── Masquer éléments Streamlit natifs ─────────────────── */
+#MainMenu, footer, header { visibility: hidden; }
+.stDeployButton { display: none !important; }
+
+/* ── App container ─────────────────────────────────────── */
+.stApp {
+    background: linear-gradient(160deg, #080D1A 0%, #0A1020 60%, #080D1A 100%);
+}
+
+/* ── Sidebar ────────────────────────────────────────────── */
+[data-testid="stSidebar"] {
+    background: linear-gradient(180deg, #0B1220 0%, #0F172A 100%) !important;
+    border-right: 1px solid rgba(249,115,22,0.15) !important;
+}
+[data-testid="stSidebar"]::before {
+    content: "";
+    display: block;
+    height: 3px;
+    background: linear-gradient(90deg, #F97316, #FBBF24, #F97316);
+    margin-bottom: 0;
+}
+[data-testid="stSidebarNav"] a {
+    border-radius: 8px !important;
+    margin: 2px 8px !important;
+    transition: all 0.2s ease !important;
+}
+[data-testid="stSidebarNav"] a:hover {
+    background: rgba(249,115,22,0.1) !important;
+    padding-left: 16px !important;
+}
+[data-testid="stSidebarNav"] a[aria-selected="true"] {
+    background: rgba(249,115,22,0.15) !important;
+    border-left: 3px solid #F97316 !important;
+}
+
+/* ── Titre de page ──────────────────────────────────────── */
+h1 {
+    font-family: 'Rajdhani', sans-serif !important;
+    font-weight: 700 !important;
+    font-size: 2.2rem !important;
+    background: linear-gradient(90deg, #F97316 0%, #FBBF24 60%, #F1F5F9 100%);
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+    letter-spacing: 0.02em !important;
+    padding-bottom: 4px !important;
+}
+h2 {
+    font-family: 'Rajdhani', sans-serif !important;
+    font-weight: 600 !important;
+    font-size: 1.5rem !important;
+    color: #F1F5F9 !important;
+    border-bottom: 1px solid rgba(249,115,22,0.25) !important;
+    padding-bottom: 6px !important;
+}
+h3 {
+    font-family: 'Inter', sans-serif !important;
+    font-weight: 600 !important;
+    color: #CBD5E1 !important;
+}
+
+/* ── Metric cards ───────────────────────────────────────── */
+[data-testid="stMetric"] {
+    background: linear-gradient(135deg, rgba(15,23,42,0.9) 0%, rgba(11,18,32,0.95) 100%) !important;
+    border: 1px solid rgba(249,115,22,0.2) !important;
+    border-radius: 12px !important;
+    padding: 12px 16px !important;
+    transition: border-color 0.2s ease !important;
+    position: relative;
+    overflow: hidden;
+}
+[data-testid="stMetric"]::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #F97316, transparent);
+}
+[data-testid="stMetric"]:hover {
+    border-color: rgba(249,115,22,0.45) !important;
+}
+[data-testid="stMetricLabel"] {
+    font-size: 0.72rem !important;
+    font-weight: 500 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.08em !important;
+    color: #64748B !important;
+}
+[data-testid="stMetricValue"] {
+    font-family: 'Rajdhani', sans-serif !important;
+    font-size: 1.9rem !important;
+    font-weight: 700 !important;
+    color: #F1F5F9 !important;
+    line-height: 1.1 !important;
+}
+[data-testid="stMetricDelta"] {
+    font-size: 0.78rem !important;
+    font-weight: 500 !important;
+}
+
+/* ── Tabs ───────────────────────────────────────────────── */
+[data-testid="stTabs"] [data-baseweb="tab-list"] {
+    background: transparent !important;
+    border-bottom: 1px solid rgba(249,115,22,0.2) !important;
+    gap: 4px !important;
+}
+[data-testid="stTabs"] [data-baseweb="tab"] {
+    background: transparent !important;
+    border: none !important;
+    border-bottom: 2px solid transparent !important;
+    color: #64748B !important;
+    font-weight: 500 !important;
+    font-size: 0.88rem !important;
+    padding: 8px 18px !important;
+    border-radius: 6px 6px 0 0 !important;
+    transition: all 0.2s ease !important;
+}
+[data-testid="stTabs"] [data-baseweb="tab"]:hover {
+    color: #F1F5F9 !important;
+    background: rgba(249,115,22,0.06) !important;
+}
+[data-testid="stTabs"] [aria-selected="true"] {
+    color: #F97316 !important;
+    border-bottom-color: #F97316 !important;
+    background: rgba(249,115,22,0.08) !important;
+}
+
+/* ── Buttons ────────────────────────────────────────────── */
+.stButton > button {
+    background: linear-gradient(135deg, #F97316 0%, #EA6A0A 100%) !important;
+    color: #fff !important;
+    border: none !important;
+    border-radius: 8px !important;
+    font-weight: 600 !important;
+    font-size: 0.88rem !important;
+    padding: 8px 20px !important;
+    transition: all 0.2s ease !important;
+    box-shadow: 0 2px 8px rgba(249,115,22,0.25) !important;
+    letter-spacing: 0.03em !important;
+}
+.stButton > button:hover {
+    transform: translateY(-1px) !important;
+    box-shadow: 0 4px 16px rgba(249,115,22,0.4) !important;
+}
+.stButton > button:active {
+    transform: translateY(0) !important;
+}
+
+/* Boutons de téléchargement */
+[data-testid="stDownloadButton"] > button {
+    background: linear-gradient(135deg, #1E293B 0%, #0F172A 100%) !important;
+    border: 1px solid rgba(249,115,22,0.35) !important;
+    color: #F97316 !important;
+    border-radius: 8px !important;
+    font-weight: 500 !important;
+}
+[data-testid="stDownloadButton"] > button:hover {
+    background: rgba(249,115,22,0.1) !important;
+    border-color: #F97316 !important;
+}
+
+/* ── Inputs / Selects ───────────────────────────────────── */
+[data-baseweb="select"] > div {
+    background: #0F172A !important;
+    border: 1px solid rgba(249,115,22,0.25) !important;
+    border-radius: 8px !important;
+    color: #F1F5F9 !important;
+}
+[data-baseweb="select"] > div:focus-within {
+    border-color: #F97316 !important;
+    box-shadow: 0 0 0 2px rgba(249,115,22,0.15) !important;
+}
+[data-baseweb="input"] input {
+    background: #0F172A !important;
+    border: 1px solid rgba(249,115,22,0.25) !important;
+    border-radius: 8px !important;
+    color: #F1F5F9 !important;
+}
+[data-baseweb="input"] input:focus {
+    border-color: #F97316 !important;
+    box-shadow: 0 0 0 2px rgba(249,115,22,0.15) !important;
+}
+
+/* ── Slider ─────────────────────────────────────────────── */
+[data-testid="stSlider"] [data-baseweb="slider"] [role="slider"] {
+    background: #F97316 !important;
+    border-color: #F97316 !important;
+}
+
+/* ── Checkbox / Toggle ──────────────────────────────────── */
+[data-testid="stCheckbox"] label,
+[data-testid="stToggle"] label {
+    font-weight: 500 !important;
+    color: #CBD5E1 !important;
+}
+
+/* ── Dataframe / table ──────────────────────────────────── */
+[data-testid="stDataFrame"] {
+    border: 1px solid rgba(249,115,22,0.15) !important;
+    border-radius: 10px !important;
+    overflow: hidden !important;
+}
+[data-testid="stDataFrame"] thead tr th {
+    background: #0F172A !important;
+    color: #94A3B8 !important;
+    font-size: 0.75rem !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.06em !important;
+    font-weight: 600 !important;
+    border-bottom: 1px solid rgba(249,115,22,0.2) !important;
+}
+[data-testid="stDataFrame"] tbody tr:nth-child(even) {
+    background: rgba(15,23,42,0.4) !important;
+}
+[data-testid="stDataFrame"] tbody tr:hover {
+    background: rgba(249,115,22,0.06) !important;
+}
+
+/* ── Expander ───────────────────────────────────────────── */
+[data-testid="stExpander"] {
+    background: rgba(15,23,42,0.6) !important;
+    border: 1px solid rgba(249,115,22,0.15) !important;
+    border-radius: 10px !important;
+}
+[data-testid="stExpander"] summary {
+    font-weight: 600 !important;
+    color: #CBD5E1 !important;
+}
+[data-testid="stExpander"] summary:hover {
+    color: #F97316 !important;
+}
+
+/* ── Alerts ─────────────────────────────────────────────── */
+[data-testid="stAlert"] {
+    border-radius: 10px !important;
+    border-left-width: 4px !important;
+}
+
+/* ── Divider ────────────────────────────────────────────── */
+hr {
+    border: none !important;
+    height: 1px !important;
+    background: linear-gradient(90deg,
+        transparent 0%, rgba(249,115,22,0.3) 20%,
+        rgba(249,115,22,0.3) 80%, transparent 100%) !important;
+    margin: 20px 0 !important;
+}
+
+/* ── Plotly charts background ───────────────────────────── */
+.js-plotly-plot .plotly .main-svg {
+    background: transparent !important;
+}
+
+/* ── Scrollbar webkit ───────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: #080D1A; }
+::-webkit-scrollbar-thumb {
+    background: rgba(249,115,22,0.35);
+    border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover { background: #F97316; }
+
+/* ── Caption / small text ───────────────────────────────── */
+[data-testid="stCaptionContainer"] {
+    color: #475569 !important;
+    font-size: 0.78rem !important;
+}
+
+/* ── Markdown ───────────────────────────────────────────── */
+.stMarkdown p {
+    line-height: 1.65 !important;
+}
+.stMarkdown strong {
+    color: #F1F5F9 !important;
+}
+code {
+    background: rgba(249,115,22,0.12) !important;
+    color: #FBBF24 !important;
+    border-radius: 4px !important;
+    padding: 1px 6px !important;
+    font-size: 0.85em !important;
+}
+
+/* ── Spinner ────────────────────────────────────────────── */
+[data-testid="stSpinner"] > div {
+    border-top-color: #F97316 !important;
+}
+
+/* ── Image captions ─────────────────────────────────────── */
+[data-testid="stImage"] figcaption {
+    color: #475569 !important;
+    font-size: 0.75rem !important;
+}
+
+/* ── Number input ───────────────────────────────────────── */
+[data-baseweb="input"] {
+    border-radius: 8px !important;
+}
+
+/* ── Progress bar ───────────────────────────────────────── */
+[data-testid="stProgress"] > div > div {
+    background: linear-gradient(90deg, #F97316, #FBBF24) !important;
+}
+
+/* ── Sidebar title override ─────────────────────────────── */
+[data-testid="stSidebar"] h1,
+[data-testid="stSidebar"] h2,
+[data-testid="stSidebar"] h3 {
+    -webkit-text-fill-color: #F97316 !important;
+    font-size: 0.9rem !important;
+    border: none !important;
+}
+
+/* ── Column borders ─────────────────────────────────────── */
+[data-testid="column"] {
+    padding: 0 8px !important;
+}
+</style>
+"""
+
+
 def page_config(title: str):
     st.set_page_config(
         page_title=f"Rugby Rating Engine — {title}",
         page_icon="🏉",
         layout="wide",
     )
+    st.markdown(_GLOBAL_CSS, unsafe_allow_html=True)
 
 
 TIER_COLORS = {
@@ -211,12 +566,14 @@ def rating_badge(r: float) -> str:
 
 
 AXIS_LABELS = {
-    "axis_att":  "Course",
-    "axis_def":  "Physique",
-    "axis_disc": "Rigueur",
-    "axis_ctrl": "Distribution",
-    "axis_kick": "Kicking",
-    "axis_pow":  "Danger",
+    "axis_att":         "Course",
+    "axis_def":         "Défense",
+    "axis_disc":        "Rigueur",
+    "axis_ctrl":        "Distribution",
+    "axis_kick":        "Kicking",
+    "axis_pow":         "Danger",
+    "axis_gabarit":     "Gabarit",
+    "axis_consistency": "Consistance",
 }
 
 # Description détaillée de chaque axe v4 — architecture Naim
@@ -256,6 +613,18 @@ AXIS_DESCRIPTIONS = {
         "emoji": "💪",
         "metrics": ["Essais /80 (×0.6)", "Grattages /80 (×0.4)"],
         "note": "Combine capacité à marquer et à créer des occasions. Poids Naim par poste.",
+    },
+    "axis_gabarit": {
+        "label": "Gabarit (Physique absolu)",
+        "emoji": "⚖️",
+        "metrics": ["Taille (cm)", "Poids (kg)"],
+        "note": "Blend 70% intra-poste + 30% global. Un 9 de 175/85 kg score bien parmi les 9, mais reste en-dessous d'un prop de 135 kg sur l'échelle globale.",
+    },
+    "axis_consistency": {
+        "label": "Consistance (Régularité)",
+        "emoji": "📈",
+        "metrics": ["Variance intra-saison des stats clés"],
+        "note": "Coefficient de variation inversé sur les 5 derniers matchs. 100 = performance identique à chaque match. 0 = très irrégulier.",
     },
 }
 

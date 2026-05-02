@@ -111,7 +111,7 @@ for i, (pl, color, label) in enumerate(active):
         )
 
 with card_cols[-1]:
-    axes   = ["axis_att", "axis_def", "axis_disc", "axis_ctrl", "axis_kick", "axis_pow"]
+    axes   = ["axis_att", "axis_def", "axis_disc", "axis_ctrl", "axis_kick", "axis_pow", "axis_gabarit", "axis_consistency"]
     labels = [AXIS_LABELS[a] for a in axes]
 
     def hex_rgba(h: str, a: float = 0.2) -> str:
@@ -302,23 +302,28 @@ st.divider()
 # ============================================================
 st.subheader("Stats brutes comparées")
 stat_keys = [
-    "tackles_per80", "line_breaks_per80", "offloads_per80",
+    "rating", "tackles_per80", "line_breaks_per80", "offloads_per80",
     "turnovers_won_per80", "points_scored_per80", "tries_per80",
+    "axis_gabarit", "axis_consistency",
     "yellow_cards", "orange_cards", "red_cards",
-    "minutes_total", "matches_played",
+    "minutes_total", "matches_played", "age",
 ]
 labels_map = {
+    "rating":              "⭐ Note finale",
     "tackles_per80":       "Plaquages /80",
     "line_breaks_per80":   "Franchissements /80",
     "offloads_per80":      "Offloads /80",
     "turnovers_won_per80": "Ballons grattés /80",
     "points_scored_per80": "Points /80",
     "tries_per80":         "Essais /80",
+    "axis_gabarit":        "Gabarit /100",
+    "axis_consistency":    "Consistance /100",
     "yellow_cards":        "Cartons jaunes",
     "orange_cards":        "Cartons oranges",
     "red_cards":           "Cartons rouges",
     "minutes_total":       "Minutes totales",
     "matches_played":      "Matchs joués",
+    "age":                 "Âge",
 }
 negative_stats = {"yellow_cards", "orange_cards", "red_cards"}
 
@@ -356,3 +361,89 @@ st.dataframe(
     use_container_width=True,
     hide_index=True,
 )
+
+# ============================================================
+# Verdict recrutement (template-based, 2 joueurs uniquement)
+# ============================================================
+if len(active) == 2:
+    st.divider()
+    st.subheader("🏆 Verdict recrutement")
+
+    pa, ca, _ = active[0]
+    pb, cb, _ = active[1]
+
+    def _wins(player_a, player_b, keys, neg=set()):
+        a_score = sum(
+            1 for k in keys
+            if (player_a.get(k) or 0) != (player_b.get(k) or 0) and
+            ((player_a.get(k) or 0) < (player_b.get(k) or 0) if k in neg
+             else (player_a.get(k) or 0) > (player_b.get(k) or 0))
+        )
+        return a_score
+
+    perf_keys = ["tackles_per80", "line_breaks_per80", "offloads_per80", "turnovers_won_per80", "tries_per80"]
+    neg_keys = {"yellow_cards", "orange_cards", "red_cards"}
+    disc_keys = list(neg_keys)
+
+    a_perf = _wins(pa, pb, perf_keys)
+    b_perf = _wins(pb, pa, perf_keys)
+    a_disc = _wins(pb, pa, disc_keys, neg=neg_keys)  # inversé : moins de cartons = mieux
+    b_disc = _wins(pa, pb, disc_keys, neg=neg_keys)
+    a_rate = float(pa.get("rating", 0) or 0)
+    b_rate = float(pb.get("rating", 0) or 0)
+    a_cons = float(pa.get("axis_consistency", 50) or 50)
+    b_cons = float(pb.get("axis_consistency", 50) or 50)
+
+    overall_a = a_rate >= b_rate
+    better = pa if overall_a else pb
+    worse  = pb if overall_a else pa
+    bc = ca if overall_a else cb
+    wc = cb if overall_a else ca
+
+    rate_diff = abs(a_rate - b_rate)
+    cons_diff = abs(a_cons - b_cons)
+
+    verdict_lines = []
+
+    # Note globale
+    if rate_diff < 0.5:
+        verdict_lines.append(f"**Notes quasi-identiques** ({a_rate:.1f} vs {b_rate:.1f}) — le choix doit se faire sur d'autres critères.")
+    else:
+        verdict_lines.append(f"**{better['name']}** domine globalement avec **{max(a_rate, b_rate):.1f}** vs {min(a_rate, b_rate):.1f} (+{rate_diff:.1f} pts).")
+
+    # Performance terrain
+    if a_perf > b_perf:
+        verdict_lines.append(f"**{pa['name']}** l'emporte sur {a_perf}/{len(perf_keys)} métriques de performance terrain.")
+    elif b_perf > a_perf:
+        verdict_lines.append(f"**{pb['name']}** l'emporte sur {b_perf}/{len(perf_keys)} métriques de performance terrain.")
+
+    # Consistance
+    if cons_diff >= 15:
+        more_cons = pa if a_cons > b_cons else pb
+        verdict_lines.append(f"**{more_cons['name']}** est nettement plus régulier (consistance {max(a_cons, b_cons):.0f} vs {min(a_cons, b_cons):.0f}/100).")
+
+    # Âge / potentiel
+    age_a = float(pa.get("age", 27) or 27)
+    age_b = float(pb.get("age", 27) or 27)
+    if abs(age_a - age_b) >= 3:
+        younger = pa if age_a < age_b else pb
+        verdict_lines.append(f"**{younger['name']}** est plus jeune ({min(age_a, age_b):.0f} ans) — avantage potentiel à long terme.")
+
+    # Gabarit
+    gab_a = float(pa.get("axis_gabarit", 50) or 50)
+    gab_b = float(pb.get("axis_gabarit", 50) or 50)
+    if abs(gab_a - gab_b) >= 15:
+        bigger = pa if gab_a > gab_b else pb
+        verdict_lines.append(f"**{bigger['name']}** a un avantage physique significatif (gabarit {max(gab_a, gab_b):.0f} vs {min(gab_a, gab_b):.0f}/100).")
+
+    verdict_html = "".join(f"<p style='margin:4px 0'>• {line}</p>" for line in verdict_lines)
+    st.markdown(
+        f"""<div style="background:#0d1626;border:1px solid #1e3a5f;border-left:4px solid {bc};
+                border-radius:12px;padding:16px 20px;margin-top:8px">
+          <div style="font-size:0.75em;color:#9CA3AF;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:8px">
+            Analyse comparative — {pa['name']} vs {pb['name']}
+          </div>
+          {verdict_html}
+        </div>""",
+        unsafe_allow_html=True,
+    )

@@ -11,11 +11,19 @@ import pandas as pd
 from utils import load_data, page_config, TIER_COLORS, rating_to_tier, AXIS_DESCRIPTIONS, get_available_positions, load_source_mode, season_selector, rating_mode_selector, nat_flag
 
 page_config("Classements")
-st.title("Classements par poste")
 st.markdown(
-    "Les notes sont calculées **par poste** (Z-scores intra-poste). "
-    "Un classement cross-postes n'a de sens que si les notes sont normalisées — "
-    "c'est le cas ici grâce à la calibration FIFA."
+    """<div style="
+        background:linear-gradient(90deg,#F9731618,#3B82F608,transparent);
+        border-left:3px solid #F97316;border-radius:0 10px 10px 0;
+        padding:14px 22px;margin-bottom:18px;
+    ">
+      <div style="font-family:'Rajdhani',sans-serif;font-weight:700;font-size:1.8em;
+                  color:#F1F5F9">Classements par poste</div>
+      <div style="color:#94A3B8;font-size:0.85em;margin-top:2px">
+        Notes calculées par poste (Z-scores intra-poste) · Calibration FIFA · Comparaison cross-postes normalisée
+      </div>
+    </div>""",
+    unsafe_allow_html=True,
 )
 
 season   = season_selector("_lb")
@@ -140,6 +148,10 @@ with tab_pos:
     extra_cols = []
     if "rank_position" in view.columns:
         extra_cols.append("rank_position")
+    if "age" in view.columns:
+        extra_cols.append("age")
+    if "age_factor" in view.columns:
+        extra_cols.append("age_factor")
     if "form_trend" in view.columns:
         extra_cols.append("form_trend")
     if "form_score" in view.columns:
@@ -175,6 +187,7 @@ with tab_pos:
         "confidence_badge": "Confiance", "confidence_score": "Confiance %",
         "matches_played": "Matchs", "minutes_bucket": "Temps jeu",
         "data_insufficient": "DATA?", "rank_position": "Rang",
+        "age": "Âge", "age_factor": "Bonus Âge",
         "form_trend": "Forme", "form_score": "Score Forme",
         "rating_intl": "🌍 Note Intl", "team_intl": "Sélection",
         "Drapeau": "🏳️", "Tier": "Tier",
@@ -182,19 +195,19 @@ with tab_pos:
         "axis_ctrl": "Distrib", "axis_kick": "Kicking", "axis_pow": "Danger",
     }
     display_df = view[[c for c in display_cols if c in view.columns]].rename(columns=col_labels)
-    grad_cols = ["Note Saison", "Note Valeur", "Course", "Physique", "Rigueur", "Distrib", "Kicking", "Danger"]
-    if "🌍 Note Intl" in display_df.columns:
-        grad_cols.append("🌍 Note Intl")
-    if "Confiance %" in display_df.columns:
-        grad_cols.append("Confiance %")
-    # Format float columns to 1 decimal place (fixes "85.700000" display bug)
-    fmt_cols = {c: "{:.1f}" for c in display_df.columns
-                if c in grad_cols and display_df[c].dtype in (float, "float64", "float32")}
-    st.dataframe(
-        display_df.style.background_gradient(subset=grad_cols, cmap="YlOrRd").format(fmt_cols),
-        use_container_width=True,
-        height=min(600, show_n * 36 + 40),
-    )
+    _all_grad = ["Note Saison", "Note Valeur", "Course", "Physique", "Rigueur",
+                 "Distrib", "Kicking", "Danger", "🌍 Note Intl", "Confiance %"]
+    grad_cols = [c for c in _all_grad if c in display_df.columns
+                 and pd.api.types.is_numeric_dtype(display_df[c])]
+    fmt_cols = {c: "{:.1f}" for c in grad_cols}
+    try:
+        st.dataframe(
+            display_df.style.background_gradient(subset=grad_cols, cmap="YlOrRd").format(fmt_cols),
+            use_container_width=True,
+            height=min(600, show_n * 36 + 40),
+        )
+    except Exception as _e:
+        st.dataframe(display_df, use_container_width=True, height=min(600, show_n * 36 + 40))
     dl1, dl2 = st.columns(2)
     with dl1:
         st.download_button(
@@ -231,6 +244,49 @@ with tab_global:
         f"**Mode actif : {g_label}** — le classement global compare des joueurs de postes différents "
         "grâce à la calibration Z-score → FIFA (40 + 0.6 × score_final)."
     )
+
+    # --- Podium Top 3 ---
+    _top3 = df.nlargest(3, g_col).reset_index(drop=True)
+    _podium_order = [1, 0, 2]  # silver, gold, bronze
+    _podium_meta = [
+        {"rank": "2", "color": "#94A3B8", "grd": "linear-gradient(135deg,#94A3B855,#94A3B822)",
+         "border": "#94A3B8", "height": "130px", "icon": "🥈"},
+        {"rank": "1", "color": "#FBBF24", "grd": "linear-gradient(135deg,#FBBF2455,#FBBF2422)",
+         "border": "#FBBF24", "height": "160px", "icon": "🥇"},
+        {"rank": "3", "color": "#F97316", "grd": "linear-gradient(135deg,#F9731655,#F9731622)",
+         "border": "#F97316", "height": "110px", "icon": "🥉"},
+    ]
+    _pod_cols = st.columns([1, 1, 1])
+    for _ci, _pi in enumerate(_podium_order):
+        if _pi >= len(_top3):
+            continue
+        _pr = _top3.iloc[_pi]
+        _pm = _podium_meta[_ci]
+        with _pod_cols[_ci]:
+            _flag = nat_flag(str(_pr.get("nationality", "")))
+            st.markdown(
+                f"""<div style="
+                    background:{_pm['grd']};
+                    border:1px solid {_pm['border']}66;
+                    border-top:3px solid {_pm['border']};
+                    border-radius:12px;padding:16px 12px;text-align:center;
+                    min-height:{_pm['height']};
+                    display:flex;flex-direction:column;justify-content:center;
+                    margin:4px 0;
+                ">
+                  <div style="font-size:1.8em;line-height:1">{_pm['icon']}</div>
+                  <div style="font-size:0.75em;color:#9CA3AF;margin:4px 0 2px">
+                    #{_pm['rank']} · {_pr.get('position_group','')}
+                  </div>
+                  <div style="font-family:'Rajdhani',sans-serif;font-weight:700;
+                              font-size:1.1em;color:#F1F5F9">{_flag} {_pr['name']}</div>
+                  <div style="color:#9CA3AF;font-size:0.75em;margin:2px 0">{_pr.get('team','')}</div>
+                  <div style="font-family:'Rajdhani',sans-serif;font-size:2em;font-weight:700;
+                              color:{_pm['color']};line-height:1.2">{_pr[g_col]:.1f}</div>
+                </div>""",
+                unsafe_allow_html=True,
+            )
+    st.markdown("<br>", unsafe_allow_html=True)
     col_g1, col_g2 = st.columns(2)
     with col_g1:
         show_n_g = st.slider("Nombre de joueurs", 5, 50, 20, key="gn")
@@ -278,14 +334,18 @@ with tab_global:
         "axis_att": "Course", "axis_def": "Physique", "axis_disc": "Rigueur",
         "axis_ctrl": "Distrib", "axis_kick": "Kicking", "axis_pow": "Danger",
     })
-    g_grad = [c for c in ["Note Saison", "Note Valeur", "🌍 Note Intl", "Course", "Physique", "Rigueur", "Distrib", "Kicking", "Danger"] if c in display_g.columns]
-    g_fmt = {c: "{:.1f}" for c in display_g.columns
-             if c in g_grad and display_g[c].dtype in (float, "float64", "float32")}
-    st.dataframe(
-        display_g.style.background_gradient(subset=g_grad, cmap="YlOrRd").format(g_fmt),
-        use_container_width=True,
-        height=min(600, show_n_g * 36 + 40),
-    )
+    g_grad = [c for c in ["Note Saison", "Note Valeur", "🌍 Note Intl", "Course",
+                          "Physique", "Rigueur", "Distrib", "Kicking", "Danger"]
+              if c in display_g.columns and pd.api.types.is_numeric_dtype(display_g[c])]
+    g_fmt = {c: "{:.1f}" for c in g_grad}
+    try:
+        st.dataframe(
+            display_g.style.background_gradient(subset=g_grad, cmap="YlOrRd").format(g_fmt),
+            use_container_width=True,
+            height=min(600, show_n_g * 36 + 40),
+        )
+    except Exception as _e:
+        st.dataframe(display_g, use_container_width=True, height=min(600, show_n_g * 36 + 40))
 
 # ================================================================
 # Heatmap — qui domine quoi ?

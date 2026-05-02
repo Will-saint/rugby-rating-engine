@@ -5,6 +5,7 @@ Page 1 — Cartes joueur style FIFA
 import sys, os
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 
+import math
 import streamlit as st
 import plotly.graph_objects as go
 import plotly.express as px
@@ -61,26 +62,165 @@ photo_bytes = fetch_player_photo_bytes(photo_url) if photo_url else None
 tier = rating_to_tier(player["rating"])
 tier_color = TIER_COLORS[tier]
 
+def _safe_str(v) -> str:
+    """Convertit une valeur en str, retourne '' si NaN/None."""
+    if v is None:
+        return ""
+    try:
+        if isinstance(v, float) and math.isnan(v):
+            return ""
+    except Exception:
+        pass
+    return str(v)
+
+def _safe_int(v, default: int = 0) -> int:
+    """Convertit une valeur en int, retourne default si NaN/None."""
+    try:
+        f = float(v)
+        if math.isnan(f):
+            return default
+        return int(f)
+    except (TypeError, ValueError):
+        return default
+
+flag = nat_flag(_safe_str(player.get("nationality", "")))
+_form_badge = ""
+_ft_raw = _safe_str(player.get("form_trend", ""))
+if _ft_raw and _ft_raw[0] in ("↗", "↘", "→"):
+    _fc = {"↗": "#10B981", "↘": "#EF4444", "→": "#9CA3AF"}[_ft_raw[0]]
+    _fl = {"↗": "En forme", "↘": "En difficulté", "→": "Neutre"}[_ft_raw[0]]
+    _form_badge = (
+        f'<span style="background:{_fc}22;border:1px solid {_fc};border-radius:6px;'
+        f'padding:2px 10px;font-size:0.8em;color:{_fc};margin-left:10px">'
+        f'{_ft_raw[0]} {_fl}</span>'
+    )
+_age_badge = ""
+_age_factor_val = player.get("age_factor", 0.0)
+try:
+    _af = float(_age_factor_val) if _age_factor_val is not None else 0.0
+    if math.isnan(_af):
+        _af = 0.0
+except (TypeError, ValueError):
+    _af = 0.0
+if abs(_af) >= 0.1:
+    _age_sign  = "+" if _af > 0 else ""
+    _age_label = "Prime" if _af >= 2.5 else ("En forme" if _af >= 1.0 else ("Montée" if _af >= 0 else ("Vétéran" if _af >= -0.5 else "Post-prime")))
+    _age_bg    = "#10B98122" if _af > 0 else "#EF444422"
+    _age_border= "#10B981"   if _af > 0 else "#EF4444"
+    _age_color = "#10B981"   if _af > 0 else "#EF4444"
+    _age_badge = (
+        f'<span style="background:{_age_bg};border:1px solid {_age_border};border-radius:6px;'
+        f'padding:2px 10px;font-size:0.8em;color:{_age_color};margin-left:8px">'
+        f'🎂 {_safe_int(player.get("age"))} ans · {_age_label} ({_age_sign}{_af:.1f} pts)</span>'
+    )
+
+_intl_badge = ""
+_team_intl_str = _safe_str(player.get("team_intl", ""))
+if _team_intl_str:
+    _intl_badge = (
+        f'<span style="background:#3B82F622;border:1px solid #3B82F6;border-radius:6px;'
+        f'padding:2px 10px;font-size:0.8em;color:#60A5FA;margin-left:8px">'
+        f'🌍 {_team_intl_str}</span>'
+    )
+
+# 1. Tier badge avec couleurs spécifiques
+_TIER_BADGE_COLORS = {
+    "LEGENDAIRE": "#FFD700", "OR": "#C8A840",
+    "ARGENT": "#94A3B8",    "BRONZE": "#CD7F32", "STANDARD": "#6B7280",
+}
+_tier_badge_color = _TIER_BADGE_COLORS.get(tier, "#6B7280")
+_tier_badge_html = (
+    f'<span style="background:{_tier_badge_color}22;border:1px solid {_tier_badge_color};'
+    f'border-radius:6px;padding:3px 12px;font-size:0.8em;font-weight:700;'
+    f'color:{_tier_badge_color};letter-spacing:0.05em">{tier}</span>'
+)
+
+# 2. Confiance visuelle avec dots
+_conf_raw = player.get("confidence", player.get("confidence_score", 0.5))
+try:
+    _conf_f = float(_conf_raw) if _conf_raw is not None else 0.5
+    if math.isnan(_conf_f):
+        _conf_f = 0.5
+    if _conf_f > 1.0:
+        _conf_f /= 100.0
+except (TypeError, ValueError):
+    _conf_f = 0.5
+if _conf_f >= 0.9:
+    _conf_dots, _conf_dot_color = "&#9679;&#9679;&#9679; Haute", "#10B981"
+elif _conf_f >= 0.7:
+    _conf_dots, _conf_dot_color = "&#9679;&#9679;&#9675; Moyenne", "#F59E0B"
+else:
+    _conf_dots, _conf_dot_color = "&#9679;&#9675;&#9675; Basse", "#EF4444"
+_conf_badge_html = (
+    f'<span style="background:{_conf_dot_color}18;border:1px solid {_conf_dot_color}44;'
+    f'border-radius:6px;padding:3px 10px;font-size:0.78em;color:{_conf_dot_color};margin-left:8px">'
+    f'{_conf_dots}</span>'
+)
+
+# 3. Ligne internationale si disponible
+_banner_intl_line = ""
+_ri_raw = player.get("rating_intl")
+_mi_raw = player.get("matches_intl", 0)
+try:
+    _ri_f = float(_ri_raw) if _ri_raw not in (None, "", "nan") else None
+    if _ri_f is not None and not math.isnan(_ri_f):
+        _mi_int = _safe_int(_mi_raw)
+        _banner_intl_line = (
+            f'<div style="color:#60A5FA;font-size:0.8em;margin-top:5px">'
+            f'🌍 {_mi_int} sélections &nbsp;·&nbsp; Note Naim : '
+            f'<b style="color:#93C5FD">{_ri_f:.1f}</b></div>'
+        )
+except (TypeError, ValueError):
+    pass
+
+# Banner header (with or without photo)
+_banner_photo_html = ""
 if photo_bytes:
-    col_photo, col_header = st.columns([1, 3], gap="large")
-    with col_photo:
-        st.image(photo_bytes, use_container_width=True)
-    with col_header:
-        st.markdown(
-            f'<h2 style="margin:0;font-size:2em">{player["name"]}</h2>'
-            f'<p style="margin:4px 0;color:#9CA3AF;font-size:1em">'
-            f'{player.get("position_label", player["position_group"])} · {player["team"]}</p>',
-            unsafe_allow_html=True,
-        )
-        st.markdown(
-            f'<div style="display:inline-block;margin-top:8px;padding:6px 16px;'
-            f'background:{tier_color}22;border:1px solid {tier_color};border-radius:8px">'
-            f'<b style="color:{tier_color};font-size:1.4em">{player["rating"]:.1f}</b>'
-            f'&nbsp;<span style="color:{tier_color}">{tier}</span>'
-            f'</div>',
-            unsafe_allow_html=True,
-        )
-    st.divider()
+    import base64 as _b64
+    _photo_b64 = _b64.b64encode(photo_bytes).decode()
+    _banner_photo_html = (
+        f'<img src="data:image/jpeg;base64,{_photo_b64}" '
+        f'style="height:120px;width:auto;border-radius:8px;'
+        f'border:2px solid {tier_color}88;object-fit:cover;flex-shrink:0"/>'
+    )
+
+st.markdown(
+    f"""<div style="
+        background:linear-gradient(135deg,{tier_color}18 0%,{tier_color}06 60%,#080D1A 100%);
+        border:1px solid {tier_color}44;border-left:4px solid {tier_color};
+        border-radius:14px;padding:22px 28px;margin-bottom:16px;
+        display:flex;align-items:center;gap:24px;
+    ">
+      {_banner_photo_html}
+      <div style="flex:1;min-width:0">
+        <div style="color:{tier_color};font-size:0.75em;font-weight:600;
+                    letter-spacing:0.15em;text-transform:uppercase;margin-bottom:4px">
+          {player.get('position_label', player['position_group'])} · {player['team']}
+        </div>
+        <div style="font-family:'Rajdhani',sans-serif;font-weight:700;font-size:2.2em;
+                    color:#F1F5F9;line-height:1.1;margin-bottom:6px">
+          {flag} {player['name']} {_form_badge} {_age_badge} {_intl_badge}
+        </div>
+        <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:6px">
+          <div style="background:{tier_color}22;border:1px solid {tier_color};
+                      border-radius:8px;padding:6px 20px;display:inline-block">
+            <span style="font-family:'Rajdhani',sans-serif;font-size:2em;font-weight:700;
+                         color:{tier_color}">{player['rating']:.1f}</span>
+          </div>
+          {_tier_badge_html}
+          {_conf_badge_html}
+        </div>
+        <div style="color:#9CA3AF;font-size:0.82em;line-height:1.6">
+          {_safe_int(player.get('age'))} ans &nbsp;·&nbsp;
+          {_safe_int(player.get('height_cm'))} cm &nbsp;·&nbsp;
+          {_safe_int(player.get('weight_kg'))} kg &nbsp;·&nbsp;
+          {_safe_int(player.get('matches_played'))} matchs
+        </div>
+        {_banner_intl_line}
+      </div>
+    </div>""",
+    unsafe_allow_html=True,
+)
 
 # --- Layout carte FIFA + détails ---
 col_card, col_details = st.columns([1, 2], gap="large")
@@ -89,16 +229,6 @@ with col_card:
     card_bytes = render_card(player)
     st.image(card_bytes, use_container_width=True)
 
-    if not photo_bytes:
-        # Afficher tier badge sous la carte si pas de photo header
-        st.markdown(
-            f'<div style="text-align:center;padding:6px;background:{tier_color}22;'
-            f'border:1px solid {tier_color};border-radius:8px;margin-top:8px">'
-            f'<b style="color:{tier_color}">{tier}</b> — Note globale : '
-            f'<b style="font-size:1.2em">{player["rating"]:.1f}</b>'
-            f'</div>',
-            unsafe_allow_html=True,
-        )
     st.download_button(
         "Télécharger la carte (PNG)",
         data=card_bytes,
@@ -124,25 +254,39 @@ with col_card:
         st.caption(f"Fiche scouting indisponible : {_e}")
 
 with col_details:
-    if not photo_bytes:
-        st.subheader(player["name"])
-    i1, i2, i3, i4 = st.columns(4)
-    i1.metric("Equipe", player["team"])
-    i2.metric("Poste", player.get("position_label", player["position_group"]))
-    i3.metric("Nationalité", player.get("nationality", "?"))
-    i4.metric("Age", int(player.get("age", 0)))
-
-    st.markdown("**Profil physique**")
-    p1, p2, p3, p4 = st.columns(4)
-    p1.metric("Taille", f"{int(player.get('height_cm', 0))} cm")
-    p2.metric("Poids", f"{int(player.get('weight_kg', 0))} kg")
-    p3.metric("Matchs joués", int(player.get("matches_played", 0)))
-    if "minutes_avg" in player:
-        p4.metric("Min. moyennes", f"{player['minutes_avg']:.0f}")
+    _nat_val = _safe_str(player.get("nationality", "")) or "?"
+    _mp_val  = str(_safe_int(player.get("matches_played")))
+    _min_avg = player.get("minutes_avg", 0)
+    try:
+        _min_val = f"{float(_min_avg):.0f}" if _min_avg and not math.isnan(float(_min_avg)) else "—"
+    except (TypeError, ValueError):
+        _min_val = "—"
+    _conf_val = _safe_str(player.get("confidence_badge", "")) or "—"
+    _stat_items = [
+        ("Nationalité", _nat_val, "#F97316"),
+        ("Matchs joués", _mp_val, "#3B82F6"),
+        ("Min. moyennes", _min_val, "#8B5CF6"),
+        ("Confiance", _conf_val, "#10B981"),
+    ]
+    _si_cols = st.columns(4)
+    for _sic, (_slabel, _sval, _scolor) in zip(_si_cols, _stat_items):
+        with _sic:
+            st.markdown(
+                f"""<div style="
+                    background:{_scolor}12;border:1px solid {_scolor}33;
+                    border-radius:10px;padding:10px 12px;text-align:center;
+                ">
+                  <div style="color:#9CA3AF;font-size:0.7em;text-transform:uppercase;
+                              letter-spacing:0.06em;margin-bottom:3px">{_slabel}</div>
+                  <div style="font-family:'Rajdhani',sans-serif;font-weight:700;
+                              font-size:1.25em;color:{_scolor}">{_sval}</div>
+                </div>""",
+                unsafe_allow_html=True,
+            )
 
     # Confidence badge + rank intra-poste
-    conf_badge = player.get("confidence_badge", "")
-    conf = int(player.get("confidence_score", 50))
+    conf_badge = _safe_str(player.get("confidence_badge", ""))
+    conf = _safe_int(player.get("confidence_score"), 50)
     conf_color = "#10B981" if conf >= 70 else ("#F59E0B" if conf >= 40 else "#EF4444")
     rank_pos = player.get("rank_position", "?")
     pct_pos = player.get("rating_percentile_position")
@@ -188,7 +332,7 @@ with col_details:
             st.markdown(f"**{ax_info['emoji']} {ax_info['label']}** — {', '.join(ax_info['metrics'])}")
             st.caption(ax_info["note"])
 
-    t14_axes  = ["axis_att", "axis_def", "axis_disc", "axis_ctrl", "axis_kick", "axis_pow"]
+    t14_axes  = ["axis_att", "axis_def", "axis_disc", "axis_ctrl", "axis_kick", "axis_pow", "axis_gabarit", "axis_consistency"]
     t14_labels = [AXIS_LABELS[a] for a in t14_axes]
     intl_axes  = ["axis_course_intl","axis_distrib_intl","axis_kicking_intl",
                   "axis_physique_intl","axis_rigueur_intl","axis_danger_intl","axis_melee_intl"]
@@ -248,6 +392,46 @@ with col_details:
             paper_bgcolor="rgba(0,0,0,0)",
         )
         st.plotly_chart(fig_radar, use_container_width=True)
+
+st.divider()
+
+# --- Courbe d'âge ---
+_player_age = _safe_int(player.get("age"), 0)
+if _player_age > 0:
+    import numpy as _np_age
+    _age_x = list(range(17, 40))
+    _AGE_PEAK, _AGE_SIGMA, _AGE_AMP, _AGE_OFF = 28.5, 5.0, 4.5, 1.5
+    _age_y = [
+        float(_np_age.clip(_AGE_AMP * _np_age.exp(-((a - _AGE_PEAK) / _AGE_SIGMA)**2) - _AGE_OFF, -3.0, 3.0))
+        for a in _age_x
+    ]
+    _bar_colors = [
+        "#10B981" if a == _player_age else
+        ("rgba(16,185,129,0.4)" if v > 0 else "rgba(239,68,68,0.35)")
+        for a, v in zip(_age_x, _age_y)
+    ]
+    _fig_age = go.Figure()
+    _fig_age.add_trace(go.Bar(
+        x=_age_x, y=_age_y,
+        marker_color=_bar_colors,
+        text=[f"{v:+.1f}" if a == _player_age else "" for a, v in zip(_age_x, _age_y)],
+        textposition="outside",
+    ))
+    _fig_age.add_hline(y=0, line_color="rgba(255,255,255,0.3)", line_width=1)
+    _fig_age.add_vline(
+        x=_player_age, line_color="#F97316", line_dash="dash", line_width=2,
+        annotation_text=f"{_player_age} ans ({_af:+.1f} pts)",
+        annotation_font_color="#F97316", annotation_position="top right",
+    )
+    _fig_age.update_layout(
+        title=dict(text="Facteur d'âge — bonus/malus sur la note", font=dict(size=13), x=0),
+        height=180, margin=dict(l=10, r=10, t=35, b=10),
+        yaxis=dict(title="pts", range=[-2, 3.5], gridcolor="#1F2937", zeroline=False),
+        xaxis=dict(title="Âge", gridcolor="#1F2937"),
+        paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(0,0,0,0)",
+        showlegend=False,
+    )
+    st.plotly_chart(_fig_age, use_container_width=True)
 
 st.divider()
 
@@ -454,6 +638,40 @@ if form_window and not pd.isna(form_window):
         )
         st.plotly_chart(fig_sp, use_container_width=True)
 
+# --- Consistance ---
+_cons_val = player.get("axis_consistency")
+_n_cons = player.get("n_matches_consistency")
+if _cons_val is not None and str(_cons_val) not in ("nan", ""):
+    try:
+        _cv = float(_cons_val)
+        st.divider()
+        _cons_label = "Très régulier" if _cv >= 80 else ("Régulier" if _cv >= 55 else ("Irrégulier" if _cv >= 30 else "Très irrégulier"))
+        _cons_color = "#10B981" if _cv >= 80 else ("#86EFAC" if _cv >= 55 else ("#F59E0B" if _cv >= 30 else "#EF4444"))
+        _n_str = f" · {int(_n_cons)} matchs analysés" if _n_cons and str(_n_cons) != "nan" else ""
+        st.markdown(
+            f"""<div style="background:#111827;border:1px solid #1F2937;border-radius:12px;padding:14px 20px;margin-bottom:8px">
+              <div style="font-size:0.75em;color:#9CA3AF;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:6px">
+                📈 Consistance de performance{_n_str}
+              </div>
+              <div style="display:flex;align-items:center;gap:16px">
+                <span style="font-size:1.8em;font-weight:700;color:{_cons_color}">{_cv:.0f}<span style="font-size:0.5em;color:#9CA3AF">/100</span></span>
+                <div style="flex:1">
+                  <div style="background:#1F2937;border-radius:6px;height:8px;overflow:hidden">
+                    <div style="width:{_cv:.0f}%;height:100%;background:{_cons_color};border-radius:6px;transition:width .5s"></div>
+                  </div>
+                  <div style="color:{_cons_color};font-size:0.85em;margin-top:4px">{_cons_label}</div>
+                </div>
+              </div>
+              <div style="font-size:0.75em;color:#6B7280;margin-top:6px">
+                Coefficient de variation inversé sur plaquages, offloads, franchissements, grattages.
+                100 = performance identique à chaque match.
+              </div>
+            </div>""",
+            unsafe_allow_html=True,
+        )
+    except (TypeError, ValueError):
+        pass
+
 # ================================================================
 # Historique par saison
 # ================================================================
@@ -498,7 +716,7 @@ if _os.path.exists(ALL_SEASONS_PATH):
 st.divider()
 st.subheader("Joueurs similaires")
 
-_axes_sim = ["axis_att", "axis_def", "axis_disc", "axis_ctrl", "axis_kick", "axis_pow"]
+_axes_sim = ["axis_att", "axis_def", "axis_disc", "axis_ctrl", "axis_kick", "axis_pow", "axis_gabarit", "axis_consistency"]
 _sim_pool = df[df["position_group"] == player["position_group"]].copy()
 _sim_pool = _sim_pool[_sim_pool["name"] != player["name"]]
 

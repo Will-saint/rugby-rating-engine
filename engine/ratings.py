@@ -44,12 +44,12 @@ NAIM_POS_WEIGHTS: dict[str, dict[str, float]] = {
         "weight_kg":           0.25,
     },
     "LOCK": {
-        "tackles_per80":       0.40,
-        "turnovers_won_per80": 0.20,
-        "line_breaks_per80":   0.05,
-        "offloads_per80":      0.10,
-        "tries_per80":         0.05,
-        "height_cm":           0.20,
+        "tackles_per80":       0.30,   # 0.40→0.30 : volume pur ne doit pas dominer
+        "turnovers_won_per80": 0.25,   # 0.20→0.25 : grattage = compétence différenciante
+        "line_breaks_per80":   0.10,   # 0.05→0.10 : 2e ligne mobile valorisé
+        "offloads_per80":      0.15,   # 0.10→0.15 : offload = compétence 2e ligne moderne
+        "tries_per80":         0.10,   # 0.05→0.10 : contribution offensive
+        "height_cm":           0.10,   # 0.20→0.10 : taille physique, moins déterminante
     },
     "BACK_ROW": {
         "tackles_per80":       0.30,
@@ -60,20 +60,23 @@ NAIM_POS_WEIGHTS: dict[str, dict[str, float]] = {
         "weight_kg":           0.10,
     },
     "SCRUM_HALF": {
-        "tackles_per80":       0.15,
+        "tackles_per80":       0.10,
         "turnovers_won_per80": 0.20,
         "line_breaks_per80":   0.10,
-        "offloads_per80":      0.40,
+        "offloads_per80":      0.25,
         "kick_points_per80":   0.05,
-        "tries_per80":         0.10,
+        "tries_per80":         0.15,
+        "passes_per80":        0.10,   # distribution — bonus seulement (paywall)
+        "weight_kg":           0.05,
     },
     "FLY_HALF": {
-        "tackles_per80":       0.10,
-        "turnovers_won_per80": 0.15,
-        "line_breaks_per80":   0.20,
-        "offloads_per80":      0.25,
-        "kick_points_per80":   0.15,
-        "tries_per80":         0.15,
+        "tackles_per80":       0.12,
+        "turnovers_won_per80": 0.05,   # stat aléatoire pour un 10 — réduit de 0.15
+        "line_breaks_per80":   0.20,   # franchissement = indicateur clé 10 attaquant
+        "offloads_per80":      0.18,   # moins critique que pour un 9 — réduit de 0.25
+        "kick_points_per80":   0.20,   # compétence primaire d'un 10
+        "tries_per80":         0.20,   # contribution offensive directe
+        "height_cm":           0.05,
     },
     "WINGER": {
         "tackles_per80":       0.10,
@@ -95,10 +98,11 @@ NAIM_POS_WEIGHTS: dict[str, dict[str, float]] = {
     "FULLBACK": {
         "tackles_per80":       0.15,
         "turnovers_won_per80": 0.10,
-        "line_breaks_per80":   0.25,
+        "line_breaks_per80":   0.20,   # -0.05 pour laisser place au gabarit
         "offloads_per80":      0.15,
         "kick_points_per80":   0.20,
         "tries_per80":         0.15,
+        "height_cm":           0.05,   # hauteur = up-and-under, ballons hauts
     },
 }
 
@@ -178,6 +182,65 @@ def _get_col(group: pd.DataFrame, col: str) -> np.ndarray:
 # Discipline malus — appliqué APRÈS le rating
 # ---------------------------------------------------------------------------
 
+# ---------------------------------------------------------------------------
+# Courbe d'âge — bonus/malus en points de rating
+# Gaussienne centrée sur 28.5 ans (pic biologique du rugbyman professionnel).
+#   Peak (28.5 ans) : +3.0 pts
+#   24 ans          : +0.5 pts  (talent en éclosion)
+#   22 ans          : -0.7 pts  (encore en développement)
+#   34 ans          : -0.2 pts  (encore compétitif)
+#   36+ ans         : -1.0 pts  (déclin progressif)
+# ---------------------------------------------------------------------------
+
+_AGE_PEAK  = 28.5
+_AGE_SIGMA = 5.0
+_AGE_AMP   = 4.5   # amplitude gaussienne (pic = AMP - OFFSET)
+_AGE_OFF   = 1.5   # décalage vertical (minimum théorique = -OFFSET)
+_AGE_MAX   = 3.0   # cap bonus
+_AGE_MIN   = -3.0  # cap malus
+
+
+def _age_factor(age) -> float:
+    """
+    Retourne le bonus/malus d'âge en points de rating.
+    0.0 si âge non disponible.
+    """
+    try:
+        a = float(age)
+        if np.isnan(a) or a < 14 or a > 50:
+            return 0.0
+    except (TypeError, ValueError):
+        return 0.0
+    raw = _AGE_AMP * np.exp(-((a - _AGE_PEAK) / _AGE_SIGMA) ** 2) - _AGE_OFF
+    return float(np.clip(raw, _AGE_MIN, _AGE_MAX))
+
+
+# Métriques "bonus seulement" par poste.
+# Plancher à 50 (médiane) → ne pénalise pas les non-spécialistes,
+# mais récompense ceux qui excellent dans ce domaine.
+# Règle : kick_points_per80 est optionnel pour 9, ailier, 3L, centre.
+#          Pour 10 et arrière, taper fait partie du poste → reste normal.
+_BONUS_METRICS: dict[str, frozenset] = {
+    "SCRUM_HALF": frozenset({"kick_points_per80", "passes_per80"}),
+    "WINGER":     frozenset({"kick_points_per80"}),
+    "BACK_ROW":   frozenset({"kick_points_per80"}),
+    "CENTRE":     frozenset({"kick_points_per80"}),
+}
+
+# Blend gabarit par poste : (poids_height, poids_weight)
+# Reflète l'importance relative de la taille vs du poids selon le rôle.
+_GABARIT_BLEND: dict[str, tuple[float, float]] = {
+    "FRONT_ROW":  (0.20, 0.80),  # piliers/talonneur → masse prime
+    "LOCK":       (0.85, 0.15),  # 2ème ligne → taille prime
+    "BACK_ROW":   (0.35, 0.65),  # flankers/n°8 → puissance + mobilité
+    "SCRUM_HALF": (0.40, 0.60),  # explosivité, impact aux rucks
+    "FLY_HALF":   (0.65, 0.35),  # vision en l'air, portée de pied
+    "WINGER":     (0.35, 0.65),  # vitesse + puissance de percée
+    "CENTRE":     (0.30, 0.70),  # puissance de franchissement
+    "FULLBACK":   (0.65, 0.35),  # ballons hauts, jeu au pied
+}
+
+
 def _discipline_malus(row) -> float:
     """
     Malus cartons appliqué après calcul du rating.
@@ -196,18 +259,27 @@ def _discipline_malus(row) -> float:
 
 def _confidence_v2(minutes: float, _p90: float = 0.0) -> float:
     """
-    Step function — plus d'utilisation de p90 (trop variable par poste).
-    Floor à 0.50 : un joueur avec peu de matchs est toujours partiellement
-    récompensé pour sa performance, pas réduit à la moyenne absolue.
+    Interpolation linéaire par segments (remplace la step function).
+    Élimine les discontinuités à 150 / 300 / 600 min qui créaient des
+    sauts artificiels de note pour des joueurs très proches en temps de jeu.
+
+    Paliers d'ancrage :
+      0 min  → 0.50 (floor absolu)
+      150 min → 0.60
+      300 min → 0.75
+      600 min → 1.00
+
+    Entre deux paliers : interpolation linéaire.
     """
+    ANCHORS = [(0, 0.50), (150, 0.60), (300, 0.75), (600, 1.00)]
+    minutes = max(0.0, float(minutes))
     if minutes >= 600:
         return 1.00
-    elif minutes >= 300:
-        return 0.75
-    elif minutes >= 150:
-        return 0.60
-    else:
-        return 0.50
+    for (m0, c0), (m1, c1) in zip(ANCHORS, ANCHORS[1:]):
+        if minutes <= m1:
+            t = (minutes - m0) / (m1 - m0)
+            return round(c0 + t * (c1 - c0), 4)
+    return 1.00
 
 
 # ---------------------------------------------------------------------------
@@ -229,6 +301,17 @@ def calculate_ratings(df: pd.DataFrame) -> pd.DataFrame:
             if mask.any():
                 df.loc[mask, "position_group"] = corrected_pos
                 print(f"[OVERRIDE] {slug_key} -> {corrected_pos} ({mask.sum()} joueur(s))")
+
+    # Normalisation globale taille/poids (toutes positions confondues)
+    # Utilisée pour le blend axis_gabarit : 70 % intra-poste + 30 % global.
+    # → un 9 de 175 cm garde un bon score parmi ses pairs mais reste
+    #   clairement en-dessous d'un prop de 135 kg sur l'échelle absolue.
+    _h_all = _get_col(df, "height_cm")
+    _w_all = _get_col(df, "weight_kg")
+    _h_global = _minmax(_h_all) if _h_all.sum() > 0 else np.full(len(df), 50.0)
+    _w_global = _minmax(_w_all) if _w_all.sum() > 0 else np.full(len(df), 50.0)
+    df["_h_global_norm"] = _h_global
+    df["_w_global_norm"] = _w_global
 
     result_parts: list[pd.DataFrame] = []
 
@@ -254,11 +337,17 @@ def calculate_ratings(df: pd.DataFrame) -> pd.DataFrame:
 
         # ----------------------------------------------------------------
         # 2. Normalisation min-max [p5, p95] par poste pour chaque métrique
+        #    Métriques "bonus" : plancher à 50 → ne pénalise pas les
+        #    non-spécialistes, récompense ceux qui excellent.
         # ----------------------------------------------------------------
+        bonus_set = _BONUS_METRICS.get(pg, frozenset())
         normed: dict[str, np.ndarray] = {}
         for metric in pos_w:
             raw = _get_col(group, metric)
-            normed[metric] = _minmax(raw)
+            normed_arr = _minmax(raw)
+            if metric in bonus_set:
+                normed_arr = np.maximum(normed_arr, 50.0)   # bonus-only
+            normed[metric] = normed_arr
 
         # ----------------------------------------------------------------
         # 3. Score pondéré (poids somment à 1.0 → score_raw ∈ [0, 100])
@@ -285,34 +374,46 @@ def calculate_ratings(df: pd.DataFrame) -> pd.DataFrame:
         group["confidence"] = np.round(conf, 3)
 
         # ----------------------------------------------------------------
-        # 7. Axes visuels [0, 100] — indépendants du scoring
+        # 7. Axes visuels [0, 95] — indépendants du scoring
+        #    Normalisation [p10, p90] (plus douce que p5/p95) pour éviter
+        #    la saturation des extrêmes. Clip max à 95 pour garder une marge.
+        #    KICK : floor à 5 pour éviter l'effet "0 absolu" sur les non-tapeurs.
         # ----------------------------------------------------------------
-        lb    = _minmax(_get_col(group, "line_breaks_per80"))
-        off   = _minmax(_get_col(group, "offloads_per80"))
-        tack  = _minmax(_get_col(group, "tackles_per80"))
-        tow   = _minmax(_get_col(group, "turnovers_won_per80"))
-        tries = _minmax(_get_col(group, "tries_per80"))
+        _ui = lambda arr: np.clip(_minmax(arr, p_low=10.0, p_high=90.0), 0.0, 95.0)
+        lb    = _ui(_get_col(group, "line_breaks_per80"))
+        off   = _ui(_get_col(group, "offloads_per80"))
+        tack  = _ui(_get_col(group, "tackles_per80"))
+        tow   = _ui(_get_col(group, "turnovers_won_per80"))
+        tries = _ui(_get_col(group, "tries_per80"))
 
         if "kick_points_per80" in group.columns:
-            kick_ui = _minmax(_get_col(group, "kick_points_per80"))
+            kick_ui = _ui(_get_col(group, "kick_points_per80"))
         else:
-            kick_ui = _minmax(_get_col(group, "points_scored_per80"))
+            kick_ui = _ui(_get_col(group, "points_scored_per80"))
+        kick_ui = np.maximum(kick_ui, 5.0)  # floor 5 : jamais "0 absolu" pour KICK
 
         group["axis_att"]  = np.round(lb).astype(int)
         group["axis_ctrl"] = np.round(off).astype(int)
         group["axis_kick"] = np.round(kick_ui).astype(int)
         group["axis_def"]  = np.round(tack).astype(int)
-        group["axis_pow"]  = np.round(0.6 * tries + 0.4 * tow).astype(int)
+        group["axis_pow"]  = np.round(np.clip(0.6 * tries + 0.4 * tow, 0.0, 95.0)).astype(int)
 
-        # Gabarit (composante physique brute — pour affichage carte)
-        if pg == "FRONT_ROW":
-            weight_raw = _get_col(group, "weight_kg")
-            gabarit = _minmax(weight_raw) if weight_raw.sum() > 0 else np.zeros(len(group))
-        elif pg == "LOCK":
-            height_raw = _get_col(group, "height_cm")
-            gabarit = _minmax(height_raw) if height_raw.sum() > 0 else np.zeros(len(group))
-        else:
-            gabarit = np.zeros(len(group), dtype=float)
+        # Gabarit — blend taille/poids selon le rôle
+        # axis_gabarit = 70 % intra-poste + 30 % global
+        #   → récompense le joueur physiquement fort pour son poste
+        #   → mais plafonne le score si le gabarit absolu est faible
+        #   Ex : Dupont (175/85, excellent 9) ≈ 58  |  Atonio (196/145, prop massif) ≈ 98
+        wh, ww = _GABARIT_BLEND.get(pg, (0.5, 0.5))
+        h_raw  = _get_col(group, "height_cm")
+        w_raw  = _get_col(group, "weight_kg")
+        h_pos  = _minmax(h_raw) if h_raw.sum() > 0 else np.full(len(group), 50.0)
+        w_pos  = _minmax(w_raw) if w_raw.sum() > 0 else np.full(len(group), 50.0)
+        h_glob = group["_h_global_norm"].values
+        w_glob = group["_w_global_norm"].values
+        # 70 % position + 30 % global
+        h_blend = 0.70 * h_pos + 0.30 * h_glob
+        w_blend = 0.70 * w_pos + 0.30 * w_glob
+        gabarit = wh * h_blend + ww * w_blend
         group["axis_gabarit"] = np.round(np.clip(gabarit, 0.0, 100.0)).astype(int)
 
         result_parts.append(group)
@@ -369,6 +470,26 @@ def calculate_ratings(df: pd.DataFrame) -> pd.DataFrame:
     # axis_disc : visuel discipline (100=clean, 0=max cartons)
     combined["axis_disc"] = (100.0 - malus * 10.0).clip(lower=0.0).astype(int)
 
+    # axis_consistency : préservé tel quel depuis player_consistency.csv (injecté avant scoring)
+    # Si absent (pas de match history), on default à 50.
+    if "axis_consistency" not in combined.columns:
+        combined["axis_consistency"] = 50
+
+    # ----------------------------------------------------------------
+    # 8.5. Courbe d'âge — bonus/malus post-discipline
+    #      Peak +3 pts à 28-29 ans | -0.7 à 22 ans | -1 à 36+ ans
+    # ----------------------------------------------------------------
+    if "age" in combined.columns:
+        age_bonus = combined["age"].apply(_age_factor)
+        combined["age_factor"] = age_bonus.round(2)
+        combined["rating"]     = (combined["rating"]     + age_bonus).clip(40.0, 99.0).round(1)
+        combined["rating_raw"] = (combined["rating_raw"] + age_bonus).clip(40.0, 99.0).round(1)
+        n_age = int(combined["age"].notna().sum())
+        print(f"[AGE] Courbe d'âge appliquée sur {n_age} joueurs "
+              f"(pic +{_AGE_MAX:.0f} pts à {_AGE_PEAK:.0f} ans)")
+    else:
+        combined["age_factor"] = 0.0
+
     # ----------------------------------------------------------------
     # 9. Métadonnées UI
     # ----------------------------------------------------------------
@@ -412,6 +533,63 @@ def calculate_ratings(df: pd.DataFrame) -> pd.DataFrame:
         combined = enrich_with_intl(combined)
     except Exception as e:
         print(f"[MERGE] Enrichissement intl ignoré : {e}")
+
+    # ----------------------------------------------------------------
+    # 10. Ancrage réputation (FIFA-like)
+    #     Pour les joueurs avec peu de matchs T14 mais un historique
+    #     international fort : on remplace le plancher à 50 par un
+    #     plancher basé sur la réputation internationale.
+    #     → Jamais une pénalisation, uniquement un boost.
+    #     Formule : rating_floor = intl * (0.85 + 0.05 * (1 - conf))
+    #       conf=0.50 → floor=90%  intl
+    #       conf=0.60 → floor=87%  intl  (Dupont: 93.4*0.87 = 81.3)
+    #       conf=0.75 → floor=875% intl
+    #       conf=1.00 → pas de boost (joueur avec suffisamment de matchs)
+    # ----------------------------------------------------------------
+    if "rating_intl" in combined.columns and "confidence" in combined.columns:
+        combined["rating_intl"] = pd.to_numeric(combined["rating_intl"], errors="coerce")
+        # Appliqué à TOUS les joueurs capés (confidence<1 restriction supprimée).
+        # Un joueur full-season avec intl élevé peut être sous-évalué faute de données paywall.
+        # conf=1.0 → factor=0.85 | conf=0.5 → factor=0.875 — jamais une pénalisation.
+        _rep_mask = combined["rating_intl"].notna()
+        if _rep_mask.any():
+            _conf_r     = combined.loc[_rep_mask, "confidence"].astype(float)
+            _rep_factor = 0.85 + 0.05 * (1.0 - _conf_r)
+            _rep_floor  = combined.loc[_rep_mask, "rating_intl"].astype(float) * _rep_factor
+            _current    = combined.loc[_rep_mask, "rating"].astype(float)
+            combined.loc[_rep_mask, "rating"] = (
+                np.maximum(_current.values, _rep_floor.values)
+                .clip(40.0, 99.0)
+                .round(1)
+            )
+            n_rep = int((_rep_floor > _current).sum())
+            print(f"[REPUTATION] Plancher réputation intl appliqué sur {n_rep} joueurs")
+
+    # ----------------------------------------------------------------
+    # 11. Bonus international — récompense le niveau intl (notes Naim)
+    #     Appliqué à TOUS les joueurs capés, pas seulement basse confiance.
+    #     Max +2.5 pts pour un joueur noté 100 internationalement.
+    #     Seuil à 75 : pas de bonus en-dessous (joueurs moyens à l'intl).
+    #     Formule : bonus = ((intl - 75) / 25) * 2.5, clipé [0, 2.5]
+    #       intl=100 → +2.5 pts | intl=90 → +1.5 pts | intl=75 → +0 pt
+    # ----------------------------------------------------------------
+    if "rating_intl" in combined.columns:
+        combined["rating_intl"] = pd.to_numeric(combined["rating_intl"], errors="coerce")
+        _intl_mask = combined["rating_intl"].notna()
+        if _intl_mask.any():
+            _intl_r    = combined.loc[_intl_mask, "rating_intl"].astype(float)
+            _intl_bonus = ((_intl_r - 75.0) / 25.0 * 2.5).clip(0.0, 2.5)
+            combined.loc[_intl_mask, "rating"] = (
+                combined.loc[_intl_mask, "rating"].astype(float) + _intl_bonus
+            ).clip(40.0, 99.0).round(1)
+            combined["intl_bonus"] = 0.0
+            combined.loc[_intl_mask, "intl_bonus"] = _intl_bonus.values
+            n_intl = int(_intl_mask.sum())
+            print(f"[INTL BONUS] Bonus international sur {n_intl} joueurs (max +2.5 pts)")
+        else:
+            combined["intl_bonus"] = 0.0
+    else:
+        combined["intl_bonus"] = 0.0
 
     return combined
 

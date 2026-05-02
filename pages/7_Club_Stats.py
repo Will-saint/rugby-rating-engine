@@ -241,6 +241,8 @@ with tab_rank:
     for idx, (stat_col, stat_label, unit, negative) in enumerate(RANKING_STATS):
         target_col = columns_cycle[idx % 2]
 
+        if stat_col not in team_df.columns:
+            continue
         valid = valid_base.dropna(subset=[stat_col])
         if valid.empty:
             continue
@@ -434,17 +436,20 @@ with tab_form:
             if delta_data:
                 dm = pd.DataFrame(delta_data, index=hm_df["name"].values)
                 dm = dm.sort_values("Plaquages", ascending=False)
-                fig_hm = px.imshow(
-                    dm.T, color_continuous_scale="RdYlGn", color_continuous_midpoint=0,
-                    aspect="auto", labels=dict(color="Δ (σ)"),
-                )
-                fig_hm.update_layout(
-                    height=max(180, 40 * len(labels) + 80),
-                    margin=dict(l=10,r=10,t=20,b=10),
-                    paper_bgcolor="rgba(0,0,0,0)",
-                    xaxis=dict(tickfont=dict(size=9)),
-                )
-                st.plotly_chart(fig_hm, use_container_width=True)
+                try:
+                    fig_hm = px.imshow(
+                        dm.T, color_continuous_scale="RdYlGn", color_continuous_midpoint=0,
+                        aspect="auto", labels=dict(color="Δ (σ)"),
+                    )
+                    fig_hm.update_layout(
+                        height=max(180, 40 * len(labels) + 80),
+                        margin=dict(l=10,r=10,t=20,b=10),
+                        paper_bgcolor="rgba(0,0,0,0)",
+                        xaxis=dict(tickfont=dict(size=9)),
+                    )
+                    st.plotly_chart(fig_hm, use_container_width=True)
+                except Exception as _e:
+                    st.warning(f"Impossible d'afficher ce graphique : {type(_e).__name__}")
 
 
 # ══════════════════════════════════════════════
@@ -557,14 +562,22 @@ with tab_effectif:
     eff = eff.sort_values("rating", ascending=False)
 
     # Affichage avec photo en HTML — style LNR effectif
+    def _si(v, d=0) -> int:
+        """Conversion sûre float/NaN → int."""
+        try:
+            f = float(v)
+            return d if f != f else int(f)
+        except (TypeError, ValueError):
+            return d
+
     for _, p in eff.iterrows():
         pdict = p.to_dict()
         photo = player_photo_html(pdict, 50)
         tier = rating_to_tier(p["rating"])
         tcolor = TIER_COLORS[tier]
         pos = p.get("position_label", p.get("position_group", ""))
-        age = int(p.get("age", 0) or 0)
-        mp = int(p.get("matches_played", 0) or 0)
+        age = _si(p.get("age"))
+        mp = _si(p.get("matches_played"))
         nat = p.get("nationality", "")
         tackles = p.get("tackles_per80")
         form_t = p.get("form_tackles_per80")

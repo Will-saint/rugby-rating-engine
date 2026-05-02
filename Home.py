@@ -16,7 +16,43 @@ from utils import load_data, load_team_strength, page_config, AXIS_COLORS, load_
 
 page_config("Accueil")
 
-st.title("Rugby Rating Engine")
+# ================================================================
+# Hero Section
+# ================================================================
+st.markdown(
+    """
+    <div style="
+        background: linear-gradient(135deg, #0B1220 0%, #1a0a00 50%, #0F172A 100%);
+        border: 1px solid rgba(249,115,22,0.25);
+        border-radius: 16px;
+        padding: 36px 40px 28px;
+        margin-bottom: 24px;
+        position: relative;
+        overflow: hidden;
+    ">
+      <div style="
+          position:absolute;top:0;right:0;width:300px;height:100%;
+          background: radial-gradient(ellipse at 80% 50%, rgba(249,115,22,0.12) 0%, transparent 70%);
+          pointer-events:none;
+      "></div>
+      <div style="font-family:'Rajdhani',sans-serif;font-size:0.85em;font-weight:600;
+                  letter-spacing:0.2em;color:#F97316;text-transform:uppercase;margin-bottom:6px">
+        🏉 Saison 2025-2026 · Top 14
+      </div>
+      <div style="
+          font-family:'Rajdhani',sans-serif;font-weight:700;font-size:3em;
+          margin:0 0 8px 0;line-height:1.1;
+          background:linear-gradient(90deg,#F97316,#FBBF24,#ffffff);
+          -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+          background-clip:text;
+      ">Rugby Rating Engine</div>
+      <p style="color:#94A3B8;font-size:1.05em;margin:0;max-width:560px;line-height:1.5">
+        Moteur de notation par poste · Comparaison d'équipes · Prédiction de match · Scouting pro
+      </p>
+    </div>
+    """,
+    unsafe_allow_html=True,
+)
 
 # ================================================================
 # Barre de recherche globale
@@ -73,7 +109,7 @@ with st.sidebar:
     st.divider()
     st.subheader("Dataset")
 
-    DATA_MODE = os.environ.get("DATA_MODE", "demo")
+    DATA_MODE = os.environ.get("DATA_MODE", "real")
     SEASON = selected_season
     csv_path = Path(__file__).parent / "data" / "seasons" / selected_season / "players_scored.csv"
     if not csv_path.exists():
@@ -122,7 +158,7 @@ ts = load_team_strength(selected_season)
 # ================================================================
 # Banner DATA_MODE
 # ================================================================
-DATA_MODE = os.environ.get("DATA_MODE", "demo")
+DATA_MODE = os.environ.get("DATA_MODE", "real")
 
 # ================================================================
 # Banner SOURCE_MODE (LNR_ONLY vs LNR_SB_MIXED)
@@ -152,7 +188,9 @@ if DATA_MODE == "demo":
 else:
     n_teams = df["team"].nunique()
     n_players = len(df)
-    stat_cols = ["tackles_per80", "meters_per80", "kick_meters_per80", "carries_per80"]
+    # Couverture sur stats LNR publiques uniquement (stats paywall exclues → ne pas afficher 0%)
+    stat_cols = ["tackles_per80", "line_breaks_per80", "offloads_per80",
+                 "turnovers_won_per80", "points_scored_per80"]
     available = [c for c in stat_cols if c in df.columns]
     coverage = round(df[available].notna().mean().mean() * 100) if available else 0
 
@@ -167,18 +205,35 @@ else:
         f"Sources : {source_str}"
     )
 
-st.markdown(
-    "**Moteur de notation rugby** — note joueur par poste, comparaison d'équipes, prédiction de match."
-)
-
 # ================================================================
-# KPIs
+# KPIs — stat cards visuelles
 # ================================================================
-c1, c2, c3, c4 = st.columns(4)
-c1.metric("Joueurs", len(df))
-c2.metric("Equipes", df["team"].nunique())
-c3.metric("Meilleure note", f"{df['rating'].max():.1f}")
-c4.metric("Note moy.", f"{df['rating'].mean():.1f}")
+_best = df.nlargest(1, "rating").iloc[0]
+_kpi_items = [
+    ("👤", "Joueurs notés", str(len(df)), "#F97316"),
+    ("🏟️", "Équipes", str(df["team"].nunique()), "#3B82F6"),
+    ("⭐", "Meilleure note", f"{df['rating'].max():.1f}  —  {_best['name']}", "#10B981"),
+    ("📊", "Note moyenne", f"{df['rating'].mean():.1f}", "#8B5CF6"),
+]
+_kpi_cols = st.columns(4)
+for _col, (_icon, _label, _val, _color) in zip(_kpi_cols, _kpi_items):
+    with _col:
+        st.markdown(
+            f"""<div style="
+                background:linear-gradient(135deg,{_color}18,{_color}08);
+                border:1px solid {_color}44;border-radius:12px;
+                padding:16px 18px;position:relative;overflow:hidden;
+            ">
+              <div style="position:absolute;top:0;left:0;width:3px;height:100%;
+                          background:{_color};border-radius:3px 0 0 3px"></div>
+              <div style="font-size:1.5em;line-height:1">{_icon}</div>
+              <div style="color:#9CA3AF;font-size:0.75em;margin:6px 0 2px;
+                          text-transform:uppercase;letter-spacing:0.05em">{_label}</div>
+              <div style="font-family:'Rajdhani',sans-serif;font-size:1.35em;
+                          font-weight:700;color:{_color}">{_val}</div>
+            </div>""",
+            unsafe_allow_html=True,
+        )
 
 st.divider()
 
@@ -223,7 +278,10 @@ with col_right:
         yaxis=dict(categoryorder="total ascending"),
         showlegend=False,
     )
-    st.plotly_chart(fig_teams, use_container_width=True)
+    try:
+        st.plotly_chart(fig_teams, use_container_width=True)
+    except Exception as _e:
+        st.warning(f"Impossible d'afficher ce graphique : {type(_e).__name__}")
 
 st.divider()
 
@@ -241,14 +299,30 @@ if "rating_intl" in df.columns and df["rating_intl"].notna().any():
         flag = nat_flag(str(row.get("nationality", "")))
         tier_intl = rating_to_tier(float(row["rating_intl"]))
         color = TIER_COLORS[tier_intl]
+        _name = str(row["name"])
+        _club_r = float(row["rating"])
+        _intl_r = float(row["rating_intl"])
+        _gap_v  = float(row["_gap"])
+        _team_intl = str(row.get("team_intl", "") or "")
+        _pos = str(row.get("position_group", "") or "")
         with col_mv[i % 5]:
             st.markdown(
-                f'<div style="border:1px solid {color};border-radius:8px;padding:8px;text-align:center;margin:2px">'
-                f'<div style="font-size:0.85em;font-weight:bold">{flag} {str(row["name"]).split()[-1]}</div>'
-                f'<div style="color:#9CA3AF;font-size:0.7em">{row.get("team_intl","")}</div>'
-                f'<div style="font-size:0.8em">T14 <b>{row["rating"]:.0f}</b> → '
-                f'<b style="color:{color}">{row["rating_intl"]:.0f}</b> Intl</div>'
-                f'<div style="color:#10B981;font-size:0.85em">+{row["_gap"]:.1f}</div>'
+                f'<div style="border:1px solid {color}55;border-radius:10px;padding:10px 8px;'
+                f'text-align:center;margin:2px;background:{color}0A">'
+                f'<div style="font-size:0.9em;font-weight:700;color:#F1F5F9;white-space:nowrap;'
+                f'overflow:hidden;text-overflow:ellipsis">{flag} {_name}</div>'
+                f'<div style="color:#9CA3AF;font-size:0.7em;margin:2px 0">{_team_intl} &middot; {_pos}</div>'
+                f'<div style="margin:6px 0;line-height:1.6">'
+                f'<span style="font-size:0.75em;color:#9CA3AF">Club</span><br>'
+                f'<span style="font-size:1.1em;font-weight:700;color:#E5E7EB">{_club_r:.1f}</span>'
+                f'</div>'
+                f'<div style="margin:4px 0;line-height:1.6">'
+                f'<span style="font-size:0.75em;color:#9CA3AF">International</span><br>'
+                f'<span style="font-size:1.1em;font-weight:700;color:{color}">{_intl_r:.1f}</span>'
+                f'</div>'
+                f'<div style="background:{color}22;border-radius:6px;padding:3px 6px;margin-top:6px">'
+                f'<span style="font-size:1em;font-weight:700;color:#10B981">+{_gap_v:.1f} pts</span>'
+                f'</div>'
                 f'</div>',
                 unsafe_allow_html=True,
             )
@@ -276,7 +350,10 @@ fig_box.update_layout(
     margin=dict(l=10, r=10, t=10, b=10),
     height=320,
 )
-st.plotly_chart(fig_box, use_container_width=True)
+try:
+    st.plotly_chart(fig_box, use_container_width=True)
+except Exception as _e:
+    st.warning(f"Impossible d'afficher ce graphique : {type(_e).__name__}")
 
 st.divider()
 
@@ -309,7 +386,10 @@ if DATA_MODE == "real":
             height=380, coloraxis_showscale=False,
             margin=dict(l=10, r=20, t=50, b=10)
         )
-        st.plotly_chart(fig_cov, use_container_width=True)
+        try:
+            st.plotly_chart(fig_cov, use_container_width=True)
+        except Exception as _e:
+            st.warning(f"Impossible d'afficher ce graphique : {type(_e).__name__}")
 
         below_80 = cov_df[cov_df["Couverture %"] < 80]
         if not below_80.empty:
@@ -333,16 +413,19 @@ _tab_hot, _tab_cold, _tab_disc = st.tabs(["🔥 En grande forme", "❄️ En dif
 with _tab_hot:
     st.markdown("**Joueurs avec la meilleure forme récente (5 derniers matchs)**")
     if "form_score" in df.columns and "form_trend" in df.columns:
+        _conf_mask_hot = (df["confidence"] >= 0.60) if "confidence" in df.columns else True
         _hot = (
-            df[df["form_score"].notna() & (df["confidence"] >= 0.60)]
+            df[df["form_score"].notna() & _conf_mask_hot]
             .nlargest(12, "form_score")
             [["name","team","position_group","display_rating","form_score","form_trend","matches_played"]]
         )
         _hot_cols = st.columns(3)
         for i, (_, row) in enumerate(_hot.iterrows()):
             with _hot_cols[i % 3]:
-                fs = float(row["form_score"])
-                bar_pct = int(fs)
+                fs     = float(row["form_score"])
+                rating = float(row.get("display_rating", row.get("rating", 70)))
+                trend  = str(row.get("form_trend", "→"))
+                bar_pct = max(0, min(100, int((rating - 40) / 59 * 100)))
                 st.markdown(
                     f'<div style="padding:8px;border-radius:8px;background:#1a1a2e;margin:4px 0;'
                     f'border-left:3px solid #10B981">'
@@ -350,7 +433,10 @@ with _tab_hot:
                     f'<div style="color:#9CA3AF;font-size:0.75em">{row["position_group"]} · {row["team"]}</div>'
                     f'<div style="margin:4px 0;background:#374151;border-radius:4px;height:6px">'
                     f'<div style="width:{bar_pct}%;background:#10B981;height:6px;border-radius:4px"></div></div>'
-                    f'<div style="color:#10B981;font-weight:700">{fs:.0f}/100</div>'
+                    f'<div style="display:flex;justify-content:space-between;align-items:center">'
+                    f'<div style="color:#10B981;font-weight:700">{rating:.1f}</div>'
+                    f'<div style="color:#9CA3AF;font-size:0.78em">Forme {trend}&nbsp;{fs:.0f}/100</div>'
+                    f'</div>'
                     f'</div>',
                     unsafe_allow_html=True,
                 )
@@ -360,16 +446,19 @@ with _tab_hot:
 with _tab_cold:
     st.markdown("**Joueurs en baisse de forme (écart form_score vs note saison)**")
     if "form_score" in df.columns:
+        _conf_mask_cold = (df["confidence"] >= 0.75) if "confidence" in df.columns else True
         _cold = (
-            df[df["form_score"].notna() & (df["confidence"] >= 0.75)]
+            df[df["form_score"].notna() & _conf_mask_cold]
             .nsmallest(12, "form_score")
             [["name","team","position_group","display_rating","form_score","form_trend","matches_played"]]
         )
         _cold_cols = st.columns(3)
         for i, (_, row) in enumerate(_cold.iterrows()):
             with _cold_cols[i % 3]:
-                fs = float(row["form_score"])
-                bar_pct = int(fs)
+                fs     = float(row["form_score"])
+                rating = float(row.get("display_rating", row.get("rating", 70)))
+                trend  = str(row.get("form_trend", "→"))
+                bar_pct = max(0, min(100, int((rating - 40) / 59 * 100)))
                 st.markdown(
                     f'<div style="padding:8px;border-radius:8px;background:#1a1a2e;margin:4px 0;'
                     f'border-left:3px solid #EF4444">'
@@ -377,7 +466,10 @@ with _tab_cold:
                     f'<div style="color:#9CA3AF;font-size:0.75em">{row["position_group"]} · {row["team"]}</div>'
                     f'<div style="margin:4px 0;background:#374151;border-radius:4px;height:6px">'
                     f'<div style="width:{bar_pct}%;background:#EF4444;height:6px;border-radius:4px"></div></div>'
-                    f'<div style="color:#EF4444;font-weight:700">{fs:.0f}/100</div>'
+                    f'<div style="display:flex;justify-content:space-between;align-items:center">'
+                    f'<div style="color:#EF4444;font-weight:700">{rating:.1f}</div>'
+                    f'<div style="color:#9CA3AF;font-size:0.78em">Forme {trend}&nbsp;{fs:.0f}/100</div>'
+                    f'</div>'
                     f'</div>',
                     unsafe_allow_html=True,
                 )

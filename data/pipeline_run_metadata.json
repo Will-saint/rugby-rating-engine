@@ -1,16 +1,8 @@
 {
-  "generated_at": "2026-04-15T17:17:47.517758",
+  "generated_at": "2026-05-02T11:09:20.380066",
   "season": "2025-2026",
-  "duration_seconds": 904.0,
+  "duration_seconds": 5.2,
   "steps": [
-    {
-      "name": "LNR",
-      "status": "OK"
-    },
-    {
-      "name": "Statbunker",
-      "status": "OK"
-    },
     {
       "name": "Normalisation",
       "status": "OK"
@@ -28,26 +20,23 @@
       "status": "OK"
     }
   ],
-  "source_mode": "LNR_SB_MIXED",
-  "sources_used": [
-    "LNR",
-    "Statbunker"
-  ],
+  "source_mode": "LNR_ONLY",
+  "sources_used": [],
   "files": {
     "players.csv": {
-      "md5": "396bea320b71",
-      "size_kb": 145,
-      "modified": "2026-04-15T17:17:46.960741"
+      "md5": "85846c96540b",
+      "size_kb": 156,
+      "modified": "2026-05-02T11:09:18.688545"
     },
     "players_scored.csv": {
-      "md5": "23feb13183c4",
-      "size_kb": 202,
-      "modified": "2026-04-15T17:17:47.305204"
+      "md5": "2a67cc1c3576",
+      "size_kb": 255,
+      "modified": "2026-05-02T11:09:20.202806"
     },
     "lnr_raw.json": {
-      "md5": "7c4977b0cd89",
+      "md5": "b24759f53a69",
       "size_kb": 835,
-      "modified": "2026-04-15T17:02:44.868675"
+      "modified": "2026-04-16T10:12:15.733446"
     },
     "statbunker_raw.json": {
       "md5": "d75171398898",
@@ -55,9 +44,9 @@
       "modified": "2026-04-15T17:17:43.523111"
     },
     "players_merged.json": {
-      "md5": "7c4977b0cd89",
+      "md5": "b24759f53a69",
       "size_kb": 835,
-      "modified": "2026-04-15T17:17:43.583636"
+      "modified": "2026-04-16T10:13:25.050389"
     },
     "weights.yaml": {
       "md5": "c976a5cad72d",
@@ -74,7 +63,7 @@
     "coverage_core": 1.0,
     "coverage_core_pct": 100.0,
     "coverage_extended_pct": 100.0,
-    "coverage_target_pct": 35.0,
+    "coverage_target_pct": 20.0,
     "unknown_pos_pct": 0.0,
     "high_anomalies": 0
   },

@@ -47,11 +47,29 @@ st.subheader("Radar — profil ATT / DEF / DISC / CTRL / KICK / POW")
 axes = ["att_index", "def_index", "kick_index", "pow_index"]
 axes_labels = ["Attaque", "Défense", "Jeu au pied", "Puissance"]
 
-# Recalculer tous les axes depuis df
-team_axes = df.groupby("team")[
-    ["axis_att", "axis_def", "axis_disc", "axis_ctrl", "axis_kick", "axis_pow"]
-].mean().round(1).reset_index()
+# Normalise chaque axe [0, 100] global (min-max joueur) AVANT agrégation par équipe.
+# Nécessaire pour axis_disc (médiane=100, p75=100) qui sinon dominerait le radar.
+_axis_cols = ["axis_att", "axis_def", "axis_disc", "axis_ctrl", "axis_kick", "axis_pow"]
+_axis_minmax: dict = {}  # stocké pour réutilisation dans le mini-radar XV
+_df_norm = df[["team"] + _axis_cols].copy()
+for _col in _axis_cols:
+    _cmin, _cmax = float(_df_norm[_col].min()), float(_df_norm[_col].max())
+    _axis_minmax[_col] = (_cmin, _cmax)
+    if _cmax > _cmin:
+        _df_norm[_col] = (_df_norm[_col] - _cmin) / (_cmax - _cmin) * 100.0
+    else:
+        _df_norm[_col] = 50.0
+
+team_axes = _df_norm.groupby("team")[_axis_cols].mean().round(1).reset_index()
 team_axes.columns = ["team", "ATT", "DEF", "DISC", "CTRL", "KICK", "POW"]
+
+
+def _norm_val(raw: float, col: str) -> float:
+    """Normalise une valeur brute d'axe en [0, 100] avec les min/max globaux."""
+    cmin, cmax = _axis_minmax.get(col, (0.0, 100.0))
+    if cmax > cmin:
+        return max(0.0, min(100.0, (raw - cmin) / (cmax - cmin) * 100.0))
+    return 50.0
 
 selected_teams = st.multiselect(
     "Equipes à afficher",
@@ -84,13 +102,16 @@ if selected_teams:
         ))
 
     fig_radar.update_layout(
-        polar=dict(radialaxis=dict(visible=True, range=[30, 70])),
+        polar=dict(radialaxis=dict(visible=True, range=[0, 100], tickfont=dict(size=8))),
         legend=dict(x=0.5, y=-0.15, xanchor="center", orientation="h"),
         margin=dict(l=20, r=20, t=20, b=80),
         height=420,
         paper_bgcolor="rgba(0,0,0,0)",
     )
-    st.plotly_chart(fig_radar, use_container_width=True)
+    try:
+        st.plotly_chart(fig_radar, use_container_width=True)
+    except Exception as _e:
+        st.warning(f"Impossible d'afficher ce graphique : {type(_e).__name__}")
 
 st.divider()
 
@@ -158,14 +179,14 @@ with col_xv:
 
 with col_ts:
     if not xv_df.empty:
-        # Mini radar de l'équipe
+        # Mini radar de l'équipe — valeurs normalisées [0, 100]
         axes_vals = {
-            "ATT": xv_df["ATT"].mean(),
-            "DEF": xv_df["DEF"].mean(),
-            "DISC": xv_df["DISC"].mean(),
-            "CTRL": xv_df["CTRL"].mean(),
-            "KICK": xv_df["KICK"].mean(),
-            "POW": xv_df["POW"].mean(),
+            "ATT":  _norm_val(xv_df["ATT"].mean(),  "axis_att"),
+            "DEF":  _norm_val(xv_df["DEF"].mean(),  "axis_def"),
+            "DISC": _norm_val(xv_df["DISC"].mean(), "axis_disc"),
+            "CTRL": _norm_val(xv_df["CTRL"].mean(), "axis_ctrl"),
+            "KICK": _norm_val(xv_df["KICK"].mean(), "axis_kick"),
+            "POW":  _norm_val(xv_df["POW"].mean(),  "axis_pow"),
         }
         ks = list(axes_vals.keys())
         vs = list(axes_vals.values())
@@ -178,14 +199,17 @@ with col_ts:
             fillcolor="rgba(16,185,129,0.2)",
         ))
         fig_mini.update_layout(
-            polar=dict(radialaxis=dict(visible=True, range=[30, 70])),
+            polar=dict(radialaxis=dict(visible=True, range=[0, 100], tickfont=dict(size=8))),
             margin=dict(l=10, r=10, t=30, b=10),
             height=280,
             showlegend=False,
             paper_bgcolor="rgba(0,0,0,0)",
             title=dict(text=selected_team, x=0.5, font=dict(size=11)),
         )
-        st.plotly_chart(fig_mini, use_container_width=True)
+        try:
+            st.plotly_chart(fig_mini, use_container_width=True)
+        except Exception as _e:
+            st.warning(f"Impossible d'afficher ce graphique : {type(_e).__name__}")
 
         # Indices
         ts_row = ts[ts["team"] == selected_team]

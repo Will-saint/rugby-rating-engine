@@ -23,7 +23,7 @@ st.markdown(
 season = season_selector("_audit")
 df = load_data(season)
 
-DATA_MODE = os.environ.get("DATA_MODE", "demo")
+DATA_MODE = os.environ.get("DATA_MODE", "real")
 if DATA_MODE == "demo":
     st.warning("Mode DEMO — les métriques ci-dessous portent sur des données synthétiques.")
 
@@ -116,6 +116,23 @@ fig_cov.update_traces(textposition="outside")
 fig_cov.update_layout(height=380, margin=dict(l=10, r=60, t=50, b=10), coloraxis_showscale=False)
 st.plotly_chart(fig_cov, use_container_width=True)
 
+# ── Couverture profils physiques (section dédiée) ─────────────────────────
+st.markdown("**Profils physiques — couverture par joueur**")
+_phys_cols = {"age": "Âge", "height_cm": "Taille (cm)", "weight_kg": "Poids (kg)", "nationality": "Nationalité"}
+_phys_avail = [c for c in _phys_cols if c in df.columns]
+if _phys_avail:
+    _p1, _p2, _p3, _p4 = st.columns(4)
+    _pcols_ui = [_p1, _p2, _p3, _p4]
+    for i, col in enumerate(_phys_avail):
+        nn = int(df[col].notna().sum())
+        pct = nn / len(df) * 100
+        _pcols_ui[i].metric(_phys_cols[col], f"{nn}/{len(df)}", f"{pct:.0f}%")
+    if all(df[c].isna().all() for c in _phys_avail):
+        st.warning(
+            "⚠️ Profils physiques à 0% — le cache Streamlit affiche peut-être des données périmées. "
+            "Clique sur **Vider le cache Streamlit** dans la barre latérale."
+        )
+
 # Couverture par poste (heatmap métriques × postes)
 with st.expander("Couverture des métriques par groupe de poste"):
     from engine.ratings import NAIM_POS_WEIGHTS
@@ -195,16 +212,19 @@ sc2.metric("Écart-type réel", f"{actual_std:.1f}", delta=f"{actual_std - targe
 sc3.metric("Notes > 90", len(df[df["rating"] > 90]), help="Devrait être rare (top 1-2%)")
 sc4.metric("Notes < 55", len(df[df["rating"] < 55]), help="Remplaçants peu utilisés")
 
-fig_dist = px.histogram(
-    df, x="rating", nbins=30, color="position_group",
-    title="Distribution des notes par poste",
-    labels={"rating": "Note", "position_group": "Poste"},
-    opacity=0.7,
-)
-fig_dist.add_vline(x=90, line_dash="dash", line_color="gold", annotation_text="Seuil élite 90")
-fig_dist.add_vline(x=actual_mean, line_dash="dot", line_color="white", annotation_text=f"Moy. {actual_mean:.1f}")
-fig_dist.update_layout(height=320, margin=dict(l=10, r=10, t=50, b=10), paper_bgcolor="rgba(0,0,0,0)")
-st.plotly_chart(fig_dist, use_container_width=True)
+try:
+    fig_dist = px.histogram(
+        df, x="rating", nbins=30, color="position_group",
+        title="Distribution des notes par poste",
+        labels={"rating": "Note", "position_group": "Poste"},
+        opacity=0.7,
+    )
+    fig_dist.add_vline(x=90, line_dash="dash", line_color="gold", annotation_text="Seuil élite 90")
+    fig_dist.add_vline(x=actual_mean, line_dash="dot", line_color="white", annotation_text=f"Moy. {actual_mean:.1f}")
+    fig_dist.update_layout(height=320, margin=dict(l=10, r=10, t=50, b=10), paper_bgcolor="rgba(0,0,0,0)")
+    st.plotly_chart(fig_dist, use_container_width=True)
+except Exception as _e:
+    st.warning(f"Impossible d'afficher ce graphique : {type(_e).__name__}")
 
 # ================================================================
 # 4. Anomalies — fort rating + faible volume
@@ -282,15 +302,22 @@ if anomalies:
         st.warning(f"{n_moy} anomalie(s) moyenne sévérité")
 
     def color_sev(val):
-        colors = {"Haute": "background-color:#7f1d1d", "Moyenne": "#78350f",
-                  "Basse": "#1e3a5f", "Info": "#1a2e1a"}
+        colors = {
+            "Haute":   "background-color:#7f1d1d",
+            "Moyenne": "background-color:#78350f",
+            "Basse":   "background-color:#1e3a5f",
+            "Info":    "background-color:#1a2e1a",
+        }
         return colors.get(val, "")
 
-    st.dataframe(
-        anom_df.style.map(color_sev, subset=["Sévérité"]),
-        hide_index=True,
-        use_container_width=True,
-    )
+    try:
+        st.dataframe(
+            anom_df.style.map(color_sev, subset=["Sévérité"]),
+            hide_index=True,
+            use_container_width=True,
+        )
+    except Exception:
+        st.dataframe(anom_df, hide_index=True, use_container_width=True)
     st.download_button(
         "Exporter anomalies CSV",
         data=anom_df.to_csv(index=False).encode("utf-8"),
